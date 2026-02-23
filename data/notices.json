@@ -1,23 +1,6 @@
 {
     "general": [
         {
-            "id": 1222,
-            "noticeHeading": "\u092a\u094d\u0930\u0938\u094d\u0924\u093e\u0935 \u0938\u094d\u0935\u0940\u0915\u0943\u0924 \u0917\u0930\u094d\u0928\u0947 \u0906\u0936\u092f\u0915\u094b \u0938\u0942\u091a\u0928\u093e \u092c\u093e\u0930\u0947",
-            "noticeBody": "\u092a\u094d\u0930\u0938\u094d\u0924\u093e\u0935 \u0938\u094d\u0935\u0940\u0915\u0943\u0924 \u0917\u0930\u094d\u0928\u0947 \u0906\u0936\u092f\u0915\u094b \u0938\u0942\u091a\u0928\u093e \u092c\u093e\u0930\u0947",
-            "noticeFilePath": "bbc008974fb7f67cc16a95a82f1a591e.jpg",
-            "noticeExpiryDate": "2026-02-22",
-            "feature": true,
-            "noticeTypeId": {
-                "id": 1,
-                "activeStatus": "A",
-                "noticeType": "Company Notice"
-            },
-            "publishToWebsite": true,
-            "source": null,
-            "modifiedDate": null,
-            "modifiedBy": "prabhakar_k"
-        },
-        {
             "id": 1220,
             "noticeHeading": "\u0927\u093f\u0924\u094b\u092a\u0924\u094d\u0930 \u0935\u094d\u092f\u093e\u092a\u093e\u0930\u0940\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u0915\u093e\u0930\u094b\u092c\u093e\u0930 \u092f\u094b\u0917\u094d\u092f \u0915\u092e\u094d\u092a\u0928\u0940\u0939\u0930\u0941\u0915\u094b \u0928\u093e\u092e\u093e\u0935\u0932\u0940",
             "noticeBody": "\u0927\u093f\u0924\u094b\u092a\u0924\u094d\u0930 \u0935\u094d\u092f\u093e\u092a\u093e\u0930\u0940\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u0915\u093e\u0930\u094b\u092c\u093e\u0930 \u092f\u094b\u0917\u094d\u092f \u0915\u092e\u094d\u092a\u0928\u0940\u0939\u0930\u0941\u0915\u094b \u0928\u093e\u092e\u093e\u0935\u0932\u0940",
@@ -64,6 +47,50 @@
         }
     ],
     "company": [
+        {
+            "id": 44845,
+            "applicationDocumentDetailsList": [
+                {
+                    "id": 30004,
+                    "activeStatus": "A",
+                    "modifiedBy": "shpc_user",
+                    "modifiedDate": "2026-02-22T17:25:57.84",
+                    "application": 44845,
+                    "documentType": 54,
+                    "submittedDate": "2026-02-22",
+                    "filePath": "shpc_user/2026-02-22/Resumption_1771760445865.jpg",
+                    "encryptedId": "558d9863d578b4c1f8c6ea739e446767040ed5fab65f84c351fd58974a93eb529b5c8a0d597771928b854f08d62baa64e0f104d2163ec9a17342bcd372a151db"
+                }
+            ],
+            "newsHeadline": "End of force majeure and resumption of Mai & Cascade Plant [SHPC] ",
+            "newsBody": "<p>Please, see the attached notice.</p>",
+            "addedDate": "2026-02-22T17:25:57.837",
+            "newsSource": "Management",
+            "modifiedDate": "2026-02-23T10:08:21.01",
+            "approvedDate": null
+        },
+        {
+            "id": 44844,
+            "applicationDocumentDetailsList": [
+                {
+                    "id": 30003,
+                    "activeStatus": "A",
+                    "modifiedBy": "nmbmf_user",
+                    "modifiedDate": "2026-02-22T17:08:51.043",
+                    "application": 44844,
+                    "documentType": 54,
+                    "submittedDate": "2026-02-22",
+                    "filePath": "nmbmf_user/2026-02-22/Dividend Declare_1771759397902.PDF",
+                    "encryptedId": "e6197bb26c85f39a3493430864caf16c194c1bd86736b641969f21502f99e3a23fb21cf56a38bcb72c3d82dc41e46b5ef61e1172730e8a005f58b726243a62b2"
+                }
+            ],
+            "newsHeadline": "Regarding Dividend Declare [NMBMF] ",
+            "newsBody": "Dividend Declaration of NMBMF\nFiscal Year: 2081-2082",
+            "addedDate": "2026-02-22T17:08:51.037",
+            "newsSource": "NMBMF",
+            "modifiedDate": "2026-02-23T10:07:39.85",
+            "approvedDate": null
+        },
         {
             "id": 44841,
             "applicationDocumentDetailsList": [
@@ -134,17 +161,6 @@
             "id": 44837,
             "applicationDocumentDetailsList": [
                 {
-                    "id": 29994,
-                    "activeStatus": "A",
-                    "modifiedBy": "user_sagar",
-                    "modifiedDate": "2026-02-22T10:14:46.097",
-                    "application": 44837,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-22",
-                    "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/Nepse_1771734575891.pdf",
-                    "encryptedId": "4af30b9d4979478b2730367fa91507f8571bcf7ca1f6d68485c238b824988d70d7386442ac67adea682df71dee82c3fcf09331baddfebb6bf0e83a07b864ec7e"
-                },
-                {
                     "id": 29993,
                     "activeStatus": "A",
                     "modifiedBy": "user_sagar",
@@ -154,6 +170,17 @@
                     "submittedDate": "2026-02-22",
                     "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/NSP fagun10 sunday epaper pdf-3_1771734582853.pdf",
                     "encryptedId": "eb78953229dc6bdaac6294c7485a5b471c0ff2532ec331875bedab6e628f2b11ef0e2827c451cf8995c33a1a1458a9e08456378bbd855e72d0c085920a95ded3"
+                },
+                {
+                    "id": 29994,
+                    "activeStatus": "A",
+                    "modifiedBy": "user_sagar",
+                    "modifiedDate": "2026-02-22T10:14:46.097",
+                    "application": 44837,
+                    "documentType": 54,
+                    "submittedDate": "2026-02-22",
+                    "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/Nepse_1771734575891.pdf",
+                    "encryptedId": "4af30b9d4979478b2730367fa91507f8571bcf7ca1f6d68485c238b824988d70d7386442ac67adea682df71dee82c3fcf09331baddfebb6bf0e83a07b864ec7e"
                 }
             ],
             "newsHeadline": "\u0938\u093e\u092e\u0942\u0939\u093f\u0915 \u0932\u0917\u093e\u0928\u0940 \u0915\u094b\u0937\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u091b\u0941\u091f\u094d\u091f\u093e\u0907\u090f\u0915\u094b \u0938\u093e\u0927\u093e\u0930\u0923 \u0936\u0947\u092f\u0930\u0915\u094b \u0932\u0915-\u0908\u0928 \u0905\u0935\u0927\u093f \u0938\u092e\u093e\u092a\u094d\u0924\u0940 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0938\u0942\u091a\u0928\u093e [SAGAR] ",
@@ -205,116 +232,6 @@
             "addedDate": "2026-02-20T16:56:46.44",
             "newsSource": "548 Board Meeting",
             "modifiedDate": "2026-02-22T08:56:47.057",
-            "approvedDate": null
-        },
-        {
-            "id": 44830,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 29984,
-                    "activeStatus": "A",
-                    "modifiedBy": "igi_user",
-                    "modifiedDate": "2026-02-20T12:03:39.72",
-                    "application": 44830,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-20",
-                    "filePath": "igi_user/2026-02-20/NEPSE_1771568303726.pdf",
-                    "encryptedId": "c220a8b4538b01956425de379b8d4f25e9f5f7b82996dd367bc46830d93c32422c2458a86c727986d93d1c7f585276b89a4a0b354e59a9475691272924d16fc8"
-                }
-            ],
-            "newsHeadline": "Board Meeting [IGI] ",
-            "newsBody": "<p>Head office location change</p>",
-            "addedDate": "2026-02-20T12:03:39.717",
-            "newsSource": "Head office location change",
-            "modifiedDate": "2026-02-20T12:46:42.417",
-            "approvedDate": null
-        },
-        {
-            "id": 44827,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 29981,
-                    "activeStatus": "A",
-                    "modifiedBy": "hli_user",
-                    "modifiedDate": "2026-02-20T10:28:31.833",
-                    "application": 44827,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-20",
-                    "filePath": "hli_user/2026-02-20/Appoinment of Auditor_1771562562304.pdf",
-                    "encryptedId": "cabeb38e26e58fd48ddddb5a5b784267e55ec003a6ee9e24b2e906544324e2800377f1b2bd4bb25817a5a11314b2d99b9f82a024813b4f8a7f5e31013ee3e7a9"
-                }
-            ],
-            "newsHeadline": "Information of Appointment of External Auditor [HLI] ",
-            "newsBody": "<p>Information of Appointment of External Auditor</p>",
-            "addedDate": "2026-02-20T10:28:31.817",
-            "newsSource": "19th AGM",
-            "modifiedDate": "2026-02-20T10:32:00.567",
-            "approvedDate": null
-        },
-        {
-            "id": 44825,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 29979,
-                    "activeStatus": "A",
-                    "modifiedBy": "jbbl_user",
-                    "modifiedDate": "2026-02-17T20:59:32.037",
-                    "application": 44825,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-17",
-                    "filePath": "jbbl_user/2026-02-17/AGM and Book Close Notice_1771341246186.pdf",
-                    "encryptedId": "ed2ea2790995177de4dc2c5f84c41d5ac19e89a9c08ce406e5701cb03382f555813ecc2d56468cb3d3d41a94612bb86b0877ead17bf10b2a7211bc7b71084b7c"
-                }
-            ],
-            "newsHeadline": "18th AGM and Book Closure Notice. [JBBL] ",
-            "newsBody": "Annual General Meeting of JBBL\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 3/12/2026\nAGM No: 18\nBook Close Date: 2/26/2026",
-            "addedDate": "2026-02-17T20:59:32.027",
-            "newsSource": "BoD Meeting",
-            "modifiedDate": "2026-02-20T09:15:50.123",
-            "approvedDate": null
-        },
-        {
-            "id": 44824,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 29978,
-                    "activeStatus": "A",
-                    "modifiedBy": "uic_user",
-                    "modifiedDate": "2026-02-17T18:25:21.097",
-                    "application": 44824,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-17",
-                    "filePath": "uic_user/2026-02-17/Regarding Book Close date conformation_1771331945142.pdf",
-                    "encryptedId": "b138e6848525d1473c3771906bb428b2e99f75a86cfaa80d166ccd96bc234462a6c10a4dc2d1b3709c2c231c69f3c1ce750d4b4c1fb6c9bdd4e6807e46726cb9"
-                }
-            ],
-            "newsHeadline": "Regarding Book Close [UAIL] ",
-            "newsBody": "Book Close of UAIL\nBook Close Date : 3/1/2026\nRight Shares : 10%",
-            "addedDate": "2026-02-17T18:25:21.087",
-            "newsSource": "BOD",
-            "modifiedDate": "2026-02-20T09:15:31.507",
-            "approvedDate": null
-        },
-        {
-            "id": 44823,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 29977,
-                    "activeStatus": "A",
-                    "modifiedBy": "rlfl_user",
-                    "modifiedDate": "2026-02-17T17:50:23.647",
-                    "application": 44823,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-17",
-                    "filePath": "rlfl_user/2026-02-17/Untitled_1771329905232.pdf",
-                    "encryptedId": "4255a7ca2eb273c25163b9e5662a7c16b409889cee4199b85fb189af8e171d649780af9894b639a47f41285438ee599b64c68416dca30786e37cc02c4f892e51"
-                }
-            ],
-            "newsHeadline": "\u0915\u092e\u094d\u092a\u0928\u0940 \u0938\u091a\u093f\u092c\u0915\u094b \u0928\u093f\u092f\u0941\u0915\u094d\u0924\u0940 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e \u0964  [RLFL] ",
-            "newsBody": "<p>\u0915\u092e\u094d\u092a\u0928\u0940 \u0938\u091a\u093f\u092c\u0915\u094b \u0928\u093f\u092f\u0941\u0915\u094d\u0924\u0940 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e \u0964</p>",
-            "addedDate": "2026-02-17T17:50:23.64",
-            "newsSource": "RFL",
-            "modifiedDate": "2026-02-20T09:15:18.067",
             "approvedDate": null
         },
         {
@@ -399,5 +316,5 @@
             "approvedDate": null
         }
     ],
-    "last_updated": "2026-02-22T10:51:19.596675"
+    "last_updated": "2026-02-23T05:23:50.039366"
 }
