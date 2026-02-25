@@ -1,5 +1,49 @@
 [
     {
+        "id": 44869,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30029,
+                "activeStatus": "A",
+                "modifiedBy": "nlbbl_user",
+                "modifiedDate": "2026-02-25T11:59:30.77",
+                "application": 44869,
+                "documentType": 54,
+                "submittedDate": "2026-02-25",
+                "filePath": "nlbbl_user/2026-02-25/CS-145 DCEO Appointed Nerude MIrmire_1772000021862.pdf",
+                "encryptedId": "836f98c4e72b7c159df160b082206d49ada0f645a48555b5cf17f07839935bb6a5c08041be391ba59f26f289e06a4915460d1e2d1609e6e2d72e20cd86bb0347"
+            }
+        ],
+        "newsHeadline": "Acting CEO Appointment [NMLBBL]  [NMLBBL] ",
+        "newsBody": "<p>Acting CEO Appointment of NMLBSL.</p>",
+        "addedDate": "2026-02-25T11:59:30.767",
+        "newsSource": "Acting CEO Appointment",
+        "modifiedDate": "2026-02-25T13:16:59.573",
+        "approvedDate": null
+    },
+    {
+        "id": 44868,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30028,
+                "activeStatus": "A",
+                "modifiedBy": "hli_user",
+                "modifiedDate": "2026-02-25T11:22:35.933",
+                "application": 44868,
+                "documentType": 54,
+                "submittedDate": "2026-02-25",
+                "filePath": "hli_user/2026-02-25/Information of Death of Independent Director_1771997837049.pdf",
+                "encryptedId": "b7572789d5fcfccde7b79ec3dd347c8f54cf345ae08b74650b0a4701c9033cfaec4473e97769390afbbff354369e3915b8930e7571b8df011482d1dcec5d204f"
+            }
+        ],
+        "newsHeadline": "Information of Death of Independent Director [HLI] ",
+        "newsBody": "<p>Information of Death of Independent Director</p>",
+        "addedDate": "2026-02-25T11:22:35.93",
+        "newsSource": "Board of Director",
+        "modifiedDate": "2026-02-25T13:16:38.617",
+        "approvedDate": null
+    },
+    {
         "id": 44864,
         "applicationDocumentDetailsList": [
             {
@@ -146,17 +190,6 @@
         "id": 44816,
         "applicationDocumentDetailsList": [
             {
-                "id": 29975,
-                "activeStatus": "A",
-                "modifiedBy": "slbsl_user",
-                "modifiedDate": "2026-02-17T10:42:52.657",
-                "application": 44816,
-                "documentType": 54,
-                "submittedDate": "2026-02-17",
-                "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-17/Information to Nepse_Lock in period_1771304110682.pdf",
-                "encryptedId": "32efa875a5e0e77976d842aa7994e3fcdaab7058225c8da93a90b74245b8ea18d1002881080df2671d11d2602e9c32b956ecfde6160ae8e9d0ece7e44c13c847"
-            },
-            {
                 "id": 29974,
                 "activeStatus": "A",
                 "modifiedBy": "slbsl_user",
@@ -166,6 +199,17 @@
                 "submittedDate": "2026-02-17",
                 "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-17/Notice_Lock in period end_1771304122239.jpg",
                 "encryptedId": "963d59d6355709e3699349e371840f4462d195096f125d5bfe0f6c8572f9a4690209d6a745dc4998ad810be12ac14693fbf0aaff2b2468cf5d6f2a78f8bd1094"
+            },
+            {
+                "id": 29975,
+                "activeStatus": "A",
+                "modifiedBy": "slbsl_user",
+                "modifiedDate": "2026-02-17T10:42:52.657",
+                "application": 44816,
+                "documentType": 54,
+                "submittedDate": "2026-02-17",
+                "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-17/Information to Nepse_Lock in period_1771304110682.pdf",
+                "encryptedId": "32efa875a5e0e77976d842aa7994e3fcdaab7058225c8da93a90b74245b8ea18d1002881080df2671d11d2602e9c32b956ecfde6160ae8e9d0ece7e44c13c847"
             }
         ],
         "newsHeadline": "Lock in period end [SLBSL] ",
