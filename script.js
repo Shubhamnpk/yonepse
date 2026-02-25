@@ -665,54 +665,68 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('aria-expanded', 'false');
             const statusLabel = status === 'open' ? 'Open' : status === 'upcoming' ? 'Upcoming' : 'Closed';
             const statusClass = status === 'open' ? 'open' : status === 'upcoming' ? 'upcoming' : 'closed';
+            const isReservedShare = Boolean(ipo.is_reserved_share) || /nepalese citizens working abroad/i.test(ipo.full_text || '');
+            const reservedFor = ipo.reserved_for || (isReservedShare ? 'Nepalese citizens working abroad' : '');
             const adRange = window ? `${formatADDate(window.adStart)} - ${formatADDate(window.adEnd)}` : 'Unavailable';
             const bsRange = window ? window.bsRange : (ipo.date_range || 'Unavailable');
             const bsStart = window ? window.bsStart : 'Unavailable';
             const bsEnd = window ? window.bsEnd : 'Unavailable';
+            const unitsText = ipo.units && String(ipo.units).toLowerCase() !== 'unknown'
+                ? `${ipo.units} units`
+                : 'Units not published';
+            const noticeText = ipo.announcement_date || 'Not available';
             const daysText = status === 'open'
                 ? (daysRemaining > 0 ? `Closing in ${daysRemaining} day${daysRemaining === 1 ? '' : 's'}` : 'Closing today')
                 : status === 'upcoming'
                     ? `Opening in ${daysRemaining} day${daysRemaining === 1 ? '' : 's'}`
                     : '';
+            const sourceLink = ipo.url
+                ? `<a rel="noopener noreferrer" href="${ipo.url}" target="_blank" class="ipo-view-details">
+                        View Details <i class="fa-solid fa-arrow-right-long"></i>
+                   </a>`
+                : '<span class="ipo-view-details ipo-view-details-disabled">Source unavailable</span>';
 
             card.innerHTML = `
                 <div class="ipo-card-topline">
-                    <span class="chip small ${statusClass}">${statusLabel}</span>
+                    <div class="ipo-card-badges">
+                        <span class="chip small ${statusClass}">${statusLabel}</span>
+                        ${isReservedShare ? '<span class="chip small reserved-share">Reserved Share</span>' : ''}
+                    </div>
+                    ${daysText ? `<span class="ipo-card-countdown">${daysText}</span>` : ''}
                 </div>
                 <div class="ipo-company">${ipo.company}</div>
-                <div class="ipo-stats">
-                    <div class="ipo-stat-item">
+                ${reservedFor ? `<div class="ipo-company-sub"><i class="fa-solid fa-user-check"></i> Reserved for: ${reservedFor}</div>` : ''}
+                <div class="ipo-stats-grid">
+                    <div class="ipo-stat-tile">
                         <span class="detail-label">Units</span>
-                        <span class="detail-val" style="color: var(--success)">${ipo.units}</span>
+                        <span class="detail-val ipo-strong">${unitsText}</span>
                     </div>
-                    <div class="ipo-stat-item">
+                    <div class="ipo-stat-tile">
                         <span class="detail-label">BS IPO Window</span>
-                        <span class="detail-val" style="font-size: 0.9rem;">${bsRange}</span>
+                        <span class="detail-val">${bsRange}</span>
                     </div>
                 </div>
                 <div class="ipo-card-hint">Click card to view dates</div>
                 <div class="ipo-card-details is-hidden">
-                    <div class="detail-label">
-                        <i class="fa-regular fa-calendar-check"></i> Opens (BS): ${bsStart}
+                    <div class="ipo-detail-row">
+                        <span class="ipo-detail-key"><i class="fa-regular fa-clock"></i> AD Window</span>
+                        <span class="ipo-detail-value">${adRange}</span>
                     </div>
-                    <div class="detail-label">
-                        <i class="fa-regular fa-calendar-xmark"></i> Closes (BS): ${bsEnd}
+                    <div class="ipo-detail-row">
+                        <span class="ipo-detail-key"><i class="fa-regular fa-calendar-days"></i> Weekdays</span>
+                        <span class="ipo-detail-value">Opens on ${openingDay || '-'} | Closes on ${closingDay || '-'}</span>
                     </div>
-                    <div class="detail-label">
-                        <i class="fa-regular fa-clock"></i> AD Window: ${adRange}
+                    <div class="ipo-detail-row">
+                        <span class="ipo-detail-key"><i class="fa-regular fa-newspaper"></i> Notice Published</span>
+                        <span class="ipo-detail-value">${noticeText}</span>
                     </div>
-                    ${daysText ? `<div class="detail-label"><i class="fa-solid fa-hourglass-half"></i> ${daysText}</div>` : ''}
-                    <div class="detail-label">
-                        <i class="fa-regular fa-calendar-days"></i> Opens on ${openingDay || '-'} | Closes on ${closingDay || '-'}
-                    </div>
-                    <div class="detail-label">
-                        <i class="fa-regular fa-newspaper"></i> Notice Published: ${ipo.announcement_date}
+                    <div class="ipo-full-text-wrap">
+                        <div class="ipo-detail-key"><i class="fa-regular fa-file-lines"></i> Full Notice</div>
+                        <p class="ipo-full-text">${ipo.full_text || 'Not available'}</p>
                     </div>
                 </div>
-                <div style="margin-top: auto;">
-                    <a rel="noopener noreferrer" href="${ipo.url}" target="_blank" class="ipo-view-details">
-                        View Details <i class="fa-solid fa-arrow-right-long"></i>
-                    </a>
+                <div class="ipo-card-footer">
+                    ${sourceLink}
                 </div>
             `;
 

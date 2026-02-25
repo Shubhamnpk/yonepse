@@ -426,6 +426,12 @@ header {
     padding: 0.2rem 0.5rem;
 }
 
+.chip.reserved-share {
+    border-color: rgba(245, 158, 11, 0.35);
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.1);
+}
+
 .intel-empty {
     color: var(--text-secondary);
     font-size: 0.9rem;
@@ -645,6 +651,10 @@ header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+}
+
+.intel-card-header .section-title {
+    margin-bottom: 0;
 }
 
 .section-title i {
@@ -1044,7 +1054,25 @@ header {
 
 .ipo-card-topline {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ipo-card-badges {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.ipo-card-countdown {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    padding: 0.2rem 0.55rem;
+    white-space: nowrap;
 }
 
 .ipo-card:hover {
@@ -1070,19 +1098,49 @@ header {
     line-height: 1.3;
 }
 
-.ipo-stats {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+.ipo-company-sub {
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
 }
 
-.ipo-stat-item {
+.ipo-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.ipo-stat-tile {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.35rem;
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.ipo-stat-tile .detail-val {
+    font-size: 0.9rem;
+}
+
+.ipo-full-text {
+    line-height: 1.45;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.ipo-full-text-wrap {
+    margin-top: 0.25rem;
+    padding-top: 0.65rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.14);
+}
+
+.ipo-strong {
+    color: var(--success);
+    font-weight: 700;
 }
 
 .ipo-card-hint {
@@ -1094,7 +1152,40 @@ header {
 .ipo-card-details {
     display: flex;
     flex-direction: column;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 0.8rem;
+}
+
+.ipo-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.ipo-detail-key {
+    color: var(--text-secondary);
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    display: inline-flex;
+    align-items: center;
     gap: 0.4rem;
+}
+
+.ipo-detail-value {
+    color: var(--text-primary);
+    font-size: 0.87rem;
+    font-weight: 500;
+    text-align: right;
+}
+
+.ipo-card-footer {
+    margin-top: auto;
+    padding-top: 0.25rem;
 }
 
 .ipo-view-details {
@@ -1111,6 +1202,11 @@ header {
 
 .ipo-view-details:hover {
     gap: 0.75rem;
+}
+
+.ipo-view-details-disabled {
+    color: var(--text-secondary);
+    cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
@@ -1141,6 +1237,28 @@ header {
         grid-template-columns: 1fr;
     }
 
+    .ipo-card-topline {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .ipo-card-countdown {
+        white-space: normal;
+    }
+
+    .ipo-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ipo-detail-row {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .ipo-detail-value {
+        text-align: left;
+    }
+
     .snapshot-grid {
         grid-template-columns: 1fr;
     }
@@ -1156,6 +1274,15 @@ header {
     .ipo-toolbar {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .section-toggle-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .table-clamp {
+        max-width: 180px;
     }
 
     .sector-header {
@@ -1242,6 +1369,37 @@ header {
     justify-content: space-between;
 }
 
+.section-toggle-btn {
+    border: 1px solid var(--card-border);
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.18) 0%, rgba(99, 102, 241, 0.08) 100%);
+    color: var(--text-primary);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.78rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.section-toggle-btn i {
+    transition: transform 0.2s ease;
+}
+
+.section-toggle-btn.open i {
+    transform: rotate(180deg);
+}
+
+.section-toggle-btn:hover {
+    border-color: rgba(99, 102, 241, 0.45);
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.26) 0%, rgba(99, 102, 241, 0.12) 100%);
+}
+
+.section-collapsible {
+    margin-top: 0.5rem;
+}
+
 .filter-select {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -1274,7 +1432,8 @@ header {
 .broker-table-wrap {
     overflow-x: auto;
     border: 1px solid var(--card-border);
-    border-radius: 16px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.015);
 }
 
 .table-gap {
@@ -1289,24 +1448,32 @@ header {
 
 .broker-table th,
 .broker-table td {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.72rem 0.75rem;
     text-align: left;
-    font-size: 0.88rem;
+    font-size: 0.82rem;
+    vertical-align: middle;
 }
 
 .broker-table thead th {
     position: sticky;
     top: 0;
-    background: #101010;
+    background: rgba(10, 10, 10, 0.94);
+    backdrop-filter: blur(4px);
     color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-size: 0.72rem;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 0.74rem;
+    font-weight: 600;
+    z-index: 1;
 }
 
 .broker-table tbody tr:hover {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.028);
+}
+
+.broker-table-minimal tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.012);
 }
 
 .table-chip {
@@ -1317,6 +1484,81 @@ header {
     padding: 0.2rem 0.5rem;
     color: var(--text-secondary);
     background: rgba(255, 255, 255, 0.04);
+}
+
+.broker-code-chip {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    padding: 0.15rem 0.52rem;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.broker-name-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+}
+
+.broker-name-primary {
+    margin: 0;
+    font-size: 0.87rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.broker-name-sub {
+    margin: 0;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.membership-chip {
+    color: var(--text-secondary);
+    border-color: rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.metric-pill {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.17rem 0.52rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: var(--text-primary);
+}
+
+.table-clamp {
+    max-width: 280px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.78rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.table-link:hover {
+    border-bottom-color: var(--text-primary);
+}
+
+.phone-cell {
+    font-family: 'Courier New', monospace;
+    font-size: 0.79rem;
+    color: var(--text-primary);
 }
 
 .close-btn {

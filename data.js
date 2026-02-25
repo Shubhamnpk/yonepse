@@ -11,6 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const historySearch = document.getElementById('history-search');
     const historyRowLimit = document.getElementById('history-row-limit');
     const historyTableBody = document.getElementById('history-table-body');
+    const oldIpoTableBody = document.getElementById('old-ipo-table-body');
+    const brokerDirectoryToggle = document.getElementById('broker-directory-toggle');
+    const brokerDirectoryContent = document.getElementById('broker-directory-content');
+    const historyToggle = document.getElementById('history-toggle');
+    const historyContent = document.getElementById('history-content');
+    const oldIpoToggle = document.getElementById('old-ipo-toggle');
+    const oldIpoContent = document.getElementById('old-ipo-content');
 
     const DATASET_FILES = [
         'all_securities.json',
@@ -27,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'sector_indices.json',
         'supply_demand.json',
         'top_stocks.json',
-        'upcoming_ipo.json'
+        'upcoming_ipo.json',
+        'oldipo.json'
     ];
 
     let brokers = [];
@@ -188,20 +196,32 @@ document.addEventListener('DOMContentLoaded', () => {
             .map((broker) => {
                 const tms = getTmsLink(broker);
                 const phone = broker.authorizedContactPersonNumber || '-';
+                const membership = getMembership(broker);
+                const branches = getBranchCount(broker);
+                const provinceNames = getProvinceNames(broker);
+                const districtNames = getDistrictNames(broker);
+                const provinceText = provinceNames.length > 0 ? provinceNames.join(', ') : '-';
+                const districtText = districtNames.length > 0 ? districtNames.join(', ') : '-';
+                const territoryMeta = `${provinceNames.length || 0} province${provinceNames.length === 1 ? '' : 's'} | ${districtNames.length || 0} district${districtNames.length === 1 ? '' : 's'}`;
                 const tmsCell = tms
-                    ? `<a rel="noopener noreferrer" target="_blank" href="https://${safeText(tms)}">${safeText(tms)}</a>`
+                    ? `<a rel="noopener noreferrer" target="_blank" class="table-link" href="https://${safeText(tms)}">Open TMS <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`
                     : '<span class="table-chip">N/A</span>';
 
                 return `
                     <tr>
-                        <td>${safeText(broker.memberCode)}</td>
-                        <td>${safeText(broker.memberName)}</td>
-                        <td>${safeText(getMembership(broker))}</td>
-                        <td>${getBranchCount(broker).toLocaleString()}</td>
-                        <td>${safeText(getProvinces(broker))}</td>
-                        <td>${safeText(getDistricts(broker))}</td>
+                        <td><span class="broker-code-chip">#${safeText(broker.memberCode)}</span></td>
+                        <td>
+                            <div class="broker-name-cell">
+                                <p class="broker-name-primary">${safeText(broker.memberName)}</p>
+                                <p class="broker-name-sub">${safeText(territoryMeta)}</p>
+                            </div>
+                        </td>
+                        <td><span class="table-chip membership-chip">${safeText(membership)}</span></td>
+                        <td><span class="metric-pill">${branches.toLocaleString()}</span></td>
+                        <td class="table-clamp" title="${safeText(provinceText)}">${safeText(provinceText)}</td>
+                        <td class="table-clamp" title="${safeText(districtText)}">${safeText(districtText)}</td>
                         <td>${tmsCell}</td>
-                        <td>${safeText(phone)}</td>
+                        <td><span class="phone-cell">${safeText(phone)}</span></td>
                     </tr>
                 `;
             })
@@ -236,6 +256,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${formatNumber(row.tradedScrips, 0)}</td>
             </tr>
         `).join('');
+    }
+
+    function renderOldIpoTable(rows) {
+        if (!oldIpoTableBody) return;
+        if (!Array.isArray(rows) || rows.length === 0) {
+            oldIpoTableBody.innerHTML = '<tr><td colspan="6" class="intel-empty">Old IPO archive unavailable.</td></tr>';
+            return;
+        }
+
+        const sorted = rows
+            .slice()
+            .sort((a, b) => new Date(b.scraped_at || 0) - new Date(a.scraped_at || 0))
+            .slice(0, 100);
+
+        oldIpoTableBody.innerHTML = sorted.map((row) => {
+            const reservedFor = row.reserved_for || (row.is_reserved_share ? 'Nepalese citizens working abroad' : '-');
+            const source = row.url
+                ? `<a rel="noopener noreferrer" target="_blank" href="${safeText(row.url)}">View</a>`
+                : '<span class="table-chip">N/A</span>';
+
+            return `
+                <tr>
+                    <td>${safeText(row.company || '-')}</td>
+                    <td>${safeText(row.units || '-')}</td>
+                    <td>${safeText(row.date_range || '-')}</td>
+                    <td>${safeText(row.announcement_date || '-')}</td>
+                    <td>${safeText(reservedFor)}</td>
+                    <td>${source}</td>
+                </tr>
+            `;
+        }).join('');
     }
 
     async function renderDatasets() {
@@ -347,12 +398,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function init() {
-        const [brokerData, exchangeMessages, disclosures, notices, historyData] = await Promise.all([
+        const [brokerData, exchangeMessages, disclosures, notices, historyData, oldIpoData] = await Promise.all([
             fetchJson('brokers.json'),
             fetchJson('exchange_messages.json'),
             fetchJson('disclosures.json'),
             fetchJson('notices.json'),
-            fetchJson('market_summary_history.json')
+            fetchJson('market_summary_history.json'),
+            fetchJson('oldipo.json')
         ]);
 
         brokers = Array.isArray(brokerData) ? brokerData : [];
@@ -377,6 +429,8 @@ document.addEventListener('DOMContentLoaded', () => {
             applyHistoryFilters();
         }
 
+        renderOldIpoTable(Array.isArray(oldIpoData) ? oldIpoData : []);
+
         renderUpdatesFeed(
             Array.isArray(exchangeMessages) ? exchangeMessages : [],
             Array.isArray(disclosures) ? disclosures : [],
@@ -386,12 +440,33 @@ document.addEventListener('DOMContentLoaded', () => {
         await renderDatasets();
     }
 
+    function bindSectionToggle(toggleEl, contentEl, showLabel, hideLabel) {
+        if (!toggleEl || !contentEl) return;
+        const sync = () => {
+            const isHidden = contentEl.classList.contains('is-hidden');
+            toggleEl.setAttribute('aria-expanded', String(!isHidden));
+            toggleEl.classList.toggle('open', !isHidden);
+            const labelEl = toggleEl.querySelector('span');
+            if (labelEl) {
+                labelEl.textContent = isHidden ? showLabel : hideLabel;
+            }
+        };
+        toggleEl.addEventListener('click', () => {
+            contentEl.classList.toggle('is-hidden');
+            sync();
+        });
+        sync();
+    }
+
     brokerSearch.addEventListener('input', applyBrokerFilters);
     membershipFilter.addEventListener('change', applyBrokerFilters);
     districtFilter.addEventListener('change', applyBrokerFilters);
     tmsOnly.addEventListener('change', applyBrokerFilters);
     historySearch.addEventListener('input', applyHistoryFilters);
     historyRowLimit.addEventListener('change', applyHistoryFilters);
+    bindSectionToggle(brokerDirectoryToggle, brokerDirectoryContent, 'Show Directory', 'Hide Directory');
+    bindSectionToggle(historyToggle, historyContent, 'Show History', 'Hide History');
+    bindSectionToggle(oldIpoToggle, oldIpoContent, 'Show Archive', 'Hide Archive');
 
     init();
 });

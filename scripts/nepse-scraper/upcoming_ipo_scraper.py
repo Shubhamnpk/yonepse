@@ -1,8 +1,111 @@
-import requests
+﻿import requests
 from bs4 import BeautifulSoup
 import json
 import re
 from datetime import datetime
+
+def extract_company_from_text(text):
+    if not text:
+        return ""
+
+    cleaned = text.strip()
+    # Most IPO notices start with company name and end with Limited/Ltd.
+    patterns = [
+        r"^\s*(.+?\b(?:Limited|Ltd\.?))\b",
+        r"^\s*(.+?)\s+(?:is\s+going\s+to\s+issue|has\s+published)\b",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, cleaned, re.IGNORECASE)
+        if match:
+            return match.group(1).strip(" -,:")
+    return ""
+
+def parse_ipo_text(full_text):
+    company = full_text.strip() if full_text else ""
+    units = ""
+    date_range = ""
+
+    pattern_main = re.compile(
+        r"^\s*(?P<company>.+?)\s+is\s+going\s+to\s+issue\s+its\s+(?P<units>[\d,]+(?:\.\d+)?)\s+units.*?starting\s+from\s+(?P<date>.+?)\s*$",
+        flags=re.IGNORECASE,
+    )
+    match = pattern_main.search(full_text)
+    if match:
+        return (
+            match.group("company").strip(),
+            match.group("units").strip(),
+            match.group("date").strip(),
+        )
+
+    # Fallback: parse each piece independently if sentence wording changes.
+    company_match = re.search(r"^\s*(.+?)\s+is\s+going\s+to\s+issue\s+its\s+", full_text, re.IGNORECASE)
+    units_match = re.search(r"\b([\d,]+(?:\.\d+)?)\s+units?\b", full_text, re.IGNORECASE)
+    date_match = re.search(r"\b(?:starting\s+from|open(?:ing)?\s+from|from)\s+(.+)$", full_text, re.IGNORECASE)
+
+    if company_match:
+        company = company_match.group(1).strip()
+    if units_match:
+        units = units_match.group(1).strip()
+    if date_match:
+        date_range = date_match.group(1).strip()
+
+    # Final fallback for invalid/placeholder units values.
+    units_candidate_match = re.search(r"(\d[\d,]*(?:\.\d+)?)\s+units?\b", full_text, re.IGNORECASE)
+    units_candidate = units_candidate_match.group(1).strip() if units_candidate_match else ""
+    normalized_units = units.replace(",", "").strip() if units else ""
+    invalid_units = {"", "0", "00", "000", "0.0", "0.00", "00.0", "00.00"}
+    if normalized_units in invalid_units and units_candidate:
+        units = units_candidate
+
+    extracted_company = extract_company_from_text(full_text)
+    if extracted_company:
+        company = extracted_company
+
+    return company, units, date_range
+
+def backfill_units_from_text(item):
+    units = str(item.get("units", "")).strip()
+    normalized_units = units.replace(",", "")
+    invalid_units = {"", "Unknown", "0", "00", "000", "0.0", "0.00", "00.0", "00.00"}
+    if normalized_units not in invalid_units:
+        return item
+
+    full_text = str(item.get("full_text", ""))
+    if not full_text:
+        return item
+
+    match = re.search(r"(\d[\d,]*(?:\.\d+)?)\s+units?\b", full_text, re.IGNORECASE)
+    if match:
+        item["units"] = match.group(1)
+    return item
+
+def backfill_date_range_from_text(item):
+    date_range = str(item.get("date_range", "")).strip()
+    if date_range and date_range.lower() != "unknown":
+        return item
+
+    full_text = str(item.get("full_text", ""))
+    if not full_text:
+        return item
+
+    match = re.search(r"\b(?:starting\s+from|open(?:ing)?\s+from|from)\s+(.+)$", full_text, re.IGNORECASE)
+    if match:
+        item["date_range"] = match.group(1).strip()
+    return item
+
+def backfill_company_from_text(item):
+    company = str(item.get("company", "")).strip()
+    if company and company.lower() != "unknown":
+        return item
+
+    full_text = str(item.get("full_text", ""))
+    if not full_text:
+        return item
+
+    extracted = extract_company_from_text(full_text)
+    if extracted:
+        item["company"] = extracted
+    return item
 
 def scrape_upcoming_ipo():
     url = "https://merolagani.com/Ipo.aspx?type=upcoming"
@@ -12,7 +115,7 @@ def scrape_upcoming_ipo():
     
     try:
         print(f"Fetching {url}...")
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=(10, 30))
         response.raise_for_status()
         
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -43,39 +146,15 @@ def scrape_upcoming_ipo():
                     continue
                     
                 full_text = link_elem.get_text(strip=True)
-                link = link_elem['href']
+                link = link_elem.get('href')
+                if not link:
+                    continue
                 if not link.startswith('http'):
                     link = "https://merolagani.com" + link
+                is_reserved_share = "nepalese citizens working abroad" in full_text.lower()
                 
                 # Parse text
-                # Format: "Company Name is going to issue its X units of IPO shares to the general public starting from DateRange"
-                
-                company = "Unknown"
-                units = "Unknown"
-                date_range = "Unknown"
-                
-                # Split by " is going to issue its "
-                parts1 = re.split(r'\s+is\s+going\s+to\s+issue\s+its\s+', full_text, flags=re.IGNORECASE)
-                if len(parts1) > 1:
-                    company = parts1[0].strip()
-                    remainder = parts1[1]
-                    
-                    # Split by " units of IPO shares "
-                    # Note: text says " units of IPO shares to the general public starting from "
-                    parts2 = re.split(r'\s+units\s+of\s+IPO\s+shares\s+to\s+the\s+general\s+public\s+starting\s+from\s+', remainder, flags=re.IGNORECASE)
-                    
-                    if len(parts2) > 1:
-                        units = parts2[0].strip()
-                        date_range = parts2[1].strip()
-                    else:
-                        # Try simpler split if phrasing varies
-                        parts2 = re.split(r'\s+units\s+', remainder, flags=re.IGNORECASE)
-                        if len(parts2) > 1:
-                            units = parts2[0].strip()
-                            # Try to find "starting from"
-                            start_match = re.search(r'starting\s+from\s+(.*)', parts2[1], re.IGNORECASE)
-                            if start_match:
-                                date_range = start_match.group(1).strip()
+                company, units, date_range = parse_ipo_text(full_text)
 
                 entry = {
                     "company": company,
@@ -84,13 +163,30 @@ def scrape_upcoming_ipo():
                     "announcement_date": announcement_date,
                     "full_text": full_text,
                     "url": link,
+                    "is_reserved_share": is_reserved_share,
+                    "reserved_for": "Nepalese citizens working abroad" if is_reserved_share else "",
                     "scraped_at": datetime.now().isoformat()
                 }
                 data.append(entry)
                 
             except Exception as e:
+                fallback_text = item.get_text(" ", strip=True)
+                fallback_date_elem = item.find('small', class_='text-muted')
+                fallback_date = fallback_date_elem.get_text(strip=True) if fallback_date_elem else ""
+                fallback_company = extract_company_from_text(fallback_text) or fallback_text
+                data.append({
+                    "company": fallback_company,
+                    "units": "",
+                    "date_range": "",
+                    "announcement_date": fallback_date,
+                    "full_text": fallback_text,
+                    "url": "",
+                    "is_reserved_share": "nepalese citizens working abroad" in fallback_text.lower(),
+                    "reserved_for": "Nepalese citizens working abroad" if "nepalese citizens working abroad" in fallback_text.lower() else "",
+                    "scraped_at": datetime.now().isoformat(),
+                    "parse_error": str(e),
+                })
                 print(f"Error parsing item: {e}")
-                continue
                 
         return data
 
@@ -104,7 +200,7 @@ if __name__ == "__main__":
 
     new_data = scrape_upcoming_ipo()
     output_file = "data/upcoming_ipo.json"
-    history_file = "data/ipo.json"
+    history_file = "data/oldipo.json"
     os.makedirs("data", exist_ok=True)
 
     # 1. Load existing data
@@ -137,13 +233,16 @@ if __name__ == "__main__":
 
     # 3. Split items:
     # - Keep recent items in upcoming_ipo.json (within last 10 days by scraped_at)
-    # - Move older items into data/ipo.json history archive
+    # - Move older items into data/oldipo.json history archive
     now = datetime.now()
     cutoff_date = now - timedelta(days=10)
     
     final_data = []
     archived_data = []
     for item in existing_items.values():
+        item = backfill_company_from_text(item)
+        item = backfill_units_from_text(item)
+        item = backfill_date_range_from_text(item)
         try:
             scraped_at = item.get('scraped_at')
             if scraped_at:
@@ -170,6 +269,8 @@ if __name__ == "__main__":
     history_list.sort(key=lambda x: x.get('scraped_at', ''), reverse=True)
 
     # 4. Save results
+    # Intentionally preserve the previous upcoming_ipo.json snapshot when
+    # final_data is empty, so the last known upcoming IPO list remains available.
     if final_data:
         # Sort by scraped_at descending so newest are first
         final_data.sort(key=lambda x: x.get('scraped_at', ''), reverse=True)

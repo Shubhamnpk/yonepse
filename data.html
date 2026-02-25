@@ -44,90 +44,136 @@
             <section class="intel-card">
                 <div class="intel-card-header">
                     <h2 class="section-title"><i class="fa-solid fa-user-tie"></i> Broker Directory</h2>
+                    <button id="broker-directory-toggle" class="section-toggle-btn" type="button" aria-expanded="false"
+                        aria-controls="broker-directory-content">
+                        <span>Show Directory</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
                 </div>
-                <div class="data-toolbar">
-                    <div class="search-box">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="broker-search" placeholder="Search by broker code, name, district or TMS"
-                            aria-label="Search brokers">
+                <div id="broker-directory-content" class="section-collapsible is-hidden">
+                    <div class="data-toolbar">
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="broker-search" placeholder="Search by broker code, name, district or TMS"
+                                aria-label="Search brokers">
+                        </div>
+                        <label>
+                            <span class="detail-label">Membership</span>
+                            <select id="membership-filter" class="filter-select" aria-label="Filter by membership type">
+                                <option value="all">All</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span class="detail-label">District</span>
+                            <select id="district-filter" class="filter-select" aria-label="Filter by district">
+                                <option value="all">All</option>
+                            </select>
+                        </label>
+                        <label class="check-wrap">
+                            <input type="checkbox" id="tms-only">
+                            <span class="detail-label">Only with TMS link</span>
+                        </label>
                     </div>
-                    <label>
-                        <span class="detail-label">Membership</span>
-                        <select id="membership-filter" class="filter-select" aria-label="Filter by membership type">
-                            <option value="all">All</option>
-                        </select>
-                    </label>
-                    <label>
-                        <span class="detail-label">District</span>
-                        <select id="district-filter" class="filter-select" aria-label="Filter by district">
-                            <option value="all">All</option>
-                        </select>
-                    </label>
-                    <label class="check-wrap">
-                        <input type="checkbox" id="tms-only">
-                        <span class="detail-label">Only with TMS link</span>
-                    </label>
-                </div>
-                <div class="broker-table-wrap table-gap">
-                    <table class="broker-table">
-                        <thead>
-                            <tr>
-                                <th>Code</th>
-                                <th>Broker Name</th>
-                                <th>Membership</th>
-                                <th>Branches</th>
-                                <th>Provinces</th>
-                                <th>Districts</th>
-                                <th>TMS</th>
-                                <th>Phone</th>
-                            </tr>
-                        </thead>
-                        <tbody id="broker-table-body">
-                            <tr>
-                                <td colspan="8" class="intel-empty">Loading broker data...</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="broker-table-wrap table-gap">
+                        <table class="broker-table broker-table-minimal">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Broker Name</th>
+                                    <th>Membership</th>
+                                    <th>Branches</th>
+                                    <th>Provinces</th>
+                                    <th>Districts</th>
+                                    <th>TMS</th>
+                                    <th>Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody id="broker-table-body">
+                                <tr>
+                                    <td colspan="8" class="intel-empty">Loading broker data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
 
             <section class="intel-card">
                 <div class="intel-card-header">
                     <h2 class="section-title"><i class="fa-solid fa-clock-rotate-left"></i> Market Summary History</h2>
+                    <button id="history-toggle" class="section-toggle-btn" type="button" aria-expanded="false"
+                        aria-controls="history-content">
+                        <span>Show History</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
                 </div>
-                <div class="data-toolbar">
-                    <div class="search-box">
-                        <i class="fa-solid fa-calendar-day"></i>
-                        <input type="text" id="history-search" placeholder="Filter by business date (YYYY-MM-DD)"
-                            aria-label="Filter market summary history by date">
+                <div id="history-content" class="section-collapsible is-hidden">
+                    <div class="data-toolbar">
+                        <div class="search-box">
+                            <i class="fa-solid fa-calendar-day"></i>
+                            <input type="text" id="history-search" placeholder="Filter by business date (YYYY-MM-DD)"
+                                aria-label="Filter market summary history by date">
+                        </div>
+                        <label>
+                            <span class="detail-label">Rows</span>
+                            <select id="history-row-limit" class="filter-select" aria-label="Rows to display">
+                                <option value="30">30</option>
+                                <option value="60">60</option>
+                                <option value="120">120</option>
+                                <option value="1000">All</option>
+                            </select>
+                        </label>
                     </div>
-                    <label>
-                        <span class="detail-label">Rows</span>
-                        <select id="history-row-limit" class="filter-select" aria-label="Rows to display">
-                            <option value="30">30</option>
-                            <option value="60">60</option>
-                            <option value="120">120</option>
-                            <option value="1000">All</option>
-                        </select>
-                    </label>
+                    <div class="broker-table-wrap table-gap">
+                        <table class="broker-table broker-table-minimal">
+                            <thead>
+                                <tr>
+                                    <th>Business Date</th>
+                                    <th>Total Turnover</th>
+                                    <th>Total Traded Shares</th>
+                                    <th>Total Transactions</th>
+                                    <th>Traded Scrips</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-table-body">
+                                <tr>
+                                    <td colspan="5" class="intel-empty">Loading market summary history...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="broker-table-wrap table-gap">
-                    <table class="broker-table">
-                        <thead>
-                            <tr>
-                                <th>Business Date</th>
-                                <th>Total Turnover</th>
-                                <th>Total Traded Shares</th>
-                                <th>Total Transactions</th>
-                                <th>Traded Scrips</th>
-                            </tr>
-                        </thead>
-                        <tbody id="history-table-body">
-                            <tr>
-                                <td colspan="5" class="intel-empty">Loading market summary history...</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            </section>
+
+            <section class="intel-card">
+                <div class="intel-card-header">
+                    <h2 class="section-title"><i class="fa-solid fa-box-archive"></i> Old IPO Archive</h2>
+                    <button id="old-ipo-toggle" class="section-toggle-btn" type="button" aria-expanded="false"
+                        aria-controls="old-ipo-content">
+                        <span>Show Archive</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+                <div id="old-ipo-content" class="section-collapsible is-hidden">
+                    <div class="broker-table-wrap table-gap">
+                        <table class="broker-table">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Units</th>
+                                    <th>BS Date Range</th>
+                                    <th>Notice Date</th>
+                                    <th>Reserved For</th>
+                                    <th>Source</th>
+                                </tr>
+                            </thead>
+                            <tbody id="old-ipo-table-body">
+                                <tr>
+                                    <td colspan="6" class="intel-empty">Loading old IPO archive...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
 
