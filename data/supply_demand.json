@@ -1,20 +1,4 @@
 {
-    "supplyList": [
-        {
-            "totalQuantity": 82,
-            "totalOrder": 4,
-            "securityId": 5984,
-            "symbol": "LBLD88",
-            "securityName": "8.5% Laxmi Bank Debenture 2088"
-        }
-    ],
-    "demandList": [
-        {
-            "totalQuantity": 100,
-            "totalOrder": 1,
-            "securityId": 9180,
-            "symbol": "NMBD89/90",
-            "securityName": "NMB Debenture 10.75%-2089/90"
-        }
-    ]
+    "supplyList": [],
+    "demandList": []
 }

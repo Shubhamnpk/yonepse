@@ -1,6 +1,23 @@
 {
     "general": [
         {
+            "id": 1223,
+            "noticeHeading": "Supply, Delivery, Installation and Commissioning of Hardware and Software for DR Site",
+            "noticeBody": "Supply, Delivery, Installation and Commissioning of Hardware and Software for DR Site",
+            "noticeFilePath": "a2f65a98b3ef3a8842249ec4bf23e501.pdf",
+            "noticeExpiryDate": "2026-03-29",
+            "feature": true,
+            "noticeTypeId": {
+                "id": 1,
+                "activeStatus": "A",
+                "noticeType": "Company Notice"
+            },
+            "publishToWebsite": true,
+            "source": null,
+            "modifiedDate": null,
+            "modifiedBy": "rabin.kc"
+        },
+        {
             "id": 1220,
             "noticeHeading": "\u0927\u093f\u0924\u094b\u092a\u0924\u094d\u0930 \u0935\u094d\u092f\u093e\u092a\u093e\u0930\u0940\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u0915\u093e\u0930\u094b\u092c\u093e\u0930 \u092f\u094b\u0917\u094d\u092f \u0915\u092e\u094d\u092a\u0928\u0940\u0939\u0930\u0941\u0915\u094b \u0928\u093e\u092e\u093e\u0935\u0932\u0940",
             "noticeBody": "\u0927\u093f\u0924\u094b\u092a\u0924\u094d\u0930 \u0935\u094d\u092f\u093e\u092a\u093e\u0930\u0940\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u0915\u093e\u0930\u094b\u092c\u093e\u0930 \u092f\u094b\u0917\u094d\u092f \u0915\u092e\u094d\u092a\u0928\u0940\u0939\u0930\u0941\u0915\u094b \u0928\u093e\u092e\u093e\u0935\u0932\u0940",
@@ -46,17 +63,6 @@
             "modifiedDate": "2026-02-26"
         },
         {
-            "id": 208608,
-            "noticeHeading": "Listing 5% Bonus Shares of Citizens Bank International Limited (CZBIL)",
-            "noticeBody": "<p><span style=\"box-sizing: border-box; color: rgb(47, 47, 47); font-family: &quot;Source Sans Pro&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">73,84,506 Units Bonus Shares of&nbsp;</span>Citizens Bank International Limited (CZBIL)<span style=\"box-sizing: border-box; color: rgb(47, 47, 47); font-family: &quot;Source Sans Pro&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">&nbsp;has been listed in NEPSE.</span><br style=\"box-sizing: border-box; color: rgb(47, 47, 47); font-family: &quot;Source Sans Pro&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\" class=\"Apple-interchange-newline\"></p>",
-            "noticeExpiryDate": null,
-            "noticeFilePath": null,
-            "feature": true,
-            "publishToWebsite": true,
-            "source": "NOTS",
-            "modifiedDate": "2026-02-25"
-        },
-        {
             "id": 208592,
             "noticeHeading": "\u0932\u093e\u092d \u0935\u093f\u0924\u0930\u0923 \u0917\u0930\u094d\u0926\u093e \u092a\u094d\u0930\u0937\u094d\u091f \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u092a\u094d\u0930\u0926\u093e\u0928 \u0917\u0930\u094d\u0928\u0947 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e \u0964",
             "noticeBody": "<p><span style=\"color: rgb(47, 47, 47); font-family: &quot;Source Sans Pro&quot;, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;\">For more details please find the attached NEPSE Notice.</span></p>",
@@ -69,6 +75,72 @@
         }
     ],
     "company": [
+        {
+            "id": 44886,
+            "applicationDocumentDetailsList": [
+                {
+                    "id": 30044,
+                    "activeStatus": "A",
+                    "modifiedBy": "bnt_user",
+                    "modifiedDate": "2026-02-27T10:23:28.467",
+                    "application": 44886,
+                    "documentType": 54,
+                    "submittedDate": "2026-02-27",
+                    "filePath": "bnt_user/2026-02-27/Completion of the Tenure of ID_1772167077550.pdf",
+                    "encryptedId": "dbf2ec71a04114fa21d01755809f1d8340c17b7818b14762bda47fc23f4549c66c8a785fe98179d8bc3b2fe7a6bb5773b96d1b57891ce828848c3b50379fa5b6"
+                }
+            ],
+            "newsHeadline": "Completion of the Term of Office of the Independent Director [BNT] ",
+            "newsBody": "<link rel=\"File-List\" href=\"file:///C:/Users/np0983/AppData/Local/Temp/msohtmlclip1/01/clip_filelist.xml\"><link rel=\"themeData\" href=\"file:///C:/Users/np0983/AppData/Local/Temp/msohtmlclip1/01/clip_themedata.thmx\"><link rel=\"colorSchemeMapping\" href=\"file:///C:/Users/np0983/AppData/Local/Temp/msohtmlclip1/01/clip_colorschememapping.xml\"><style>\n<!--\n /* Font Definitions */\n @font-face\n\t{font-family:Mangal;\n\tpanose-1:0 0 4 0 0 0 0 0 0 0;\n\tmso-font-charset:1;\n\tmso-generic-font-family:auto;\n\tmso-font-pitch:variable;\n\tmso-font-signature:32768 0 0 0 0 0;}\n@font-face\n\t{font-family:\"Cambria Math\";\n\tpanose-1:2 4 5 3 5 4 6 3 2 4;\n\tmso-font-charset:0;\n\tmso-generic-font-family:roman;\n\tmso-font-pitch:variable;\n\tmso-font-signature:-536869121 1107305727 33554432 0 415 0;}\n@font-face\n\t{font-family:Aptos;\n\tmso-font-charset:0;\n\tmso-generic-font-family:swiss;\n\tmso-font-pitch:variable;\n\tmso-font-signature:536871559 3 0 0 415 0;}\n /* Style Definitions */\n p.MsoNormal, li.MsoNormal, div.MsoNormal\n\t{mso-style-unhide:no;\n\tmso-style-qformat:yes;\n\tmso-style-parent:\"\";\n\tmargin-top:0in;\n\tmargin-right:0in;\n\tmargin-bottom:8.0pt;\n\tmargin-left:0in;\n\tline-height:115%;\n\tmso-pagination:widow-orphan;\n\tfont-size:12.0pt;\n\tmso-bidi-font-size:10.5pt;\n\tfont-family:\"Times New Roman\",serif;\n\tmso-fareast-font-family:Aptos;\n\tmso-fareast-theme-font:minor-latin;\n\tmso-bidi-font-family:Mangal;\n\tmso-bidi-theme-font:minor-bidi;\n\tmso-font-kerning:1.0pt;\n\tmso-ligatures:standardcontextual;}\n.MsoChpDefault\n\t{mso-style-type:export-only;\n\tmso-default-props:yes;\n\tmso-fareast-font-family:Aptos;\n\tmso-fareast-theme-font:minor-latin;\n\tmso-bidi-font-family:Mangal;\n\tmso-bidi-theme-font:minor-bidi;}\n.MsoPapDefault\n\t{mso-style-type:export-only;\n\tmargin-bottom:8.0pt;\n\tline-height:115%;}\n@page WordSection1\n\t{size:8.5in 11.0in;\n\tmargin:1.0in 1.0in 1.0in 1.0in;\n\tmso-header-margin:.5in;\n\tmso-footer-margin:.5in;\n\tmso-paper-source:0;}\ndiv.WordSection1\n\t{page:WordSection1;}\n-->\n</style><p><span style=\"font-size:14.0pt;mso-bidi-font-size:11.0pt;\nline-height:115%;font-family:&quot;Times New Roman&quot;,serif;mso-fareast-font-family:\nAptos;mso-fareast-theme-font:minor-latin;mso-bidi-font-family:Mangal;\nmso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:\nEN-US;mso-bidi-language:NE\">This is to inform your good office that the term of office of Mr. Pramod Kumar Karki, Independent Director, has been completed.</span></p>",
+            "addedDate": "2026-02-27T10:23:28.453",
+            "newsSource": "Completion of the Term of Office of the Independent Director",
+            "modifiedDate": "2026-02-27T10:25:02.8",
+            "approvedDate": null
+        },
+        {
+            "id": 44885,
+            "applicationDocumentDetailsList": [
+                {
+                    "id": 30043,
+                    "activeStatus": "A",
+                    "modifiedBy": "unlb_user",
+                    "modifiedDate": "2026-02-26T17:11:39.97",
+                    "application": 44885,
+                    "documentType": 54,
+                    "submittedDate": "2026-02-26",
+                    "filePath": "Unique_Nepal_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-26/Auditor Appointment for 2082-083_1772105173572.pdf",
+                    "encryptedId": "113ed5eb65f1deeba45210589c96666e086be1dc4d14202d5c69c5c53f6dc5f552d66f7119e11132edb256af90b715c8ddc8bca5f9f1e00e1766a78c635b2080"
+                }
+            ],
+            "newsHeadline": "Auditor Appointment [UNLB] ",
+            "newsBody": "",
+            "addedDate": "2026-02-26T17:11:39.963",
+            "newsSource": "UNLBSL",
+            "modifiedDate": "2026-02-27T10:11:21.127",
+            "approvedDate": null
+        },
+        {
+            "id": 44883,
+            "applicationDocumentDetailsList": [
+                {
+                    "id": 30041,
+                    "activeStatus": "A",
+                    "modifiedBy": "nwcl_user",
+                    "modifiedDate": "2026-02-26T16:08:48.963",
+                    "application": 44883,
+                    "documentType": 54,
+                    "submittedDate": "2026-02-26",
+                    "filePath": "Nepal_Warehousing_Company_Limited/Company News/2026-02-26/AGM Minute Final_1772101405420.pdf",
+                    "encryptedId": "f61ebd6edae722594d572e5261201663c4ec7bd1d32c48a190e3f9cca555d4c76afb376e2b7d4ff2daf6d70d12b022c05af38eb95772e071128609eb08bf96a3"
+                }
+            ],
+            "newsHeadline": "AGM Minute [NWCL] ",
+            "newsBody": "",
+            "addedDate": "2026-02-26T16:08:48.957",
+            "newsSource": "AGM",
+            "modifiedDate": "2026-02-27T10:10:41.177",
+            "approvedDate": null
+        },
         {
             "id": 44878,
             "applicationDocumentDetailsList": [
@@ -92,140 +164,8 @@
             "approvedDate": null
         },
         {
-            "id": 44876,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 30035,
-                    "activeStatus": "A",
-                    "modifiedBy": "glh_user",
-                    "modifiedDate": "2026-02-25T16:22:12.543",
-                    "application": 44876,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-25",
-                    "filePath": "glh_user/2026-02-25/16TH AGM MINUTE_1772015651362.PDF",
-                    "encryptedId": "6ca1bac0e4cad98771a71809962ab03224950aadadbbc2c3f804c77637c40ff37544c72450c09b01c800a1cdd493050bbb8cedb31a9d9359cf70ec75ba4fc97b"
-                },
-                {
-                    "id": 30036,
-                    "activeStatus": "A",
-                    "modifiedBy": "glh_user",
-                    "modifiedDate": "2026-02-25T16:22:12.543",
-                    "application": 44876,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-25",
-                    "filePath": "glh_user/2026-02-25/Cover Letter - Submission of 16th AGM Minute_1772015749044.PDF",
-                    "encryptedId": "782e666276bad4028f7f357ec464d54033935c02bef328ca3dfce397c8432d10d06c5515ed42e76fd237a1538751b9f83896e5a6a35245fbab57c16eac4f6344"
-                }
-            ],
-            "newsHeadline": "16th AGM Minute [GLH] ",
-            "newsBody": "",
-            "addedDate": "2026-02-25T16:22:12.54",
-            "newsSource": "Website",
-            "modifiedDate": "2026-02-25T16:26:21.467",
-            "approvedDate": null
-        },
-        {
-            "id": 44869,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 30029,
-                    "activeStatus": "A",
-                    "modifiedBy": "nlbbl_user",
-                    "modifiedDate": "2026-02-25T11:59:30.77",
-                    "application": 44869,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-25",
-                    "filePath": "nlbbl_user/2026-02-25/CS-145 DCEO Appointed Nerude MIrmire_1772000021862.pdf",
-                    "encryptedId": "836f98c4e72b7c159df160b082206d49ada0f645a48555b5cf17f07839935bb6a5c08041be391ba59f26f289e06a4915460d1e2d1609e6e2d72e20cd86bb0347"
-                }
-            ],
-            "newsHeadline": "Acting CEO Appointment [NMLBBL]  [NMLBBL] ",
-            "newsBody": "<p>Acting CEO Appointment of NMLBSL.</p>",
-            "addedDate": "2026-02-25T11:59:30.767",
-            "newsSource": "Acting CEO Appointment",
-            "modifiedDate": "2026-02-25T13:16:59.573",
-            "approvedDate": null
-        },
-        {
-            "id": 44868,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 30028,
-                    "activeStatus": "A",
-                    "modifiedBy": "hli_user",
-                    "modifiedDate": "2026-02-25T11:22:35.933",
-                    "application": 44868,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-25",
-                    "filePath": "hli_user/2026-02-25/Information of Death of Independent Director_1771997837049.pdf",
-                    "encryptedId": "b7572789d5fcfccde7b79ec3dd347c8f54cf345ae08b74650b0a4701c9033cfaec4473e97769390afbbff354369e3915b8930e7571b8df011482d1dcec5d204f"
-                }
-            ],
-            "newsHeadline": "Information of Death of Independent Director [HLI] ",
-            "newsBody": "<p>Information of Death of Independent Director</p>",
-            "addedDate": "2026-02-25T11:22:35.93",
-            "newsSource": "Board of Director",
-            "modifiedDate": "2026-02-25T13:16:38.617",
-            "approvedDate": null
-        },
-        {
-            "id": 44864,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 30024,
-                    "activeStatus": "A",
-                    "modifiedBy": "spl_user",
-                    "modifiedDate": "2026-02-25T10:18:37.747",
-                    "application": 44864,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-25",
-                    "filePath": "Shuvam_Power_Limited/Company News/2026-02-25/Director Resign_1771994012412.pdf",
-                    "encryptedId": "953496937d1b781d135cd2032e782cfc302aa459eff256cfba73642419193182ae9c29c68ffeee4f3286c96ec5181bea5bf8f1ea4d3fed59236235be2c8b49c8"
-                }
-            ],
-            "newsHeadline": "\u0938\u0902\u091a\u093e\u0932\u0915\u0915\u093e\u0947 \u0930\u093e\u091c\u0940\u0928\u093e\u092e\u093e \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e [SPL] ",
-            "newsBody": "<p>\u0938\u0902\u091a\u093e\u0932\u0915\u0915\u093e\u0947 \u0930\u093e\u091c\u0940\u0928\u093e\u092e\u093e \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e</p>",
-            "addedDate": "2026-02-25T10:18:37.743",
-            "newsSource": "\u0938\u0902\u091a\u093e\u0932\u0915\u0915\u093e\u0947 \u0930\u093e\u091c\u0940\u0928\u093e\u092e\u093e",
-            "modifiedDate": "2026-02-25T10:21:21.57",
-            "approvedDate": null
-        },
-        {
-            "id": 44863,
-            "applicationDocumentDetailsList": [
-                {
-                    "id": 30023,
-                    "activeStatus": "A",
-                    "modifiedBy": "slbsl_user",
-                    "modifiedDate": "2026-02-25T09:39:57.443",
-                    "application": 44863,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-25",
-                    "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-25/information about appointment of Independent Director 2082-11-12_1771991691153.jpg",
-                    "encryptedId": "cab7c093ab18316354273aa40d9350fe0af9b6263de92b526e2afe8ae1313dfcae32566df1941ad07c72d59e948879a0607d117149aaf174d3cef30fab1b8532"
-                }
-            ],
-            "newsHeadline": "Appointment of Independent Director [SLBSL] ",
-            "newsBody": "<p>Dear Sir,</p><p>According to the 41th board meeting's decision, Mr Dinesh Aryal of permanent address Gorkha Municipality ward number 3, Holsing has been appointed as An Independent Director of Samudayik Laghubitta Bittiya Sanstha Limited.</p>",
-            "addedDate": "2026-02-25T09:39:57.423",
-            "newsSource": "Board meeting held 2082-11-12",
-            "modifiedDate": "2026-02-25T09:48:27.49",
-            "approvedDate": null
-        },
-        {
             "id": 44837,
             "applicationDocumentDetailsList": [
-                {
-                    "id": 29994,
-                    "activeStatus": "A",
-                    "modifiedBy": "user_sagar",
-                    "modifiedDate": "2026-02-22T10:14:46.097",
-                    "application": 44837,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-22",
-                    "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/Nepse_1771734575891.pdf",
-                    "encryptedId": "4af30b9d4979478b2730367fa91507f8571bcf7ca1f6d68485c238b824988d70d7386442ac67adea682df71dee82c3fcf09331baddfebb6bf0e83a07b864ec7e"
-                },
                 {
                     "id": 29993,
                     "activeStatus": "A",
@@ -236,6 +176,17 @@
                     "submittedDate": "2026-02-22",
                     "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/NSP fagun10 sunday epaper pdf-3_1771734582853.pdf",
                     "encryptedId": "eb78953229dc6bdaac6294c7485a5b471c0ff2532ec331875bedab6e628f2b11ef0e2827c451cf8995c33a1a1458a9e08456378bbd855e72d0c085920a95ded3"
+                },
+                {
+                    "id": 29994,
+                    "activeStatus": "A",
+                    "modifiedBy": "user_sagar",
+                    "modifiedDate": "2026-02-22T10:14:46.097",
+                    "application": 44837,
+                    "documentType": 54,
+                    "submittedDate": "2026-02-22",
+                    "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/Nepse_1771734575891.pdf",
+                    "encryptedId": "4af30b9d4979478b2730367fa91507f8571bcf7ca1f6d68485c238b824988d70d7386442ac67adea682df71dee82c3fcf09331baddfebb6bf0e83a07b864ec7e"
                 }
             ],
             "newsHeadline": "\u0938\u093e\u092e\u0942\u0939\u093f\u0915 \u0932\u0917\u093e\u0928\u0940 \u0915\u094b\u0937\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u091b\u0941\u091f\u094d\u091f\u093e\u0907\u090f\u0915\u094b \u0938\u093e\u0927\u093e\u0930\u0923 \u0936\u0947\u092f\u0930\u0915\u094b \u0932\u0915-\u0908\u0928 \u0905\u0935\u0927\u093f \u0938\u092e\u093e\u092a\u094d\u0924\u0940 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0938\u0942\u091a\u0928\u093e [SAGAR] ",
@@ -249,17 +200,6 @@
             "id": 44816,
             "applicationDocumentDetailsList": [
                 {
-                    "id": 29975,
-                    "activeStatus": "A",
-                    "modifiedBy": "slbsl_user",
-                    "modifiedDate": "2026-02-17T10:42:52.657",
-                    "application": 44816,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-17",
-                    "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-17/Information to Nepse_Lock in period_1771304110682.pdf",
-                    "encryptedId": "32efa875a5e0e77976d842aa7994e3fcdaab7058225c8da93a90b74245b8ea18d1002881080df2671d11d2602e9c32b956ecfde6160ae8e9d0ece7e44c13c847"
-                },
-                {
                     "id": 29974,
                     "activeStatus": "A",
                     "modifiedBy": "slbsl_user",
@@ -269,6 +209,17 @@
                     "submittedDate": "2026-02-17",
                     "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-17/Notice_Lock in period end_1771304122239.jpg",
                     "encryptedId": "963d59d6355709e3699349e371840f4462d195096f125d5bfe0f6c8572f9a4690209d6a745dc4998ad810be12ac14693fbf0aaff2b2468cf5d6f2a78f8bd1094"
+                },
+                {
+                    "id": 29975,
+                    "activeStatus": "A",
+                    "modifiedBy": "slbsl_user",
+                    "modifiedDate": "2026-02-17T10:42:52.657",
+                    "application": 44816,
+                    "documentType": 54,
+                    "submittedDate": "2026-02-17",
+                    "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-17/Information to Nepse_Lock in period_1771304110682.pdf",
+                    "encryptedId": "32efa875a5e0e77976d842aa7994e3fcdaab7058225c8da93a90b74245b8ea18d1002881080df2671d11d2602e9c32b956ecfde6160ae8e9d0ece7e44c13c847"
                 }
             ],
             "newsHeadline": "Lock in period end [SLBSL] ",
@@ -341,5 +292,5 @@
             "approvedDate": null
         }
     ],
-    "last_updated": "2026-02-26T10:41:34.255045"
+    "last_updated": "2026-02-27T05:13:17.197689"
 }
