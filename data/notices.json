@@ -299,17 +299,6 @@
             "id": 44837,
             "applicationDocumentDetailsList": [
                 {
-                    "id": 29993,
-                    "activeStatus": "A",
-                    "modifiedBy": "user_sagar",
-                    "modifiedDate": "2026-02-22T10:14:46.097",
-                    "application": 44837,
-                    "documentType": 54,
-                    "submittedDate": "2026-02-22",
-                    "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/NSP fagun10 sunday epaper pdf-3_1771734582853.pdf",
-                    "encryptedId": "eb78953229dc6bdaac6294c7485a5b471c0ff2532ec331875bedab6e628f2b11ef0e2827c451cf8995c33a1a1458a9e08456378bbd855e72d0c085920a95ded3"
-                },
-                {
                     "id": 29994,
                     "activeStatus": "A",
                     "modifiedBy": "user_sagar",
@@ -319,6 +308,17 @@
                     "submittedDate": "2026-02-22",
                     "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/Nepse_1771734575891.pdf",
                     "encryptedId": "4af30b9d4979478b2730367fa91507f8571bcf7ca1f6d68485c238b824988d70d7386442ac67adea682df71dee82c3fcf09331baddfebb6bf0e83a07b864ec7e"
+                },
+                {
+                    "id": 29993,
+                    "activeStatus": "A",
+                    "modifiedBy": "user_sagar",
+                    "modifiedDate": "2026-02-22T10:14:46.097",
+                    "application": 44837,
+                    "documentType": 54,
+                    "submittedDate": "2026-02-22",
+                    "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/NSP fagun10 sunday epaper pdf-3_1771734582853.pdf",
+                    "encryptedId": "eb78953229dc6bdaac6294c7485a5b471c0ff2532ec331875bedab6e628f2b11ef0e2827c451cf8995c33a1a1458a9e08456378bbd855e72d0c085920a95ded3"
                 }
             ],
             "newsHeadline": "\u0938\u093e\u092e\u0942\u0939\u093f\u0915 \u0932\u0917\u093e\u0928\u0940 \u0915\u094b\u0937\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u091b\u0941\u091f\u094d\u091f\u093e\u0907\u090f\u0915\u094b \u0938\u093e\u0927\u093e\u0930\u0923 \u0936\u0947\u092f\u0930\u0915\u094b \u0932\u0915-\u0908\u0928 \u0905\u0935\u0927\u093f \u0938\u092e\u093e\u092a\u094d\u0924\u0940 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0938\u0942\u091a\u0928\u093e [SAGAR] ",
@@ -412,5 +412,5 @@
             "approvedDate": null
         }
     ],
-    "last_updated": "2026-03-01T06:07:23.604858"
+    "last_updated": "2026-03-01T07:08:00.002830"
 }
