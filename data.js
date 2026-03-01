@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const indicesMarqueeTrack = document.getElementById('indices-marquee-track');
     const brokerTableBody = document.getElementById('broker-table-body');
     const brokerSearch = document.getElementById('broker-search');
     const membershipFilter = document.getElementById('membership-filter');
@@ -18,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const historyContent = document.getElementById('history-content');
     const oldIpoToggle = document.getElementById('old-ipo-toggle');
     const oldIpoContent = document.getElementById('old-ipo-content');
+    const historyChartCanvas = document.getElementById('history-chart');
+    const historyChartStatus = document.getElementById('history-chart-status');
 
     const DATASET_FILES = [
         'all_securities.json',
@@ -40,6 +43,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let brokers = [];
     let marketSummaryHistory = [];
+    let historyChart = null;
+
+    function formatIndexChange(changeValue, perChange) {
+        const safeChange = Number(changeValue);
+        const safePer = Number(perChange);
+        if (!Number.isFinite(safeChange) || !Number.isFinite(safePer)) return '';
+        const sign = safeChange > 0 ? '+' : '';
+        return `${sign}${safeChange.toFixed(2)} (${sign}${safePer.toFixed(2)}%)`;
+    }
+
+    async function loadIndicesMarquee() {
+        if (!indicesMarqueeTrack) return;
+
+        try {
+            const res = await fetch('data/indices.json', { cache: 'no-store' });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const indices = await res.json();
+
+            if (!Array.isArray(indices) || indices.length === 0) {
+                indicesMarqueeTrack.innerHTML = '<span class="indices-marquee-empty">No indices available.</span>';
+                return;
+            }
+
+            const itemsHtml = indices
+                .map((idx) => {
+                    const name = idx.index ?? idx.indexName ?? 'Index';
+                    const close = idx.close ?? idx.currentValue ?? '';
+                    const change = idx.change ?? 0;
+                    const perChange = idx.perChange ?? 0;
+                    const isUp = Number(change) >= 0;
+                    const color = isUp ? 'var(--success)' : 'var(--danger)';
+                    const changeText = formatIndexChange(change, perChange);
+
+                    return `
+                        <span class="indices-marquee-item">
+                            <span class="indices-marquee-name">${safeText(name)}:</span>
+                            <span>${safeText(close)}</span>
+                            <span style="color:${color}; margin-left:0.5rem;">${safeText(changeText)}</span>
+                        </span>
+                    `;
+                })
+                .join('');
+
+            indicesMarqueeTrack.innerHTML = itemsHtml + itemsHtml;
+        } catch {
+            indicesMarqueeTrack.innerHTML = '<span class="indices-marquee-empty">Unable to load market indices.</span>';
+        }
+    }
 
     async function fetchJson(fileName) {
         const candidates = [`data/${fileName}`, fileName];
@@ -68,6 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return map[char] || char;
         });
     }
+
+    loadIndicesMarquee();
 
     function formatNumber(value, digits = 0) {
         const num = Number(value);
@@ -239,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .slice(0, rowLimit);
 
         renderHistoryTable(filtered);
+        updateHistoryChart(filtered);
     }
 
     function renderHistoryTable(rows) {
@@ -256,6 +310,130 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${formatNumber(row.tradedScrips, 0)}</td>
             </tr>
         `).join('');
+    }
+
+    function ensureHistoryChart() {
+        if (!historyChartCanvas) return null;
+        if (historyChart) return historyChart;
+
+        const ChartCtor = window.Chart;
+        if (!ChartCtor) {
+            if (historyChartStatus) {
+                historyChartStatus.style.display = 'block';
+                historyChartStatus.textContent = 'Chart library failed to load. Please refresh the page and try again.';
+            }
+            return null;
+        }
+
+        const ctx = historyChartCanvas.getContext('2d');
+        if (!ctx) return null;
+
+        const gradient = ctx.createLinearGradient(0, 0, 0, historyChartCanvas.height || 120);
+        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.35)');
+        gradient.addColorStop(1, 'rgba(99, 102, 241, 0.02)');
+
+        historyChart = new ChartCtor(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Turnover (Rs.)',
+                        data: [],
+                        borderColor: 'rgba(129, 140, 248, 0.98)',
+                        backgroundColor: gradient,
+                        fill: true,
+                        tension: 0.35,
+                        pointRadius: 2,
+                        pointHoverRadius: 5,
+                        pointBackgroundColor: 'rgba(129, 140, 248, 1)',
+                        pointBorderColor: 'rgba(15, 23, 42, 0.9)',
+                        pointBorderWidth: 2,
+                        borderWidth: 3,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Transactions',
+                        data: [],
+                        borderColor: 'rgba(74, 222, 128, 0.98)',
+                        backgroundColor: 'rgba(74, 222, 128, 0.12)',
+                        fill: false,
+                        tension: 0.35,
+                        pointRadius: 2,
+                        pointHoverRadius: 5,
+                        pointBackgroundColor: 'rgba(74, 222, 128, 1)',
+                        pointBorderColor: 'rgba(15, 23, 42, 0.9)',
+                        pointBorderWidth: 2,
+                        borderWidth: 3,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'rgba(241, 245, 249, 0.95)',
+                            boxWidth: 12,
+                            boxHeight: 12,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                        borderColor: 'rgba(148, 163, 184, 0.25)',
+                        borderWidth: 1,
+                        titleColor: 'rgba(241, 245, 249, 0.95)',
+                        bodyColor: 'rgba(226, 232, 240, 0.95)'
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: { color: 'rgba(203, 213, 225, 0.9)', maxRotation: 0, autoSkip: true },
+                        grid: { color: 'rgba(148, 163, 184, 0.12)' }
+                    },
+                    y: {
+                        ticks: {
+                            color: 'rgba(203, 213, 225, 0.9)',
+                            callback: (val) => {
+                                const num = Number(val);
+                                if (!Number.isFinite(num)) return val;
+                                if (num >= 1e9) return `${(num / 1e9).toFixed(1)}B`;
+                                if (num >= 1e6) return `${(num / 1e6).toFixed(1)}M`;
+                                if (num >= 1e3) return `${(num / 1e3).toFixed(1)}K`;
+                                return `${num}`;
+                            }
+                        },
+                        grid: { color: 'rgba(148, 163, 184, 0.12)' }
+                    },
+                    y1: {
+                        position: 'right',
+                        ticks: { color: 'rgba(203, 213, 225, 0.9)' },
+                        grid: { drawOnChartArea: false }
+                    }
+                }
+            }
+        });
+
+        return historyChart;
+    }
+
+    function updateHistoryChart(rows) {
+        const chart = ensureHistoryChart();
+        if (!chart) return;
+        if (!Array.isArray(rows) || rows.length === 0) return;
+
+        const sorted = rows
+            .slice()
+            .sort((a, b) => String(a.businessDate || '').localeCompare(String(b.businessDate || '')));
+
+        chart.data.labels = sorted.map((row) => String(row.businessDate || ''));
+        chart.data.datasets[0].data = sorted.map((row) => Number(row.totalTurnover || 0));
+        chart.data.datasets[1].data = sorted.map((row) => Number(row.totalTransactions || 0));
+        chart.update();
     }
 
     function renderOldIpoTable(rows) {
@@ -423,9 +601,18 @@ document.addEventListener('DOMContentLoaded', () => {
             renderBrokers(brokers);
         }
 
+        if (!Array.isArray(historyData) && historyChartStatus) {
+            historyChartStatus.style.display = 'block';
+            historyChartStatus.textContent = 'Unable to load market summary history. If you opened this page via file://, fetch() is blocked — run a local server (e.g. VS Code Live Server) or open from GitHub Pages.';
+        }
+
         if (marketSummaryHistory.length === 0) {
             historyTableBody.innerHTML = '<tr><td colspan="5" class="intel-empty">Market summary history unavailable.</td></tr>';
         } else {
+            if (historyChartStatus) {
+                historyChartStatus.style.display = 'none';
+                historyChartStatus.textContent = '';
+            }
             applyHistoryFilters();
         }
 
@@ -449,6 +636,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const labelEl = toggleEl.querySelector('span');
             if (labelEl) {
                 labelEl.textContent = isHidden ? showLabel : hideLabel;
+            }
+
+            if (!isHidden && contentEl.id === 'history-content') {
+                requestAnimationFrame(() => {
+                    applyHistoryFilters();
+                });
             }
         };
         toggleEl.addEventListener('click', () => {
