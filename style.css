@@ -145,6 +145,7 @@ header {
 
 .status-item {
     background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(var(--glass-blur));
     backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--card-border);
     padding: 1rem 2rem;
@@ -228,6 +229,15 @@ header {
     z-index: 100;
 }
 
+.filter-dropdown {
+    width: 300px;
+    z-index: 120;
+}
+
+.native-select-hidden {
+    display: none !important;
+}
+
 .dropdown-trigger {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -240,6 +250,7 @@ header {
     justify-content: space-between;
     transition: all 0.3s ease;
     user-select: none;
+    -webkit-user-select: none;
 }
 
 .dropdown-trigger:focus-visible {
@@ -370,6 +381,7 @@ header {
     border: 1px solid var(--card-border);
     border-radius: 20px;
     padding: 1.25rem;
+    -webkit-backdrop-filter: blur(var(--glass-blur));
     backdrop-filter: blur(var(--glass-blur));
 }
 
@@ -981,6 +993,20 @@ header {
     flex-wrap: wrap;
 }
 
+.ipo-chart-wrap {
+    border: 1px solid var(--card-border);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    padding: 0.6rem 0.7rem;
+    margin-top: 0.8rem;
+}
+
+#ipo-status-chart {
+    width: 100%;
+    height: 130px;
+    display: block;
+}
+
 .ipo-meta {
     color: var(--text-secondary);
     font-size: 0.85rem;
@@ -1030,6 +1056,11 @@ header {
 }
 
 .is-hidden {
+    display: none !important;
+}
+
+body.filter-active #dashboard-section,
+body.filter-active #ipo-section {
     display: none !important;
 }
 
@@ -1326,6 +1357,7 @@ header {
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: none;
     justify-content: center;
     align-items: center;
@@ -1476,6 +1508,7 @@ header {
     top: 0;
     background: rgba(10, 10, 10, 0.94);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     color: var(--text-secondary);
     text-transform: none;
     letter-spacing: 0.02em;

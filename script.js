@@ -30,6 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const topGainersListEl = document.getElementById('top-gainers-list');
     const topLosersListEl = document.getElementById('top-losers-list');
     const noticeFeedEl = document.getElementById('notice-feed');
+    const ipoStatusChartEl = document.getElementById('ipo-status-chart');
+    const dashboardSectionEls = Array.from(document.querySelectorAll('.dash-main .intel-section'));
+    const ipoSectionEl = document.getElementById('ipo-section');
 
     let currentSelectedSector = 'all';
     let allStocks = [];
@@ -41,6 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeModalTrigger = null;
     let currentModalSymbol = '';
     let dividendHistoryCache = null;
+    let hasRenderableIpos = false;
+    let showAllIpos = false;
+    let ipoChartSnapshot = { open: 0, upcoming: 0, closed: 0 };
 
     function setDropdownOpen(isOpen) {
         customDropdown.classList.toggle('open', isOpen);
@@ -729,9 +735,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const ipoGrid = document.getElementById('ipo-grid');
         const ipoStatusFilter = document.getElementById('ipo-status-filter');
         const ipoSummaryMeta = document.getElementById('ipo-summary-meta');
+        hasRenderableIpos = false;
 
         if (!Array.isArray(ipos) || ipos.length === 0) {
             ipoSection.classList.add('is-hidden');
+            ipoChartSnapshot = { open: 0, upcoming: 0, closed: 0 };
+            renderIpoStatusChart(0, 0, 0);
+            updateTopSectionsVisibility();
             return;
         }
 
@@ -768,9 +778,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
         if (classifiedIpos.length === 0) {
+            hasRenderableIpos = true;
             ipoSection.classList.remove('is-hidden');
             ipoGrid.innerHTML = '<p class="intel-empty">Unable to parse IPO windows from source data.</p>';
             if (ipoSummaryMeta) ipoSummaryMeta.textContent = '0 active | 0 closed';
+            ipoChartSnapshot = { open: 0, upcoming: 0, closed: 0 };
+            renderIpoStatusChart(0, 0, 0);
+            updateTopSectionsVisibility();
             return;
         }
 
@@ -780,10 +794,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (openIpos.length === 0 && upcomingIpos.length === 0 && closedIpos.length === 0) {
             ipoSection.classList.add('is-hidden');
+            ipoChartSnapshot = { open: 0, upcoming: 0, closed: 0 };
+            renderIpoStatusChart(0, 0, 0);
+            updateTopSectionsVisibility();
             return;
         }
 
+        hasRenderableIpos = true;
         ipoSection.classList.remove('is-hidden');
+        ipoChartSnapshot = {
+            open: openIpos.length,
+            upcoming: upcomingIpos.length,
+            closed: closedIpos.length
+        };
+        renderIpoStatusChart(ipoChartSnapshot.open, ipoChartSnapshot.upcoming, ipoChartSnapshot.closed);
 
         const renderIpoCard = (container, { ipo, window, status, daysRemaining, openingDay, closingDay }) => {
             const card = document.createElement('div');
@@ -897,13 +921,103 @@ document.addEventListener('DOMContentLoaded', () => {
                 ipoGrid.innerHTML = '<p class="intel-empty">No IPOs in this status.</p>';
                 return;
             }
-            rows.forEach((item) => renderIpoCard(ipoGrid, item));
+            const visibleRows = showAllIpos ? rows : rows.slice(0, 4);
+            visibleRows.forEach((item) => renderIpoCard(ipoGrid, item));
+
+            if (rows.length > 4) {
+                const toggleWrap = document.createElement('div');
+                toggleWrap.style.gridColumn = '1 / -1';
+                toggleWrap.style.display = 'flex';
+                toggleWrap.style.justifyContent = 'center';
+                toggleWrap.style.marginTop = '0.5rem';
+
+                const toggleBtn = document.createElement('button');
+                toggleBtn.type = 'button';
+                toggleBtn.className = 'ipo-toggle-btn';
+                toggleBtn.textContent = showAllIpos ? 'Show less' : `View more (${rows.length - 4})`;
+                toggleBtn.addEventListener('click', () => {
+                    showAllIpos = !showAllIpos;
+                    renderByFilter();
+                });
+
+                toggleWrap.appendChild(toggleBtn);
+                ipoGrid.appendChild(toggleWrap);
+            }
         };
 
         if (ipoStatusFilter) {
-            ipoStatusFilter.onchange = renderByFilter;
+            ipoStatusFilter.onchange = () => {
+                showAllIpos = false;
+                renderByFilter();
+            };
         }
         renderByFilter();
+        updateTopSectionsVisibility();
+    }
+
+    function renderIpoStatusChart(openCount, upcomingCount, closedCount) {
+        if (!ipoStatusChartEl) return;
+        const ctx = ipoStatusChartEl.getContext('2d');
+        if (!ctx) return;
+
+        const dpr = window.devicePixelRatio || 1;
+        const cssWidth = Math.max(320, Math.floor(ipoStatusChartEl.clientWidth || 900));
+        const cssHeight = Math.max(120, Math.floor(ipoStatusChartEl.clientHeight || 130));
+        ipoStatusChartEl.width = Math.floor(cssWidth * dpr);
+        ipoStatusChartEl.height = Math.floor(cssHeight * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, cssWidth, cssHeight);
+
+        const data = [
+            { label: 'Open', value: openCount, color: '#22c55e' },
+            { label: 'Upcoming', value: upcomingCount, color: '#f59e0b' },
+            { label: 'Closed', value: closedCount, color: '#ef4444' }
+        ];
+
+        const maxValue = Math.max(1, ...data.map(d => d.value));
+        const pad = { top: 18, right: 14, bottom: 28, left: 20 };
+        const chartW = cssWidth - pad.left - pad.right;
+        const chartH = cssHeight - pad.top - pad.bottom;
+        const slotW = chartW / data.length;
+        const barW = Math.min(68, Math.max(30, slotW * 0.56));
+
+        ctx.fillStyle = 'rgba(255,255,255,0.07)';
+        ctx.fillRect(pad.left, pad.top + chartH, chartW, 1);
+
+        data.forEach((item, i) => {
+            const x = pad.left + i * slotW + (slotW - barW) / 2;
+            const h = (item.value / maxValue) * (chartH - 8);
+            const y = pad.top + chartH - h;
+
+            ctx.fillStyle = item.color;
+            ctx.fillRect(x, y, barW, h);
+
+            ctx.fillStyle = '#d7def8';
+            ctx.font = '600 12px Outfit, Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(String(item.value), x + barW / 2, y - 6);
+
+            ctx.fillStyle = '#a0a8c8';
+            ctx.font = '500 11px Outfit, Inter, sans-serif';
+            ctx.fillText(item.label, x + barW / 2, cssHeight - 10);
+        });
+    }
+
+    function updateTopSectionsVisibility() {
+        const term = (searchInput?.value || '').trim();
+        const hasActiveFilter = term.length > 0 || currentSelectedSector !== 'all';
+        document.body.classList.toggle('filter-active', hasActiveFilter);
+
+        dashboardSectionEls.forEach((el) => {
+            el.classList.toggle('is-hidden', hasActiveFilter);
+            el.style.display = hasActiveFilter ? 'none' : '';
+        });
+
+        if (ipoSectionEl) {
+            const shouldHideIpo = hasActiveFilter || !hasRenderableIpos;
+            ipoSectionEl.classList.toggle('is-hidden', shouldHideIpo);
+            ipoSectionEl.style.display = shouldHideIpo ? 'none' : '';
+        }
     }
 
     function populateSectorDropdown() {
@@ -1094,6 +1208,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 (stock.name && stock.name.toUpperCase().includes(term));
         });
         renderStocks(filtered);
+        updateTopSectionsVisibility();
     }
 
     function showStockDetails(stock) {
@@ -1170,6 +1285,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && stockModal.classList.contains('show')) {
             closeModal();
         }
+    });
+
+    window.addEventListener('resize', () => {
+        renderIpoStatusChart(ipoChartSnapshot.open, ipoChartSnapshot.upcoming, ipoChartSnapshot.closed);
     });
 
     fetchStocks();

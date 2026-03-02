@@ -1,9 +1,11 @@
-# YONEPSE - Real-time NEPSE Stock Dashboard
+﻿# YONEPSE - Real-time NEPSE Stock Dashboard
+
+![YONEPSE Favicon](favicon.png)
 
 ![YONEPSE](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
-A modern, elegant, and comprehensive dashboard for tracking live stock prices from the Nepal Stock Exchange (NEPSE). Features real-time market data, sector filtering, IPO tracking, broker directory, and automated data updates via GitHub Actions.
+A modern, elegant, and comprehensive dashboard as well as open api for tracking live stock prices from the Nepal Stock Exchange (NEPSE). Features real-time market data, sector filtering, IPO tracking, broker directory, and automated data updates via GitHub Actions.
 
 ---
 
@@ -84,10 +86,15 @@ nepse-scraper/
 │   ├── supply_demand.json        # Supply/demand data
 │   ├── upcoming_ipo.json         # Upcoming IPOs
 │   ├── oldipo.json               # IPO archive
+│   ├── proposed_dividend/        # Proposed dividend datasets
+│   │   ├── latest_1y.json        # Latest proposed dividends (rolling 1 year)
+│   │   ├── history_all_years.json # Append-only all-years proposed dividend history
+│   │   └── meta.json             # Proposed dividend scraper metadata
 │   └── nepse_sector_wise_codes.json
 ├── scripts/nepse-scraper/
 │   ├── official_scraper.py       # Main NEPSE API scraper
 │   ├── upcoming_ipo_scraper.py   # IPO scraper
+│   ├── proposed_dividend_scraper.py # Proposed dividend scraper
 │   ├── scraper.py                # Backup web scraper
 │   ├── requirements.txt          # Python dependencies
 │   └── official_api/             # NEPSE API client
@@ -144,6 +151,12 @@ python official_scraper.py --brokers --securities
 
 # Update IPO data
 python upcoming_ipo_scraper.py
+
+# Update proposed dividend data (daily mode)
+python proposed_dividend_scraper.py --mode latest
+
+# Optional full all-years backfill
+python proposed_dividend_scraper.py --mode backfill
 ```
 
 ---
@@ -153,14 +166,14 @@ python upcoming_ipo_scraper.py
 ### Market Data Scraper ([`.github/workflows/scrape.yml`](.github/workflows/scrape.yml))
 - **Schedule**: Every 30 minutes
 - **Time**: 10:00 AM - 4:00 PM NPT (Sunday - Friday)
-- **Data**: Stock prices, indices, market summary, top stocks, notices
+- **Data**: Stock prices, indices, market summary, top stocks, notices, disclosures, exchange messages, supply/demand
 - **Files**: Updates all JSON files in `data/` folder
 
 ### IPO Scraper ([`.github/workflows/scrape_ipo.yml`](.github/workflows/scrape_ipo.yml))
 - **Schedule**: Daily at 4:00 AM UTC (9:45 AM NPT)
-- **Data**: Upcoming IPO announcements
-- **Files**: `data/upcoming_ipo.json`, `data/oldipo.json`
-- **Features**: Auto-archives IPOs older than 10 days
+- **Data**: Upcoming IPO announcements + proposed dividend refresh
+- **Files**: `data/upcoming_ipo.json`, `data/oldipo.json`, `data/proposed_dividend/latest_1y.json`, `data/proposed_dividend/history_all_years.json`, `data/proposed_dividend/meta.json`
+- **Features**: Auto-archives IPOs older than 10 days and updates proposed dividend datasets
 
 ---
 
@@ -177,9 +190,17 @@ All data is accessible as static JSON endpoints:
 | `/data/market_summary.json` | Object | Current day market summary |
 | `/data/market_summary_history.json` | Array | Historical market data |
 | `/data/market_status.json` | Object | Market open/closed status |
+| `/data/disclosures.json` | Array | Company disclosures |
+| `/data/exchange_messages.json` | Array | Exchange announcements |
 | `/data/brokers.json` | Array | Complete broker directory |
+| `/data/all_securities.json` | Array | Master list of securities metadata |
+| `/data/supply_demand.json` | Object | Supply/demand snapshots |
 | `/data/upcoming_ipo.json` | Array | Upcoming IPO listings |
+| `/data/oldipo.json` | Array | Historical IPO archive |
 | `/data/notices.json` | Object | Exchange & company notices |
+| `/data/proposed_dividend/latest_1y.json` | Array | Latest proposed dividends (rolling 1 year) |
+| `/data/proposed_dividend/history_all_years.json` | Array | Append-only all-years proposed dividend history |
+| `/data/proposed_dividend/meta.json` | Object | Proposed dividend scraper run metadata |
 | `/data/nepse_sector_wise_codes.json` | Object | Sector mapping for stocks |
 
 See [`docs.html`](docs.html) for complete documentation.
@@ -218,6 +239,7 @@ See [`docs.html`](docs.html) for complete documentation.
 #### Backend
 - [`official_scraper.py`](scripts/nepse-scraper/official_scraper.py) - Main scraper using NEPSE API
 - [`upcoming_ipo_scraper.py`](scripts/nepse-scraper/upcoming_ipo_scraper.py) - IPO data from Merolagani
+- [`proposed_dividend_scraper.py`](scripts/nepse-scraper/proposed_dividend_scraper.py) - Proposed dividend data from ShareSansar
 - [`official_api/`](scripts/nepse-scraper/official_api/) - NEPSE API Python client with WASM auth
 
 ---
@@ -255,3 +277,4 @@ For issues, feature requests, or contributions, please open an issue on GitHub.
 <p align="center">
   <sub>Built with ❤️ for the Nepali investment community</sub>
 </p>
+

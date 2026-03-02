@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 768" role="img" aria-label="YONEPSE favicon">
+  <defs>
+    <linearGradient id="g" x1="185" y1="560" x2="586" y2="188" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6c00ff"/>
+      <stop offset="52%" stop-color="#a318ff"/>
+      <stop offset="100%" stop-color="#36e0cf"/>
+    </linearGradient>
+    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="768" height="768" fill="#020814"/>
+
+  <g filter="url(#s)">
+    <path fill="url(#g)" d="M203 267h88l39 87 61-87h89l-137 198-140-198z"/>
+
+    <path fill="url(#g)" d="M291 450l126-167 58 79 92-119 25 15-117 167-58-79-79 107v105h-47V450z"/>
+
+    <path fill="url(#g)" d="M499 244l64-32-3 91-61-59z"/>
+
+    <path fill="url(#g)" d="M291 450h75v108h-75z"/>
+
+    <path fill="#020814" d="M325 376l92-122 58 79 79-101 25 18-104 147-58-79-92 123z"/>
+  </g>
+</svg>

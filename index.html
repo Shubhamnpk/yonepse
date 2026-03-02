@@ -16,7 +16,8 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Favicon -->
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.png" type="image/png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -86,7 +87,7 @@
 
         <section class="dashboard-shell">
             <div class="dash-main">
-                <section class="intel-section">
+                <section id="dashboard-section" class="intel-section">
                     <h2 class="section-title">
                         <i class="fa-solid fa-table-columns"></i>
                         Dashboard
@@ -129,6 +130,9 @@
                                 <option value="closed">Closed</option>
                             </select>
                         </label>
+                    </div>
+                    <div class="ipo-chart-wrap">
+                        <canvas id="ipo-status-chart" width="900" height="170" aria-label="IPO status chart"></canvas>
                     </div>
                     <div class="ipo-grid" id="ipo-grid">
                         <!-- IPO Cards injected here -->

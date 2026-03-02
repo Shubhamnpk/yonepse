@@ -7,7 +7,8 @@
     <title>YONEPSE | Developer API Docs</title>
     <meta name="description" content="Developer-friendly JSON endpoint docs for YONEPSE datasets.">
     <meta name="theme-color" content="#050505">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +23,7 @@
             margin-bottom: 3rem;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 1rem;
             padding: 2rem;
@@ -483,91 +485,91 @@ if __name__ == "__main__":
                                 <td><code>/data/nepse_data.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Live stock prices with OHLCV data (updated during market hours)</td>
-                                <td>Every 30 min</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~140KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market_status.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Market open/closed status with last check timestamp</td>
-                                <td>Every 5 min</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>&lt;1KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/indices.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Major NEPSE indices (NEPSE, Sensitive, Float)</td>
-                                <td>Real-time</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~2KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/sector_indices.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Sector-wise index performance and metadata</td>
-                                <td>Daily</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~5KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/top_stocks.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Top gainers, losers, turnover, and volume leaders</td>
-                                <td>Real-time</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~3KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market_summary.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Key market metrics (turnover, trades, scrips)</td>
-                                <td>Real-time</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~1KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market_summary_history.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Historical daily market summary data</td>
-                                <td>Daily</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~100KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/notices.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>General, company, and exchange notices</td>
-                                <td>Hourly</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~20KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/disclosures.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Company disclosures and announcements</td>
-                                <td>Hourly</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~15KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/exchange_messages.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Exchange announcements and circulars</td>
-                                <td>Hourly</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~8KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/brokers.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Complete broker directory with contact info</td>
-                                <td>Weekly</td>
+                                <td>Conditional (about every 60 days)</td>
                                 <td>~25KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/all_securities.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Master list of all securities with metadata</td>
-                                <td>Weekly</td>
+                                <td>Conditional (about every 60 days)</td>
                                 <td>~30KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/supply_demand.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Supply and demand book for all securities</td>
-                                <td>Real-time</td>
+                                <td>Every 30 min (Sun-Fri, market hours)</td>
                                 <td>~10KB</td>
                             </tr>
                             <tr>
@@ -581,8 +583,29 @@ if __name__ == "__main__":
                                 <td><code>/data/oldipo.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Historical IPO archive</td>
-                                <td>Monthly</td>
+                                <td>Daily</td>
                                 <td>~5KB</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/proposed_dividend/latest_1y.json</code></td>
+                                <td><span class="badge ok">GET</span></td>
+                                <td>Latest proposed dividend records (rolling 1-year snapshot)</td>
+                                <td>Daily</td>
+                                <td>~105KB</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/proposed_dividend/history_all_years.json</code></td>
+                                <td><span class="badge ok">GET</span></td>
+                                <td>Append-only proposed dividend history across all fiscal years</td>
+                                <td>Daily</td>
+                                <td>~1.3MB</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/proposed_dividend/meta.json</code></td>
+                                <td><span class="badge ok">GET</span></td>
+                                <td>Run metadata: mode, counts, and smoke-check status</td>
+                                <td>Daily</td>
+                                <td>&lt;1KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/nepse_sector_wise_codes.json</code></td>
@@ -888,6 +911,66 @@ if __name__ == "__main__":
   "url": "...",
   "reserved_for": "...",
   "scraped_at": "ISO timestamp"
+}</code></pre></div>
+                    </article>
+
+                    <article class="endpoint-card">
+                        <div class="endpoint-head">
+                            <span class="badge ok">GET</span>
+                            <code class="endpoint-path">/data/proposed_dividend/latest_1y.json</code>
+                            <span class="badge">array&lt;dividend&gt;</span>
+                        </div>
+                        <p class="endpoint-desc">Latest proposed dividend data (rolling 1 year). Refreshed in normal scraper runs.</p>
+                        <div class="code-wrap"><div class="code-head"><span>sample item</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div><pre><code>{
+  "id": 432,
+  "symbol": "CZBIL",
+  "company_name": "Citizen Bank International Limited",
+  "company_url": "https://www.sharesansar.com/company/czbil",
+  "bonus_share": "8.00",
+  "cash_dividend": "4.00",
+  "total_dividend": "12.00",
+  "announcement_date": "2025-12-24",
+  "bookclose_date": "2026-01-01 [Closed]",
+  "distribution_date": null,
+  "bonus_listing_date": null,
+  "fiscal_year": "2081/2082",
+  "ltp": "193.30",
+  "price_as_of": "2026-03-01",
+  "status": 1,
+  "scraped_at": "2026-03-02T05:12:00.000000"
+}</code></pre></div>
+                    </article>
+
+                    <article class="endpoint-card">
+                        <div class="endpoint-head">
+                            <span class="badge ok">GET</span>
+                            <code class="endpoint-path">/data/proposed_dividend/history_all_years.json</code>
+                            <span class="badge">array&lt;dividend&gt;</span>
+                        </div>
+                        <p class="endpoint-desc">All-year proposed dividend history. Append-only timeline used for company-level dividend lookups.</p>
+                        <div class="code-wrap"><div class="code-head"><span>shape</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div><pre><code>[
+  {
+    "symbol": "NABIL",
+    "fiscal_year": "2081/2082",
+    "total_dividend": "20.00",
+    "announcement_date": "2025-09-15"
+  }
+]</code></pre></div>
+                    </article>
+
+                    <article class="endpoint-card">
+                        <div class="endpoint-head">
+                            <span class="badge ok">GET</span>
+                            <code class="endpoint-path">/data/proposed_dividend/meta.json</code>
+                            <span class="badge">object</span>
+                        </div>
+                        <p class="endpoint-desc">Operational metadata for proposed-dividend scraper runs.</p>
+                        <div class="code-wrap"><div class="code-head"><span>sample</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div><pre><code>{
+  "last_run_at": "2026-03-02T05:12:00.000000",
+  "mode": "latest",
+  "latest_count": 186,
+  "history_count": 2394,
+  "smoke_passed": true
 }</code></pre></div>
                     </article>
 

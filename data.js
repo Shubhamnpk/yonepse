@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const oldIpoContent = document.getElementById('old-ipo-content');
     const historyChartCanvas = document.getElementById('history-chart');
     const historyChartStatus = document.getElementById('history-chart-status');
+    const customSelectControllers = new Map();
 
     const DATASET_FILES = [
         'all_securities.json',
@@ -147,7 +148,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getProvinceNames(broker) {
         if (!Array.isArray(broker.provinceList) || broker.provinceList.length === 0) return [];
-        return broker.provinceList.map((item) => item.description || item.name).filter(Boolean);
+        const normalized = broker.provinceList
+            .map((item) => item.description || item.name)
+            .filter(Boolean)
+            .map((value) => {
+                const text = String(value).trim();
+                const match = text.match(/(\d+)/);
+                return match ? match[1] : text;
+            });
+        return Array.from(new Set(normalized));
     }
 
     function getProvinces(broker) {
@@ -198,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
             option.textContent = type;
             membershipFilter.appendChild(option);
         });
+        refreshCustomSelect(membershipFilter);
     }
 
     function renderDistrictOptions() {
@@ -208,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             option.textContent = district;
             districtFilter.appendChild(option);
         });
+        refreshCustomSelect(districtFilter);
     }
 
     function applyBrokerFilters() {
@@ -651,6 +662,118 @@ document.addEventListener('DOMContentLoaded', () => {
         sync();
     }
 
+    function closeAllCustomDropdowns() {
+        customSelectControllers.forEach((controller) => controller.setOpen(false));
+    }
+
+    function initCustomSelect(selectEl) {
+        if (!selectEl) return;
+        if (customSelectControllers.has(selectEl)) return;
+
+        selectEl.classList.add('native-select-hidden');
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'custom-dropdown filter-dropdown';
+        const leftIcon = 'fa-layer-group';
+
+        const trigger = document.createElement('div');
+        trigger.className = 'dropdown-trigger';
+        trigger.setAttribute('role', 'button');
+        trigger.setAttribute('tabindex', '0');
+        trigger.setAttribute('aria-haspopup', 'listbox');
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.innerHTML = `
+            <i class="fa-solid ${leftIcon}" aria-hidden="true"></i>
+            <span></span>
+            <i class="fa-solid fa-chevron-down arrow"></i>
+        `;
+
+        const optionsBox = document.createElement('div');
+        optionsBox.className = 'dropdown-options';
+        optionsBox.setAttribute('role', 'listbox');
+
+        wrapper.appendChild(trigger);
+        wrapper.appendChild(optionsBox);
+        selectEl.insertAdjacentElement('afterend', wrapper);
+
+        const setOpen = (isOpen) => {
+            wrapper.classList.toggle('open', isOpen);
+            trigger.setAttribute('aria-expanded', String(isOpen));
+        };
+
+        const refresh = () => {
+            optionsBox.innerHTML = '';
+            Array.from(selectEl.options).forEach((opt) => {
+                const item = document.createElement('div');
+                item.className = 'option-item';
+                item.setAttribute('role', 'option');
+                item.setAttribute('tabindex', '0');
+                item.setAttribute('data-value', opt.value);
+                item.setAttribute('aria-selected', String(opt.selected));
+                item.textContent = opt.textContent || opt.value;
+                if (opt.selected) item.classList.add('selected');
+                optionsBox.appendChild(item);
+            });
+
+            const selectedOpt = selectEl.options[selectEl.selectedIndex];
+            const selectedText = selectedOpt ? selectedOpt.textContent : 'Select';
+            const span = trigger.querySelector('span');
+            if (span) span.textContent = selectedText || 'Select';
+        };
+
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const willOpen = !wrapper.classList.contains('open');
+            closeAllCustomDropdowns();
+            setOpen(willOpen);
+        });
+
+        trigger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const willOpen = !wrapper.classList.contains('open');
+                closeAllCustomDropdowns();
+                setOpen(willOpen);
+            } else if (e.key === 'Escape') {
+                setOpen(false);
+            }
+        });
+
+        optionsBox.addEventListener('click', (e) => {
+            const item = e.target.closest('.option-item');
+            if (!item) return;
+            const value = item.getAttribute('data-value') || '';
+            if (selectEl.value !== value) {
+                selectEl.value = value;
+                selectEl.dispatchEvent(new Event('change', { bubbles: true }));
+            } else {
+                refresh();
+            }
+            setOpen(false);
+        });
+
+        optionsBox.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const item = e.target.closest('.option-item');
+                if (item) item.click();
+            } else if (e.key === 'Escape') {
+                setOpen(false);
+                trigger.focus();
+            }
+        });
+
+        selectEl.addEventListener('change', refresh);
+        refresh();
+
+        customSelectControllers.set(selectEl, { refresh, setOpen });
+    }
+
+    function refreshCustomSelect(selectEl) {
+        const controller = customSelectControllers.get(selectEl);
+        if (controller) controller.refresh();
+    }
+
     brokerSearch.addEventListener('input', applyBrokerFilters);
     membershipFilter.addEventListener('change', applyBrokerFilters);
     districtFilter.addEventListener('change', applyBrokerFilters);
@@ -660,6 +783,8 @@ document.addEventListener('DOMContentLoaded', () => {
     bindSectionToggle(brokerDirectoryToggle, brokerDirectoryContent, 'Show Directory', 'Hide Directory');
     bindSectionToggle(historyToggle, historyContent, 'Show History', 'Hide History');
     bindSectionToggle(oldIpoToggle, oldIpoContent, 'Show Archive', 'Hide Archive');
+    document.querySelectorAll('select').forEach((selectEl) => initCustomSelect(selectEl));
+    document.addEventListener('click', () => closeAllCustomDropdowns());
 
     init();
 });
