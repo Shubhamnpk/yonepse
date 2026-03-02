@@ -239,7 +239,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <div class="detail-grid">
+                <div class="detail-grid" id="modal-market-grid">
                     <div class="modal-detail-item">
                         <span class="label">Previous Close</span>
                         <span id="modal-prev-close" class="value">0.00</span>
@@ -257,9 +257,20 @@
                         <span id="modal-volume" class="value">0.00</span>
                     </div>
                 </div>
-
                 <div class="modal-footer-info">
+                    <button id="modal-dividend-open" class="modal-dividend-btn" type="button">View Dividend History</button>
                     <p><i class="fa-solid fa-clock"></i> Last updated: <span id="modal-last-updated">-</span></p>
+                    <div id="modal-dividend-block" class="modal-dividend-block is-hidden">
+                        <div class="modal-dividend-header">
+                            <h3><i class="fa-solid fa-money-bill-trend-up"></i> Dividend History</h3>
+                            <button id="modal-dividend-back" class="modal-dividend-btn modal-dividend-back" type="button">Back to Market Data</button>
+                            <button id="modal-dividend-load" class="modal-dividend-btn" type="button">Load for Symbol</button>
+                        </div>
+                        <p id="modal-dividend-status" class="modal-dividend-status">Select a stock to load dividend history.</p>
+                        <p id="modal-dividend-summary" class="modal-dividend-summary"></p>
+                        <p id="modal-dividend-analysis" class="modal-dividend-analysis"></p>
+                        <div id="modal-dividend-list" class="modal-dividend-list"></div>
+                    </div>
                 </div>
             </div>
         </div>

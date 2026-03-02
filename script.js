@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const marketSummaryEl = document.getElementById('market-summary');
     const stockModal = document.getElementById('stock-modal');
     const closeModalBtn = document.getElementById('close-modal');
+    const modalDividendLoadBtn = document.getElementById('modal-dividend-load');
+    const modalDividendOpenBtn = document.getElementById('modal-dividend-open');
+    const modalDividendBackBtn = document.getElementById('modal-dividend-back');
+    const modalDividendBlockEl = document.getElementById('modal-dividend-block');
+    const modalMarketGridEl = document.getElementById('modal-market-grid');
+    const modalDividendStatusEl = document.getElementById('modal-dividend-status');
+    const modalDividendSummaryEl = document.getElementById('modal-dividend-summary');
+    const modalDividendAnalysisEl = document.getElementById('modal-dividend-analysis');
+    const modalDividendListEl = document.getElementById('modal-dividend-list');
 
     // Custom Dropdown Logic
     const dropdownTrigger = document.getElementById('dropdown-trigger');
@@ -30,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const expandedSectors = new Set();
     const DEFAULT_VISIBLE_STOCKS_PER_SECTOR = 2;
     let activeModalTrigger = null;
+    let currentModalSymbol = '';
+    let dividendHistoryCache = null;
 
     function setDropdownOpen(isOpen) {
         customDropdown.classList.toggle('open', isOpen);
@@ -137,6 +148,123 @@ document.addEventListener('DOMContentLoaded', () => {
     function stripHtml(html) {
         if (!html) return '';
         return String(html).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+    }
+
+    function normalizeSymbol(symbol) {
+        return String(symbol || '').trim().toUpperCase();
+    }
+
+    function parseDateValue(value) {
+        const d = new Date(value);
+        return Number.isNaN(d.getTime()) ? 0 : d.getTime();
+    }
+
+    function safeValue(value, fallback = '-') {
+        if (value === null || value === undefined || value === '') return fallback;
+        return value;
+    }
+
+    async function getDividendHistoryData() {
+        if (Array.isArray(dividendHistoryCache)) return dividendHistoryCache;
+        const raw = await fetchJson('proposed_dividend/history_all_years.json');
+        dividendHistoryCache = Array.isArray(raw) ? raw : [];
+        return dividendHistoryCache;
+    }
+
+    function resetDividendSection(symbol) {
+        modalDividendStatusEl.textContent = `Click "Load for Symbol" to view dividend history for ${symbol}.`;
+        modalDividendSummaryEl.textContent = '';
+        modalDividendAnalysisEl.textContent = '';
+        modalDividendListEl.innerHTML = '';
+    }
+
+    function setDividendFocusMode(isFocused) {
+        if (isFocused) {
+            stockModal.classList.add('dividend-focus');
+            modalDividendBlockEl.classList.remove('is-hidden');
+            if (modalMarketGridEl) modalMarketGridEl.classList.add('is-hidden');
+        } else {
+            stockModal.classList.remove('dividend-focus');
+            modalDividendBlockEl.classList.add('is-hidden');
+            if (modalMarketGridEl) modalMarketGridEl.classList.remove('is-hidden');
+        }
+    }
+
+    function numberValue(value) {
+        const n = Number(value);
+        return Number.isFinite(n) ? n : 0;
+    }
+
+    function buildDividendAnalysis(rows) {
+        if (!rows.length) return 'No analysis available.';
+        const totals = rows.map(r => numberValue(r.total_dividend));
+        const latest = totals[0] || 0;
+        const avg = totals.reduce((a, b) => a + b, 0) / totals.length;
+        const max = Math.max(...totals);
+        const min = Math.min(...totals);
+        const latest3 = totals.slice(0, 3);
+        const prev3 = totals.slice(3, 6);
+        const latest3Avg = latest3.length ? latest3.reduce((a, b) => a + b, 0) / latest3.length : 0;
+        const prev3Avg = prev3.length ? prev3.reduce((a, b) => a + b, 0) / prev3.length : latest3Avg;
+        const trend = latest3Avg >= prev3Avg ? 'improving' : 'softening';
+        return `Analysis: latest total dividend is ${latest.toFixed(2)}%. Average across ${rows.length} records is ${avg.toFixed(2)}% (min ${min.toFixed(2)}%, max ${max.toFixed(2)}%). Recent pattern looks ${trend}.`;
+    }
+
+    function renderDividendHistoryRows(rows) {
+        if (!rows.length) {
+            modalDividendListEl.innerHTML = '';
+            return;
+        }
+
+        const topRows = rows.slice(0, 12);
+        const cards = topRows.map((row) => `
+            <div class="dividend-row">
+                <div class="dividend-row-head">
+                    <strong>${safeValue(row.fiscal_year)}</strong>
+                    <span>${safeValue(row.announcement_date)}</span>
+                </div>
+                <div class="dividend-row-meta">
+                    <span>Total: ${safeValue(row.total_dividend, '0')}%</span>
+                    <span>Bonus: ${safeValue(row.bonus_share, '0')}%</span>
+                    <span>Cash: ${safeValue(row.cash_dividend, '0')}%</span>
+                    <span>Book Close: ${safeValue(row.bookclose_date)}</span>
+                </div>
+            </div>
+        `).join('');
+
+        modalDividendListEl.innerHTML = cards;
+    }
+
+    async function loadDividendHistoryForCurrentSymbol() {
+        if (!currentModalSymbol) return;
+        setDividendFocusMode(true);
+        modalDividendLoadBtn.disabled = true;
+        modalDividendStatusEl.textContent = `Loading dividend history for ${currentModalSymbol}...`;
+        modalDividendSummaryEl.textContent = '';
+        modalDividendListEl.innerHTML = '';
+
+        try {
+            const rows = await getDividendHistoryData();
+            const matched = rows
+                .filter((row) => normalizeSymbol(row.symbol) === currentModalSymbol)
+                .sort((a, b) => parseDateValue(b.announcement_date) - parseDateValue(a.announcement_date));
+
+            if (!matched.length) {
+                modalDividendStatusEl.textContent = `No dividend history found for ${currentModalSymbol}.`;
+                return;
+            }
+
+            const latest = matched[0];
+            modalDividendStatusEl.textContent = `Loaded ${matched.length} records for ${currentModalSymbol}.`;
+            modalDividendSummaryEl.textContent = `Latest: ${safeValue(latest.announcement_date)} | FY ${safeValue(latest.fiscal_year)} | Total ${safeValue(latest.total_dividend, '0')}%`;
+            modalDividendAnalysisEl.textContent = buildDividendAnalysis(matched);
+            renderDividendHistoryRows(matched);
+        } catch (err) {
+            console.error('Dividend history load failed:', err);
+            modalDividendStatusEl.textContent = 'Failed to load dividend history.';
+        } finally {
+            modalDividendLoadBtn.disabled = false;
+        }
     }
 
     const BS_MONTH_INDEX = {
@@ -973,6 +1101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isUp = stock.change >= 0;
         const companyName = companyNameMap[stock.symbol] || stock.name || 'Company Name Not Available';
         const sector = sectorMap[stock.symbol] || 'Others';
+        currentModalSymbol = normalizeSymbol(stock.symbol);
 
         document.getElementById('modal-symbol').textContent = stock.symbol;
         document.getElementById('modal-company-name').textContent = companyName;
@@ -1003,6 +1132,9 @@ document.addEventListener('DOMContentLoaded', () => {
             minute: '2-digit'
         });
 
+        resetDividendSection(currentModalSymbol);
+        setDividendFocusMode(false);
+
         stockModal.classList.add('show');
         document.body.style.overflow = 'hidden';
         closeModalBtn.focus();
@@ -1010,6 +1142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeModal() {
         stockModal.classList.remove('show');
+        setDividendFocusMode(false);
         document.body.style.overflow = '';
         if (activeModalTrigger && typeof activeModalTrigger.focus === 'function') {
             activeModalTrigger.focus();
@@ -1017,6 +1150,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     closeModalBtn.addEventListener('click', closeModal);
+    if (modalDividendLoadBtn) {
+        modalDividendLoadBtn.addEventListener('click', loadDividendHistoryForCurrentSymbol);
+    }
+    if (modalDividendOpenBtn) {
+        modalDividendOpenBtn.addEventListener('click', loadDividendHistoryForCurrentSymbol);
+    }
+    if (modalDividendBackBtn) {
+        modalDividendBackBtn.addEventListener('click', () => setDividendFocusMode(false));
+    }
 
     window.addEventListener('click', (e) => {
         if (e.target === stockModal) {

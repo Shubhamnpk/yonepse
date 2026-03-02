@@ -30,6 +30,7 @@ jobs:
       run: |
         mkdir -p data
         python scripts/nepse-scraper/upcoming_ipo_scraper.py
+        python scripts/nepse-scraper/proposed_dividend_scraper.py
 
     - name: Commit and push changes
       run: |
