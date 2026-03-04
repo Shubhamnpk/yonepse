@@ -190,17 +190,6 @@
         "id": 44919,
         "applicationDocumentDetailsList": [
             {
-                "id": 30073,
-                "activeStatus": "A",
-                "modifiedBy": "hli_user",
-                "modifiedDate": "2026-03-03T10:29:31.777",
-                "application": 44919,
-                "documentType": 54,
-                "submittedDate": "2026-03-03",
-                "filePath": "hli_user/2026-03-03/Minute Letter_1772513008656.pdf",
-                "encryptedId": "c398d3cfe067d50c28f874621604d4bbf5a021855fde4bb0088ee7a9f3638f560106d83a5e106260e062c7d91f1deb7f2528a63c052f8e45dd07d07d9463b30a"
-            },
-            {
                 "id": 30074,
                 "activeStatus": "A",
                 "modifiedBy": "hli_user",
@@ -210,6 +199,17 @@
                 "submittedDate": "2026-03-03",
                 "filePath": "hli_user/2026-03-03/19th AGM Minute_1772513018695.pdf",
                 "encryptedId": "9fb879af1af6a5ff99d7bc9eb59360a867507fffea4b30e46e4c82c42297f0ddd14a186cdce4cdb7980255b7de64a47f0a8a8790cb136c45a66df7cd46ef3e25"
+            },
+            {
+                "id": 30073,
+                "activeStatus": "A",
+                "modifiedBy": "hli_user",
+                "modifiedDate": "2026-03-03T10:29:31.777",
+                "application": 44919,
+                "documentType": 54,
+                "submittedDate": "2026-03-03",
+                "filePath": "hli_user/2026-03-03/Minute Letter_1772513008656.pdf",
+                "encryptedId": "c398d3cfe067d50c28f874621604d4bbf5a021855fde4bb0088ee7a9f3638f560106d83a5e106260e062c7d91f1deb7f2528a63c052f8e45dd07d07d9463b30a"
             }
         ],
         "newsHeadline": "19th AGM Minute [HLI] ",
