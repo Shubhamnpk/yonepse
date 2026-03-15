@@ -831,18 +831,6 @@
         "id": 44816,
         "applicationDocumentDetailsList": [
             {
-                "id": 29974,
-                "activeStatus": "A",
-                "modifiedBy": "slbsl_user",
-                "modifiedDate": "2026-02-17T10:42:52.657",
-                "application": 44816,
-                "documentType": 54,
-                "submittedDate": "2026-02-17",
-                "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-17/Notice_Lock in period end_1771304122239.jpg",
-                "encryptedId": "963d59d6355709e3699349e371840f4462d195096f125d5bfe0f6c8572f9a4690209d6a745dc4998ad810be12ac14693fbf0aaff2b2468cf5d6f2a78f8bd1094",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-02-17/Notice_Lock%20in%20period%20end_1771304122239.jpg"
-            },
-            {
                 "id": 29975,
                 "activeStatus": "A",
                 "modifiedBy": "slbsl_user",
@@ -853,6 +841,18 @@
                 "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-17/Information to Nepse_Lock in period_1771304110682.pdf",
                 "encryptedId": "32efa875a5e0e77976d842aa7994e3fcdaab7058225c8da93a90b74245b8ea18d1002881080df2671d11d2602e9c32b956ecfde6160ae8e9d0ece7e44c13c847",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-02-17/Information%20to%20Nepse_Lock%20in%20period_1771304110682.pdf"
+            },
+            {
+                "id": 29974,
+                "activeStatus": "A",
+                "modifiedBy": "slbsl_user",
+                "modifiedDate": "2026-02-17T10:42:52.657",
+                "application": 44816,
+                "documentType": 54,
+                "submittedDate": "2026-02-17",
+                "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-02-17/Notice_Lock in period end_1771304122239.jpg",
+                "encryptedId": "963d59d6355709e3699349e371840f4462d195096f125d5bfe0f6c8572f9a4690209d6a745dc4998ad810be12ac14693fbf0aaff2b2468cf5d6f2a78f8bd1094",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-02-17/Notice_Lock%20in%20period%20end_1771304122239.jpg"
             }
         ],
         "newsHeadline": "Lock in period end [SLBSL] ",
@@ -1222,5 +1222,29 @@
         "modifiedDate": "2026-03-15T10:11:48.397",
         "approvedDate": null,
         "symbol": "NTC"
+    },
+    {
+        "id": 45014,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30164,
+                "activeStatus": "A",
+                "modifiedBy": "smh_user",
+                "modifiedDate": "2026-03-15T15:11:59.563",
+                "application": 45014,
+                "documentType": 54,
+                "submittedDate": "2026-03-15",
+                "filePath": "Supermai_Hydropower_Limited/Company News/2026-03-15/11th AGM Signed Minute Upload_1773566759664.pdf",
+                "encryptedId": "55902b1973fb50ffc876502ad9f41df14ea2766a69051cb105bc74ea9b6e39a6e92a7588958a5cfa92733edc96ecff0cce50bfd91b4041b4a3c850eb38de7103",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Supermai_Hydropower_Limited/Company%20News/2026-03-15/11th%20AGM%20Signed%20Minute%20Upload_1773566759664.pdf"
+            }
+        ],
+        "newsHeadline": "AGM Minute of Supermai Hydropower Limited  [SMH] ",
+        "newsBody": "<p>11th AGM Minute-Supermai Hydropower Limited</p>",
+        "addedDate": "2026-03-15T15:11:59.56",
+        "newsSource": "11th AGM of Supermai Hydropower Limited ",
+        "modifiedDate": "2026-03-15T15:28:27.03",
+        "approvedDate": null,
+        "symbol": "SMH"
     }
 ]
