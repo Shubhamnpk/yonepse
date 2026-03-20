@@ -1,5 +1,29 @@
 [
     {
+        "id": 45103,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30244,
+                "activeStatus": "A",
+                "modifiedBy": "upper_user",
+                "modifiedDate": "2026-03-20T12:50:40.047",
+                "application": 45103,
+                "documentType": 54,
+                "submittedDate": "2026-03-20",
+                "filePath": "upper_user/2026-03-20/2082-12-06- Nepal Stock Exchange - 2079-80 - 2080-81 -16 and 17  Annual General Meeting_1773990121591.pdf",
+                "encryptedId": "80cdef40af8c43108f8db05032404ab53eab8167bf58ebc335bdafde34b57a668f5b5bdf22d2940c7ec241675120b6a864df88b1483c41138eba69a9237a9108",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=upper_user/2026-03-20/2082-12-06-%20Nepal%20Stock%20Exchange%20-%202079-80%20-%202080-81%20-16%20and%2017%20%20Annual%20General%20Meeting_1773990121591.pdf"
+            }
+        ],
+        "newsHeadline": "Notice Regarding Book Close for 16th and 17th AGM (UPPER) [UPPER] ",
+        "newsBody": "Annual General Meeting of UPPER\nFiscal Year: 2079-2080\nAGM Type: AGM\nAGM Date: 12/29/2082\nAGM No: 16\nBook Close Date: 12/20/2082",
+        "addedDate": "2026-03-20T12:50:40.043",
+        "newsSource": "UPPER",
+        "modifiedDate": "2026-03-20T13:18:23.83",
+        "approvedDate": null,
+        "symbol": "UPPER"
+    },
+    {
         "id": 45098,
         "applicationDocumentDetailsList": [
             {
@@ -1167,18 +1191,6 @@
         "id": 44837,
         "applicationDocumentDetailsList": [
             {
-                "id": 29994,
-                "activeStatus": "A",
-                "modifiedBy": "user_sagar",
-                "modifiedDate": "2026-02-22T10:14:46.097",
-                "application": 44837,
-                "documentType": 54,
-                "submittedDate": "2026-02-22",
-                "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/Nepse_1771734575891.pdf",
-                "encryptedId": "4af30b9d4979478b2730367fa91507f8571bcf7ca1f6d68485c238b824988d70d7386442ac67adea682df71dee82c3fcf09331baddfebb6bf0e83a07b864ec7e",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Sagar_Distillery_Limited/Company%20News/2026-02-22/Nepse_1771734575891.pdf"
-            },
-            {
                 "id": 29993,
                 "activeStatus": "A",
                 "modifiedBy": "user_sagar",
@@ -1189,6 +1201,18 @@
                 "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/NSP fagun10 sunday epaper pdf-3_1771734582853.pdf",
                 "encryptedId": "eb78953229dc6bdaac6294c7485a5b471c0ff2532ec331875bedab6e628f2b11ef0e2827c451cf8995c33a1a1458a9e08456378bbd855e72d0c085920a95ded3",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Sagar_Distillery_Limited/Company%20News/2026-02-22/NSP%20fagun10%20sunday%20epaper%20pdf-3_1771734582853.pdf"
+            },
+            {
+                "id": 29994,
+                "activeStatus": "A",
+                "modifiedBy": "user_sagar",
+                "modifiedDate": "2026-02-22T10:14:46.097",
+                "application": 44837,
+                "documentType": 54,
+                "submittedDate": "2026-02-22",
+                "filePath": "Sagar_Distillery_Limited/Company News/2026-02-22/Nepse_1771734575891.pdf",
+                "encryptedId": "4af30b9d4979478b2730367fa91507f8571bcf7ca1f6d68485c238b824988d70d7386442ac67adea682df71dee82c3fcf09331baddfebb6bf0e83a07b864ec7e",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Sagar_Distillery_Limited/Company%20News/2026-02-22/Nepse_1771734575891.pdf"
             }
         ],
         "newsHeadline": "\u0938\u093e\u092e\u0942\u0939\u093f\u0915 \u0932\u0917\u093e\u0928\u0940 \u0915\u094b\u0937\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u091b\u0941\u091f\u094d\u091f\u093e\u0907\u090f\u0915\u094b \u0938\u093e\u0927\u093e\u0930\u0923 \u0936\u0947\u092f\u0930\u0915\u094b \u0932\u0915-\u0908\u0928 \u0905\u0935\u0927\u093f \u0938\u092e\u093e\u092a\u094d\u0924\u0940 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u0938\u0942\u091a\u0928\u093e [SAGAR] ",
@@ -1647,18 +1671,6 @@
         "id": 45096,
         "applicationDocumentDetailsList": [
             {
-                "id": 30240,
-                "activeStatus": "A",
-                "modifiedBy": "uslb_user",
-                "modifiedDate": "2026-03-20T10:48:42.93",
-                "application": 45096,
-                "documentType": 54,
-                "submittedDate": "2026-03-20",
-                "filePath": "uslb_user/2026-03-20/agm letter_1773982971809.pdf",
-                "encryptedId": "b995d3fe6a4cc9126f94bcec1d706b285a148d9c556d9b03297fd597ec31cfbd9fdac70ffe8c08f328d69c23b714981fcd635a0105ab46c093615b9d1299ea70",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=uslb_user/2026-03-20/agm%20letter_1773982971809.pdf"
-            },
-            {
                 "id": 30241,
                 "activeStatus": "A",
                 "modifiedBy": "uslb_user",
@@ -1669,6 +1681,18 @@
                 "filePath": "uslb_user/2026-03-20/agm notice_1773982983262.pdf",
                 "encryptedId": "866e9ff896a92006ee84c7ea005319b70d1ea7a8568347ed4177a8739a9681bfb702a721324c9d47ca1a22ab14f1bfbe7e0fdb2d1f7e07c9c063c074be09d369",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=uslb_user/2026-03-20/agm%20notice_1773982983262.pdf"
+            },
+            {
+                "id": 30240,
+                "activeStatus": "A",
+                "modifiedBy": "uslb_user",
+                "modifiedDate": "2026-03-20T10:48:42.93",
+                "application": 45096,
+                "documentType": 54,
+                "submittedDate": "2026-03-20",
+                "filePath": "uslb_user/2026-03-20/agm letter_1773982971809.pdf",
+                "encryptedId": "b995d3fe6a4cc9126f94bcec1d706b285a148d9c556d9b03297fd597ec31cfbd9fdac70ffe8c08f328d69c23b714981fcd635a0105ab46c093615b9d1299ea70",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=uslb_user/2026-03-20/agm%20letter_1773982971809.pdf"
             }
         ],
         "newsHeadline": "11th AGM Notice of Unnati Sahakarya Laghubittta Bittiya Sanstha Ltd. [USLB] ",
