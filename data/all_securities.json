@@ -9,7 +9,12 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "15100",
+        "dpsCodes": [
+            "15100",
+            "16800"
+        ]
     },
     {
         "id": 132,
@@ -57,7 +62,8 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "15300"
     },
     {
         "id": 136,
@@ -141,7 +147,12 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "15200",
+        "dpsCodes": [
+            "15200",
+            "16300"
+        ]
     },
     {
         "id": 143,
@@ -1485,7 +1496,12 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "13900",
+        "dpsCodes": [
+            "13900",
+            "16000"
+        ]
     },
     {
         "id": 256,
@@ -1701,7 +1717,8 @@
         "website": "www.icfc.com.np",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "17400"
     },
     {
         "id": 274,
@@ -1725,7 +1742,8 @@
         "website": "",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "16700"
     },
     {
         "id": 277,
@@ -1917,7 +1935,8 @@
         "website": "http://www.pfltd.com.np",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "18600"
     },
     {
         "id": 340,
@@ -1941,7 +1960,12 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "11100",
+        "dpsCodes": [
+            "11100",
+            "12200"
+        ]
     },
     {
         "id": 342,
@@ -1989,7 +2013,8 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "11700"
     },
     {
         "id": 349,
@@ -2229,7 +2254,8 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "17200"
     },
     {
         "id": 398,
@@ -2601,7 +2627,8 @@
         "website": "https://www.kamanasewabank.com/",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "18200"
     },
     {
         "id": 460,
@@ -2649,7 +2676,8 @@
         "website": "www.shangrilabank.com",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "18400"
     },
     {
         "id": 473,
@@ -2841,7 +2869,8 @@
         "website": "www.nepalbank.com.np",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity"
+        "instrumentType": "Equity",
+        "dpsCode": "15700"
     },
     {
         "id": 526,
@@ -2949,7 +2978,12 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "15100",
+        "dpsCodes": [
+            "15100",
+            "16800"
+        ]
     },
     {
         "id": 539,
@@ -3585,7 +3619,12 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "11100",
+        "dpsCodes": [
+            "11100",
+            "12200"
+        ]
     },
     {
         "id": 1741,
@@ -3705,7 +3744,12 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "15100",
+        "dpsCodes": [
+            "15100",
+            "16800"
+        ]
     },
     {
         "id": 2754,
@@ -3957,7 +4001,8 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "11700"
     },
     {
         "id": 2781,
@@ -4293,7 +4338,12 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "15100",
+        "dpsCodes": [
+            "15100",
+            "16800"
+        ]
     },
     {
         "id": 2840,
@@ -4305,7 +4355,12 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "11100",
+        "dpsCodes": [
+            "11100",
+            "12200"
+        ]
     },
     {
         "id": 2841,
@@ -4581,7 +4636,12 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "13900",
+        "dpsCodes": [
+            "13900",
+            "16000"
+        ]
     },
     {
         "id": 2877,
@@ -4653,7 +4713,8 @@
         "website": "www.icfc.com.np",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "17400"
     },
     {
         "id": 2883,
@@ -4677,7 +4738,12 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15200",
+        "dpsCodes": [
+            "15200",
+            "16300"
+        ]
     },
     {
         "id": 2886,
@@ -4689,7 +4755,8 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "17200"
     },
     {
         "id": 2887,
@@ -4713,7 +4780,8 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "11700"
     },
     {
         "id": 2890,
@@ -4725,7 +4793,8 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15300"
     },
     {
         "id": 2892,
@@ -4737,7 +4806,12 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15100",
+        "dpsCodes": [
+            "15100",
+            "16800"
+        ]
     },
     {
         "id": 2893,
@@ -4833,7 +4907,12 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "13900",
+        "dpsCodes": [
+            "13900",
+            "16000"
+        ]
     },
     {
         "id": 2905,
@@ -5037,7 +5116,12 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "15200",
+        "dpsCodes": [
+            "15200",
+            "16300"
+        ]
     },
     {
         "id": 2934,
@@ -5109,7 +5193,12 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "13900",
+        "dpsCodes": [
+            "13900",
+            "16000"
+        ]
     },
     {
         "id": 4948,
@@ -5121,7 +5210,8 @@
         "website": "https://www.kamanasewabank.com/",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "18200"
     },
     {
         "id": 4949,
@@ -5181,7 +5271,8 @@
         "website": "www.nepalbank.com.np",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15700"
     },
     {
         "id": 4960,
@@ -5193,7 +5284,8 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "17200"
     },
     {
         "id": 4961,
@@ -5217,7 +5309,12 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "13900",
+        "dpsCodes": [
+            "13900",
+            "16000"
+        ]
     },
     {
         "id": 4963,
@@ -5277,7 +5374,8 @@
         "website": "www.rbbmbl.com.np",
         "sectorName": "Mutual Fund",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "16500"
     },
     {
         "id": 4969,
@@ -5337,7 +5435,8 @@
         "website": "www.shangrilabank.com",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "18400"
     },
     {
         "id": 7985,
@@ -5385,7 +5484,12 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "11100",
+        "dpsCodes": [
+            "11100",
+            "12200"
+        ]
     },
     {
         "id": 8005,
@@ -5469,7 +5573,12 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "15100",
+        "dpsCodes": [
+            "15100",
+            "16800"
+        ]
     },
     {
         "id": 8025,
@@ -5505,7 +5614,12 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15100",
+        "dpsCodes": [
+            "15100",
+            "16800"
+        ]
     },
     {
         "id": 8029,
@@ -5517,7 +5631,8 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "17200"
     },
     {
         "id": 8030,
@@ -5529,7 +5644,8 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "17200"
     },
     {
         "id": 8031,
@@ -5757,7 +5873,12 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "15200",
+        "dpsCodes": [
+            "15200",
+            "16300"
+        ]
     },
     {
         "id": 8075,
@@ -5913,7 +6034,8 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15300"
     },
     {
         "id": 8116,
@@ -6021,7 +6143,12 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15200",
+        "dpsCodes": [
+            "15200",
+            "16300"
+        ]
     },
     {
         "id": 8128,
@@ -6345,7 +6472,12 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "11100",
+        "dpsCodes": [
+            "11100",
+            "12200"
+        ]
     },
     {
         "id": 9170,
@@ -6393,7 +6525,8 @@
         "website": " www.prabhucapital.com",
         "sectorName": "Mutual Fund",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "12600"
     },
     {
         "id": 9175,
@@ -6441,7 +6574,8 @@
         "website": "www.rbbmbl.com.np",
         "sectorName": "Mutual Fund",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "16500"
     },
     {
         "id": 9179,
@@ -6525,7 +6659,8 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "11700"
     },
     {
         "id": 9192,
@@ -6681,7 +6816,8 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15300"
     },
     {
         "id": 9212,
@@ -6777,7 +6913,12 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15200",
+        "dpsCodes": [
+            "15200",
+            "16300"
+        ]
     },
     {
         "id": 9221,
@@ -6825,7 +6966,8 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "11700"
     },
     {
         "id": 9232,
@@ -6885,7 +7027,12 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15100",
+        "dpsCodes": [
+            "15100",
+            "16800"
+        ]
     },
     {
         "id": 9241,
@@ -6897,7 +7044,12 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "15200",
+        "dpsCodes": [
+            "15200",
+            "16300"
+        ]
     },
     {
         "id": 9242,
@@ -6981,7 +7133,8 @@
         "website": "www.icfc.com.np",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "17400"
     },
     {
         "id": 9250,
@@ -7161,7 +7314,12 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "11100",
+        "dpsCodes": [
+            "11100",
+            "12200"
+        ]
     },
     {
         "id": 9270,
@@ -7221,7 +7379,8 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15300"
     },
     {
         "id": 9290,
@@ -7305,7 +7464,12 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures"
+        "instrumentType": "Non-Convertible Debentures",
+        "dpsCode": "15100",
+        "dpsCodes": [
+            "15100",
+            "16800"
+        ]
     },
     {
         "id": 9300,
@@ -7341,7 +7505,8 @@
         "website": "www.rbbmbl.com.np",
         "sectorName": "Mutual Fund",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds"
+        "instrumentType": "Mutual Funds",
+        "dpsCode": "16500"
     },
     {
         "id": 9303,

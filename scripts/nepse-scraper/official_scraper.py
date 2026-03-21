@@ -6,6 +6,8 @@ import subprocess
 from datetime import datetime, timedelta
 import urllib.parse
 import re
+import requests
+from bs4 import BeautifulSoup
 
 # Add the current directory to path to find official_api
 sys.path.append(os.path.dirname(__file__))
@@ -38,6 +40,25 @@ def load_json_list(filepath):
         return data if isinstance(data, list) else []
     except Exception:
         return []
+
+def load_json_object(filepath):
+    """Load a JSON file and return an object, defaulting to None."""
+    if not os.path.exists(filepath):
+        return None
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception:
+        return None
+
+def write_json_if_changed(filepath, data):
+    """Write JSON only if content differs or file does not exist."""
+    existing = load_json_object(filepath)
+    if existing == data:
+        return False
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
+    return True
 
 def merge_records_by_id(existing_records, incoming_records):
     """
@@ -274,7 +295,67 @@ def filter_general_notices(general_notices, exchange_messages):
         print(f"Filtered out {removed_count} exchange-derived records from notices.")
     return filtered
 
-def scrape_all_official_data(include_brokers=False, include_securities=False):
+def get_sector_wise_codes():
+    """Scrape sector-wise company codes from MeroLagani."""
+    url = "https://merolagani.com/CompanyList.aspx"
+    try:
+        response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'}, timeout=30)
+        response.raise_for_status()
+
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        sectors = {}
+        accordion_toggles = soup.find_all('a', href=re.compile(r'#collapse_\d+'))
+
+        for toggle in accordion_toggles:
+            sector_name = toggle.get_text(strip=True)
+            target_id = toggle['href'].replace('#', '')
+            content_div = soup.find(id=target_id)
+
+            if not content_div:
+                continue
+
+            table = content_div.find('table')
+            companies = []
+
+            if table:
+                rows = table.find_all('tr')
+                for row in rows:
+                    cols = row.find_all('td')
+                    if len(cols) >= 2:
+                        symbol_link = cols[0].find('a')
+                        symbol = symbol_link.get_text(strip=True) if symbol_link else cols[0].get_text(strip=True)
+
+                        name = cols[1].get_text(strip=True)
+                        name = " ".join(name.split())
+
+                        if symbol and name:
+                            companies.append({
+                                "symbol": symbol,
+                                "name": name
+                            })
+            else:
+                company_links = content_div.find_all('a', href=re.compile(r'CompanyDetail\.aspx\?symbol='))
+                for link in company_links:
+                    href = link.get('href', '')
+                    match = re.search(r'symbol=([a-zA-Z0-9.]+)', href, re.IGNORECASE)
+                    if match:
+                        symbol = match.group(1)
+                        companies.append({
+                            "symbol": symbol,
+                            "name": symbol
+                        })
+
+            if companies:
+                sectors[sector_name] = companies
+
+        return sectors
+
+    except Exception as e:
+        print(f"Error fetching sector-wise codes: {e}")
+        return None
+
+def scrape_all_official_data(include_brokers=False):
     print(f"Starting Comprehensive Official NEPSE Scraper at {datetime.now().isoformat()}...")
     
     try:
@@ -328,15 +409,6 @@ def scrape_all_official_data(include_brokers=False, include_securities=False):
         with open(os.path.join(data_dir, 'nepse_data.json'), 'w') as f:
             json.dump(mapped_prices, f, indent=4)
         
-        # 3b. Detailed Securities (Optional)
-        if include_securities:
-            print("Fetching all securities details...")
-            all_securities = scraper.get_all_securities() # Get more details like ISIN
-            with open(os.path.join(data_dir, 'all_securities.json'), 'w') as f:
-                json.dump(all_securities, f, indent=4)
-        else:
-            print("Skipping detailed securities (recently updated).")
-
         # 4. Indices (Live & All Sectoral)
         print("Fetching indices...")
         indices = scraper.get_nepse_index()
@@ -345,6 +417,18 @@ def scrape_all_official_data(include_brokers=False, include_securities=False):
             json.dump(indices, f, indent=4)
         with open(os.path.join(data_dir, 'sector_indices.json'), 'w') as f:
             json.dump(sector_indices, f, indent=4)
+
+        # 4b. Sector-wise Company Codes
+        print("Fetching sector-wise company codes...")
+        sector_wise_codes = get_sector_wise_codes()
+        sector_codes_path = os.path.join(data_dir, 'nepse_sector_wise_codes.json')
+        if isinstance(sector_wise_codes, dict) and sector_wise_codes:
+            if write_json_if_changed(sector_codes_path, sector_wise_codes):
+                print("Updated sector-wise codes.")
+            else:
+                print("Sector-wise codes unchanged. Keeping existing file.")
+        else:
+            print("No sector-wise data found or error. Keeping existing file unchanged.")
 
         # 5. Top Stocks (Full Categories)
         print("Fetching top gainers, losers, turnover, trades, and transactions...")
@@ -475,8 +559,14 @@ def scrape_all_official_data(include_brokers=False, include_securities=False):
         if include_brokers:
             print("Fetching broker list...")
             brokers = scraper.get_brokers()
-            with open(os.path.join(data_dir, 'brokers.json'), 'w') as f:
-                json.dump(brokers, f, indent=4)
+            brokers_path = os.path.join(data_dir, 'brokers.json')
+            if isinstance(brokers, list) and brokers:
+                if write_json_if_changed(brokers_path, brokers):
+                    print("Updated broker list.")
+                else:
+                    print("Broker list unchanged. Keeping existing file.")
+            else:
+                print("No broker data found or error. Keeping existing file unchanged.")
         else:
             print("Skipping broker list (not requested or recently updated).")
 
@@ -505,7 +595,6 @@ def scrape_all_official_data(include_brokers=False, include_securities=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='NEPSE Official Data Scraper')
     parser.add_argument('--brokers', action='store_true', help='Force update broker list')
-    parser.add_argument('--securities', action='store_true', help='Force update detailed securities list')
     args = parser.parse_args()
     
     # Use absolute path of this file to find the data directory
@@ -533,6 +622,5 @@ if __name__ == "__main__":
         return False
 
     include_brokers = should_update('brokers.json', args.brokers)
-    include_securities = should_update('all_securities.json', args.securities)
             
-    scrape_all_official_data(include_brokers=include_brokers, include_securities=include_securities)
+    scrape_all_official_data(include_brokers=include_brokers)
