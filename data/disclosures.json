@@ -1798,5 +1798,41 @@
         "modifiedDate": "2026-03-22T10:10:46.953",
         "approvedDate": null,
         "symbol": "MBJC"
+    },
+    {
+        "id": 45110,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30252,
+                "activeStatus": "A",
+                "modifiedBy": "cyc_user",
+                "modifiedDate": "2026-03-22T10:53:38.987",
+                "application": 45110,
+                "documentType": 54,
+                "submittedDate": "2026-03-22",
+                "filePath": "CYC_Nepal_laghubitta_Bittiya_Sanstha_Limited/Company News/2026-03-22/Nirya uttar (10)_1774156054946.pdf",
+                "encryptedId": "c77c619e65948d4c2fc37088e2421c2928666f350cb282f9fd6803a85bc84acc3d9d3b51ae426c3d20146faa85bfa46770fdcc3f6b1aa010e4ae32aa568dc2bf",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=CYC_Nepal_laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-03-22/Nirya%20uttar%20%2810%29_1774156054946.pdf"
+            },
+            {
+                "id": 30251,
+                "activeStatus": "A",
+                "modifiedBy": "cyc_user",
+                "modifiedDate": "2026-03-22T10:53:38.987",
+                "application": 45110,
+                "documentType": 54,
+                "submittedDate": "2026-03-22",
+                "filePath": "CYC_Nepal_laghubitta_Bittiya_Sanstha_Limited/Company News/2026-03-22/Resign Letter  Muna Devi Kahanl_1774156048015.pdf",
+                "encryptedId": "fa31ef72485ccb080660a70f0df7b86c2cbaec8dfe4c2a777c3a6b685600635a14160586748ef986687525de16d8c9fc7cee96723dcb5c318c89287eafadec1b",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=CYC_Nepal_laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-03-22/Resign%20Letter%20%20Muna%20Devi%20Kahanl_1774156048015.pdf"
+            }
+        ],
+        "newsHeadline": "Resignation letter   [CYCL] ",
+        "newsBody": "",
+        "addedDate": "2026-03-22T10:53:38.98",
+        "newsSource": "cycl",
+        "modifiedDate": "2026-03-22T11:04:05.793",
+        "approvedDate": null,
+        "symbol": "CYCL"
     }
 ]
