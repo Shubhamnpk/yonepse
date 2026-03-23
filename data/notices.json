@@ -1,23 +1,6 @@
 {
     "general": [
         {
-            "id": 1223,
-            "noticeHeading": "Supply, Delivery, Installation and Commissioning of Hardware and Software for DR Site",
-            "noticeBody": "Supply, Delivery, Installation and Commissioning of Hardware and Software for DR Site",
-            "noticeFilePath": "a2f65a98b3ef3a8842249ec4bf23e501.pdf",
-            "noticeExpiryDate": "2026-03-29",
-            "feature": true,
-            "noticeTypeId": {
-                "id": 1,
-                "activeStatus": "A",
-                "noticeType": "Company Notice"
-            },
-            "publishToWebsite": true,
-            "source": null,
-            "modifiedDate": null,
-            "modifiedBy": "rabin.kc"
-        },
-        {
             "id": 1220,
             "noticeHeading": "\u0927\u093f\u0924\u094b\u092a\u0924\u094d\u0930 \u0935\u094d\u092f\u093e\u092a\u093e\u0930\u0940\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u0915\u093e\u0930\u094b\u092c\u093e\u0930 \u092f\u094b\u0917\u094d\u092f \u0915\u092e\u094d\u092a\u0928\u0940\u0939\u0930\u0941\u0915\u094b \u0928\u093e\u092e\u093e\u0935\u0932\u0940",
             "noticeBody": "\u0927\u093f\u0924\u094b\u092a\u0924\u094d\u0930 \u0935\u094d\u092f\u093e\u092a\u093e\u0930\u0940\u0939\u0930\u0941\u0915\u094b \u0932\u093e\u0917\u093f \u0915\u093e\u0930\u094b\u092c\u093e\u0930 \u092f\u094b\u0917\u094d\u092f \u0915\u092e\u094d\u092a\u0928\u0940\u0939\u0930\u0941\u0915\u094b \u0928\u093e\u092e\u093e\u0935\u0932\u0940",
@@ -50,6 +33,40 @@
             "source": null,
             "modifiedDate": null,
             "modifiedBy": "prabhakar_k"
+        },
+        {
+            "id": 1224,
+            "noticeHeading": "Addendum No. 1, Supply, Delivery, Installation and Commissioning of Hardware for the DR Site",
+            "noticeBody": "Addendum No. 1, Supply, Delivery, Installation and Commissioning of Hardware for the DR Site",
+            "noticeFilePath": "54ebf3f566c6b8f4d5331e5a73718984.pdf",
+            "noticeExpiryDate": "2026-03-31",
+            "feature": true,
+            "noticeTypeId": {
+                "id": 2,
+                "activeStatus": "A",
+                "noticeType": "Press Release"
+            },
+            "publishToWebsite": true,
+            "source": null,
+            "modifiedDate": null,
+            "modifiedBy": "prabhakar_k"
+        },
+        {
+            "id": 1223,
+            "noticeHeading": "Supply, Delivery, Installation and Commissioning of Hardware and Software for DR Site",
+            "noticeBody": "Supply, Delivery, Installation and Commissioning of Hardware and Software for DR Site",
+            "noticeFilePath": "a2f65a98b3ef3a8842249ec4bf23e501.pdf",
+            "noticeExpiryDate": "2026-03-29",
+            "feature": true,
+            "noticeTypeId": {
+                "id": 1,
+                "activeStatus": "A",
+                "noticeType": "Company Notice"
+            },
+            "publishToWebsite": true,
+            "source": null,
+            "modifiedDate": null,
+            "modifiedBy": "rabin.kc"
         },
         {
             "id": 208613,
@@ -85,5 +102,5 @@
             "modifiedDate": "2026-03-01"
         }
     ],
-    "last_updated": "2026-03-14T14:05:38.981698"
+    "last_updated": "2026-03-23T05:28:23.093481"
 }
