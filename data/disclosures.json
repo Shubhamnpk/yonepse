@@ -2355,18 +2355,6 @@
         "id": 45171,
         "applicationDocumentDetailsList": [
             {
-                "id": 30306,
-                "activeStatus": "A",
-                "modifiedBy": "nmic_user",
-                "modifiedDate": "2026-03-25T10:01:57.517",
-                "application": 45171,
-                "documentType": 54,
-                "submittedDate": "2026-03-25",
-                "filePath": "Nepal_Micro_Insurance_Company_Limited/Company News/2026-03-25/3rd AGM Notice_1774412199001.pdf",
-                "encryptedId": "862329edba32c570c59c4015c4af71c29f3d17413c3b768a456af940f5e3c21b8fbe8da3188034814dc92ed8d65e8ef147a9ae02a80fc12a58a8129d324521a0",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Micro_Insurance_Company_Limited/Company%20News/2026-03-25/3rd%20AGM%20Notice_1774412199001.pdf"
-            },
-            {
                 "id": 30305,
                 "activeStatus": "A",
                 "modifiedBy": "nmic_user",
@@ -2377,6 +2365,18 @@
                 "filePath": "Nepal_Micro_Insurance_Company_Limited/Company News/2026-03-25/3rd AGM_Cover letter_1774412191311.PDF",
                 "encryptedId": "0468742eefadeb78ad1a1cda7f8d416640a70c8fc86cac8b1ca776aab810649f5b80b2bc7712481d4de9315e83db7557c0b6064d66a21363546b4aa2e9d4f993",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Micro_Insurance_Company_Limited/Company%20News/2026-03-25/3rd%20AGM_Cover%20letter_1774412191311.PDF"
+            },
+            {
+                "id": 30306,
+                "activeStatus": "A",
+                "modifiedBy": "nmic_user",
+                "modifiedDate": "2026-03-25T10:01:57.517",
+                "application": 45171,
+                "documentType": 54,
+                "submittedDate": "2026-03-25",
+                "filePath": "Nepal_Micro_Insurance_Company_Limited/Company News/2026-03-25/3rd AGM Notice_1774412199001.pdf",
+                "encryptedId": "862329edba32c570c59c4015c4af71c29f3d17413c3b768a456af940f5e3c21b8fbe8da3188034814dc92ed8d65e8ef147a9ae02a80fc12a58a8129d324521a0",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Micro_Insurance_Company_Limited/Company%20News/2026-03-25/3rd%20AGM%20Notice_1774412199001.pdf"
             }
         ],
         "newsHeadline": "3rd AGM of NMIC [NMIC] ",
