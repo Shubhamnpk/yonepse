@@ -31,15 +31,19 @@ A modern, elegant, and comprehensive dashboard as well as open api for tracking 
 - **District/Province Filters**: Geographic broker search
 - **TMS Links**: Direct access to broker trading platforms
 - **Market History**: Historical market summary data
+- **Open-Ended Mutual Funds**: Daily/weekly/monthly NAV snapshots in dedicated dataset
 
 ### JSON API
-All data is available as static JSON endpoints for developers. See [JSON Docs](docs.html) for complete API reference. The OpenAPI spec is available at `openapi.yaml`.
+All data is available as static JSON endpoints for developers. See [JSON Docs](docs.html) for complete API reference.
+
+- Public static API spec: [`openapi.yaml`](openapi.yaml)
+- Legacy NEPSE upstream endpoint spec: [`openapi_legacy_nepse.yaml`](openapi_legacy_nepse.yaml)
 
 ---
 
 ## 🖼️ Live Demo
 
-Visit the dashboard at: `https://shubhamnpk.github.io/nepse-scaper/` or 
+Visit the dashboard at: `https://shubhamnpk.github.io/yonepse/` or 
 
 ---
 
@@ -72,6 +76,7 @@ nepse-scraper/
 ├── favicon.png                   # Site favicon
 ├── data/                         # JSON data files
 │   ├── nepse_data.json             # Stock prices
+│   ├── OMF.json                    # Open-ended mutual fund NAV data
 │   ├── indices.json              # Market indices
 │   ├── sector_indices.json       # Sector indices
 │   ├── top_stocks.json           # Top gainers/losers
@@ -93,6 +98,7 @@ nepse-scraper/
 │   └── nepse_sector_wise_codes.json
 ├── scripts/nepse-scraper/
 │   ├── official_scraper.py       # Main NEPSE API scraper
+│   ├── open_ended_mutual_fund_scraper.py # ShareSansar OMF scraper (reused by official_scraper.py)
 │   ├── upcoming_ipo_scraper.py   # IPO scraper
 │   ├── proposed_dividend_scraper.py # Proposed dividend scraper
 │   ├── scraper.py                # Backup web scraper
@@ -119,7 +125,7 @@ nepse-scraper/
 1. Fork this repository
 2. Enable **GitHub Actions** in the 'Actions' tab
 3. Enable **GitHub Pages** from Settings > Pages (Deploy from `main` branch)
-4. Your dashboard will be live at `https://shubhamnpk.github.io/nepse-scaper/`
+4. Your dashboard will be live at `https://shubhamnpk.github.io/yonepse/`
 
 ### 2. Run Locally
 
@@ -146,8 +152,8 @@ pip install -r requirements.txt
 # Update all market data
 python official_scraper.py
 
-# Update broker and securities (run once per 60 days)
-python official_scraper.py --brokers --securities
+# Update broker data (forced)
+python official_scraper.py --brokers
 
 # Update IPO data
 python upcoming_ipo_scraper.py
@@ -166,8 +172,9 @@ python proposed_dividend_scraper.py --mode backfill
 ### Market Data Scraper ([`.github/workflows/scrape.yml`](.github/workflows/scrape.yml))
 - **Schedule**: Every 30 minutes
 - **Time**: 10:00 AM - 4:00 PM NPT (Sunday - Friday)
-- **Data**: Stock prices, indices, market summary, top stocks, notices, disclosures, exchange messages, supply/demand
+- **Data**: Stock prices, indices, market summary, top stocks, notices, disclosures, exchange messages, supply/demand, and open-ended mutual fund NAVs
 - **Files**: Updates all JSON files in `data/` folder
+- **OMF Integration**: Refreshes `data/OMF.json` and merges open-ended mutual funds into `data/nepse_data.json` in the same run
 
 ### IPO Scraper ([`.github/workflows/scrape_ipo.yml`](.github/workflows/scrape_ipo.yml))
 - **Schedule**: Daily at 4:00 AM UTC (9:45 AM NPT)
@@ -183,7 +190,8 @@ All data is accessible as static JSON endpoints:
 
 | Endpoint | Type | Description |
 |----------|------|-------------|
-| `/data/nepse_data.json` | Array | Stock prices (symbol, LTP, change, volume) |
+| `/data/nepse_data.json` | Array | Market prices + mapped open-ended mutual fund rows (`asset_type: open_ended_mutual_fund`) |
+| `/data/OMF.json` | Array | Open-ended mutual fund NAV dataset (daily/weekly/monthly NAV + fund metadata) |
 | `/data/indices.json` | Array | Main NEPSE indices |
 | `/data/sector_indices.json` | Array | Sector-wise indices |
 | `/data/top_stocks.json` | Object | Top gainers, losers, turnover |
@@ -204,6 +212,33 @@ All data is accessible as static JSON endpoints:
 | `/data/nepse_sector_wise_codes.json` | Object | Sector mapping for stocks |
 
 See [`docs.html`](docs.html) for complete documentation.
+
+---
+
+## ⚡ Developer Quickstart
+
+Base URL:
+
+```text
+https://shubhamnpk.github.io/yonepse
+```
+
+Common calls:
+
+```bash
+# Market status
+curl -s https://shubhamnpk.github.io/yonepse/data/market_status.json
+
+# Main ticker feed (includes mapped OMF rows)
+curl -s https://shubhamnpk.github.io/yonepse/data/nepse_data.json
+
+# Full open-ended mutual fund NAV dataset
+curl -s https://shubhamnpk.github.io/yonepse/data/OMF.json
+```
+
+OpenAPI spec:
+- [`openapi.yaml`](openapi.yaml)
+- [`openapi_legacy_nepse.yaml`](openapi_legacy_nepse.yaml) (legacy NEPSE upstream reference)
 
 ---
 
@@ -238,6 +273,7 @@ See [`docs.html`](docs.html) for complete documentation.
 
 #### Backend
 - [`official_scraper.py`](scripts/nepse-scraper/official_scraper.py) - Main scraper using NEPSE API
+- [`open_ended_mutual_fund_scraper.py`](scripts/nepse-scraper/open_ended_mutual_fund_scraper.py) - ShareSansar open-ended mutual fund scraper (called by `official_scraper.py`)
 - [`upcoming_ipo_scraper.py`](scripts/nepse-scraper/upcoming_ipo_scraper.py) - IPO data from Merolagani
 - [`proposed_dividend_scraper.py`](scripts/nepse-scraper/proposed_dividend_scraper.py) - Proposed dividend data from ShareSansar
 - [`official_api/`](scripts/nepse-scraper/official_api/) - NEPSE API Python client with WASM auth

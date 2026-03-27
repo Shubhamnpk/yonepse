@@ -77,11 +77,19 @@ def get_sector_wise_codes():
         print(f"Error fetching data: {e}")
         return None
 
+import os
+
 if __name__ == "__main__":
     data = get_sector_wise_codes()
     if data:
-        # Assuming script runs from root or adjusts path
-        output_file = "data/nepse_sector_wise_codes.json"
+        # Use absolute path relative to the script to find the project root's data directory
+        # scripts/nepse-scraper/sectors.py -> scripts/nepse-scraper -> scripts -> root
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        data_dir = os.path.join(base_dir, 'data')
+        os.makedirs(data_dir, exist_ok=True)
+        
+        output_file = os.path.join(data_dir, "nepse_sector_wise_codes.json")
+        
         with open(output_file, "w") as f:
             json.dump(data, f, indent=4)
         print(f"Successfully saved sector-wise codes to {output_file}")

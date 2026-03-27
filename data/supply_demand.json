@@ -1,41 +1,4 @@
 {
-    "supplyList": [
-        {
-            "totalQuantity": 75,
-            "totalOrder": 2,
-            "securityId": 6984,
-            "symbol": "PBD85",
-            "securityName": "8.75 % Prime Debenture 2085"
-        },
-        {
-            "totalQuantity": 25,
-            "totalOrder": 1,
-            "securityId": 8116,
-            "symbol": "PBD84",
-            "securityName": "10.15% Prime Debenture 2084"
-        }
-    ],
-    "demandList": [
-        {
-            "totalQuantity": 167826,
-            "totalOrder": 1241,
-            "securityId": 9323,
-            "symbol": "SKHL",
-            "securityName": "Super Khudi Hydropower Limited"
-        },
-        {
-            "totalQuantity": 81050,
-            "totalOrder": 260,
-            "securityId": 9324,
-            "symbol": "RLEL",
-            "securityName": "Ridge Line Energy Limited"
-        },
-        {
-            "totalQuantity": 50,
-            "totalOrder": 2,
-            "securityId": 6984,
-            "symbol": "PBD85",
-            "securityName": "8.75 % Prime Debenture 2085"
-        }
-    ]
+    "supplyList": [],
+    "demandList": []
 }

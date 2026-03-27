@@ -31,12 +31,13 @@ jobs:
         mkdir -p data
         python scripts/nepse-scraper/upcoming_ipo_scraper.py
         python scripts/nepse-scraper/proposed_dividend_scraper.py --mode latest
+        python scripts/nepse-scraper/sectors.py
 
     - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git pull --rebase --autostash
-        git add data/upcoming_ipo.json data/oldipo.json data/proposed_dividend/latest_1y.json data/proposed_dividend/history_all_years.json data/proposed_dividend/meta.json
-        git commit -m "Update IPO and Proposed Dividend Data: $(date)" || echo "No changes to commit"
+        git add data/upcoming_ipo.json data/oldipo.json data/proposed_dividend/latest_1y.json data/proposed_dividend/history_all_years.json data/proposed_dividend/meta.json data/nepse_sector_wise_codes.json
+        git commit -m "Update IPO, Proposed Dividend, and Sectors: $(date)" || echo "No changes to commit"
         git push

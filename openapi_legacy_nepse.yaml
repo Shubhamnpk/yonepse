@@ -1,0 +1,646 @@
+﻿openapi: 3.0.3
+info:
+  title: YONEPSE API
+  version: 0.1.0
+  description: |
+    OpenAPI specification generated from YOnepse-scraper endpoint definitions.
+    All endpoints are under https://www.nepalstock.com and require an Authorization
+    header in the form: "Salter <token>". Some POST endpoints use a dynamic payload
+    derived from the authentication token; see notes in each operation.
+servers:
+  - url: https://www.nepalstock.com
+security:
+  - SalterAuth: []
+paths:
+  /api/authenticate/prove:
+    get:
+      summary: Authenticate and retrieve token details
+      operationId: authenticate
+      security: []
+      responses:
+        '200':
+          description: Token details
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/nepse-data/today-price:
+    post:
+      summary: Get today's price data
+      operationId: getTodayPrice
+      parameters:
+        - in: query
+          name: page
+          schema: { type: string }
+          required: false
+        - in: query
+          name: size
+          schema: { type: string }
+          required: false
+        - in: query
+          name: businessDate
+          schema: { type: string, format: date }
+          required: false
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Dynamic payload calculated from token (id). If omitted, client generates.
+              additionalProperties: true
+      responses:
+        '200':
+          description: Price list
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/nepse-data/market-open:
+    get:
+      summary: Market open status
+      operationId: getMarketOpen
+      responses:
+        '200':
+          description: Market status
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /:
+    get:
+      summary: Refer API (empty path in source)
+      operationId: referApi
+      description: Placeholder for refer_api which is an empty path in endpoints.py
+      responses:
+        '200':
+          description: Response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/index/history/{indexId}:
+    get:
+      summary: Index history by index ID
+      operationId: getIndexHistory
+      parameters:
+        - in: path
+          name: indexId
+          required: true
+          schema: { type: integer }
+        - in: query
+          name: startDate
+          schema: { type: string, format: date }
+          required: true
+        - in: query
+          name: endDate
+          schema: { type: string, format: date }
+          required: true
+      responses:
+        '200':
+          description: Index history list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/sectorwise:
+    get:
+      summary: Sector-wise summary
+      operationId: getSectorwiseSummary
+      responses:
+        '200':
+          description: Sector-wise summary
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/market-summary-history:
+    get:
+      summary: Market summary history
+      operationId: getMarketSummaryHistory
+      responses:
+        '200':
+          description: Market summary history
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/news/companies/disclosure:
+    get:
+      summary: Company disclosures
+      operationId: getCompanyDisclosures
+      responses:
+        '200':
+          description: Disclosures payload
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/top-ten/top-gainer:
+    get:
+      summary: Top gainers
+      operationId: getTopGainer
+      parameters:
+        - in: query
+          name: all
+          schema: { type: string, enum: ["true", "false"] }
+          required: false
+      responses:
+        '200':
+          description: Top gainers list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/top-ten/top-loser:
+    get:
+      summary: Top losers
+      operationId: getTopLoser
+      parameters:
+        - in: query
+          name: all
+          schema: { type: string, enum: ["true", "false"] }
+          required: false
+      responses:
+        '200':
+          description: Top losers list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/top-ten/turnover:
+    get:
+      summary: Top turnover
+      operationId: getTopTurnover
+      parameters:
+        - in: query
+          name: all
+          schema: { type: string, enum: ["true", "false"] }
+          required: false
+      responses:
+        '200':
+          description: Top turnover list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/top-ten/trade:
+    get:
+      summary: Top trade
+      operationId: getTopTrade
+      parameters:
+        - in: query
+          name: all
+          schema: { type: string, enum: ["true", "false"] }
+          required: false
+      responses:
+        '200':
+          description: Top trade list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/top-ten/transaction:
+    get:
+      summary: Top transaction
+      operationId: getTopTransaction
+      parameters:
+        - in: query
+          name: all
+          schema: { type: string, enum: ["true", "false"] }
+          required: false
+      responses:
+        '200':
+          description: Top transaction list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/market-summary:
+    get:
+      summary: Market summary
+      operationId: getMarketSummary
+      responses:
+        '200':
+          description: Market summary
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/company/list:
+    get:
+      summary: List all companies/securities
+      operationId: getCompanyList
+      responses:
+        '200':
+          description: Company list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/nepse-data/marcapbydate:
+    get:
+      summary: Market cap by date
+      operationId: getMarketCap
+      parameters:
+        - in: query
+          name: date
+          schema: { type: string, format: date }
+          required: false
+      responses:
+        '200':
+          description: Market cap data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/nepse-data/trading-average:
+    get:
+      summary: Trading average
+      operationId: getTradingAverage
+      parameters:
+        - in: query
+          name: nDays
+          schema: { type: integer }
+          required: false
+        - in: query
+          name: businessDate
+          schema: { type: string, format: date }
+          required: false
+        - in: query
+          name: page
+          schema: { type: string }
+          required: false
+        - in: query
+          name: size
+          schema: { type: string }
+          required: false
+      responses:
+        '200':
+          description: Trading average data
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/member:
+    post:
+      summary: Broker list
+      operationId: getBrokers
+      parameters:
+        - in: query
+          name: page
+          schema: { type: string }
+          required: false
+        - in: query
+          name: size
+          schema: { type: string }
+          required: false
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Broker list
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/sector:
+    get:
+      summary: Sector list
+      operationId: getSectors
+      responses:
+        '200':
+          description: Sector list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/index:
+    get:
+      summary: Sector indices
+      operationId: getSectorIndices
+      responses:
+        '200':
+          description: Sector indices
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/lives-market:
+    get:
+      summary: Live trades (market open)
+      operationId: getLiveTrades
+      responses:
+        '200':
+          description: Live trades
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+    post:
+      summary: Live trades (market open) - dynamic payload
+      operationId: getLiveTradesPost
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Dynamic payload calculated from token (id). If omitted, client generates.
+              additionalProperties: true
+      responses:
+        '200':
+          description: Live trades
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/graph/index/{indexId}:
+    post:
+      summary: Live index graph data
+      operationId: getLiveIndexGraph
+      parameters:
+        - in: path
+          name: indexId
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Dynamic payload calculated from token (id). If omitted, client generates.
+              additionalProperties: true
+      responses:
+        '200':
+          description: Live index graph data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/security:
+    get:
+      summary: Security details (generic)
+      operationId: getSecurity
+      responses:
+        '200':
+          description: Security data
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/security/{securityId}:
+    post:
+      summary: Ticker info by security ID
+      operationId: getTickerInfo
+      parameters:
+        - in: path
+          name: securityId
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Dynamic payload calculated from token (id). If omitted, client generates.
+              additionalProperties: true
+      responses:
+        '200':
+          description: Ticker info
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/security/profile/{securityId}:
+    get:
+      summary: Ticker contact info
+      operationId: getTickerContact
+      parameters:
+        - in: path
+          name: securityId
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Ticker contact info
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/market/security/price/{securityId}:
+    get:
+      summary: Ticker price history
+      operationId: getTickerPriceHistory
+      parameters:
+        - in: path
+          name: securityId
+          required: true
+          schema: { type: integer }
+        - in: query
+          name: startDate
+          schema: { type: string, format: date }
+          required: true
+        - in: query
+          name: endDate
+          schema: { type: string, format: date }
+          required: true
+        - in: query
+          name: page
+          schema: { type: integer }
+          required: false
+        - in: query
+          name: size
+          schema: { type: integer }
+          required: false
+      responses:
+        '200':
+          description: Price history list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/nepse-index:
+    get:
+      summary: NEPSE index list
+      operationId: getNepseIndex
+      responses:
+        '200':
+          description: Index list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/securityDailyTradeStat/{securityId}:
+    get:
+      summary: Security daily trade statistics
+      operationId: getSecurityDailyTradeStat
+      parameters:
+        - in: path
+          name: securityId
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Daily trade stats
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/nots/securities:
+    get:
+      summary: Simplified list of securities
+      operationId: getSecuritiesList
+      responses:
+        '200':
+          description: Securities list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/nepse-data/supplydemand:
+    get:
+      summary: Supply and demand data
+      operationId: getSupplyDemand
+      parameters:
+        - in: query
+          name: all
+          schema: { type: string, enum: ["true", "false"] }
+          required: false
+      responses:
+        '200':
+          description: Supply and demand list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/nots/top-ten/trade-qty:
+    get:
+      summary: Top trade by quantity
+      operationId: getTopTradeByQuantity
+      parameters:
+        - in: query
+          name: all
+          schema: { type: string, enum: ["true", "false"] }
+          required: false
+      responses:
+        '200':
+          description: Top trade quantity list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/web/notice/:
+    get:
+      summary: General notices
+      operationId: getNotices
+      responses:
+        '200':
+          description: Notices list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/web/info-officer:
+    get:
+      summary: Information officers
+      operationId: getInfoOfficers
+      responses:
+        '200':
+          description: Information officers list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+components:
+  securitySchemes:
+    SalterAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Authorization header in the form "Salter <token>"

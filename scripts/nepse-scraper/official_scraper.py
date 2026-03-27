@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup
 sys.path.append(os.path.dirname(__file__))
 
 from official_api import NepseScraper
+from open_ended_mutual_fund_scraper import scrape_and_save_open_ended_navs
 
 def get_file_last_commit_date(filepath):
     """Get the datetime of the last git commit for a specific file."""
@@ -50,6 +51,71 @@ def load_json_object(filepath):
             return json.load(f)
     except Exception:
         return None
+
+def build_omf_rows_for_nepse_data(data_dir, omf_items=None):
+    """
+    Load open-ended mutual funds from OMF.json and map them into nepse_data schema.
+    """
+    if omf_items is None:
+        omf_path = os.path.join(data_dir, 'OMF.json')
+        omf_items = load_json_list(omf_path)
+    if not omf_items:
+        return []
+
+    mapped = []
+    for item in omf_items:
+        if not isinstance(item, dict):
+            continue
+
+        symbol = item.get('symbol')
+        name = item.get('fund_name')
+        if not symbol or not name:
+            continue
+
+        ltp = item.get('daily_nav')
+        previous_close = item.get('weekly_nav')
+        change = (
+            round(ltp - previous_close, 2)
+            if isinstance(ltp, (int, float)) and isinstance(previous_close, (int, float))
+            else 0
+        )
+        percent_change = (
+            round((change / previous_close) * 100, 2)
+            if isinstance(previous_close, (int, float)) and previous_close != 0
+            else 0
+        )
+
+        mapped.append({
+            "symbol": symbol,
+            "name": name,
+            "ltp": ltp,
+            "previous_close": previous_close,
+            "change": change,
+            "percent_change": percent_change,
+            "high": None,
+            "low": None,
+            "volume": None,
+            "turnover": None,
+            "trades": None,
+            "last_updated": item.get('daily_nav_date') or item.get('scraped_at'),
+            "market_cap": item.get('fund_size'),
+            "asset_type": "open_ended_mutual_fund"
+        })
+
+    return mapped
+
+def refresh_omf_data(data_dir):
+    """
+    Refresh OMF.json from Sharesansar. If refresh fails, keep existing OMF.json.
+    """
+    omf_path = os.path.join(data_dir, 'OMF.json')
+    try:
+        rows = scrape_and_save_open_ended_navs(output_path=omf_path)
+        print(f"Refreshed OMF.json with {len(rows)} open-ended mutual fund rows.")
+        return rows
+    except Exception as exc:
+        print(f"OMF refresh failed, falling back to existing OMF.json: {exc}")
+        return load_json_list(omf_path)
 
 def write_json_if_changed(filepath, data):
     """Write JSON only if content differs or file does not exist."""
@@ -378,7 +444,11 @@ def scrape_all_official_data(include_brokers=False):
         with open(os.path.join(data_dir, 'market_status.json'), 'w') as f:
             json.dump(market_status, f, indent=4)
         
-        # 3. Today's Prices
+        # 3. Refresh open-ended mutual funds (OMF.json)
+        print("Refreshing open-ended mutual fund data...")
+        omf_snapshot = refresh_omf_data(data_dir)
+
+        # 4. Today's Prices
         print("Fetching today's prices...")
         raw_prices = scraper.get_today_price()
         
@@ -405,7 +475,26 @@ def scrape_all_official_data(include_brokers=False):
                 "last_updated": item.get('lastUpdatedTime'),
                 "market_cap": item.get('marketCapitalization')
             })
-            
+
+        # Include open-ended mutual funds collected from Sharesansar OMF.json.
+        # Use fresh in-memory snapshot when available.
+        omf_rows = build_omf_rows_for_nepse_data(data_dir, omf_items=omf_snapshot)
+        if omf_rows:
+            seen_symbols = {row.get('symbol') for row in mapped_prices if isinstance(row, dict)}
+            appended = 0
+            for row in omf_rows:
+                symbol = row.get('symbol')
+                if symbol in seen_symbols:
+                    continue
+                mapped_prices.append(row)
+                seen_symbols.add(symbol)
+                appended += 1
+            print(f"Added {appended} open-ended mutual fund rows to nepse_data.json.")
+        else:
+            print("No OMF rows found. nepse_data.json will include only NEPSE official price rows.")
+
+        mapped_prices.sort(key=lambda x: str(x.get('symbol', '')))
+
         with open(os.path.join(data_dir, 'nepse_data.json'), 'w') as f:
             json.dump(mapped_prices, f, indent=4)
         
