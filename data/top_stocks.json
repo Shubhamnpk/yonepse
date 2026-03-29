@@ -7492,13 +7492,6 @@
             "securityId": 8043
         },
         {
-            "symbol": "NBLD87",
-            "shareTraded": 50,
-            "closingPrice": 1095.0,
-            "securityName": "8.5% Nepal Bank Debenture 2087",
-            "securityId": 4959
-        },
-        {
             "symbol": "SBLD89",
             "shareTraded": 50,
             "closingPrice": 1250.0,
@@ -7511,6 +7504,13 @@
             "closingPrice": 1040.0,
             "securityName": "7% Nepal SBI Bank Debenture 2090",
             "securityId": 9289
+        },
+        {
+            "symbol": "NBLD87",
+            "shareTraded": 50,
+            "closingPrice": 1095.0,
+            "securityName": "8.5% Nepal Bank Debenture 2087",
+            "securityId": 4959
         },
         {
             "symbol": "NICAD2091",
@@ -7548,13 +7548,6 @@
             "securityId": 8110
         },
         {
-            "symbol": "MFLD85",
-            "shareTraded": 25,
-            "closingPrice": 1162.7,
-            "securityName": "9.5% Manjushree Finance Limited Debenture 2085",
-            "securityId": 2932
-        },
-        {
             "symbol": "RBBD83",
             "shareTraded": 25,
             "closingPrice": 1035.4,
@@ -7562,11 +7555,11 @@
             "securityId": 8003
         },
         {
-            "symbol": "SBLD2091",
+            "symbol": "MFLD85",
             "shareTraded": 25,
-            "closingPrice": 1062.4,
-            "securityName": "7.25% SBL Debenture 2091",
-            "securityId": 9271
+            "closingPrice": 1162.7,
+            "securityName": "9.5% Manjushree Finance Limited Debenture 2085",
+            "securityId": 2932
         },
         {
             "symbol": "MLBLD89",
@@ -7574,6 +7567,13 @@
             "closingPrice": 1305.0,
             "securityName": "11% Mahalaxmi Debenture 2089",
             "securityId": 9195
+        },
+        {
+            "symbol": "SBLD2091",
+            "shareTraded": 25,
+            "closingPrice": 1062.4,
+            "securityName": "7.25% SBL Debenture 2091",
+            "securityId": 9271
         }
     ],
     "top_transaction": [
