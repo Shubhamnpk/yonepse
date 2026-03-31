@@ -1,5 +1,29 @@
 [
     {
+        "id": 45270,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30375,
+                "activeStatus": "A",
+                "modifiedBy": "nrn_user",
+                "modifiedDate": "2026-03-31T10:30:08.487",
+                "application": 45270,
+                "documentType": 54,
+                "submittedDate": "2026-03-31",
+                "filePath": "NRN_Infrastructure_and_Development_Limited/Company News/2026-03-31/257-Chairman Appointed_1774932288799.pdf",
+                "encryptedId": "f37dbf54f4d5d1e8476d34318238eeace989f947f282f40521889b01f30fbde8705e415ab01b478893eba70b54e2b213470037c04fdc9e7ef63bac792dc2e622",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=NRN_Infrastructure_and_Development_Limited/Company%20News/2026-03-31/257-Chairman%20Appointed_1774932288799.pdf"
+            }
+        ],
+        "newsHeadline": "Information Regarding New Chairman  [NRN] ",
+        "newsBody": "",
+        "addedDate": "2026-03-31T10:30:08.467",
+        "newsSource": "NRN",
+        "modifiedDate": "2026-03-31T10:32:05.307",
+        "approvedDate": null,
+        "symbol": "NRN"
+    },
+    {
         "id": 45269,
         "applicationDocumentDetailsList": [
             {
@@ -387,18 +411,6 @@
         "id": 45148,
         "applicationDocumentDetailsList": [
             {
-                "id": 30285,
-                "activeStatus": "A",
-                "modifiedBy": "mchpl_user",
-                "modifiedDate": "2026-03-24T10:06:42.983",
-                "application": 45148,
-                "documentType": 54,
-                "submittedDate": "2026-03-24",
-                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/img-7_1774326095513.pdf",
-                "encryptedId": "dee1d8743d136498a30852363522a4a935a1424844615ae8ae76d8dad8df01c5030a42b4ade4f87d1fb4b86d6867a425aab85b8456634dcdc469eaae9fc65c0f",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/img-7_1774326095513.pdf"
-            },
-            {
                 "id": 30284,
                 "activeStatus": "A",
                 "modifiedBy": "mchpl_user",
@@ -409,6 +421,18 @@
                 "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/lock in notice_1774326080607.pdf",
                 "encryptedId": "941cd0f24595cc66b7304dd55435cdc171ffdb8174a2833546281577fecaf4a8b68ab97b7729498c372ca6aa5a06daefba598118b29927dc65013b4d80636810",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/lock%20in%20notice_1774326080607.pdf"
+            },
+            {
+                "id": 30285,
+                "activeStatus": "A",
+                "modifiedBy": "mchpl_user",
+                "modifiedDate": "2026-03-24T10:06:42.983",
+                "application": 45148,
+                "documentType": 54,
+                "submittedDate": "2026-03-24",
+                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/img-7_1774326095513.pdf",
+                "encryptedId": "dee1d8743d136498a30852363522a4a935a1424844615ae8ae76d8dad8df01c5030a42b4ade4f87d1fb4b86d6867a425aab85b8456634dcdc469eaae9fc65c0f",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/img-7_1774326095513.pdf"
             }
         ],
         "newsHeadline": "Lock In Period End Notice MCHL [MCHL] ",
