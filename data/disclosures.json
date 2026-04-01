@@ -459,18 +459,6 @@
         "id": 45148,
         "applicationDocumentDetailsList": [
             {
-                "id": 30284,
-                "activeStatus": "A",
-                "modifiedBy": "mchpl_user",
-                "modifiedDate": "2026-03-24T10:06:42.98",
-                "application": 45148,
-                "documentType": 54,
-                "submittedDate": "2026-03-24",
-                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/lock in notice_1774326080607.pdf",
-                "encryptedId": "941cd0f24595cc66b7304dd55435cdc171ffdb8174a2833546281577fecaf4a8b68ab97b7729498c372ca6aa5a06daefba598118b29927dc65013b4d80636810",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/lock%20in%20notice_1774326080607.pdf"
-            },
-            {
                 "id": 30285,
                 "activeStatus": "A",
                 "modifiedBy": "mchpl_user",
@@ -481,6 +469,18 @@
                 "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/img-7_1774326095513.pdf",
                 "encryptedId": "dee1d8743d136498a30852363522a4a935a1424844615ae8ae76d8dad8df01c5030a42b4ade4f87d1fb4b86d6867a425aab85b8456634dcdc469eaae9fc65c0f",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/img-7_1774326095513.pdf"
+            },
+            {
+                "id": 30284,
+                "activeStatus": "A",
+                "modifiedBy": "mchpl_user",
+                "modifiedDate": "2026-03-24T10:06:42.98",
+                "application": 45148,
+                "documentType": 54,
+                "submittedDate": "2026-03-24",
+                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/lock in notice_1774326080607.pdf",
+                "encryptedId": "941cd0f24595cc66b7304dd55435cdc171ffdb8174a2833546281577fecaf4a8b68ab97b7729498c372ca6aa5a06daefba598118b29927dc65013b4d80636810",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/lock%20in%20notice_1774326080607.pdf"
             }
         ],
         "newsHeadline": "Lock In Period End Notice MCHL [MCHL] ",
@@ -2866,5 +2866,29 @@
         "modifiedDate": "2026-04-01T08:13:18.33",
         "approvedDate": null,
         "symbol": "SAHAS"
+    },
+    {
+        "id": 45302,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30396,
+                "activeStatus": "A",
+                "modifiedBy": "scb_user",
+                "modifiedDate": "2026-04-01T16:43:10.573",
+                "application": 45302,
+                "documentType": 54,
+                "submittedDate": "2026-04-01",
+                "filePath": "scb_user/2026-04-01/Appointment of Independent Director to NEPSE _1775041075441.pdf",
+                "encryptedId": "ea324c055a2ebc65fbf484ab65b0e5c596e3fc5bca1d8ec697058748e103e3094c8d9e3e8342fb2ed9f5707cfb0c0e5baedca688dff427dcf5a904ee0c274126",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=scb_user/2026-04-01/Appointment%20of%20Independent%20Director%20to%20NEPSE%20_1775041075441.pdf"
+            }
+        ],
+        "newsHeadline": "Appointment of Director [SCB] ",
+        "newsBody": "<p>Appointment of Director</p>",
+        "addedDate": "2026-04-01T16:43:10.57",
+        "newsSource": "Appointment of Director",
+        "modifiedDate": "2026-04-01T17:06:14.84",
+        "approvedDate": null,
+        "symbol": "SCB"
     }
 ]
