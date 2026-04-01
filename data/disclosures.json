@@ -1,5 +1,53 @@
 [
     {
+        "id": 45296,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30388,
+                "activeStatus": "A",
+                "modifiedBy": "womi_user",
+                "modifiedDate": "2026-04-01T10:26:26.68",
+                "application": 45296,
+                "documentType": 54,
+                "submittedDate": "2026-04-01",
+                "filePath": "womi_user/2026-04-01/Jankari sambandhama_1775018473041.pdf",
+                "encryptedId": "6e3046075194229a341c5443b93871080773faf7518c633b6d4d1ae5cc5f936682eb4d44725bc5175e228e14649a46c10b453ae52293b2973cee6f4b2632f697",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=womi_user/2026-04-01/Jankari%20sambandhama_1775018473041.pdf"
+            }
+        ],
+        "newsHeadline": "Tenure Completion of CEO & Responsibility of Acting CEO [SWMF] ",
+        "newsBody": "<p>Please find the attached file herewith.</p>",
+        "addedDate": "2026-04-01T10:26:26.677",
+        "newsSource": "BOD Meeting Decision",
+        "modifiedDate": "2026-04-01T10:27:28.01",
+        "approvedDate": null,
+        "symbol": "SWMF"
+    },
+    {
+        "id": 45295,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30387,
+                "activeStatus": "A",
+                "modifiedBy": "prin_user",
+                "modifiedDate": "2026-04-01T09:49:07.937",
+                "application": 45295,
+                "documentType": 54,
+                "submittedDate": "2026-04-01",
+                "filePath": "prin_user/2026-04-01/30th AGM and book close of Prabhu Insurance Limited_FINAL_1775016121816.pdf",
+                "encryptedId": "38afb6a694f210bb3e339d9105d05fc632accbbc0244210c08f412aac855ecb6a8ef7000c3f57a2421d731584a418dc12a7648d6d4a090dad014705279ecafd3",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=prin_user/2026-04-01/30th%20AGM%20and%20book%20close%20of%20Prabhu%20Insurance%20Limited_FINAL_1775016121816.pdf"
+            }
+        ],
+        "newsHeadline": "30th AGM and Book close of Prabhu Insurance Limited [PRIN] ",
+        "newsBody": "<p>Annual General Meeting and book close of PRIN </p><p>Fiscal Year: 2081-2082</p><p> AGM Type: AGM </p><p>AGM Date: 4/22/2026</p><p> AGM No: 30</p><p> Book Close Date: 4/9/2026 </p><p>Cash Dividend: 0.4579% </p><p>Bonus Shares: 8.7%</p>",
+        "addedDate": "2026-04-01T09:49:07.927",
+        "newsSource": "460th Board Meeting and attached published AGM notice ",
+        "modifiedDate": "2026-04-01T10:13:39.077",
+        "approvedDate": null,
+        "symbol": "PRIN"
+    },
+    {
         "id": 45270,
         "applicationDocumentDetailsList": [
             {
@@ -411,18 +459,6 @@
         "id": 45148,
         "applicationDocumentDetailsList": [
             {
-                "id": 30285,
-                "activeStatus": "A",
-                "modifiedBy": "mchpl_user",
-                "modifiedDate": "2026-03-24T10:06:42.983",
-                "application": 45148,
-                "documentType": 54,
-                "submittedDate": "2026-03-24",
-                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/img-7_1774326095513.pdf",
-                "encryptedId": "dee1d8743d136498a30852363522a4a935a1424844615ae8ae76d8dad8df01c5030a42b4ade4f87d1fb4b86d6867a425aab85b8456634dcdc469eaae9fc65c0f",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/img-7_1774326095513.pdf"
-            },
-            {
                 "id": 30284,
                 "activeStatus": "A",
                 "modifiedBy": "mchpl_user",
@@ -433,6 +469,18 @@
                 "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/lock in notice_1774326080607.pdf",
                 "encryptedId": "941cd0f24595cc66b7304dd55435cdc171ffdb8174a2833546281577fecaf4a8b68ab97b7729498c372ca6aa5a06daefba598118b29927dc65013b4d80636810",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/lock%20in%20notice_1774326080607.pdf"
+            },
+            {
+                "id": 30285,
+                "activeStatus": "A",
+                "modifiedBy": "mchpl_user",
+                "modifiedDate": "2026-03-24T10:06:42.983",
+                "application": 45148,
+                "documentType": 54,
+                "submittedDate": "2026-03-24",
+                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/img-7_1774326095513.pdf",
+                "encryptedId": "dee1d8743d136498a30852363522a4a935a1424844615ae8ae76d8dad8df01c5030a42b4ade4f87d1fb4b86d6867a425aab85b8456634dcdc469eaae9fc65c0f",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/img-7_1774326095513.pdf"
             }
         ],
         "newsHeadline": "Lock In Period End Notice MCHL [MCHL] ",
@@ -2770,5 +2818,53 @@
         "modifiedDate": "2026-03-30T11:15:53.673",
         "approvedDate": null,
         "symbol": "HBL"
+    },
+    {
+        "id": 45297,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30389,
+                "activeStatus": "A",
+                "modifiedBy": "smh_user",
+                "modifiedDate": "2026-04-01T11:12:26.593",
+                "application": 45297,
+                "documentType": 54,
+                "submittedDate": "2026-04-01",
+                "filePath": "Supermai_Hydropower_Limited/Company News/2026-04-01/Right Share Issue Manager Appointment_1775021241728.pdf",
+                "encryptedId": "8f5c90a81b9571935afc80b7dafa5fcd2a4fdf44abd9fb4aa48c82b7853a4b4f5d704f45b084cb704d9393fd5542fd3e3c7b1c9ddf920b686dbfafd587e6be29",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Supermai_Hydropower_Limited/Company%20News/2026-04-01/Right%20Share%20Issue%20Manager%20Appointment_1775021241728.pdf"
+            }
+        ],
+        "newsHeadline": "Appointment of Right Share Issue Manager  [SMH] ",
+        "newsBody": "<p>Appointment of right share issue manager by the board in the 134th board meeting.</p>",
+        "addedDate": "2026-04-01T11:12:26.59",
+        "newsSource": "BOD Meeting",
+        "modifiedDate": "2026-04-01T11:13:19.053",
+        "approvedDate": null,
+        "symbol": "SMH"
+    },
+    {
+        "id": 45294,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30386,
+                "activeStatus": "A",
+                "modifiedBy": "user_sahas",
+                "modifiedDate": "2026-03-31T17:36:05.647",
+                "application": 45294,
+                "documentType": 54,
+                "submittedDate": "2026-03-31",
+                "filePath": "Sahas_Urja_Limited/Company News/2026-03-31/Letter to NEPSE regarding Approval of Right from ERC_1774957803422.pdf",
+                "encryptedId": "9b62ad27b9622ad1a0d32c9ffc48226a0ad6e1dfd1c4b52db53ebbf0a4c4ed0eee3a5f1d8e9074f9a2d41869bab18b4545c6fad3f4c8e79980cc59ba8f76395b",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Sahas_Urja_Limited/Company%20News/2026-03-31/Letter%20to%20NEPSE%20regarding%20Approval%20of%20Right%20from%20ERC_1774957803422.pdf"
+            }
+        ],
+        "newsHeadline": "Approval of 1:1 Right from ERC [SAHAS] ",
+        "newsBody": "<p>The Electricity Regulatory Commission (ERC) has provided its pre-approval for 1:1 right share issuance of Sahas Urja Limited.</p>",
+        "addedDate": "2026-03-31T17:36:05.64",
+        "newsSource": "ERC Letter",
+        "modifiedDate": "2026-04-01T08:13:18.33",
+        "approvedDate": null,
+        "symbol": "SAHAS"
     }
 ]
