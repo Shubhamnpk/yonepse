@@ -1,19 +1,151 @@
 [
     {
-        "id": 45321,
+        "id": 45333,
         "applicationDocumentDetailsList": [
             {
-                "id": 30421,
+                "id": 30437,
                 "activeStatus": "A",
-                "modifiedBy": "balephi_user",
-                "modifiedDate": "2026-04-03T10:12:53.797",
-                "application": 45321,
+                "modifiedBy": "dlbs_user",
+                "modifiedDate": "2026-04-05T09:49:03.703",
+                "application": 45333,
+                "documentType": 54,
+                "submittedDate": "2026-04-05",
+                "filePath": "Dhaulagiri_laghubitta_Sanstha_Limited/Company News/2026-04-05/AGM-7 letter_1775361826882.pdf",
+                "encryptedId": "c3398f47e44ec4e2a674a4afb836f1e462d006333da9f53dcc3e7a7d75854b9e98daa933f6ae5c97eb416c95c6b8b70e217bebb634cf708d1b7a8d8adcd4148e",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Dhaulagiri_laghubitta_Sanstha_Limited/Company%20News/2026-04-05/AGM-7%20letter_1775361826882.pdf"
+            },
+            {
+                "id": 30436,
+                "activeStatus": "A",
+                "modifiedBy": "dlbs_user",
+                "modifiedDate": "2026-04-05T09:49:03.7",
+                "application": 45333,
+                "documentType": 54,
+                "submittedDate": "2026-04-05",
+                "filePath": "Dhaulagiri_laghubitta_Sanstha_Limited/Company News/2026-04-05/7 AGM notice_1775361837462.pdf",
+                "encryptedId": "af21fd0c03e730c725506b2f40acd83a577672ddc5769e2c16972f43af491f2e3335df7399451aa40908675585f61324641efacc608bc075e809781f02b142c9",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Dhaulagiri_laghubitta_Sanstha_Limited/Company%20News/2026-04-05/7%20AGM%20notice_1775361837462.pdf"
+            }
+        ],
+        "newsHeadline": "Book Close of DLBS [DLBS] ",
+        "newsBody": "Book Close of DLBS\nBook Close Date : 4/23/2026",
+        "addedDate": "2026-04-05T09:49:03.697",
+        "newsSource": "Book Close of DLBS",
+        "modifiedDate": "2026-04-05T10:12:13.96",
+        "approvedDate": null,
+        "symbol": "DLBS"
+    },
+    {
+        "id": 45332,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30435,
+                "activeStatus": "A",
+                "modifiedBy": "dlbs_user",
+                "modifiedDate": "2026-04-05T09:47:56.783",
+                "application": 45332,
+                "documentType": 54,
+                "submittedDate": "2026-04-05",
+                "filePath": "Dhaulagiri_laghubitta_Sanstha_Limited/Company News/2026-04-05/AGM-7 letter_1775361758573.pdf",
+                "encryptedId": "b1a5fe3907dcbce6503dea41459a213d71a8934110907b5c9c50e6bf62839e1210458a5c394d661e1c6e3e1a8416f357879e97505c875dc8321c7fd6be729993",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Dhaulagiri_laghubitta_Sanstha_Limited/Company%20News/2026-04-05/AGM-7%20letter_1775361758573.pdf"
+            },
+            {
+                "id": 30434,
+                "activeStatus": "A",
+                "modifiedBy": "dlbs_user",
+                "modifiedDate": "2026-04-05T09:47:56.783",
+                "application": 45332,
+                "documentType": 54,
+                "submittedDate": "2026-04-05",
+                "filePath": "Dhaulagiri_laghubitta_Sanstha_Limited/Company News/2026-04-05/7 AGM notice_1775361766945.pdf",
+                "encryptedId": "9af01b1a54c3ad384b778cfa4d02d3687ca3896da4fc7c20e8f5ea98a3cfb19e068bfde906c86a396d8d89bc273d89e35cf2adf239977677f8bd433d4935a072",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Dhaulagiri_laghubitta_Sanstha_Limited/Company%20News/2026-04-05/7%20AGM%20notice_1775361766945.pdf"
+            }
+        ],
+        "newsHeadline": "Annual General Meeting of DLBS Fiscal Year: 2081-2082 [DLBS] ",
+        "newsBody": "Annual General Meeting of DLBS\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 5/5/2026\nAGM No: 7\nBook Close Date: 4/23/2026",
+        "addedDate": "2026-04-05T09:47:56.763",
+        "newsSource": "Annual General Meeting of DLBS Fiscal Year: 2081-2082",
+        "modifiedDate": "2026-04-05T10:11:43.237",
+        "approvedDate": null,
+        "symbol": "DLBS"
+    },
+    {
+        "id": 45331,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30433,
+                "activeStatus": "A",
+                "modifiedBy": "NESDO_user",
+                "modifiedDate": "2026-04-04T21:35:53.537",
+                "application": 45331,
+                "documentType": 54,
+                "submittedDate": "2026-04-04",
+                "filePath": "NESDO_Sambridha_Laghubitta_Bittiye_Sanstha_Limited/Company News/2026-04-04/Nepse_1775317849501.pdf",
+                "encryptedId": "b6371c30681c36eaa4bae60e5fc00a97a90c611a4015f7c7a396c45e8712d63cdab736e1c779e331fa9e709df06c8c9342af2beef0873b63167da416c667cb22",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=NESDO_Sambridha_Laghubitta_Bittiye_Sanstha_Limited/Company%20News/2026-04-04/Nepse_1775317849501.pdf"
+            }
+        ],
+        "newsHeadline": "Information letter for Resignation of Chairman and Appointment of New Chairman  [NESDO] ",
+        "newsBody": "<p>Information letter for Resignation of Chairman and Appointment of New Chairman</p>",
+        "addedDate": "2026-04-04T21:35:53.533",
+        "newsSource": "BOD",
+        "modifiedDate": "2026-04-05T10:11:02.02",
+        "approvedDate": null,
+        "symbol": "NESDO"
+    },
+    {
+        "id": 45329,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30431,
+                "activeStatus": "A",
+                "modifiedBy": "hli_user",
+                "modifiedDate": "2026-04-04T12:31:02.293",
+                "application": 45329,
+                "documentType": 54,
+                "submittedDate": "2026-04-04",
+                "filePath": "hli_user/2026-04-04/Resignation letter of Chairman_1775285050688.pdf",
+                "encryptedId": "21af5114da05ec742699d58aadd9a6f6d3d0ae70c19156991ac42a6ed2e9b7ebbb53294e90dbf5267b2f57ffbe484fc608149eab464c9e59ef715f4d3d33638b",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=hli_user/2026-04-04/Resignation%20letter%20of%20Chairman_1775285050688.pdf"
+            }
+        ],
+        "newsHeadline": "Resignation of Chairman [HLI] ",
+        "newsBody": "",
+        "addedDate": "2026-04-04T12:31:02.273",
+        "newsSource": "Board of Directors",
+        "modifiedDate": "2026-04-05T10:10:19.163",
+        "approvedDate": null,
+        "symbol": "HLI"
+    },
+    {
+        "id": 45328,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30430,
+                "activeStatus": "A",
+                "modifiedBy": "unhpl_user",
+                "modifiedDate": "2026-04-03T19:02:25.537",
+                "application": 45328,
                 "documentType": 54,
                 "submittedDate": "2026-04-03",
-                "filePath": "Balephi_Hydropower_Limited/Company News/2026-04-03/chairman resign notice_1775190430233.pdf",
-                "encryptedId": "6153cd5807ad114136a713859094c01ce21a1d2b64a2a5c1fe0bb97f7d199f6fa031f921c89c09680286f7b1cb55f468f073abe8caf2e9e3026b388f1505c7d0",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-04-03/chairman%20resign%20notice_1775190430233.pdf"
-            },
+                "filePath": "Union_Hydropower_Limited/Company News/2026-04-03/book close1_1775222211061.pdf",
+                "encryptedId": "0d41e835bd384e93e5442b57595c49066043bf807db6100b2ae488e24f76af64e5a934b8ca0d0c65c76db879796e7fc9c01653bea85f133bf696d507d5ad658a",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Union_Hydropower_Limited/Company%20News/2026-04-03/book%20close1_1775222211061.pdf"
+            }
+        ],
+        "newsHeadline": "Notificatiob of Book Close date  [UNHPL] ",
+        "newsBody": "Book Close of UNHPL\nBook Close Date : 4/9/2026",
+        "addedDate": "2026-04-03T19:02:25.533",
+        "newsSource": "B.O.D Meeting",
+        "modifiedDate": "2026-04-05T10:09:54.413",
+        "approvedDate": null,
+        "symbol": "UNHPL"
+    },
+    {
+        "id": 45321,
+        "applicationDocumentDetailsList": [
             {
                 "id": 30420,
                 "activeStatus": "A",
@@ -25,6 +157,18 @@
                 "filePath": "Balephi_Hydropower_Limited/Company News/2026-04-03/nirnaya utar_1775190448390.pdf",
                 "encryptedId": "0061cd806d91e0113af990fe222c80fd6e07cdc8849ef7f419bdb67dad0d437d80e720dc33633181235b19197df4eb39a5c26df4bcd3e186dabc552b78f1ebdc",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-04-03/nirnaya%20utar_1775190448390.pdf"
+            },
+            {
+                "id": 30421,
+                "activeStatus": "A",
+                "modifiedBy": "balephi_user",
+                "modifiedDate": "2026-04-03T10:12:53.797",
+                "application": 45321,
+                "documentType": 54,
+                "submittedDate": "2026-04-03",
+                "filePath": "Balephi_Hydropower_Limited/Company News/2026-04-03/chairman resign notice_1775190430233.pdf",
+                "encryptedId": "6153cd5807ad114136a713859094c01ce21a1d2b64a2a5c1fe0bb97f7d199f6fa031f921c89c09680286f7b1cb55f468f073abe8caf2e9e3026b388f1505c7d0",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-04-03/chairman%20resign%20notice_1775190430233.pdf"
             }
         ],
         "newsHeadline": "Resignation of Chairman Accepted.  [BHL] ",
@@ -3130,5 +3274,29 @@
         "modifiedDate": "2026-04-01T17:06:14.84",
         "approvedDate": null,
         "symbol": "SCB"
+    },
+    {
+        "id": 45327,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30429,
+                "activeStatus": "A",
+                "modifiedBy": "unhpl_user",
+                "modifiedDate": "2026-04-03T19:00:14.453",
+                "application": 45327,
+                "documentType": 54,
+                "submittedDate": "2026-04-03",
+                "filePath": "Union_Hydropower_Limited/Company News/2026-04-03/SGM_1775221918361.pdf",
+                "encryptedId": "7759dd459c7b13c9871271b23bd85373cfb534c2e1affa8e69176f54e765be038e100936a293ba64794bd959d3a41ca4b8f9683f3d0c1e3b3d891a8be1f8bb27",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Union_Hydropower_Limited/Company%20News/2026-04-03/SGM_1775221918361.pdf"
+            }
+        ],
+        "newsHeadline": "Special General Meeting [UNHPL] ",
+        "newsBody": "Annual General Meeting of UNHPL\nFiscal Year: 2082-2083\nAGM Type: SGM\nAGM Date: 4/19/2026\nAGM No: 1\nBook Close Date: 4/9/2026",
+        "addedDate": "2026-04-03T19:00:14.45",
+        "newsSource": "B.O.D Meeting",
+        "modifiedDate": "2026-04-05T10:09:36.103",
+        "approvedDate": null,
+        "symbol": "UNHPL"
     }
 ]
