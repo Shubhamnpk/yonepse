@@ -1,5 +1,65 @@
 [
     {
+        "id": 45350,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30446,
+                "activeStatus": "A",
+                "modifiedBy": "balephi_user",
+                "modifiedDate": "2026-04-07T10:44:10.67",
+                "application": 45350,
+                "documentType": 54,
+                "submittedDate": "2026-04-07",
+                "filePath": "Balephi_Hydropower_Limited/Company News/2026-04-07/appoint letter nepse_1775537882544.pdf",
+                "encryptedId": "a0917bebd4ac585b4bdd87a2f8e85d5351cc07e729e10e7685ea089b96e0611e5e805ad2b3ac4c0f6d10a245975483cbf8d0d424d1729cca8f76e6981b73488c",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-04-07/appoint%20letter%20nepse_1775537882544.pdf"
+            },
+            {
+                "id": 30447,
+                "activeStatus": "A",
+                "modifiedBy": "balephi_user",
+                "modifiedDate": "2026-04-07T10:44:10.673",
+                "application": 45350,
+                "documentType": 54,
+                "submittedDate": "2026-04-07",
+                "filePath": "Balephi_Hydropower_Limited/Company News/2026-04-07/nirnaya utar chairman_1775537889930.pdf",
+                "encryptedId": "bdaaefdea78b80ee19bec12718c241b3a28fddc7e57fab77c6af7c480d312b617f3c37512bef901105722f6be4f4088d3158decd9a380aef04b0e55e85d8d479",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-04-07/nirnaya%20utar%20chairman_1775537889930.pdf"
+            }
+        ],
+        "newsHeadline": "Appointment of Chairman [BHL] ",
+        "newsBody": "",
+        "addedDate": "2026-04-07T10:44:10.667",
+        "newsSource": "BOD Meeting",
+        "modifiedDate": "2026-04-07T10:50:22.24",
+        "approvedDate": null,
+        "symbol": "BHL"
+    },
+    {
+        "id": 45347,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30443,
+                "activeStatus": "A",
+                "modifiedBy": "nric_user",
+                "modifiedDate": "2026-04-07T09:24:53.68",
+                "application": 45347,
+                "documentType": 54,
+                "submittedDate": "2026-04-07",
+                "filePath": "Nepal_Reinsurance_Company_Limited/Company News/2026-04-07/Resignation of Independent BOD_1775533152266.pdf",
+                "encryptedId": "0c322d24a7e7dd080b7adecdc8da1b34fc11631e1bea638960cd41449e370a26aa39fef9dc67c991d8efd8b083f4adf5295d94f6380cca30c07d101fcef106f8",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Reinsurance_Company_Limited/Company%20News/2026-04-07/Resignation%20of%20Independent%20BOD_1775533152266.pdf"
+            }
+        ],
+        "newsHeadline": "Resignation of Independent director [NRIC] ",
+        "newsBody": "<p>Resignation of Independent director</p>",
+        "addedDate": "2026-04-07T09:24:53.667",
+        "newsSource": "Board meeting minute",
+        "modifiedDate": "2026-04-07T09:27:47.837",
+        "approvedDate": null,
+        "symbol": "NRIC"
+    },
+    {
         "id": 45345,
         "applicationDocumentDetailsList": [
             {
@@ -3346,5 +3406,29 @@
         "modifiedDate": "2026-04-05T10:09:36.103",
         "approvedDate": null,
         "symbol": "UNHPL"
+    },
+    {
+        "id": 45349,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30445,
+                "activeStatus": "A",
+                "modifiedBy": "smb_user",
+                "modifiedDate": "2026-04-07T09:55:43.803",
+                "application": 45349,
+                "documentType": 54,
+                "submittedDate": "2026-04-07",
+                "filePath": "smb_user/2026-04-07/Nepal Stock Exchange_1775535021286.PDF",
+                "encryptedId": "81190c96b4fbca0507000326d600bd4c09d539c7ce2e5ff2f5423a3371d76a9f9ed314b575a802653cfb46f2d7b1c1f56ff7a51f6e9602f63c3b79a2f6c08df4",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=smb_user/2026-04-07/Nepal%20Stock%20Exchange_1775535021286.PDF"
+            }
+        ],
+        "newsHeadline": "Reconstituted of Audit Committee [SMB] ",
+        "newsBody": "",
+        "addedDate": "2026-04-07T09:55:43.8",
+        "newsSource": "Board Meeting Decision No 258",
+        "modifiedDate": "2026-04-07T09:59:52.587",
+        "approvedDate": null,
+        "symbol": "SMB"
     }
 ]
