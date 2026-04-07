@@ -1,19 +1,31 @@
 [
     {
-        "id": 45350,
+        "id": 45351,
         "applicationDocumentDetailsList": [
             {
-                "id": 30446,
+                "id": 30448,
                 "activeStatus": "A",
-                "modifiedBy": "balephi_user",
-                "modifiedDate": "2026-04-07T10:44:10.67",
-                "application": 45350,
+                "modifiedBy": "nmfbs_user",
+                "modifiedDate": "2026-04-07T13:21:11.933",
+                "application": 45351,
                 "documentType": 54,
                 "submittedDate": "2026-04-07",
-                "filePath": "Balephi_Hydropower_Limited/Company News/2026-04-07/appoint letter nepse_1775537882544.pdf",
-                "encryptedId": "a0917bebd4ac585b4bdd87a2f8e85d5351cc07e729e10e7685ea089b96e0611e5e805ad2b3ac4c0f6d10a245975483cbf8d0d424d1729cca8f76e6981b73488c",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-04-07/appoint%20letter%20nepse_1775537882544.pdf"
-            },
+                "filePath": "nmfbs_user/2026-04-07/Chairman Appointment_National MF_1775547362859.pdf",
+                "encryptedId": "42c76682e931eb6b840b63f64a5a0e8883ad0b35bfc97fe58e8c368b27a2dda59bd258173bed9f57148acc3ddd4c6026a92d35dbdc3349e5552762ad48997564",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nmfbs_user/2026-04-07/Chairman%20Appointment_National%20MF_1775547362859.pdf"
+            }
+        ],
+        "newsHeadline": "Appointment of the Chairman of National Laghubitta [NMFBS] ",
+        "newsBody": "",
+        "addedDate": "2026-04-07T13:21:11.927",
+        "newsSource": "NMFBS",
+        "modifiedDate": "2026-04-07T14:05:02.147",
+        "approvedDate": null,
+        "symbol": "NMFBS"
+    },
+    {
+        "id": 45350,
+        "applicationDocumentDetailsList": [
             {
                 "id": 30447,
                 "activeStatus": "A",
@@ -25,6 +37,18 @@
                 "filePath": "Balephi_Hydropower_Limited/Company News/2026-04-07/nirnaya utar chairman_1775537889930.pdf",
                 "encryptedId": "bdaaefdea78b80ee19bec12718c241b3a28fddc7e57fab77c6af7c480d312b617f3c37512bef901105722f6be4f4088d3158decd9a380aef04b0e55e85d8d479",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-04-07/nirnaya%20utar%20chairman_1775537889930.pdf"
+            },
+            {
+                "id": 30446,
+                "activeStatus": "A",
+                "modifiedBy": "balephi_user",
+                "modifiedDate": "2026-04-07T10:44:10.67",
+                "application": 45350,
+                "documentType": 54,
+                "submittedDate": "2026-04-07",
+                "filePath": "Balephi_Hydropower_Limited/Company News/2026-04-07/appoint letter nepse_1775537882544.pdf",
+                "encryptedId": "a0917bebd4ac585b4bdd87a2f8e85d5351cc07e729e10e7685ea089b96e0611e5e805ad2b3ac4c0f6d10a245975483cbf8d0d424d1729cca8f76e6981b73488c",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-04-07/appoint%20letter%20nepse_1775537882544.pdf"
             }
         ],
         "newsHeadline": "Appointment of Chairman [BHL] ",
@@ -951,18 +975,6 @@
         "id": 45148,
         "applicationDocumentDetailsList": [
             {
-                "id": 30285,
-                "activeStatus": "A",
-                "modifiedBy": "mchpl_user",
-                "modifiedDate": "2026-03-24T10:06:42.983",
-                "application": 45148,
-                "documentType": 54,
-                "submittedDate": "2026-03-24",
-                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/img-7_1774326095513.pdf",
-                "encryptedId": "dee1d8743d136498a30852363522a4a935a1424844615ae8ae76d8dad8df01c5030a42b4ade4f87d1fb4b86d6867a425aab85b8456634dcdc469eaae9fc65c0f",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/img-7_1774326095513.pdf"
-            },
-            {
                 "id": 30284,
                 "activeStatus": "A",
                 "modifiedBy": "mchpl_user",
@@ -973,6 +985,18 @@
                 "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/lock in notice_1774326080607.pdf",
                 "encryptedId": "941cd0f24595cc66b7304dd55435cdc171ffdb8174a2833546281577fecaf4a8b68ab97b7729498c372ca6aa5a06daefba598118b29927dc65013b4d80636810",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/lock%20in%20notice_1774326080607.pdf"
+            },
+            {
+                "id": 30285,
+                "activeStatus": "A",
+                "modifiedBy": "mchpl_user",
+                "modifiedDate": "2026-03-24T10:06:42.983",
+                "application": 45148,
+                "documentType": 54,
+                "submittedDate": "2026-03-24",
+                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/img-7_1774326095513.pdf",
+                "encryptedId": "dee1d8743d136498a30852363522a4a935a1424844615ae8ae76d8dad8df01c5030a42b4ade4f87d1fb4b86d6867a425aab85b8456634dcdc469eaae9fc65c0f",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/img-7_1774326095513.pdf"
             }
         ],
         "newsHeadline": "Lock In Period End Notice MCHL [MCHL] ",
