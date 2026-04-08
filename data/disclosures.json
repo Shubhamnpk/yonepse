@@ -1,5 +1,77 @@
 [
     {
+        "id": 45372,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30474,
+                "activeStatus": "A",
+                "modifiedBy": "sypnl_uesr",
+                "modifiedDate": "2026-04-08T16:16:01.357",
+                "application": 45372,
+                "documentType": 54,
+                "submittedDate": "2026-04-08",
+                "filePath": "SY_Panel_Nepal_Limited/Company News/2026-04-08/mutual fund lock in end_1775644241356.pdf",
+                "encryptedId": "6132cc1b5556d283a345a6ecd3fc6492f978c883201ad2349ae95f9ac479658b2824b4c397a67e55f56415421cf16a36704ebc171be06126eb097cd00c013a52",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=SY_Panel_Nepal_Limited/Company%20News/2026-04-08/mutual%20fund%20lock%20in%20end_1775644241356.pdf"
+            }
+        ],
+        "newsHeadline": "End of Mutual Fund Lock in period [SYPNL] ",
+        "newsBody": "",
+        "addedDate": "2026-04-08T16:16:01.353",
+        "newsSource": "company's official notice ",
+        "modifiedDate": "2026-04-08T16:17:38.807",
+        "approvedDate": null,
+        "symbol": "SYPNL"
+    },
+    {
+        "id": 45370,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30472,
+                "activeStatus": "A",
+                "modifiedBy": "nmbmf_user",
+                "modifiedDate": "2026-04-08T15:59:21.337",
+                "application": 45370,
+                "documentType": 54,
+                "submittedDate": "2026-04-08",
+                "filePath": "nmbmf_user/2026-04-08/Letter to Regulatory About Appointment of Auditor_1775643235441.PDF",
+                "encryptedId": "af5c099493fc91c027e4c677dad60891bae1b7ebe083acf8dc0a723fe04b8440c868ef5795079f828646eef2cad73a2f69234e7acaae4eb824551a570f95adfa",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nmbmf_user/2026-04-08/Letter%20to%20Regulatory%20About%20Appointment%20of%20Auditor_1775643235441.PDF"
+            }
+        ],
+        "newsHeadline": "Regarding the Appointment of Auditor [NMBMF] ",
+        "newsBody": "",
+        "addedDate": "2026-04-08T15:59:21.337",
+        "newsSource": "NMBMF",
+        "modifiedDate": "2026-04-08T16:00:51.03",
+        "approvedDate": null,
+        "symbol": "NMBMF"
+    },
+    {
+        "id": 45369,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30471,
+                "activeStatus": "A",
+                "modifiedBy": "nmbmf_user",
+                "modifiedDate": "2026-04-08T15:58:17.47",
+                "application": 45369,
+                "documentType": 54,
+                "submittedDate": "2026-04-08",
+                "filePath": "nmbmf_user/2026-04-08/Letter to Regulatory About 13th AGM of NMBMF_1775643189801.PDF",
+                "encryptedId": "08aa96375dae4b7ac65bba4f84551c397ddeba7bf36afcfd32f93a352e0b544fcaea6d91fb946868b0c94de2db064802b7c33a8e2e145a8b9453325f5126f6bf",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nmbmf_user/2026-04-08/Letter%20to%20Regulatory%20About%2013th%20AGM%20of%20NMBMF_1775643189801.PDF"
+            }
+        ],
+        "newsHeadline": "Regarding the Successful Completion of the Annual General Meeting. [NMBMF] ",
+        "newsBody": "",
+        "addedDate": "2026-04-08T15:58:17.467",
+        "newsSource": "NMBMF",
+        "modifiedDate": "2026-04-08T16:00:24.777",
+        "approvedDate": null,
+        "symbol": "NMBMF"
+    },
+    {
         "id": 45359,
         "applicationDocumentDetailsList": [
             {
@@ -3526,5 +3598,29 @@
         "modifiedDate": "2026-04-08T09:52:06.943",
         "approvedDate": null,
         "symbol": "CHDC"
+    },
+    {
+        "id": 45371,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30473,
+                "activeStatus": "A",
+                "modifiedBy": "sindu_user",
+                "modifiedDate": "2026-04-08T16:12:07.103",
+                "application": 45371,
+                "documentType": 54,
+                "submittedDate": "2026-04-08",
+                "filePath": "sindu_user/2026-04-08/16th AGMnepse_1775643959987.pdf",
+                "encryptedId": "8b77a5fd0284d6ae020956eb2780c62999186e70dc29c81764b74c2881fc34dbcd53579d8a604c7934c0da7b7c8d343a3e46112f69ed3179ca7dfc669b0b1631",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sindu_user/2026-04-08/16th%20AGMnepse_1775643959987.pdf"
+            }
+        ],
+        "newsHeadline": "16th AGM Minute [SINDU] ",
+        "newsBody": "<p>16th AGM Minute of Sindhu Bikash Bank Ltd.</p>",
+        "addedDate": "2026-04-08T16:12:07.1",
+        "newsSource": "16th AGM",
+        "modifiedDate": "2026-04-08T16:13:33.2",
+        "approvedDate": null,
+        "symbol": "SINDU"
     }
 ]
