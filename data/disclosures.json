@@ -1,5 +1,29 @@
 [
     {
+        "id": 45394,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30490,
+                "activeStatus": "A",
+                "modifiedBy": "fowad_user",
+                "modifiedDate": "2026-04-10T09:24:07.607",
+                "application": 45394,
+                "documentType": 54,
+                "submittedDate": "2026-04-10",
+                "filePath": "fowad_user/2026-04-10/AGM Notice Letter_1775792330018.pdf",
+                "encryptedId": "1d9de451cfaf092a754c859635588e3aba7bb9c951c58091643680e164854b7e04d1578ede1c67613b50e04be2d05c0e833bd404dfd77c1d0acef3fc0413d617",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=fowad_user/2026-04-10/AGM%20Notice%20Letter_1775792330018.pdf"
+            }
+        ],
+        "newsHeadline": "Book Close and AGM Notice [FOWAD] ",
+        "newsBody": "<p>Book Close of FOWAD\nBook Close Date : 1/7/2083</p><p>AGM Notice and Book Close date</p>",
+        "addedDate": "2026-04-10T09:24:07.583",
+        "newsSource": "madhyanhadaily Paper",
+        "modifiedDate": "2026-04-10T09:25:32.503",
+        "approvedDate": null,
+        "symbol": "FOWAD"
+    },
+    {
         "id": 45381,
         "applicationDocumentDetailsList": [
             {
