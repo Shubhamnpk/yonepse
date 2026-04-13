@@ -1,5 +1,29 @@
 [
     {
+        "id": 45424,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30512,
+                "activeStatus": "A",
+                "modifiedBy": "ppl_user",
+                "modifiedDate": "2026-04-13T15:36:17.85",
+                "application": 45424,
+                "documentType": 54,
+                "submittedDate": "2026-04-13",
+                "filePath": "Peoples_Power_Limited/Company News/2026-04-13/letter_1776073864681.jpg",
+                "encryptedId": "2e4c85a570597d45a6e5e1059b00c6748ec05576f8e16306b205f30483eb862ce6f19786d881896e9202cadb539289092c5aa2de2641179e606e3f789b9c7ad3",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Peoples_Power_Limited/Company%20News/2026-04-13/letter_1776073864681.jpg"
+            }
+        ],
+        "newsHeadline": "Appointment of Auditor and Relocation of the Company Registrar Office [PPL] ",
+        "newsBody": "<p>Appointment of Auditor and Relocation of the Company Registrar Office.</p><p></p><p><strong>Best Regards,</strong></p><p><strong>People's Power Ltd.</strong></p>",
+        "addedDate": "2026-04-13T15:36:17.847",
+        "newsSource": "AGM",
+        "modifiedDate": "2026-04-13T15:40:08.997",
+        "approvedDate": null,
+        "symbol": "PPL"
+    },
+    {
         "id": 45421,
         "applicationDocumentDetailsList": [
             {
@@ -1359,18 +1383,6 @@
         "id": 45148,
         "applicationDocumentDetailsList": [
             {
-                "id": 30284,
-                "activeStatus": "A",
-                "modifiedBy": "mchpl_user",
-                "modifiedDate": "2026-03-24T10:06:42.98",
-                "application": 45148,
-                "documentType": 54,
-                "submittedDate": "2026-03-24",
-                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/lock in notice_1774326080607.pdf",
-                "encryptedId": "941cd0f24595cc66b7304dd55435cdc171ffdb8174a2833546281577fecaf4a8b68ab97b7729498c372ca6aa5a06daefba598118b29927dc65013b4d80636810",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/lock%20in%20notice_1774326080607.pdf"
-            },
-            {
                 "id": 30285,
                 "activeStatus": "A",
                 "modifiedBy": "mchpl_user",
@@ -1381,6 +1393,18 @@
                 "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/img-7_1774326095513.pdf",
                 "encryptedId": "dee1d8743d136498a30852363522a4a935a1424844615ae8ae76d8dad8df01c5030a42b4ade4f87d1fb4b86d6867a425aab85b8456634dcdc469eaae9fc65c0f",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/img-7_1774326095513.pdf"
+            },
+            {
+                "id": 30284,
+                "activeStatus": "A",
+                "modifiedBy": "mchpl_user",
+                "modifiedDate": "2026-03-24T10:06:42.98",
+                "application": 45148,
+                "documentType": 54,
+                "submittedDate": "2026-03-24",
+                "filePath": "Menchhiyam_Hydropower_Ltd/Company News/2026-03-24/lock in notice_1774326080607.pdf",
+                "encryptedId": "941cd0f24595cc66b7304dd55435cdc171ffdb8174a2833546281577fecaf4a8b68ab97b7729498c372ca6aa5a06daefba598118b29927dc65013b4d80636810",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Menchhiyam_Hydropower_Ltd/Company%20News/2026-03-24/lock%20in%20notice_1774326080607.pdf"
             }
         ],
         "newsHeadline": "Lock In Period End Notice MCHL [MCHL] ",
