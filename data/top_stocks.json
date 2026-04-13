@@ -6921,18 +6921,18 @@
             "securityId": 2804
         },
         {
-            "symbol": "ICFC",
-            "shareTraded": 5015,
-            "closingPrice": 649.0,
-            "securityName": "ICFC Finance Limited",
-            "securityId": 273
-        },
-        {
             "symbol": "HEI",
             "shareTraded": 5015,
             "closingPrice": 523.0,
             "securityName": "Himalayan Everest Insurance Limited",
             "securityId": 179
+        },
+        {
+            "symbol": "ICFC",
+            "shareTraded": 5015,
+            "closingPrice": 649.0,
+            "securityName": "ICFC Finance Limited",
+            "securityId": 273
         },
         {
             "symbol": "MDB",
@@ -7404,18 +7404,18 @@
             "securityId": 9215
         },
         {
-            "symbol": "LLBS",
-            "shareTraded": 410,
-            "closingPrice": 975.0,
-            "securityName": "Laxmi Laghubitta Bittiya Sanstha Ltd.",
-            "securityId": 618
-        },
-        {
             "symbol": "PCIL",
             "shareTraded": 410,
             "closingPrice": 363.0,
             "securityName": "Palpa Cement Industries Limited",
             "securityId": 9330
+        },
+        {
+            "symbol": "LLBS",
+            "shareTraded": 410,
+            "closingPrice": 975.0,
+            "securityName": "Laxmi Laghubitta Bittiya Sanstha Ltd.",
+            "securityId": 618
         },
         {
             "symbol": "SMFBS",
@@ -7579,11 +7579,39 @@
             "securityId": 9238
         },
         {
+            "symbol": "EBLD91",
+            "shareTraded": 25,
+            "closingPrice": 1078.1,
+            "securityName": "Everest Bank Limited Debenture 2091",
+            "securityId": 9255
+        },
+        {
             "symbol": "ICFCD88",
             "shareTraded": 25,
             "closingPrice": 1170.0,
             "securityName": "9% ICFC Finance Limited Debenture 2088",
             "securityId": 9249
+        },
+        {
+            "symbol": "PBD84",
+            "shareTraded": 25,
+            "closingPrice": 1145.0,
+            "securityName": "10.15% Prime Debenture 2084",
+            "securityId": 8116
+        },
+        {
+            "symbol": "SBID2090",
+            "shareTraded": 25,
+            "closingPrice": 1060.0,
+            "securityName": "7% Nepal SBI Bank Debenture 2090",
+            "securityId": 9289
+        },
+        {
+            "symbol": "NBLD87",
+            "shareTraded": 25,
+            "closingPrice": 1115.0,
+            "securityName": "8.5% Nepal Bank Debenture 2087",
+            "securityId": 4959
         },
         {
             "symbol": "PBD85",
@@ -7619,34 +7647,6 @@
             "closingPrice": 1055.1,
             "securityName": "Nabil Debenture 2085",
             "securityId": 8027
-        },
-        {
-            "symbol": "NBLD87",
-            "shareTraded": 25,
-            "closingPrice": 1115.0,
-            "securityName": "8.5% Nepal Bank Debenture 2087",
-            "securityId": 4959
-        },
-        {
-            "symbol": "PBD84",
-            "shareTraded": 25,
-            "closingPrice": 1145.0,
-            "securityName": "10.15% Prime Debenture 2084",
-            "securityId": 8116
-        },
-        {
-            "symbol": "EBLD91",
-            "shareTraded": 25,
-            "closingPrice": 1078.1,
-            "securityName": "Everest Bank Limited Debenture 2091",
-            "securityId": 9255
-        },
-        {
-            "symbol": "SBID2090",
-            "shareTraded": 25,
-            "closingPrice": 1060.0,
-            "securityName": "7% Nepal SBI Bank Debenture 2090",
-            "securityId": 9289
         },
         {
             "symbol": "BNL",
