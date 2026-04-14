@@ -8,7 +8,7 @@ on:
     # Run every 30 minutes from 10:00 AM to 4:00 PM NPT (UTC+5:45)
     # 10:00 AM NPT is 04:15 UTC
     # 04:00 PM NPT is 10:15 UTC
-    - cron: '*/30 4-10 * * 0-5'
+    - cron: '*/30 4-10 * * 1-5'
   workflow_dispatch: # Allow manual trigger
 
 jobs:
