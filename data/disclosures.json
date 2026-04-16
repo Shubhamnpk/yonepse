@@ -1,5 +1,77 @@
 [
     {
+        "id": 45434,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30522,
+                "activeStatus": "A",
+                "modifiedBy": "samling_user",
+                "modifiedDate": "2026-04-16T10:27:47.977",
+                "application": 45434,
+                "documentType": 54,
+                "submittedDate": "2026-04-16",
+                "filePath": "Samling_power_company_limited/Company News/2026-04-16/IMG_0001_1776314564444.pdf",
+                "encryptedId": "45b206db2cd4d3ccb7affb881b060baeea1998b6a8854ceaa06b518131b3031a407d03ed28a702ccb3ec40c586f4b0a72434108834a89d634c237c68808cb891",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Samling_power_company_limited/Company%20News/2026-04-16/IMG_0001_1776314564444.pdf"
+            }
+        ],
+        "newsHeadline": "information regarding application for obtaining survey license for new hydropower project [SPC] ",
+        "newsBody": "",
+        "addedDate": "2026-04-16T10:27:47.973",
+        "newsSource": "SPC",
+        "modifiedDate": "2026-04-16T10:33:48.69",
+        "approvedDate": null,
+        "symbol": "SPC"
+    },
+    {
+        "id": 45431,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30519,
+                "activeStatus": "A",
+                "modifiedBy": "city_user",
+                "modifiedDate": "2026-04-16T09:54:42.133",
+                "application": 45431,
+                "documentType": 54,
+                "submittedDate": "2026-04-16",
+                "filePath": "City_Hotel_Limited/Company News/2026-04-16/End Lock in Period notice_1776312428364.pdf",
+                "encryptedId": "be466361e932b1c327aef9cc0b2184812f791f60c90c9ce3105974c2cee97b54155fbdec0d9f40d43815c29ef9c8a19c4150d1e5919ef6410219e2aa1fc37fe8",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=City_Hotel_Limited/Company%20News/2026-04-16/End%20Lock%20in%20Period%20notice_1776312428364.pdf"
+            }
+        ],
+        "newsHeadline": "End of Lock in Period Notice [CITY] ",
+        "newsBody": "",
+        "addedDate": "2026-04-16T09:54:42.117",
+        "newsSource": "End of Lock in Period notice",
+        "modifiedDate": "2026-04-16T09:55:57.637",
+        "approvedDate": null,
+        "symbol": "CITY"
+    },
+    {
+        "id": 45430,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30518,
+                "activeStatus": "A",
+                "modifiedBy": "nubl_user",
+                "modifiedDate": "2026-04-15T19:49:55.253",
+                "application": 45430,
+                "documentType": 54,
+                "submittedDate": "2026-04-15",
+                "filePath": "nubl_user/2026-04-15/Acting CEO_1776261649752.pdf",
+                "encryptedId": "10cede9f3c731c8f93f2011bbc11183ad66696244b5228a9b0def5fae5e9c75155c3d4b8cd8566e590660c97df4a5d28d0f531214fe088af8986d8fd90e9a6ce",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nubl_user/2026-04-15/Acting%20CEO_1776261649752.pdf"
+            }
+        ],
+        "newsHeadline": "Tenure Completion of CEO & Responsibility of Acting CEO. [NUBL] ",
+        "newsBody": "",
+        "addedDate": "2026-04-15T19:49:55.247",
+        "newsSource": "Board Decision",
+        "modifiedDate": "2026-04-16T09:05:38.657",
+        "approvedDate": null,
+        "symbol": "NUBL"
+    },
+    {
         "id": 45429,
         "applicationDocumentDetailsList": [
             {
