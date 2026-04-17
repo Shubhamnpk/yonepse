@@ -1,5 +1,77 @@
 [
     {
+        "id": 45444,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30531,
+                "activeStatus": "A",
+                "modifiedBy": "mnbbl_user",
+                "modifiedDate": "2026-04-17T09:48:31.033",
+                "application": 45444,
+                "documentType": 54,
+                "submittedDate": "2026-04-17",
+                "filePath": "mnbbl_user/2026-04-17/Appointment of CEO MNBBL (NEPSE)_1776398602344.pdf",
+                "encryptedId": "8c5e9951c3ffea1c000fe65fa13546af3e8560cd1caa6b1901a97e7dcbb52ad4be6d8d2f1679011bdb99ebe2bb5f7046a67cddc59c1df224703e1bb6767b2f70",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=mnbbl_user/2026-04-17/Appointment%20of%20CEO%20MNBBL%20%28NEPSE%29_1776398602344.pdf"
+            }
+        ],
+        "newsHeadline": "Appointment of CEO  [MNBBL] ",
+        "newsBody": "",
+        "addedDate": "2026-04-17T09:48:31.027",
+        "newsSource": "BOD Meeting",
+        "modifiedDate": "2026-04-17T09:59:43.417",
+        "approvedDate": null,
+        "symbol": "MNBBL"
+    },
+    {
+        "id": 45443,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30530,
+                "activeStatus": "A",
+                "modifiedBy": "slbsl_user",
+                "modifiedDate": "2026-04-16T18:28:56.51",
+                "application": 45443,
+                "documentType": 54,
+                "submittedDate": "2026-04-16",
+                "filePath": "Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-04-16/12th AGM Minute 2082 12 27- SLBSL_Nepse_1776343431767.pdf",
+                "encryptedId": "300c09754d989e80530f134e0641c5e90123b229250841215021eced5e709881c36996ed79a9ac4f3968db6a177605cf1208acc42a024046570454585a4173a0",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Samudayik_Laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-04-16/12th%20AGM%20Minute%202082%2012%2027-%20SLBSL_Nepse_1776343431767.pdf"
+            }
+        ],
+        "newsHeadline": "12th AGM Minute  [SLBSL] ",
+        "newsBody": "",
+        "addedDate": "2026-04-16T18:28:56.507",
+        "newsSource": "12th AGM Minute",
+        "modifiedDate": "2026-04-17T08:58:06.393",
+        "approvedDate": null,
+        "symbol": "SLBSL"
+    },
+    {
+        "id": 45442,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30529,
+                "activeStatus": "A",
+                "modifiedBy": "mandu_user",
+                "modifiedDate": "2026-04-16T17:44:45.85",
+                "application": 45442,
+                "documentType": 54,
+                "submittedDate": "2026-04-16",
+                "filePath": "Mandu_Hydropower_Limited/Company News/2026-04-16/Cod Letter_1776340474997.PDF",
+                "encryptedId": "9de95b08c342b2d20556cebb00cd2b5671c2650396992e07e464ad9967a205e60cfdfc0d9973101ed3c373dc623a39a3509a9e8daac34e610f32675821eee8db",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Mandu_Hydropower_Limited/Company%20News/2026-04-16/Cod%20Letter_1776340474997.PDF"
+            }
+        ],
+        "newsHeadline": "Additional 10mw commercial operated date [MANDU] ",
+        "newsBody": "<p>Commercial operation date of additional 10Mw  from 2082/12/26 </p>",
+        "addedDate": "2026-04-16T17:44:45.847",
+        "newsSource": "Additional 10mw commercial operated date",
+        "modifiedDate": "2026-04-17T08:57:36.693",
+        "approvedDate": null,
+        "symbol": "MANDU"
+    },
+    {
         "id": 45438,
         "applicationDocumentDetailsList": [
             {
@@ -4150,5 +4222,53 @@
         "modifiedDate": "2026-04-15T15:43:24.653",
         "approvedDate": null,
         "symbol": "MKHL"
+    },
+    {
+        "id": 45441,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30528,
+                "activeStatus": "A",
+                "modifiedBy": "pcil_user",
+                "modifiedDate": "2026-04-16T17:14:38.933",
+                "application": 45441,
+                "documentType": 54,
+                "submittedDate": "2026-04-16",
+                "filePath": "Palpa_Cement_Industries_Limited/Company News/2026-04-16/Palpa Cement Appointment of Independent Director_1776338967290.PDF",
+                "encryptedId": "44d73c41759e6d9d1eb3c43baa9f798f60f4eb9c27c3acfe4f7587a364f138f33aefdb5eb834dccea4ddfe981c154304ad31a77f1dcb5c75f0fdfdd451b804c4",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Palpa_Cement_Industries_Limited/Company%20News/2026-04-16/Palpa%20Cement%20Appointment%20of%20Independent%20Director_1776338967290.PDF"
+            }
+        ],
+        "newsHeadline": "Appointment of Independent Director [PCIL] ",
+        "newsBody": "",
+        "addedDate": "2026-04-16T17:14:38.93",
+        "newsSource": "Palpa Cement Industries Limited",
+        "modifiedDate": "2026-04-17T08:57:11.033",
+        "approvedDate": null,
+        "symbol": "PCIL"
+    },
+    {
+        "id": 45440,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30527,
+                "activeStatus": "A",
+                "modifiedBy": "pcil_user",
+                "modifiedDate": "2026-04-16T17:12:39.023",
+                "application": 45440,
+                "documentType": 54,
+                "submittedDate": "2026-04-16",
+                "filePath": "Palpa_Cement_Industries_Limited/Company News/2026-04-16/Palpa Cement Company Secretary  resignation and Appointment_1776338833419.PDF",
+                "encryptedId": "093db88fc06673cc99495a3bdb73707eef8e624cbdb79c094b4702a1c92b6147311d0ea02135a3d4e629da6c67a8311d6e311b08248f3b160dfe7344cef49096",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Palpa_Cement_Industries_Limited/Company%20News/2026-04-16/Palpa%20Cement%20Company%20Secretary%20%20resignation%20and%20Appointment_1776338833419.PDF"
+            }
+        ],
+        "newsHeadline": "Resignation & Appointment of Company Secretary [PCIL] ",
+        "newsBody": "",
+        "addedDate": "2026-04-16T17:12:39.02",
+        "newsSource": "Palpa Cement Industries Limited",
+        "modifiedDate": "2026-04-17T08:56:29.06",
+        "approvedDate": null,
+        "symbol": "PCIL"
     }
 ]
