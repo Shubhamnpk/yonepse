@@ -1,19 +1,31 @@
 [
     {
-        "id": 45453,
+        "id": 45464,
         "applicationDocumentDetailsList": [
             {
-                "id": 30540,
+                "id": 30546,
                 "activeStatus": "A",
-                "modifiedBy": "nmic_user",
-                "modifiedDate": "2026-04-20T09:48:31.863",
-                "application": 45453,
+                "modifiedBy": "hrl_user",
+                "modifiedDate": "2026-04-20T17:56:53.367",
+                "application": 45464,
                 "documentType": 54,
                 "submittedDate": "2026-04-20",
-                "filePath": "Nepal_Micro_Insurance_Company_Limited/Company News/2026-04-20/3rd AGM _NEPSE_1776657802486.PDF",
-                "encryptedId": "4bbd743b93b5a9f6e32a6a7107e2153c7874a767c5cf7fc0119cfcfe0fa836fd1d6e0e5b5d18f9ad7d9f6d75f7b4e0aa594d4f3e93b670e51151bb350969fc31",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Micro_Insurance_Company_Limited/Company%20News/2026-04-20/3rd%20AGM%20_NEPSE_1776657802486.PDF"
-            },
+                "filePath": "Himalayan_Reinsurance_Limited/Company News/2026-04-20/notice_1776687106225.pdf",
+                "encryptedId": "e1fb718aab213f08f905cac6bb7e3cf0ed31c0b98c76e8c738da74392332d02a857705d952cd79f515465b762ac544c69818289d1391ccb5aaa42d79fc1f321a",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Himalayan_Reinsurance_Limited/Company%20News/2026-04-20/notice_1776687106225.pdf"
+            }
+        ],
+        "newsHeadline": "\u0938\u0902\u091a\u093e\u0932\u0915 \u0938\u092e\u093f\u0924\u093f \u092a\u0941\u0928\u0930\u094d\u0917\u0920\u0928 [HRL] ",
+        "newsBody": "<p>\u0938\u0902\u091a\u093e\u0932\u0915 \u0938\u092e\u093f\u0924\u093f \u092a\u0941\u0928\u0930\u094d\u0917\u0920\u0928</p>",
+        "addedDate": "2026-04-20T17:56:53.363",
+        "newsSource": "Company secretry",
+        "modifiedDate": "2026-04-21T08:57:15.043",
+        "approvedDate": null,
+        "symbol": "HRL"
+    },
+    {
+        "id": 45453,
+        "applicationDocumentDetailsList": [
             {
                 "id": 30541,
                 "activeStatus": "A",
@@ -25,6 +37,18 @@
                 "filePath": "Nepal_Micro_Insurance_Company_Limited/Company News/2026-04-20/notice_1776657808469.jpeg",
                 "encryptedId": "006dcbe06093801eb298dd479f9b731a2e9451ea65ca7c7c3d6b89de550adbb34c5de01d537db9558637c9cc829cdb31560f7962e3f78fa3c73b0bf1ad3c4b48",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Micro_Insurance_Company_Limited/Company%20News/2026-04-20/notice_1776657808469.jpeg"
+            },
+            {
+                "id": 30540,
+                "activeStatus": "A",
+                "modifiedBy": "nmic_user",
+                "modifiedDate": "2026-04-20T09:48:31.863",
+                "application": 45453,
+                "documentType": 54,
+                "submittedDate": "2026-04-20",
+                "filePath": "Nepal_Micro_Insurance_Company_Limited/Company News/2026-04-20/3rd AGM _NEPSE_1776657802486.PDF",
+                "encryptedId": "4bbd743b93b5a9f6e32a6a7107e2153c7874a767c5cf7fc0119cfcfe0fa836fd1d6e0e5b5d18f9ad7d9f6d75f7b4e0aa594d4f3e93b670e51151bb350969fc31",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Micro_Insurance_Company_Limited/Company%20News/2026-04-20/3rd%20AGM%20_NEPSE_1776657802486.PDF"
             }
         ],
         "newsHeadline": "Postponement of AGM [NMIC] ",
@@ -4522,5 +4546,29 @@
         "modifiedDate": "2026-04-20T16:41:58.043",
         "approvedDate": null,
         "symbol": "ILI"
+    },
+    {
+        "id": 45465,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30547,
+                "activeStatus": "A",
+                "modifiedBy": "anlb_user",
+                "modifiedDate": "2026-04-20T18:27:23.513",
+                "application": 45465,
+                "documentType": 54,
+                "submittedDate": "2026-04-20",
+                "filePath": "Aatmanirbhar_Laghubitta_Bittiya_Sanstha_Limited/Company News/2026-04-20/7th AGM 2081_82_1776688932125.pdf",
+                "encryptedId": "a5470ebcd4de6b6ee297c692df0c5d23886cb28050aca1e250b3f97728a5da97dcada434bb24470ed08f4a3a50ec79f61986c9c07a43472a814aec329eaebe8d",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Aatmanirbhar_Laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-04-20/7th%20AGM%202081_82_1776688932125.pdf"
+            }
+        ],
+        "newsHeadline": "7th Annual General Meeting Minute [ANLB] ",
+        "newsBody": "Annual General Meeting of ANLB\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 4/20/2026\nAGM No: 7\nBook Close Date: 4/9/2026\nCash Dividend: 0.75%\nBonus Shares: 14.25%",
+        "addedDate": "2026-04-20T18:27:23.51",
+        "newsSource": "Letter",
+        "modifiedDate": "2026-04-21T08:57:53.173",
+        "approvedDate": null,
+        "symbol": "ANLB"
     }
 ]
