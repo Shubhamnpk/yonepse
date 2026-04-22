@@ -4570,5 +4570,53 @@
         "modifiedDate": "2026-04-21T08:57:53.173",
         "approvedDate": null,
         "symbol": "ANLB"
+    },
+    {
+        "id": 45473,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30554,
+                "activeStatus": "A",
+                "modifiedBy": "pmhpl_user",
+                "modifiedDate": "2026-04-22T13:08:03.927",
+                "application": 45473,
+                "documentType": 54,
+                "submittedDate": "2026-04-22",
+                "filePath": "pmhpl_user/2026-04-22/PMHPLNotice_1776842564642.pdf",
+                "encryptedId": "6299f0cded2b763d7a93ffca92ed857c8a2e2c4c9a68cacbadc01e57a76f0f0d4fd25430581efc764f2e1c67cdb25cfdd9e5b6de774d2ce9fcf771354d686236",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=pmhpl_user/2026-04-22/PMHPLNotice_1776842564642.pdf"
+            }
+        ],
+        "newsHeadline": "Plant Shutdown [PMHPL] ",
+        "newsBody": "",
+        "addedDate": "2026-04-22T13:08:03.92",
+        "newsSource": "Notice",
+        "modifiedDate": "2026-04-22T14:07:11.23",
+        "approvedDate": null,
+        "symbol": "PMHPL"
+    },
+    {
+        "id": 45469,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30550,
+                "activeStatus": "A",
+                "modifiedBy": "upper_user",
+                "modifiedDate": "2026-04-22T10:48:08.963",
+                "application": 45469,
+                "documentType": 54,
+                "submittedDate": "2026-04-22",
+                "filePath": "upper_user/2026-04-22/2083-01-04 - Appointment of Independent Director_1776834168242.pdf",
+                "encryptedId": "b41cde30f93e704e6d5ec24f68c378aee6eae5c66d55128b8e5e7a3bc0ac9a2cf4c410f795a2025bba5ff567463d629f07b089f7007487518f21afa7781688c7",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=upper_user/2026-04-22/2083-01-04%20-%20Appointment%20of%20Independent%20Director_1776834168242.pdf"
+            }
+        ],
+        "newsHeadline": "Appointment of Independent Director (UPPER) [UPPER] ",
+        "newsBody": "<p>Please find the attached file for more information. </p>",
+        "addedDate": "2026-04-22T10:48:08.96",
+        "newsSource": "Upper",
+        "modifiedDate": "2026-04-22T13:06:52.957",
+        "approvedDate": null,
+        "symbol": "UPPER"
     }
 ]
