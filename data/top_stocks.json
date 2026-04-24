@@ -5083,18 +5083,18 @@
             "securityId": 8098
         },
         {
-            "symbol": "NABILD87",
-            "turnover": 28500.0,
-            "closingPrice": 1140.0,
-            "securityName": "9% Nabil Debenture 2087",
-            "securityId": 9238
-        },
-        {
             "symbol": "JBBD87",
             "turnover": 28500.0,
             "closingPrice": 1140.0,
             "securityName": "Jyoti Bikash Bank Bond 2087",
             "securityId": 8020
+        },
+        {
+            "symbol": "NABILD87",
+            "turnover": 28500.0,
+            "closingPrice": 1140.0,
+            "securityName": "9% Nabil Debenture 2087",
+            "securityId": 9238
         },
         {
             "symbol": "SCBD",
@@ -7052,18 +7052,18 @@
             "securityId": 2915
         },
         {
-            "symbol": "NIMBPO",
-            "shareTraded": 2643,
-            "closingPrice": 157.4,
-            "securityName": "Nepal Investment Mega Bank Ltd. Promoter Share",
-            "securityId": 469
-        },
-        {
             "symbol": "SWMF",
             "shareTraded": 2643,
             "closingPrice": 666.0,
             "securityName": "Suryodaya Womi Laghubitta Bittiya Sanstha Limited",
             "securityId": 706
+        },
+        {
+            "symbol": "NIMBPO",
+            "shareTraded": 2643,
+            "closingPrice": 157.4,
+            "securityName": "Nepal Investment Mega Bank Ltd. Promoter Share",
+            "securityId": 469
         },
         {
             "symbol": "NIBLSTF",
@@ -7346,18 +7346,18 @@
             "securityId": 8018
         },
         {
-            "symbol": "MLBSL",
-            "shareTraded": 795,
-            "closingPrice": 1800.0,
-            "securityName": "Mahila Lagubitta Bittiya Sanstha Limited ",
-            "securityId": 2925
-        },
-        {
             "symbol": "SMB",
             "shareTraded": 795,
             "closingPrice": 1750.0,
             "securityName": "Support Microfinance Bittiya Sanstha Ltd.",
             "securityId": 2771
+        },
+        {
+            "symbol": "MLBSL",
+            "shareTraded": 795,
+            "closingPrice": 1800.0,
+            "securityName": "Mahila Lagubitta Bittiya Sanstha Limited ",
+            "securityId": 2925
         },
         {
             "symbol": "UNLB",
@@ -7668,18 +7668,18 @@
             "securityId": 2885
         },
         {
-            "symbol": "CCBD88",
-            "shareTraded": 30,
-            "closingPrice": 1278.0,
-            "securityName": "Century Debenture 2088",
-            "securityId": 8068
-        },
-        {
             "symbol": "RBCLPO",
             "shareTraded": 30,
             "closingPrice": 11901.0,
             "securityName": "Rastriya Beema Company Limited Promoter Share",
             "securityId": 634
+        },
+        {
+            "symbol": "CCBD88",
+            "shareTraded": 30,
+            "closingPrice": 1278.0,
+            "securityName": "Century Debenture 2088",
+            "securityId": 8068
         },
         {
             "symbol": "CBLD88",
@@ -7696,11 +7696,25 @@
             "securityId": 8020
         },
         {
-            "symbol": "SRBLD83",
+            "symbol": "SBD87",
             "shareTraded": 25,
-            "closingPrice": 1051.9,
-            "securityName": "10.25% Sunrise Bank Debenture 2083",
-            "securityId": 2878
+            "closingPrice": 1090.1,
+            "securityName": "8.5% Sanima Debenture 2087",
+            "securityId": 2922
+        },
+        {
+            "symbol": "BOKD86",
+            "shareTraded": 25,
+            "closingPrice": 1089.0,
+            "securityName": "8.5% BOK Debenture 2086",
+            "securityId": 4961
+        },
+        {
+            "symbol": "PBLD87",
+            "shareTraded": 25,
+            "closingPrice": 1080.0,
+            "securityName": "8.5% Prabhu Bank Debenture 2087",
+            "securityId": 4962
         },
         {
             "symbol": "NABILD87",
@@ -7724,25 +7738,11 @@
             "securityId": 9289
         },
         {
-            "symbol": "SBD87",
+            "symbol": "SRBLD83",
             "shareTraded": 25,
-            "closingPrice": 1090.1,
-            "securityName": "8.5% Sanima Debenture 2087",
-            "securityId": 2922
-        },
-        {
-            "symbol": "BOKD86",
-            "shareTraded": 25,
-            "closingPrice": 1089.0,
-            "securityName": "8.5% BOK Debenture 2086",
-            "securityId": 4961
-        },
-        {
-            "symbol": "PBLD87",
-            "shareTraded": 25,
-            "closingPrice": 1080.0,
-            "securityName": "8.5% Prabhu Bank Debenture 2087",
-            "securityId": 4962
+            "closingPrice": 1051.9,
+            "securityName": "10.25% Sunrise Bank Debenture 2083",
+            "securityId": 2878
         },
         {
             "symbol": "SCBD",
