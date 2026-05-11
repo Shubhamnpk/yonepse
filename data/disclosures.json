@@ -1,5 +1,53 @@
 [
     {
+        "id": 45708,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30818,
+                "activeStatus": "A",
+                "modifiedBy": "vlucl_user",
+                "modifiedDate": "2026-05-11T15:43:43.407",
+                "application": 45708,
+                "documentType": 54,
+                "submittedDate": "2026-05-11",
+                "filePath": "Vision_Lumbini_Urja_Company_Limited/Company News/2026-05-11/Information Letter_1778493459340.pdf",
+                "encryptedId": "afe11ad521086c1973a8ae4f77097d57e5ce1100b5d5a9e2a43c094b7d3dd7942326a91897d80e946cf3c32f545e614c68f21f5cd56f08efef125aa66ab32662",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Vision_Lumbini_Urja_Company_Limited/Company%20News/2026-05-11/Information%20Letter_1778493459340.pdf"
+            }
+        ],
+        "newsHeadline": "Regarding Information [VLUCL] ",
+        "newsBody": "",
+        "addedDate": "2026-05-11T15:43:43.403",
+        "newsSource": "VLUCL",
+        "modifiedDate": "2026-05-11T15:45:02.853",
+        "approvedDate": null,
+        "symbol": "VLUCL"
+    },
+    {
+        "id": 45707,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30817,
+                "activeStatus": "A",
+                "modifiedBy": "akjcl_user",
+                "modifiedDate": "2026-05-11T15:18:32.717",
+                "application": 45707,
+                "documentType": 54,
+                "submittedDate": "2026-05-11",
+                "filePath": "Ankhu_Khola_Jalvidhyut_Company_Limited/Company News/2026-05-11/AGM notice_1778491978997.pdf",
+                "encryptedId": "c2f89cac9266ccffe15e7cf1a052cbedce4479d39907d328c790a443406cfa45376d6f4e1b318fbbb12e9649f233b0d943ae942b041465c53e3ebde2aac0b39f",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Ankhu_Khola_Jalvidhyut_Company_Limited/Company%20News/2026-05-11/AGM%20notice_1778491978997.pdf"
+            }
+        ],
+        "newsHeadline": "AKJCL AGM Notice [AKJCL] ",
+        "newsBody": "Annual General Meeting of AKJCL\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 6/14/2026\nAGM No: 18\nBook Close Date: 6/5/2026",
+        "addedDate": "2026-05-11T15:18:32.713",
+        "newsSource": "Company",
+        "modifiedDate": "2026-05-11T15:39:00.553",
+        "approvedDate": null,
+        "symbol": "AKJCL"
+    },
+    {
         "id": 45690,
         "applicationDocumentDetailsList": [
             {
@@ -63,18 +111,6 @@
         "id": 45684,
         "applicationDocumentDetailsList": [
             {
-                "id": 30792,
-                "activeStatus": "A",
-                "modifiedBy": "chl_user",
-                "modifiedDate": "2026-05-10T16:14:21.997",
-                "application": 45684,
-                "documentType": 54,
-                "submittedDate": "2026-05-10",
-                "filePath": "chl_user/2026-05-10/Nirnaya Uttar_1778408940504.PDF",
-                "encryptedId": "35533258858c43c462319a56d311cd72893ef359ffa4feb71ea0836e9b136d4860e11128f47aca7b8dd8e7de0c6835f87e94d3596a34f969898ab9766d9234c3",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=chl_user/2026-05-10/Nirnaya%20Uttar_1778408940504.PDF"
-            },
-            {
                 "id": 30791,
                 "activeStatus": "A",
                 "modifiedBy": "chl_user",
@@ -85,6 +121,18 @@
                 "filePath": "chl_user/2026-05-10/Information to NEPSE_1778408864792.PDF",
                 "encryptedId": "a9fcb89957c54f7896499be388a24098c1960c145f0bd75d13cfd3d306a95dfbe5b50c79beea73d0d3e740ebe4dedba604d848baf571feb2cbd258a836de8e8f",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=chl_user/2026-05-10/Information%20to%20NEPSE_1778408864792.PDF"
+            },
+            {
+                "id": 30792,
+                "activeStatus": "A",
+                "modifiedBy": "chl_user",
+                "modifiedDate": "2026-05-10T16:14:21.997",
+                "application": 45684,
+                "documentType": 54,
+                "submittedDate": "2026-05-10",
+                "filePath": "chl_user/2026-05-10/Nirnaya Uttar_1778408940504.PDF",
+                "encryptedId": "35533258858c43c462319a56d311cd72893ef359ffa4feb71ea0836e9b136d4860e11128f47aca7b8dd8e7de0c6835f87e94d3596a34f969898ab9766d9234c3",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=chl_user/2026-05-10/Nirnaya%20Uttar_1778408940504.PDF"
             }
         ],
         "newsHeadline": "Resignation of director [CHL] ",
