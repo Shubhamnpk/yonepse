@@ -11,10 +11,10 @@
         },
         {
             "symbol": "SBLD89",
-            "ltp": 1287.5,
+            "ltp": 1315.0,
             "cp": null,
-            "pointChange": 67.5,
-            "percentageChange": 5.53,
+            "pointChange": 95.0,
+            "percentageChange": 7.79,
             "securityName": "10.75% SBL Debenture 2089",
             "securityId": 8098
         },
@@ -768,15 +768,6 @@
             "securityId": 2898
         },
         {
-            "symbol": "GWFD83",
-            "ltp": 1079.0,
-            "cp": null,
-            "pointChange": -33.3,
-            "percentageChange": -2.99,
-            "securityName": "12 % Goodwill Finance Limited Debenture 2083",
-            "securityId": 2883
-        },
-        {
             "symbol": "GUFL",
             "ltp": 522.0,
             "cp": null,
@@ -1378,6 +1369,15 @@
             "percentageChange": -2.01,
             "securityName": "Chhyangdi Hydropower Ltd.",
             "securityId": 2766
+        },
+        {
+            "symbol": "GWFD83",
+            "ltp": 1090.0,
+            "cp": null,
+            "pointChange": -22.3,
+            "percentageChange": -2.0,
+            "securityName": "12 % Goodwill Finance Limited Debenture 2083",
+            "securityId": 2883
         },
         {
             "symbol": "VLUCL",
@@ -4888,7 +4888,7 @@
         {
             "symbol": "SBLD89",
             "turnover": 210727.5,
-            "closingPrice": 1287.5,
+            "closingPrice": 1315.0,
             "securityName": "10.75% SBL Debenture 2089",
             "securityId": 8098
         },
@@ -5091,7 +5091,7 @@
         {
             "symbol": "GWFD83",
             "turnover": 31335.0,
-            "closingPrice": 1079.0,
+            "closingPrice": 1090.0,
             "securityName": "12 % Goodwill Finance Limited Debenture 2083",
             "securityId": 2883
         },
@@ -7030,18 +7030,18 @@
             "securityId": 9151
         },
         {
-            "symbol": "MBLEF",
-            "shareTraded": 2600,
-            "closingPrice": 10.1,
-            "securityName": "MBL Equity Fund",
-            "securityId": 9257
-        },
-        {
             "symbol": "NIBSF2",
             "shareTraded": 2600,
             "closingPrice": 9.48,
             "securityName": "NIBL Samriddhi Fund -2",
             "securityId": 4949
+        },
+        {
+            "symbol": "MBLEF",
+            "shareTraded": 2600,
+            "closingPrice": 10.1,
+            "securityName": "MBL Equity Fund",
+            "securityId": 9257
         },
         {
             "symbol": "HLICF",
@@ -7177,18 +7177,18 @@
             "securityId": 8106
         },
         {
-            "symbol": "SAGF",
-            "shareTraded": 1600,
-            "closingPrice": 10.21,
-            "securityName": "Sanima Growth Fund",
-            "securityId": 9139
-        },
-        {
             "symbol": "NBF2",
             "shareTraded": 1600,
             "closingPrice": 10.0,
             "securityName": "NABIL BALANCED FUND-2",
             "securityId": 2835
+        },
+        {
+            "symbol": "SAGF",
+            "shareTraded": 1600,
+            "closingPrice": 10.21,
+            "securityName": "Sanima Growth Fund",
+            "securityId": 9139
         },
         {
             "symbol": "ULBSL",
@@ -7466,7 +7466,7 @@
         {
             "symbol": "SBLD89",
             "shareTraded": 166,
-            "closingPrice": 1287.5,
+            "closingPrice": 1315.0,
             "securityName": "10.75% SBL Debenture 2089",
             "securityId": 8098
         },
@@ -7548,18 +7548,18 @@
             "securityId": 177
         },
         {
-            "symbol": "ICFCD88",
-            "shareTraded": 50,
-            "closingPrice": 1145.0,
-            "securityName": "9% ICFC Finance Limited Debenture 2088",
-            "securityId": 9249
-        },
-        {
             "symbol": "CBLD88",
             "shareTraded": 50,
             "closingPrice": 1191.1,
             "securityName": "Civil Bank Debenture 2088",
             "securityId": 8043
+        },
+        {
+            "symbol": "ICFCD88",
+            "shareTraded": 50,
+            "closingPrice": 1145.0,
+            "securityName": "9% ICFC Finance Limited Debenture 2088",
+            "securityId": 9249
         },
         {
             "symbol": "GLBSL",
@@ -7569,13 +7569,6 @@
             "securityId": 2826
         },
         {
-            "symbol": "SBLD84",
-            "shareTraded": 30,
-            "closingPrice": 1100.0,
-            "securityName": "8.5% SBL Debenture 2084",
-            "securityId": 2912
-        },
-        {
             "symbol": "UNL",
             "shareTraded": 30,
             "closingPrice": 46310.0,
@@ -7583,9 +7576,16 @@
             "securityId": 219
         },
         {
+            "symbol": "SBLD84",
+            "shareTraded": 30,
+            "closingPrice": 1100.0,
+            "securityName": "8.5% SBL Debenture 2084",
+            "securityId": 2912
+        },
+        {
             "symbol": "GWFD83",
             "shareTraded": 29,
-            "closingPrice": 1079.0,
+            "closingPrice": 1090.0,
             "securityName": "12 % Goodwill Finance Limited Debenture 2083",
             "securityId": 2883
         },
@@ -7604,13 +7604,6 @@
             "securityId": 8119
         },
         {
-            "symbol": "CIZBD90",
-            "shareTraded": 25,
-            "closingPrice": 1227.7,
-            "securityName": "10% Citizens Bank Debenture 2090",
-            "securityId": 9231
-        },
-        {
             "symbol": "JBBD87",
             "shareTraded": 25,
             "closingPrice": 1130.0,
@@ -7623,6 +7616,13 @@
             "closingPrice": 1150.0,
             "securityName": "9% Nepal SBI Bank Rinpatra 2089",
             "securityId": 9211
+        },
+        {
+            "symbol": "CIZBD90",
+            "shareTraded": 25,
+            "closingPrice": 1227.7,
+            "securityName": "10% Citizens Bank Debenture 2090",
+            "securityId": 9231
         },
         {
             "symbol": "HBLD86",
@@ -9736,7 +9736,7 @@
         {
             "securityId": 8098,
             "totalTrades": 7,
-            "lastTradedPrice": 1287.5,
+            "lastTradedPrice": 1315.0,
             "securityName": "10.75% SBL Debenture 2089",
             "symbol": "SBLD89"
         },
@@ -9911,7 +9911,7 @@
         {
             "securityId": 2883,
             "totalTrades": 2,
-            "lastTradedPrice": 1079.0,
+            "lastTradedPrice": 1090.0,
             "securityName": "12 % Goodwill Finance Limited Debenture 2083",
             "symbol": "GWFD83"
         },

@@ -1,5 +1,29 @@
 [
     {
+        "id": 45747,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30866,
+                "activeStatus": "A",
+                "modifiedBy": "bhcl_user",
+                "modifiedDate": "2026-05-12T14:49:14.497",
+                "application": 45747,
+                "documentType": 54,
+                "submittedDate": "2026-05-12",
+                "filePath": "Bikash_Hydropower_Company_Limited/Company News/2026-05-12/3rd QTR Report Bikash Hydropower Co Ltd_1778576647259.pdf",
+                "encryptedId": "150098acaa7e595ae3db725adb7944b3910415cf84c430e0d18465ec7264462f4425f809053783aa02f97a7cb4b62c7a4dba85a4ff2efc1f0de750bda8baeea6",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Bikash_Hydropower_Company_Limited/Company%20News/2026-05-12/3rd%20QTR%20Report%20Bikash%20Hydropower%20Co%20Ltd_1778576647259.pdf"
+            }
+        ],
+        "newsHeadline": "About 3rd Quater Financial Report  [BHCL] ",
+        "newsBody": "<p>Details Information abount 3rd Quater Report.</p>",
+        "addedDate": "2026-05-12T14:49:14.493",
+        "newsSource": "News paper & Website",
+        "modifiedDate": "2026-05-12T16:17:52.933",
+        "approvedDate": null,
+        "symbol": "BHCL"
+    },
+    {
         "id": 45722,
         "applicationDocumentDetailsList": [
             {
@@ -183,18 +207,6 @@
         "id": 45684,
         "applicationDocumentDetailsList": [
             {
-                "id": 30792,
-                "activeStatus": "A",
-                "modifiedBy": "chl_user",
-                "modifiedDate": "2026-05-10T16:14:21.997",
-                "application": 45684,
-                "documentType": 54,
-                "submittedDate": "2026-05-10",
-                "filePath": "chl_user/2026-05-10/Nirnaya Uttar_1778408940504.PDF",
-                "encryptedId": "35533258858c43c462319a56d311cd72893ef359ffa4feb71ea0836e9b136d4860e11128f47aca7b8dd8e7de0c6835f87e94d3596a34f969898ab9766d9234c3",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=chl_user/2026-05-10/Nirnaya%20Uttar_1778408940504.PDF"
-            },
-            {
                 "id": 30791,
                 "activeStatus": "A",
                 "modifiedBy": "chl_user",
@@ -205,6 +217,18 @@
                 "filePath": "chl_user/2026-05-10/Information to NEPSE_1778408864792.PDF",
                 "encryptedId": "a9fcb89957c54f7896499be388a24098c1960c145f0bd75d13cfd3d306a95dfbe5b50c79beea73d0d3e740ebe4dedba604d848baf571feb2cbd258a836de8e8f",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=chl_user/2026-05-10/Information%20to%20NEPSE_1778408864792.PDF"
+            },
+            {
+                "id": 30792,
+                "activeStatus": "A",
+                "modifiedBy": "chl_user",
+                "modifiedDate": "2026-05-10T16:14:21.997",
+                "application": 45684,
+                "documentType": 54,
+                "submittedDate": "2026-05-10",
+                "filePath": "chl_user/2026-05-10/Nirnaya Uttar_1778408940504.PDF",
+                "encryptedId": "35533258858c43c462319a56d311cd72893ef359ffa4feb71ea0836e9b136d4860e11128f47aca7b8dd8e7de0c6835f87e94d3596a34f969898ab9766d9234c3",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=chl_user/2026-05-10/Nirnaya%20Uttar_1778408940504.PDF"
             }
         ],
         "newsHeadline": "Resignation of director [CHL] ",
