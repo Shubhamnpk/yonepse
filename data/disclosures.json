@@ -1,5 +1,101 @@
 [
     {
+        "id": 45841,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30982,
+                "activeStatus": "A",
+                "modifiedBy": "joshi_user",
+                "modifiedDate": "2026-05-13T16:21:29.997",
+                "application": 45841,
+                "documentType": 54,
+                "submittedDate": "2026-05-13",
+                "filePath": "joshi_user/2026-05-13/Resignation of Director_1778668556754.pdf",
+                "encryptedId": "43f83c85e9f9d288c34bec2134ba009338b83bc6469023d60c5897c030915676bc1c69f04fecdddf35ae8dff91dc109b8f987200c2b7a680e40446a354340644",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=joshi_user/2026-05-13/Resignation%20of%20Director_1778668556754.pdf"
+            }
+        ],
+        "newsHeadline": "Resignation Approval of Director [JOSHI] ",
+        "newsBody": "",
+        "addedDate": "2026-05-13T16:21:29.997",
+        "newsSource": "Company Board Meeting",
+        "modifiedDate": "2026-05-13T16:26:59.39",
+        "approvedDate": null,
+        "symbol": "JOSHI"
+    },
+    {
+        "id": 45840,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30981,
+                "activeStatus": "A",
+                "modifiedBy": "spl_user",
+                "modifiedDate": "2026-05-13T16:19:32.827",
+                "application": 45840,
+                "documentType": 54,
+                "submittedDate": "2026-05-13",
+                "filePath": "Shuvam_Power_Limited/Company News/2026-05-13/Director appointment SPL_1778668459609.pdf",
+                "encryptedId": "46221f28678b833ba039172aaafe37186ce572e6e7ef017cff89778c3a159bfa6a8b09a543e8829928276fd963b8e3256a7bec03084ae2578c447b3fc9aa75b6",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Shuvam_Power_Limited/Company%20News/2026-05-13/Director%20appointment%20SPL_1778668459609.pdf"
+            }
+        ],
+        "newsHeadline": "\u0938\u0902\u091a\u093e\u0932\u0915\u0915\u094b \u0928\u093f\u092f\u0942\u0915\u094d\u0924\u093f \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e [SPL] ",
+        "newsBody": "<p>\u0938\u0902\u091a\u093e\u0932\u0915\u0915\u094b \u0928\u093f\u092f\u0942\u0915\u094d\u0924\u093f \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e</p>",
+        "addedDate": "2026-05-13T16:19:32.823",
+        "newsSource": "\u0938\u0902\u091a\u093e\u0932\u0915\u0915\u094b \u0928\u093f\u092f\u0942\u0915\u094d\u0924\u093f \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e",
+        "modifiedDate": "2026-05-13T16:20:30.743",
+        "approvedDate": null,
+        "symbol": "SPL"
+    },
+    {
+        "id": 45835,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30975,
+                "activeStatus": "A",
+                "modifiedBy": "mlbbl_user",
+                "modifiedDate": "2026-05-13T15:47:14.603",
+                "application": 45835,
+                "documentType": 54,
+                "submittedDate": "2026-05-13",
+                "filePath": "mlbbl_user/2026-05-13/documents_1778666515138.jpg",
+                "encryptedId": "324c9fd8196ed78da89933706644a578b5870013dac4df21f7b9c572238bb9a74da06b7437125788136a4d5d49d1c7819c37c521354892b18ac14feec22fa316",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=mlbbl_user/2026-05-13/documents_1778666515138.jpg"
+            }
+        ],
+        "newsHeadline": "Information regarding the renewal of the contract period of DCEO [MLBBL] ",
+        "newsBody": "<h1>Information regarding the renewal of the contract period of DCEO</h1>",
+        "addedDate": "2026-05-13T15:47:14.603",
+        "newsSource": "Mithila Laghubitta Bittiya Sanstha Ltd",
+        "modifiedDate": "2026-05-13T16:03:04.187",
+        "approvedDate": null,
+        "symbol": "MLBBL"
+    },
+    {
+        "id": 45834,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30974,
+                "activeStatus": "A",
+                "modifiedBy": "smjc_user",
+                "modifiedDate": "2026-05-13T15:31:03.797",
+                "application": 45834,
+                "documentType": 54,
+                "submittedDate": "2026-05-13",
+                "filePath": "Sagarmatha_Jalbidhyut_Company_Limited/Company News/2026-05-13/Resignation approval Sandeep_1778665555426.pdf",
+                "encryptedId": "5299c5d5897af4d06ca8ce4b492be488614e69ab7e0ae06cb5c831c5cc7b58e944338033f6bd562b94019fcd49d83b3e70a1e28d483be627af461d74a9eb16a5",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Sagarmatha_Jalbidhyut_Company_Limited/Company%20News/2026-05-13/Resignation%20approval%20Sandeep_1778665555426.pdf"
+            }
+        ],
+        "newsHeadline": "Resignation of CEO [SMJC] ",
+        "newsBody": "<p>Resignation of CEO</p>",
+        "addedDate": "2026-05-13T15:31:03.793",
+        "newsSource": "Board Meeting",
+        "modifiedDate": "2026-05-13T15:40:01.55",
+        "approvedDate": null,
+        "symbol": "SMJC"
+    },
+    {
         "id": 45807,
         "applicationDocumentDetailsList": [
             {
@@ -6788,5 +6884,29 @@
         "modifiedDate": "2026-05-13T10:13:18.533",
         "approvedDate": null,
         "symbol": "SFCL"
+    },
+    {
+        "id": 45844,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30986,
+                "activeStatus": "A",
+                "modifiedBy": "stc_user",
+                "modifiedDate": "2026-05-13T16:39:58.403",
+                "application": 45844,
+                "documentType": 54,
+                "submittedDate": "2026-05-13",
+                "filePath": "stc_user/2026-05-13/Letter to Stock Exchange_1778669691483.pdf",
+                "encryptedId": "61bdc3fac63c7f9fdc0e3f67cd942f4f4779e99eabf736e99b4c098f678d5e42819d063bd1c5df5f7d30305267f0cc3a075f13ab3b8d787184256b3241fb57e7",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=stc_user/2026-05-13/Letter%20to%20Stock%20Exchange_1778669691483.pdf"
+            }
+        ],
+        "newsHeadline": "59th AGM of STC [STC] ",
+        "newsBody": "Annual General Meeting of STC\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 6/12/2026\nAGM No: 59\nBook Close Date: 5/27/2026\nCash Dividend: 0.5%\nBonus Shares: 9.5%",
+        "addedDate": "2026-05-13T16:39:58.4",
+        "newsSource": "Salt Trading Corporation Limited",
+        "modifiedDate": "2026-05-13T16:44:39.603",
+        "approvedDate": null,
+        "symbol": "STC"
     }
 ]
