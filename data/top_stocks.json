@@ -2,10 +2,10 @@
     "top_gainer": [
         {
             "symbol": "UNHPL",
-            "ltp": 527.0,
+            "ltp": 534.0,
             "cp": null,
-            "pointChange": 47.0,
-            "percentageChange": 9.79,
+            "pointChange": 54.0,
+            "percentageChange": 11.25,
             "securityName": "Union Hydropower Limited",
             "securityId": 2831
         },
@@ -431,15 +431,6 @@
             "percentageChange": 0.61,
             "securityName": "Nabil Balanced Fund-3",
             "securityId": 8024
-        },
-        {
-            "symbol": "ICFCD89",
-            "ltp": 1090.0,
-            "cp": null,
-            "pointChange": 6.0,
-            "percentageChange": 0.55,
-            "securityName": "8% ICFC Finance Limited Debenture 2089",
-            "securityId": 9327
         },
         {
             "symbol": "RIDI",
@@ -967,10 +958,10 @@
         },
         {
             "symbol": "HRL",
-            "ltp": 628.9,
+            "ltp": 626.0,
             "cp": null,
-            "pointChange": -48.2,
-            "percentageChange": -7.12,
+            "pointChange": -51.1,
+            "percentageChange": -7.55,
             "securityName": "Himalayan Reinsurance Limited",
             "securityId": 9234
         },
@@ -1063,15 +1054,6 @@
             "percentageChange": -2.63,
             "securityName": "Muktinath Krishi Company Limited",
             "securityId": 9230
-        },
-        {
-            "symbol": "PBD88",
-            "ltp": 1217.2,
-            "cp": null,
-            "pointChange": -32.8,
-            "percentageChange": -2.62,
-            "securityName": "10% Prime Debenture 2088",
-            "securityId": 8097
         },
         {
             "symbol": "TVCL",
@@ -2721,6 +2703,15 @@
             "securityId": 9137
         },
         {
+            "symbol": "ICFCD89",
+            "ltp": 1083.1,
+            "cp": null,
+            "pointChange": -0.9,
+            "percentageChange": -0.08,
+            "securityName": "8% ICFC Finance Limited Debenture 2089",
+            "securityId": 9327
+        },
+        {
             "symbol": "NADEP",
             "ltp": 757.4,
             "cp": null,
@@ -2815,7 +2806,7 @@
         {
             "symbol": "HRL",
             "turnover": 376826488.7,
-            "closingPrice": 628.9,
+            "closingPrice": 626.0,
             "securityName": "Himalayan Reinsurance Limited",
             "securityId": 9234
         },
@@ -2836,7 +2827,7 @@
         {
             "symbol": "UNHPL",
             "turnover": 148944264.4,
-            "closingPrice": 527.0,
+            "closingPrice": 534.0,
             "securityName": "Union Hydropower Limited",
             "securityId": 2831
         },
@@ -4495,7 +4486,7 @@
         {
             "symbol": "ICFCD89",
             "turnover": 713168.1,
-            "closingPrice": 1090.0,
+            "closingPrice": 1083.1,
             "securityName": "8% ICFC Finance Limited Debenture 2089",
             "securityId": 9327
         },
@@ -4901,7 +4892,7 @@
         {
             "symbol": "PBD88",
             "turnover": 69380.0,
-            "closingPrice": 1217.2,
+            "closingPrice": 1250.0,
             "securityName": "10% Prime Debenture 2088",
             "securityId": 8097
         },
@@ -5183,7 +5174,7 @@
         {
             "symbol": "HRL",
             "shareTraded": 600022,
-            "closingPrice": 628.9,
+            "closingPrice": 626.0,
             "securityName": "Himalayan Reinsurance Limited",
             "securityId": 9234
         },
@@ -5197,7 +5188,7 @@
         {
             "symbol": "UNHPL",
             "shareTraded": 306888,
-            "closingPrice": 527.0,
+            "closingPrice": 534.0,
             "securityName": "Union Hydropower Limited",
             "securityId": 2831
         },
@@ -7164,7 +7155,7 @@
         {
             "symbol": "ICFCD89",
             "shareTraded": 652,
-            "closingPrice": 1090.0,
+            "closingPrice": 1083.1,
             "securityName": "8% ICFC Finance Limited Debenture 2089",
             "securityId": 9327
         },
@@ -7351,18 +7342,18 @@
             "securityId": 2815
         },
         {
-            "symbol": "NBF2",
-            "shareTraded": 100,
-            "closingPrice": 10.0,
-            "securityName": "NABIL BALANCED FUND-2",
-            "securityId": 2835
-        },
-        {
             "symbol": "BBC",
             "shareTraded": 100,
             "closingPrice": 4813.6,
             "securityName": "Bishal Bazar Company Limited",
             "securityId": 156
+        },
+        {
+            "symbol": "NBF2",
+            "shareTraded": 100,
+            "closingPrice": 10.0,
+            "securityName": "NABIL BALANCED FUND-2",
+            "securityId": 2835
         },
         {
             "symbol": "NIFRAGED",
@@ -7372,18 +7363,18 @@
             "securityId": 9261
         },
         {
-            "symbol": "JSLBB",
-            "shareTraded": 90,
-            "closingPrice": 1090.0,
-            "securityName": "Janautthan Samudayic Laghubitta Bittya Sanstha Limited",
-            "securityId": 695
-        },
-        {
             "symbol": "EBLD91",
             "shareTraded": 90,
             "closingPrice": 1080.0,
             "securityName": "Everest Bank Limited Debenture 2091",
             "securityId": 9255
+        },
+        {
+            "symbol": "JSLBB",
+            "shareTraded": 90,
+            "closingPrice": 1090.0,
+            "securityName": "Janautthan Samudayic Laghubitta Bittya Sanstha Limited",
+            "securityId": 695
         },
         {
             "symbol": "MATRI",
@@ -7409,16 +7400,9 @@
         {
             "symbol": "PBD88",
             "shareTraded": 57,
-            "closingPrice": 1217.2,
+            "closingPrice": 1250.0,
             "securityName": "10% Prime Debenture 2088",
             "securityId": 8097
-        },
-        {
-            "symbol": "RBBD83",
-            "shareTraded": 50,
-            "closingPrice": 1036.7,
-            "securityName": "8.5% RBBL Debenture 2083",
-            "securityId": 8003
         },
         {
             "symbol": "ICFCD88",
@@ -7426,6 +7410,13 @@
             "closingPrice": 1133.0,
             "securityName": "9% ICFC Finance Limited Debenture 2088",
             "securityId": 9249
+        },
+        {
+            "symbol": "RBBD83",
+            "shareTraded": 50,
+            "closingPrice": 1036.7,
+            "securityName": "8.5% RBBL Debenture 2083",
+            "securityId": 8003
         },
         {
             "symbol": "RBCL",
@@ -7442,27 +7433,6 @@
             "securityId": 9137
         },
         {
-            "symbol": "SHINED",
-            "shareTraded": 25,
-            "closingPrice": 1106.0,
-            "securityName": "Shine Resunga Debenture",
-            "securityId": 9286
-        },
-        {
-            "symbol": "NIBD2082",
-            "shareTraded": 25,
-            "closingPrice": 1040.0,
-            "securityName": "10.5 % NEPAL INVESTMENT DEBENTURE 2082",
-            "securityId": 2851
-        },
-        {
-            "symbol": "NABILD2089",
-            "shareTraded": 25,
-            "closingPrice": 1063.0,
-            "securityName": "7% Nabil Debenture 2089",
-            "securityId": 9299
-        },
-        {
             "symbol": "GBBD85",
             "shareTraded": 25,
             "closingPrice": 1080.0,
@@ -7477,11 +7447,25 @@
             "securityId": 4959
         },
         {
-            "symbol": "PBLD87",
+            "symbol": "NABILD2089",
             "shareTraded": 25,
-            "closingPrice": 1070.1,
-            "securityName": "8.5% Prabhu Bank Debenture 2087",
-            "securityId": 4962
+            "closingPrice": 1063.0,
+            "securityName": "7% Nabil Debenture 2089",
+            "securityId": 9299
+        },
+        {
+            "symbol": "NBLD85",
+            "shareTraded": 25,
+            "closingPrice": 1052.2,
+            "securityName": "Nabil Debenture 2085",
+            "securityId": 8027
+        },
+        {
+            "symbol": "NIBD2082",
+            "shareTraded": 25,
+            "closingPrice": 1040.0,
+            "securityName": "10.5 % NEPAL INVESTMENT DEBENTURE 2082",
+            "securityId": 2851
         },
         {
             "symbol": "NICD88",
@@ -7491,11 +7475,18 @@
             "securityId": 7986
         },
         {
-            "symbol": "NBLD85",
+            "symbol": "PBLD87",
             "shareTraded": 25,
-            "closingPrice": 1052.2,
-            "securityName": "Nabil Debenture 2085",
-            "securityId": 8027
+            "closingPrice": 1070.1,
+            "securityName": "8.5% Prabhu Bank Debenture 2087",
+            "securityId": 4962
+        },
+        {
+            "symbol": "SHINED",
+            "shareTraded": 25,
+            "closingPrice": 1106.0,
+            "securityName": "Shine Resunga Debenture",
+            "securityId": 9286
         },
         {
             "symbol": "NICD83/84",
@@ -7537,7 +7528,7 @@
         {
             "securityId": 9234,
             "totalTrades": 5508,
-            "lastTradedPrice": 628.9,
+            "lastTradedPrice": 626.0,
             "securityName": "Himalayan Reinsurance Limited",
             "symbol": "HRL"
         },
@@ -7593,7 +7584,7 @@
         {
             "securityId": 2831,
             "totalTrades": 624,
-            "lastTradedPrice": 527.0,
+            "lastTradedPrice": 534.0,
             "securityName": "Union Hydropower Limited",
             "symbol": "UNHPL"
         },
@@ -9217,7 +9208,7 @@
         {
             "securityId": 9327,
             "totalTrades": 23,
-            "lastTradedPrice": 1090.0,
+            "lastTradedPrice": 1083.1,
             "securityName": "8% ICFC Finance Limited Debenture 2089",
             "symbol": "ICFCD89"
         },
@@ -9721,7 +9712,7 @@
         {
             "securityId": 8097,
             "totalTrades": 4,
-            "lastTradedPrice": 1217.2,
+            "lastTradedPrice": 1250.0,
             "securityName": "10% Prime Debenture 2088",
             "symbol": "PBD88"
         },
