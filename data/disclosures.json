@@ -1,5 +1,29 @@
 [
     {
+        "id": 45849,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30991,
+                "activeStatus": "A",
+                "modifiedBy": "nimb_user",
+                "modifiedDate": "2026-05-14T10:04:01.66",
+                "application": 45849,
+                "documentType": 54,
+                "submittedDate": "2026-05-14",
+                "filePath": "nimb_user/2026-05-14/NEPSE_1778732315254.pdf",
+                "encryptedId": "590273febb191ca784d3e077cae5d6ed5121ac1bf0aa35ff61cb39cb880751530d5a4bd2ca356861ce901b60f6e5687e2812e03da01e895b449e282c5718c8c6",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nimb_user/2026-05-14/NEPSE_1778732315254.pdf"
+            }
+        ],
+        "newsHeadline": "Appointment of Acting Chief Executive officer [NIMB] ",
+        "newsBody": "",
+        "addedDate": "2026-05-14T10:04:01.657",
+        "newsSource": "NIMB Board",
+        "modifiedDate": "2026-05-14T10:05:49.757",
+        "approvedDate": null,
+        "symbol": "NIMB"
+    },
+    {
         "id": 45841,
         "applicationDocumentDetailsList": [
             {
@@ -6908,5 +6932,29 @@
         "modifiedDate": "2026-05-13T16:44:39.603",
         "approvedDate": null,
         "symbol": "STC"
+    },
+    {
+        "id": 45851,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 30994,
+                "activeStatus": "A",
+                "modifiedBy": "nlbbl_user",
+                "modifiedDate": "2026-05-14T10:32:11.103",
+                "application": 45851,
+                "documentType": 54,
+                "submittedDate": "2026-05-14",
+                "filePath": "nlbbl_user/2026-05-14/CS-198 SEBON Letter_1778734025061.pdf",
+                "encryptedId": "0bcf9e97dfea98cf989af213bbe32e9e2962a8102b2f040eaab3985132b6e65d50faca74f41402085dad3679e786a622f8b75f202441c2428198ce7d6ac08157",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nlbbl_user/2026-05-14/CS-198%20SEBON%20Letter_1778734025061.pdf"
+            }
+        ],
+        "newsHeadline": "\u0938\u0902\u091a\u093e\u0932\u0915 \u0938\u092e\u093f\u0924\u093f \u0938\u0926\u0938\u094d\u092f\u092c\u093e\u091f \u0939\u091f\u093e\u0907\u090f\u0915\u094b \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e [NMLBBL] ",
+        "newsBody": "<p>\u0938\u0902\u0932\u0917\u094d\u0928 </p>",
+        "addedDate": "2026-05-14T10:32:11.1",
+        "newsSource": "Internal",
+        "modifiedDate": "2026-05-14T10:33:05.893",
+        "approvedDate": null,
+        "symbol": "NMLBBL"
     }
 ]
