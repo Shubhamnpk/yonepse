@@ -1,5 +1,29 @@
 [
     {
+        "id": 45861,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 31004,
+                "activeStatus": "A",
+                "modifiedBy": "vlbs_user",
+                "modifiedDate": "2026-05-15T09:26:17.303",
+                "application": 45861,
+                "documentType": 54,
+                "submittedDate": "2026-05-15",
+                "filePath": "vlbs_user/2026-05-15/Other Information related_1778816459042.pdf",
+                "encryptedId": "5d0307ff2fc65b554a3423e32e7551cc476ce70e2206b27034870e99d7d3adf68bbd4c737e4acd8301abb09f6509da41d40f0a70120a6ee9dad375cad68ac4a2",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=vlbs_user/2026-05-15/Other%20Information%20related_1778816459042.pdf"
+            }
+        ],
+        "newsHeadline": "Resignation of CEO [VLBS] ",
+        "newsBody": "<p>Resignation of CEO and Acting CEO responsibility given to Sr.DCEO until further arrangements are made.</p>",
+        "addedDate": "2026-05-15T09:26:17.293",
+        "newsSource": "company",
+        "modifiedDate": "2026-05-15T09:27:28.333",
+        "approvedDate": null,
+        "symbol": "VLBS"
+    },
+    {
         "id": 45860,
         "applicationDocumentDetailsList": [
             {
@@ -7004,5 +7028,29 @@
         "modifiedDate": "2026-05-14T10:33:05.893",
         "approvedDate": null,
         "symbol": "NMLBBL"
+    },
+    {
+        "id": 45862,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 31005,
+                "activeStatus": "A",
+                "modifiedBy": "vlbs_user",
+                "modifiedDate": "2026-05-15T09:29:01.077",
+                "application": 45862,
+                "documentType": 54,
+                "submittedDate": "2026-05-15",
+                "filePath": "vlbs_user/2026-05-15/Financial Statement and Dividend related_1778816627898.pdf",
+                "encryptedId": "0a20ffbc7afb39abc4867f6306a696c47bf95abd8cfeb198cbecc05ec002427e1b6243a5ec899f73dd3d9dba1fa4ebf5e14d6b8c4ff3fd75b0760b22f852bfe1",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=vlbs_user/2026-05-15/Financial%20Statement%20and%20Dividend%20related_1778816627898.pdf"
+            }
+        ],
+        "newsHeadline": "Dividend related [VLBS] ",
+        "newsBody": "<p>No  distribution of Dividend of VLBS Fiscal Year: 2081-2082</p>",
+        "addedDate": "2026-05-15T09:29:01.07",
+        "newsSource": "Company",
+        "modifiedDate": "2026-05-15T09:47:14.84",
+        "approvedDate": null,
+        "symbol": "VLBS"
     }
 ]
