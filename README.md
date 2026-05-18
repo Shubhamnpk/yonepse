@@ -1,11 +1,24 @@
-﻿# YONEPSE - Real-time NEPSE Stock Dashboard
+﻿# YONEPSE - Real-time NEPSE Stock Dashboard & Static API
 
 ![YONEPSE Favicon](favicon.png)
 
 ![YONEPSE](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
-A modern, elegant, and comprehensive dashboard as well as open api for tracking live stock prices from the Nepal Stock Exchange (NEPSE). Features real-time market data, sector filtering, IPO tracking, broker directory, and automated data updates via GitHub Actions.
+A modern dashboard and static JSON API for tracking Nepal Stock Exchange (NEPSE) market data. It includes live market prices, interactive stock details, LTP price history, broker data, IPO archives, proposed dividends, open-ended mutual funds, and automated updates through GitHub Actions.
+
+## Important Links
+
+| Link | Description |
+|------|-------------|
+| [Live Dashboard](https://shubhamnpk.github.io/yonepse/) | Main YONEPSE market dashboard |
+| [Data Hub](https://shubhamnpk.github.io/yonepse/data.html) | Broker directory and dataset browser |
+| [JSON Docs](https://shubhamnpk.github.io/yonepse/docs.html) | Human-readable API documentation |
+| [OpenAPI Spec](https://shubhamnpk.github.io/yonepse/openapi.yaml) | Machine-readable API schema |
+| [GitHub Repository](https://github.com/Shubhamnpk/yonepse) | Source code and project history |
+| [Issues](https://github.com/Shubhamnpk/yonepse/issues) | Bug reports and feature requests |
+| [Contributing Guide](CONTRIBUTING.md) | Local setup, PR checklist, and data change notes |
+| [Security Policy](SECURITY.md) | Private vulnerability reporting |
 
 ---
 
@@ -18,12 +31,14 @@ A modern, elegant, and comprehensive dashboard as well as open api for tracking 
 - **Market Indices**: Live NEPSE indices with animated marquee
 - **Top Movers**: Real-time top gainers and losers
 - **Stock Detail Modal**: Click any stock for detailed information
+- **Interactive Price History**: View symbol-level LTP history with 1M, 1Y, and All range filters
 
-### IPO Tracking
+### IPO & Corporate Actions
 - **Upcoming IPOs**: Track open, upcoming, and closed IPOs
 - **Nepali Date Support**: Automatic BS to AD date conversion
 - **Status Badges**: Visual indicators for Open/Upcoming/Closed IPOs
 - **Reserved Shares**: Special indicators for NRN/reserved share issues
+- **Proposed Dividends**: Rolling latest data and append-only historical dividend records
 
 ### Data Hub
 - **Broker Directory**: Complete broker listings with filters
@@ -31,19 +46,20 @@ A modern, elegant, and comprehensive dashboard as well as open api for tracking 
 - **District/Province Filters**: Geographic broker search
 - **TMS Links**: Direct access to broker trading platforms
 - **Market History**: Historical market summary data
+- **LTP History**: Monthly price history shards for efficient portfolio range views
 - **Open-Ended Mutual Funds**: Daily/weekly/monthly NAV snapshots in dedicated dataset
 
 ### JSON API
-All data is available as static JSON endpoints for developers. See [JSON Docs](docs.html) for complete API reference.
+All data is available as static JSON endpoints for developers. See the [JSON Docs](https://shubhamnpk.github.io/yonepse/docs.html) for the published API reference, or [`docs.html`](docs.html) locally.
 
-- Public static API spec: [`openapi.yaml`](openapi.yaml)
+- Public static API spec: [published OpenAPI](https://shubhamnpk.github.io/yonepse/openapi.yaml) / [`openapi.yaml`](openapi.yaml)
 - Legacy NEPSE upstream endpoint spec: [`openapi_legacy_nepse.yaml`](openapi_legacy_nepse.yaml)
 
 ---
 
 ## 🖼️ Live Demo
 
-Visit the dashboard at: `https://shubhamnpk.github.io/yonepse/` or 
+Visit the dashboard at: [https://shubhamnpk.github.io/yonepse/](https://shubhamnpk.github.io/yonepse/)
 
 ---
 
@@ -82,6 +98,9 @@ nepse-scraper/
 │   ├── top_stocks.json           # Top gainers/losers
 │   ├── market_summary.json       # Current market summary
 │   ├── market_summary_history.json
+│   ├── nepse-ltp/                # Daily LTP history shards
+│   │   ├── manifest.json         # Available months + latest date
+│   │   └── monthly/              # Monthly sparse symbol history
 │   ├── market_status.json        # Market open/closed status
 │   ├── notices.json              # Exchange notices
 │   ├── disclosures.json          # Company disclosures
@@ -125,7 +144,9 @@ nepse-scraper/
 1. Fork this repository
 2. Enable **GitHub Actions** in the 'Actions' tab
 3. Enable **GitHub Pages** from Settings > Pages (Deploy from `main` branch)
-4. Your dashboard will be live at `https://shubhamnpk.github.io/yonepse/`
+4. Your dashboard will be live at `https://<your-github-username>.github.io/<your-repo-name>/`
+
+For this repository, the published site is [https://shubhamnpk.github.io/yonepse/](https://shubhamnpk.github.io/yonepse/).
 
 ### 2. Run Locally
 
@@ -163,6 +184,9 @@ python proposed_dividend_scraper.py --mode latest
 
 # Optional full all-years backfill
 python proposed_dividend_scraper.py --mode backfill
+
+# Rebuild LTP monthly history shards from the current market data
+python ltp_history/build_ltp_shards.py
 ```
 
 ---
@@ -173,8 +197,9 @@ python proposed_dividend_scraper.py --mode backfill
 - **Schedule**: Every 30 minutes
 - **Time**: 10:00 AM - 4:00 PM NPT (Sunday - Friday)
 - **Data**: Stock prices, indices, market summary, top stocks, notices, disclosures, exchange messages, supply/demand, and open-ended mutual fund NAVs
-- **Files**: Updates all JSON files in `data/` folder
+- **Files**: Updates market JSON files in `data/` and LTP history shards in `data/nepse-ltp/`
 - **OMF Integration**: Refreshes `data/OMF.json` and merges open-ended mutual funds into `data/nepse_data.json` in the same run
+- **LTP History**: Updates monthly shards after the close-time scan so daily history changes once per market day
 
 ### IPO Scraper ([`.github/workflows/scrape_ipo.yml`](.github/workflows/scrape_ipo.yml))
 - **Schedule**: Daily at 4:00 AM UTC (9:45 AM NPT)
@@ -197,6 +222,8 @@ All data is accessible as static JSON endpoints:
 | `/data/top_stocks.json` | Object | Top gainers, losers, turnover |
 | `/data/market_summary.json` | Object | Current day market summary |
 | `/data/market_summary_history.json` | Array | Historical market data |
+| `/data/nepse-ltp/manifest.json` | Object | Daily LTP history manifest with available months |
+| `/data/nepse-ltp/monthly/YYYY-MM.json` | Object | Monthly sparse daily LTP, volume, turnover, and trades history |
 | `/data/market_status.json` | Object | Market open/closed status |
 | `/data/disclosures.json` | Array | Company disclosures |
 | `/data/exchange_messages.json` | Array | Exchange announcements |
@@ -234,6 +261,12 @@ curl -s https://shubhamnpk.github.io/yonepse/data/nepse_data.json
 
 # Full open-ended mutual fund NAV dataset
 curl -s https://shubhamnpk.github.io/yonepse/data/OMF.json
+
+# LTP history manifest
+curl -s https://shubhamnpk.github.io/yonepse/data/nepse-ltp/manifest.json
+
+# Monthly LTP history shard
+curl -s https://shubhamnpk.github.io/yonepse/data/nepse-ltp/monthly/2026-05.json
 ```
 
 OpenAPI spec:
@@ -269,13 +302,15 @@ OpenAPI spec:
 - [`docs.html`](docs.html) - API documentation
 - [`script.js`](script.js) - Dashboard logic, IPO date parsing, Nepali date conversion
 - [`data.js`](data.js) - Broker filtering, dataset rendering
-- [`style.css`](style.css) - Complete styling (1685 lines)
+- [`style.css`](style.css) - Complete dashboard styling
 
 #### Backend
 - [`official_scraper.py`](scripts/nepse-scraper/official_scraper.py) - Main scraper using NEPSE API
 - [`open_ended_mutual_fund_scraper.py`](scripts/nepse-scraper/open_ended_mutual_fund_scraper.py) - ShareSansar open-ended mutual fund scraper (called by `official_scraper.py`)
 - [`upcoming_ipo_scraper.py`](scripts/nepse-scraper/upcoming_ipo_scraper.py) - IPO data from Merolagani
 - [`proposed_dividend_scraper.py`](scripts/nepse-scraper/proposed_dividend_scraper.py) - Proposed dividend data from ShareSansar
+- [`ltp_history/build_ltp_shards.py`](scripts/nepse-scraper/ltp_history/build_ltp_shards.py) - Builds sparse monthly LTP history shards
+- [`ltp_history/generate_ltp_shard_demo.py`](scripts/nepse-scraper/ltp_history/generate_ltp_shard_demo.py) - Generates demo LTP shard data for testing
 - [`official_api/`](scripts/nepse-scraper/official_api/) - NEPSE API Python client with WASM auth
 
 ---
@@ -284,7 +319,7 @@ OpenAPI spec:
 
 - **NEPSE Official API**: Primary source for market data
 - **Merolagani**: IPO announcements and company news
-- **ShareSansar**: Backup data source
+- **ShareSansar**: Open-ended mutual fund NAVs and proposed dividend data
 
 Data is scraped for educational purposes. All data credits belong to the respective owners.
 
@@ -298,6 +333,18 @@ Data is scraped for educational purposes. All data credits belong to the respect
 
 ---
 
+## 🤝 Contributing
+
+Contributions are welcome. Please read:
+
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) for local setup, data-change rules, and PR checks
+- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) for community expectations
+- [`SECURITY.md`](SECURITY.md) for private vulnerability reporting
+- [`SUPPORT.md`](SUPPORT.md) for the right place to ask for help or report data issues
+- [`CHANGELOG.md`](CHANGELOG.md) for notable changes
+
+---
+
 ## 📄 License
 
 This project is open-source and available under the MIT License.
@@ -306,7 +353,8 @@ This project is open-source and available under the MIT License.
 
 ## 📞 Support
 
-For issues, feature requests, or contributions, please open an issue on GitHub.
+For issues, feature requests, or contributions, please open an issue on GitHub:
+[https://github.com/Shubhamnpk/yonepse/issues](https://github.com/Shubhamnpk/yonepse/issues)
 
 ---
 

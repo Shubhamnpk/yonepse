@@ -1,0 +1,54 @@
+name: Data issue
+description: Report stale, missing, duplicated, or malformed market data.
+title: "[Data]: "
+labels:
+  - data
+body:
+  - type: markdown
+    attributes:
+      value: Use this for market data, LTP history, OMF, IPO, dividend, broker, notice, or disclosure data problems.
+  - type: input
+    id: endpoint
+    attributes:
+      label: Endpoint or file
+      placeholder: /data/nepse_data.json
+    validations:
+      required: true
+  - type: input
+    id: symbol
+    attributes:
+      label: Symbol or record
+      placeholder: NABIL
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+      placeholder: The LTP history for NABIL is missing 2026-05-18...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected data
+      description: Add source links if possible.
+  - type: input
+    id: observed-date
+    attributes:
+      label: Date/time observed
+      placeholder: 2026-05-18 16:00 NPT
+  - type: dropdown
+    id: dataset
+    attributes:
+      label: Dataset
+      options:
+        - Live market data
+        - LTP history
+        - Open-ended mutual funds
+        - IPO
+        - Proposed dividends
+        - Brokers
+        - Notices/disclosures
+        - Other
+    validations:
+      required: true
+

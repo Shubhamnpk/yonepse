@@ -12,7 +12,8 @@ info:
     1. Fetch `/data/market_status.json` to understand market state.
     2. Fetch `/data/nepse_data.json` for the main ticker feed.
     3. Optionally fetch `/data/OMF.json` for full open-ended mutual fund NAV detail.
-    4. Use `/data/proposed_dividend/latest_1y.json` and `/data/upcoming_ipo.json`
+    4. Fetch `/data/nepse-ltp/manifest.json` and monthly shards for daily LTP history.
+    5. Use `/data/proposed_dividend/latest_1y.json` and `/data/upcoming_ipo.json`
        for corporate action style datasets.
 
     Notes:
@@ -144,6 +145,41 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GenericObjectArray'
+
+  /data/nepse-ltp/manifest.json:
+    get:
+      tags: [Market]
+      summary: Daily LTP history manifest
+      operationId: getLtpHistoryManifest
+      responses:
+        '200':
+          description: Available monthly LTP history shards
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LtpHistoryManifest'
+
+  /data/nepse-ltp/monthly/{month}.json:
+    get:
+      tags: [Market]
+      summary: Monthly daily LTP history shard
+      operationId: getMonthlyLtpHistory
+      parameters:
+        - name: month
+          in: path
+          required: true
+          description: Month in YYYY-MM format.
+          schema:
+            type: string
+            pattern: '^\d{4}-\d{2}$'
+          example: "2026-05"
+      responses:
+        '200':
+          description: Sparse per-symbol daily LTP, volume, turnover, and trades history
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LtpHistoryMonth'
 
   /data/supply_demand.json:
     get:
@@ -329,6 +365,79 @@ components:
       items:
         type: object
         additionalProperties: true
+
+    LtpHistoryManifest:
+      type: object
+      required:
+        - version
+        - latestDate
+        - availableMonths
+        - retention
+      properties:
+        version:
+          type: integer
+          example: 1
+        latestDate:
+          type: string
+          example: "2026-05-18"
+        availableMonths:
+          type: array
+          items:
+            type: string
+          example: ["2026-05"]
+        retention:
+          type: string
+          example: "no-limit"
+
+    LtpHistoryMonth:
+      type: object
+      required:
+        - version
+        - market
+        - currency
+        - month
+        - updatedAt
+        - dates
+        - columns
+        - series
+      properties:
+        version:
+          type: integer
+          example: 1
+        market:
+          type: string
+          example: NEPSE
+        currency:
+          type: string
+          example: NPR
+        month:
+          type: string
+          example: "2026-05"
+        updatedAt:
+          type: string
+          example: "2026-05-18T19:23:40+05:45"
+        dates:
+          type: array
+          items:
+            type: string
+          example: ["2026-05-18"]
+        columns:
+          type: array
+          items:
+            type: string
+          example: ["dateIndex", "ltp", "volume", "turnover", "trades"]
+        series:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+          description: Symbol-keyed sparse rows. Row values follow `columns`; `dateIndex` references `dates`.
+          example:
+            NABIL:
+              - [0, 526, 44305, 23313421.6, 463]
 
     MarketStatus:
       type: object

@@ -263,8 +263,28 @@
                     </div>
                 </div>
                 <div class="modal-footer-info">
+                    <button id="modal-ltp-history-open" class="modal-dividend-btn" type="button">View Price History</button>
                     <button id="modal-dividend-open" class="modal-dividend-btn" type="button">View Dividend History</button>
                     <p><i class="fa-solid fa-clock"></i> Last updated: <span id="modal-last-updated">-</span></p>
+                    <div id="modal-ltp-history-block" class="modal-dividend-block is-hidden">
+                        <div class="modal-dividend-header">
+                            <h3><i class="fa-solid fa-chart-line"></i> Price History</h3>
+                            <button id="modal-ltp-history-back" class="modal-dividend-btn modal-dividend-back" type="button">Back to Market Data</button>
+                            <button id="modal-ltp-history-load" class="modal-dividend-btn" type="button">Load for Symbol</button>
+                        </div>
+                        <p id="modal-ltp-history-status" class="modal-dividend-status">Select a stock to load price history.</p>
+                        <p id="modal-ltp-history-summary" class="modal-dividend-summary"></p>
+                        <div class="modal-history-controls" aria-label="Price history range">
+                            <button class="history-range-btn active" type="button" data-history-range="1m">1M</button>
+                            <button class="history-range-btn" type="button" data-history-range="1y">1Y</button>
+                            <button class="history-range-btn" type="button" data-history-range="all">All</button>
+                        </div>
+                        <div class="modal-history-chart-wrap">
+                            <canvas id="modal-ltp-history-chart" height="150" aria-label="Price history chart" role="img"></canvas>
+                        </div>
+                        <div id="modal-ltp-history-stats" class="modal-history-stats"></div>
+                        <div id="modal-ltp-history-list" class="modal-history-list"></div>
+                    </div>
                     <div id="modal-dividend-block" class="modal-dividend-block is-hidden">
                         <div class="modal-dividend-header">
                             <h3><i class="fa-solid fa-money-bill-trend-up"></i> Dividend History</h3>

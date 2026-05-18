@@ -1943,6 +1943,84 @@ body.filter-active #ipo-section {
     overflow-y: auto;
 }
 
+.modal-history-list {
+    display: grid;
+    gap: 0.6rem;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.modal-history-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0.35rem 0 0.75rem;
+    padding: 0.25rem;
+    border: 1px solid var(--card-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.history-range-btn {
+    min-width: 3rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 0.35rem 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.history-range-btn.active,
+.history-range-btn:hover {
+    color: var(--text-primary);
+    background: rgba(99, 102, 241, 0.35);
+}
+
+.modal-history-chart-wrap {
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+    padding: 0.7rem;
+    margin-bottom: 0.75rem;
+}
+
+#modal-ltp-history-chart {
+    width: 100%;
+    height: 150px;
+    display: block;
+}
+
+.modal-history-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.modal-history-stats div {
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.025);
+    padding: 0.55rem 0.65rem;
+}
+
+.modal-history-stats span {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.25rem;
+}
+
+.modal-history-stats strong {
+    color: var(--text-primary);
+    font-size: 0.86rem;
+}
+
 .dividend-row {
     border: 1px solid var(--card-border);
     border-radius: 10px;
@@ -1966,21 +2044,54 @@ body.filter-active #ipo-section {
     font-size: 0.78rem;
 }
 
+.history-row {
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 0.6rem 0.7rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.history-row-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+    font-size: 0.82rem;
+}
+
+.history-row-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.7rem;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
 .modal-dividend-back {
     background: rgba(255, 255, 255, 0.05);
     border-color: var(--card-border);
 }
 
 .modal-overlay.dividend-focus #modal-dividend-open,
-.modal-overlay.dividend-focus .modal-footer-info > p {
+.modal-overlay.dividend-focus #modal-ltp-history-open,
+.modal-overlay.dividend-focus .modal-footer-info > p,
+.modal-overlay.ltp-history-focus #modal-dividend-open,
+.modal-overlay.ltp-history-focus #modal-ltp-history-open,
+.modal-overlay.ltp-history-focus .modal-footer-info > p {
     display: none;
 }
 
-.modal-overlay.dividend-focus .modal-dividend-block {
+.modal-overlay.dividend-focus .modal-dividend-block,
+.modal-overlay.ltp-history-focus .modal-dividend-block {
     margin-bottom: 0;
 }
 
 .modal-overlay.dividend-focus .modal-dividend-list {
+    max-height: calc(94vh - 280px);
+}
+
+.modal-overlay.ltp-history-focus .modal-history-list {
     max-height: calc(94vh - 280px);
 }
 
@@ -1995,5 +2106,9 @@ body.filter-active #ipo-section {
 
     .detail-grid {
         grid-template-columns: 1fr;
+    }
+
+    .modal-history-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }

@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'market_status.json',
         'market_summary.json',
         'market_summary_history.json',
+        'nepse-ltp/manifest.json',
         'nepse_data.json',
         'nepse_sector_wise_codes.json',
         'notices.json',

@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalDividendLoadBtn = document.getElementById('modal-dividend-load');
     const modalDividendOpenBtn = document.getElementById('modal-dividend-open');
     const modalDividendBackBtn = document.getElementById('modal-dividend-back');
+    const modalLtpHistoryLoadBtn = document.getElementById('modal-ltp-history-load');
+    const modalLtpHistoryOpenBtn = document.getElementById('modal-ltp-history-open');
+    const modalLtpHistoryBackBtn = document.getElementById('modal-ltp-history-back');
+    const modalLtpHistoryBlockEl = document.getElementById('modal-ltp-history-block');
+    const modalLtpHistoryStatusEl = document.getElementById('modal-ltp-history-status');
+    const modalLtpHistorySummaryEl = document.getElementById('modal-ltp-history-summary');
+    const modalLtpHistoryListEl = document.getElementById('modal-ltp-history-list');
+    const modalLtpHistoryChartEl = document.getElementById('modal-ltp-history-chart');
+    const modalLtpHistoryStatsEl = document.getElementById('modal-ltp-history-stats');
     const modalDividendBlockEl = document.getElementById('modal-dividend-block');
     const modalMarketGridEl = document.getElementById('modal-market-grid');
     const modalDividendStatusEl = document.getElementById('modal-dividend-status');
@@ -44,6 +53,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeModalTrigger = null;
     let currentModalSymbol = '';
     let dividendHistoryCache = null;
+    let ltpHistoryManifestCache = null;
+    const ltpHistoryShardCache = {};
+    let currentLtpHistoryRows = [];
+    let currentLtpHistoryRange = '1m';
     let hasRenderableIpos = false;
     let showAllIpos = false;
     let ipoChartSnapshot = { open: 0, upcoming: 0, closed: 0 };
@@ -178,6 +191,68 @@ document.addEventListener('DOMContentLoaded', () => {
         return dividendHistoryCache;
     }
 
+    async function getLtpHistoryManifest() {
+        if (ltpHistoryManifestCache) return ltpHistoryManifestCache;
+        const raw = await fetchJson('nepse-ltp/manifest.json');
+        ltpHistoryManifestCache = raw && typeof raw === 'object' ? raw : {};
+        return ltpHistoryManifestCache;
+    }
+
+    async function getLtpHistoryShard(month) {
+        if (ltpHistoryShardCache[month]) return ltpHistoryShardCache[month];
+        const raw = await fetchJson(`nepse-ltp/monthly/${month}.json`);
+        ltpHistoryShardCache[month] = raw && typeof raw === 'object' ? raw : null;
+        return ltpHistoryShardCache[month];
+    }
+
+    function normalizeHistoryRow(shard, row) {
+        if (!shard || !Array.isArray(shard.dates) || !Array.isArray(shard.columns) || !Array.isArray(row)) {
+            return null;
+        }
+
+        const dateIndex = row[0];
+        if (!Number.isInteger(dateIndex) || dateIndex < 0 || dateIndex >= shard.dates.length) return null;
+
+        const item = { date: shard.dates[dateIndex] };
+        shard.columns.forEach((column, index) => {
+            if (index === 0) return;
+            item[column] = row[index];
+        });
+        return item;
+    }
+
+    async function getLtpHistoryForSymbol(symbol) {
+        const manifest = await getLtpHistoryManifest();
+        const months = Array.isArray(manifest.availableMonths)
+            ? manifest.availableMonths
+            : [];
+        if (months.length === 0) return [];
+
+        const shards = await Promise.all(months.map(getLtpHistoryShard));
+        return shards
+            .filter(Boolean)
+            .flatMap((shard) => {
+                const rows = shard.series && Array.isArray(shard.series[symbol])
+                    ? shard.series[symbol]
+                    : [];
+                return rows.map((row) => normalizeHistoryRow(shard, row)).filter(Boolean);
+            })
+            .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+    }
+
+    function filterLtpRowsByRange(rows, range) {
+        if (!Array.isArray(rows) || rows.length === 0 || range === 'all') return rows.slice();
+
+        const sorted = rows.slice().sort((a, b) => String(a.date || '').localeCompare(String(b.date || '')));
+        const latest = sorted[sorted.length - 1];
+        const latestTime = parseDateValue(latest.date);
+        if (!latestTime) return rows.slice();
+
+        const days = range === '1y' ? 365 : 31;
+        const cutoff = latestTime - (days * 24 * 60 * 60 * 1000);
+        return rows.filter((row) => parseDateValue(row.date) >= cutoff);
+    }
+
     function resetDividendSection(symbol) {
         modalDividendStatusEl.textContent = `Click "Load for Symbol" to view dividend history for ${symbol}.`;
         modalDividendSummaryEl.textContent = '';
@@ -185,15 +260,30 @@ document.addEventListener('DOMContentLoaded', () => {
         modalDividendListEl.innerHTML = '';
     }
 
-    function setDividendFocusMode(isFocused) {
-        if (isFocused) {
-            stockModal.classList.add('dividend-focus');
-            modalDividendBlockEl.classList.remove('is-hidden');
-            if (modalMarketGridEl) modalMarketGridEl.classList.add('is-hidden');
-        } else {
-            stockModal.classList.remove('dividend-focus');
-            modalDividendBlockEl.classList.add('is-hidden');
-            if (modalMarketGridEl) modalMarketGridEl.classList.remove('is-hidden');
+    function resetLtpHistorySection(symbol) {
+        if (!modalLtpHistoryStatusEl) return;
+        currentLtpHistoryRows = [];
+        currentLtpHistoryRange = '1m';
+        modalLtpHistoryStatusEl.textContent = `Click "Load for Symbol" to view price history for ${symbol}.`;
+        modalLtpHistorySummaryEl.textContent = '';
+        modalLtpHistoryListEl.innerHTML = '';
+        if (modalLtpHistoryStatsEl) modalLtpHistoryStatsEl.innerHTML = '';
+        updateLtpRangeButtons();
+        drawLtpHistoryChart([]);
+    }
+
+    function setModalFocusMode(mode) {
+        const isDividend = mode === 'dividend';
+        const isLtpHistory = mode === 'ltp-history';
+
+        stockModal.classList.toggle('dividend-focus', isDividend);
+        stockModal.classList.toggle('ltp-history-focus', isLtpHistory);
+        modalDividendBlockEl.classList.toggle('is-hidden', !isDividend);
+        if (modalLtpHistoryBlockEl) {
+            modalLtpHistoryBlockEl.classList.toggle('is-hidden', !isLtpHistory);
+        }
+        if (modalMarketGridEl) {
+            modalMarketGridEl.classList.toggle('is-hidden', isDividend || isLtpHistory);
         }
     }
 
@@ -242,9 +332,197 @@ document.addEventListener('DOMContentLoaded', () => {
         modalDividendListEl.innerHTML = cards;
     }
 
+    function buildLtpHistorySummary(rows) {
+        if (!rows.length) return '';
+        const sorted = rows.slice().sort((a, b) => String(a.date || '').localeCompare(String(b.date || '')));
+        const first = sorted[0];
+        const latest = sorted[sorted.length - 1];
+        const firstLtp = Number(first.ltp);
+        const latestLtp = Number(latest.ltp);
+        const change = Number.isFinite(firstLtp) && Number.isFinite(latestLtp)
+            ? latestLtp - firstLtp
+            : 0;
+        const percent = firstLtp ? (change / firstLtp) * 100 : 0;
+        const sign = change > 0 ? '+' : '';
+        return `${rows.length} daily records from ${safeValue(first.date)} to ${safeValue(latest.date)} | ${sign}${change.toFixed(2)} (${sign}${percent.toFixed(2)}%)`;
+    }
+
+    function updateLtpRangeButtons() {
+        document.querySelectorAll('[data-history-range]').forEach((button) => {
+            const isActive = button.getAttribute('data-history-range') === currentLtpHistoryRange;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+        });
+    }
+
+    function renderLtpHistoryStats(rows) {
+        if (!modalLtpHistoryStatsEl) return;
+        if (!rows.length) {
+            modalLtpHistoryStatsEl.innerHTML = '';
+            return;
+        }
+
+        const ltpValues = rows.map((row) => Number(row.ltp)).filter(Number.isFinite);
+        const volumeTotal = rows.reduce((sum, row) => sum + (Number(row.volume) || 0), 0);
+        const turnoverTotal = rows.reduce((sum, row) => sum + (Number(row.turnover) || 0), 0);
+        const high = ltpValues.length ? Math.max(...ltpValues) : NaN;
+        const low = ltpValues.length ? Math.min(...ltpValues) : NaN;
+
+        modalLtpHistoryStatsEl.innerHTML = `
+            <div><span>High</span><strong>Rs. ${formatNumber(high, 2)}</strong></div>
+            <div><span>Low</span><strong>Rs. ${formatNumber(low, 2)}</strong></div>
+            <div><span>Volume</span><strong>${formatCompactNumber(volumeTotal)}</strong></div>
+            <div><span>Turnover</span><strong>Rs. ${formatCompactNumber(turnoverTotal)}</strong></div>
+        `;
+    }
+
+    function drawLtpHistoryChart(rows) {
+        if (!modalLtpHistoryChartEl) return;
+        const ctx = modalLtpHistoryChartEl.getContext('2d');
+        if (!ctx) return;
+
+        const dpr = window.devicePixelRatio || 1;
+        const cssWidth = Math.max(280, Math.floor(modalLtpHistoryChartEl.clientWidth || 620));
+        const cssHeight = Math.max(150, Math.floor(modalLtpHistoryChartEl.clientHeight || 150));
+        modalLtpHistoryChartEl.width = Math.floor(cssWidth * dpr);
+        modalLtpHistoryChartEl.height = Math.floor(cssHeight * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, cssWidth, cssHeight);
+
+        const sorted = rows
+            .slice()
+            .sort((a, b) => String(a.date || '').localeCompare(String(b.date || '')))
+            .filter((row) => Number.isFinite(Number(row.ltp)));
+
+        if (sorted.length === 0) {
+            ctx.fillStyle = 'rgba(160, 168, 200, 0.9)';
+            ctx.font = '500 13px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('No price history available', cssWidth / 2, cssHeight / 2);
+            return;
+        }
+
+        const values = sorted.map((row) => Number(row.ltp));
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        const span = max - min || 1;
+        const pad = { top: 18, right: 16, bottom: 24, left: 42 };
+        const chartW = cssWidth - pad.left - pad.right;
+        const chartH = cssHeight - pad.top - pad.bottom;
+
+        ctx.strokeStyle = 'rgba(255,255,255,0.09)';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 3; i += 1) {
+            const y = pad.top + (chartH / 3) * i;
+            ctx.beginPath();
+            ctx.moveTo(pad.left, y);
+            ctx.lineTo(pad.left + chartW, y);
+            ctx.stroke();
+        }
+
+        const gradient = ctx.createLinearGradient(0, pad.top, 0, pad.top + chartH);
+        gradient.addColorStop(0, 'rgba(99, 102, 241, 0.3)');
+        gradient.addColorStop(1, 'rgba(99, 102, 241, 0.02)');
+
+        const points = values.map((value, index) => {
+            const x = pad.left + (sorted.length === 1 ? chartW : (chartW * index) / (sorted.length - 1));
+            const y = pad.top + chartH - ((value - min) / span) * chartH;
+            return { x, y };
+        });
+
+        ctx.beginPath();
+        points.forEach((point, index) => {
+            if (index === 0) ctx.moveTo(point.x, point.y);
+            else ctx.lineTo(point.x, point.y);
+        });
+        ctx.strokeStyle = 'rgba(129, 140, 248, 1)';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        if (points.length > 1) {
+            ctx.lineTo(points[points.length - 1].x, pad.top + chartH);
+            ctx.lineTo(points[0].x, pad.top + chartH);
+            ctx.closePath();
+            ctx.fillStyle = gradient;
+            ctx.fill();
+        }
+
+        const last = points[points.length - 1];
+        ctx.fillStyle = 'rgba(129, 140, 248, 1)';
+        ctx.beginPath();
+        ctx.arc(last.x, last.y, 4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = 'rgba(203, 213, 225, 0.9)';
+        ctx.font = '500 11px Inter, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(`Rs. ${formatNumber(max, 2)}`, 4, pad.top + 4);
+        ctx.fillText(`Rs. ${formatNumber(min, 2)}`, 4, pad.top + chartH);
+        ctx.textAlign = 'center';
+        ctx.fillText(sorted[0].date, pad.left, cssHeight - 6);
+        ctx.fillText(sorted[sorted.length - 1].date, pad.left + chartW, cssHeight - 6);
+    }
+
+    function renderCurrentLtpHistoryRange() {
+        const rows = filterLtpRowsByRange(currentLtpHistoryRows, currentLtpHistoryRange);
+        modalLtpHistorySummaryEl.textContent = buildLtpHistorySummary(rows);
+        renderLtpHistoryStats(rows);
+        drawLtpHistoryChart(rows);
+        renderLtpHistoryRows(rows);
+        updateLtpRangeButtons();
+    }
+
+    function renderLtpHistoryRows(rows) {
+        if (!modalLtpHistoryListEl) return;
+        if (!rows.length) {
+            modalLtpHistoryListEl.innerHTML = '';
+            return;
+        }
+
+        modalLtpHistoryListEl.innerHTML = rows.slice(0, 20).map((row) => `
+            <div class="history-row">
+                <div class="history-row-head">
+                    <strong>${safeValue(row.date)}</strong>
+                    <span>Rs. ${formatNumber(Number(row.ltp), 2)}</span>
+                </div>
+                <div class="history-row-meta">
+                    <span>Volume: ${formatCompactNumber(Number(row.volume))}</span>
+                    <span>Turnover: Rs. ${formatCompactNumber(Number(row.turnover))}</span>
+                    <span>Trades: ${formatNumber(Number(row.trades), 0)}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    async function loadLtpHistoryForCurrentSymbol() {
+        if (!currentModalSymbol || !modalLtpHistoryLoadBtn) return;
+        setModalFocusMode('ltp-history');
+        modalLtpHistoryLoadBtn.disabled = true;
+        modalLtpHistoryStatusEl.textContent = `Loading price history for ${currentModalSymbol}...`;
+        modalLtpHistorySummaryEl.textContent = '';
+        modalLtpHistoryListEl.innerHTML = '';
+
+        try {
+            const rows = await getLtpHistoryForSymbol(currentModalSymbol);
+            if (!rows.length) {
+                modalLtpHistoryStatusEl.textContent = `No price history found for ${currentModalSymbol}.`;
+                return;
+            }
+
+            currentLtpHistoryRows = rows;
+            modalLtpHistoryStatusEl.textContent = `Loaded ${rows.length} price history records for ${currentModalSymbol}.`;
+            renderCurrentLtpHistoryRange();
+        } catch (err) {
+            console.error('LTP history load failed:', err);
+            modalLtpHistoryStatusEl.textContent = 'Failed to load price history.';
+        } finally {
+            modalLtpHistoryLoadBtn.disabled = false;
+        }
+    }
+
     async function loadDividendHistoryForCurrentSymbol() {
         if (!currentModalSymbol) return;
-        setDividendFocusMode(true);
+        setModalFocusMode('dividend');
         modalDividendLoadBtn.disabled = true;
         modalDividendStatusEl.textContent = `Loading dividend history for ${currentModalSymbol}...`;
         modalDividendSummaryEl.textContent = '';
@@ -1256,7 +1534,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         resetDividendSection(currentModalSymbol);
-        setDividendFocusMode(false);
+        resetLtpHistorySection(currentModalSymbol);
+        setModalFocusMode(null);
 
         stockModal.classList.add('show');
         document.body.style.overflow = 'hidden';
@@ -1265,7 +1544,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeModal() {
         stockModal.classList.remove('show');
-        setDividendFocusMode(false);
+        setModalFocusMode(null);
         document.body.style.overflow = '';
         if (activeModalTrigger && typeof activeModalTrigger.focus === 'function') {
             activeModalTrigger.focus();
@@ -1280,8 +1559,23 @@ document.addEventListener('DOMContentLoaded', () => {
         modalDividendOpenBtn.addEventListener('click', loadDividendHistoryForCurrentSymbol);
     }
     if (modalDividendBackBtn) {
-        modalDividendBackBtn.addEventListener('click', () => setDividendFocusMode(false));
+        modalDividendBackBtn.addEventListener('click', () => setModalFocusMode(null));
     }
+    if (modalLtpHistoryLoadBtn) {
+        modalLtpHistoryLoadBtn.addEventListener('click', loadLtpHistoryForCurrentSymbol);
+    }
+    if (modalLtpHistoryOpenBtn) {
+        modalLtpHistoryOpenBtn.addEventListener('click', loadLtpHistoryForCurrentSymbol);
+    }
+    if (modalLtpHistoryBackBtn) {
+        modalLtpHistoryBackBtn.addEventListener('click', () => setModalFocusMode(null));
+    }
+    document.querySelectorAll('[data-history-range]').forEach((button) => {
+        button.addEventListener('click', () => {
+            currentLtpHistoryRange = button.getAttribute('data-history-range') || '1m';
+            renderCurrentLtpHistoryRange();
+        });
+    });
 
     window.addEventListener('click', (e) => {
         if (e.target === stockModal) {
@@ -1297,6 +1591,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => {
         renderIpoStatusChart(ipoChartSnapshot.open, ipoChartSnapshot.upcoming, ipoChartSnapshot.closed);
+        if (stockModal.classList.contains('ltp-history-focus')) {
+            drawLtpHistoryChart(filterLtpRowsByRange(currentLtpHistoryRows, currentLtpHistoryRange));
+        }
     });
 
     fetchStocks();

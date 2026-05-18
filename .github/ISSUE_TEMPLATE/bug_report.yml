@@ -1,0 +1,57 @@
+name: Bug report
+description: Report a dashboard, API docs, or scraper behavior bug.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting a bug. Please include enough detail for someone else to reproduce it.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the problem clearly.
+      placeholder: The stock detail modal does not open when...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Search for ...
+        3. Click ...
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Page or endpoint
+      placeholder: https://shubhamnpk.github.io/yonepse/
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or logs
+      description: Add screenshots, console errors, or workflow logs if available.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Dashboard
+        - Data Hub
+        - JSON Docs
+        - Scraper
+        - GitHub Actions
+        - Other
+    validations:
+      required: true
+

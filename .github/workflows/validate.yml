@@ -1,0 +1,48 @@
+name: Validate Project
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate JSON data files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          for path in sorted(Path("data").rglob("*.json")):
+              with path.open("r", encoding="utf-8") as handle:
+                  json.load(handle)
+              print(f"valid json: {path}")
+          PY
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check script.js
+          node --check data.js
+
+      - name: Compile Python scripts
+        run: |
+          python -m compileall scripts
+
