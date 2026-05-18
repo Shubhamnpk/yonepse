@@ -3,7 +3,7 @@ import os
 import json
 import argparse
 import subprocess
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import urllib.parse
 import re
 import requests
@@ -14,6 +14,11 @@ sys.path.append(os.path.dirname(__file__))
 
 from official_api import NepseScraper
 from open_ended_mutual_fund_scraper import scrape_and_save_open_ended_navs
+from ltp_history.build_ltp_shards import build_shards
+
+NPT = timezone(timedelta(hours=5, minutes=45))
+LTP_HISTORY_CLOSE_HOUR = 16
+LTP_HISTORY_CLOSE_MINUTE = 0
 
 def get_file_last_commit_date(filepath):
     """Get the datetime of the last git commit for a specific file."""
@@ -116,6 +121,22 @@ def refresh_omf_data(data_dir):
     except Exception as exc:
         print(f"OMF refresh failed, falling back to existing OMF.json: {exc}")
         return load_json_list(omf_path)
+
+def should_update_ltp_history(mode):
+    """Decide when daily LTP history should be updated."""
+    if mode == 'always':
+        return True
+    if mode == 'skip':
+        return False
+
+    now_npt = datetime.now(NPT)
+    close_cutoff = now_npt.replace(
+        hour=LTP_HISTORY_CLOSE_HOUR,
+        minute=LTP_HISTORY_CLOSE_MINUTE,
+        second=0,
+        microsecond=0
+    )
+    return now_npt >= close_cutoff
 
 def write_json_if_changed(filepath, data):
     """Write JSON only if content differs or file does not exist."""
@@ -421,7 +442,7 @@ def get_sector_wise_codes():
         print(f"Error fetching sector-wise codes: {e}")
         return None
 
-def scrape_all_official_data(include_brokers=False):
+def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only'):
     print(f"Starting Comprehensive Official NEPSE Scraper at {datetime.now().isoformat()}...")
     
     try:
@@ -497,6 +518,19 @@ def scrape_all_official_data(include_brokers=False):
 
         with open(os.path.join(data_dir, 'nepse_data.json'), 'w') as f:
             json.dump(mapped_prices, f, indent=4)
+
+        if should_update_ltp_history(ltp_history_mode):
+            print(f"Updating monthly LTP history shards ({ltp_history_mode}).")
+            build_shards(
+                source_path=os.path.join(data_dir, 'nepse_data.json'),
+                output_dir=os.path.join(data_dir, 'nepse-ltp')
+            )
+        else:
+            now_npt = datetime.now(NPT).isoformat(timespec='minutes')
+            print(
+                "Skipping monthly LTP history shards "
+                f"({ltp_history_mode}, current NPT time {now_npt})."
+            )
         
         # 4. Indices (Live & All Sectoral)
         print("Fetching indices...")
@@ -684,6 +718,12 @@ def scrape_all_official_data(include_brokers=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='NEPSE Official Data Scraper')
     parser.add_argument('--brokers', action='store_true', help='Force update broker list')
+    parser.add_argument(
+        '--ltp-history',
+        choices=('close-only', 'always', 'skip'),
+        default='close-only',
+        help='Control monthly LTP history shard updates. Defaults to close-only.'
+    )
     args = parser.parse_args()
     
     # Use absolute path of this file to find the data directory
@@ -712,4 +752,8 @@ if __name__ == "__main__":
 
     include_brokers = should_update('brokers.json', args.brokers)
             
-    scrape_all_official_data(include_brokers=include_brokers)
+    success = scrape_all_official_data(
+        include_brokers=include_brokers,
+        ltp_history_mode=args.ltp_history
+    )
+    sys.exit(0 if success else 1)
