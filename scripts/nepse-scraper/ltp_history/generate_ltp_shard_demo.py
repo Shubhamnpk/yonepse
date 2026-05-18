@@ -73,11 +73,11 @@ def trading_dates(start_date, count):
     return dates
 
 
-def build_demo(output_dir, reset=True, days=30):
+def build_demo(output_dir, reset=True, days=30, start_date=date(2026, 5, 18)):
     if reset and os.path.isdir(output_dir):
         shutil.rmtree(output_dir)
 
-    demo_dates = trading_dates(date(2026, 5, 18), days)
+    demo_dates = trading_dates(start_date, days)
 
     with tempfile.TemporaryDirectory(prefix="nepse-ltp-demo-") as temp_dir:
         for index, snapshot_date in enumerate(demo_dates):
@@ -133,12 +133,26 @@ def main():
         default=30,
         help="Number of fake trading days to generate. Defaults to 30.",
     )
+    parser.add_argument(
+        "--start-date",
+        default="2026-05-18",
+        help="First fake trading date as YYYY-MM-DD. Defaults to 2026-05-18.",
+    )
     args = parser.parse_args()
 
     if args.days < 1:
         raise SystemExit("--days must be at least 1.")
+    try:
+        start_date = datetime.strptime(args.start_date, "%Y-%m-%d").date()
+    except ValueError as exc:
+        raise SystemExit("--start-date must use YYYY-MM-DD format.") from exc
 
-    result = build_demo(args.output, reset=not args.keep_existing, days=args.days)
+    result = build_demo(
+        args.output,
+        reset=not args.keep_existing,
+        days=args.days,
+        start_date=start_date,
+    )
     print(f"Generated fake LTP shard demo in {result['output']}")
     print(f"Trading days: {len(result['dates'])}")
     print(f"Range: {result['dates'][0]} to {result['dates'][-1]}")

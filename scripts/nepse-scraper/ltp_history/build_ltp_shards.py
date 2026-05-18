@@ -11,6 +11,9 @@ CURRENCY = "NPR"
 SOURCE = "nepse"
 NPT = timezone(timedelta(hours=5, minutes=45))
 DEFAULT_MIN_SYMBOLS = 100
+METRIC_FIELDS = ("volume", "turnover", "trades")
+VALUE_COLUMNS = ("ltp",) + METRIC_FIELDS
+COLUMNS = ("dateIndex",) + VALUE_COLUMNS
 
 
 def load_json(path, fallback):
@@ -36,8 +39,7 @@ def write_json(path, data, compact=False):
             if compact:
                 json.dump(data, f, separators=(",", ":"))
             else:
-                json.dump(data, f, indent=2)
-                f.write("\n")
+                f.write(format_pretty_json(data))
             f.flush()
             os.fsync(f.fileno())
         os.replace(temp_path, path)
@@ -47,6 +49,33 @@ def write_json(path, data, compact=False):
         except OSError:
             pass
         raise
+
+
+def format_pretty_json(data):
+    text = json.dumps(data, indent=2)
+    columns = data.get("columns") if isinstance(data, dict) else None
+    if isinstance(columns, list):
+        multiline = '"columns": [\n' + ",\n".join(
+            f'    "{column}"' for column in columns
+        ) + "\n  ]"
+        inline = '"columns": ' + json.dumps(columns)
+        text = text.replace(multiline, inline)
+
+    series = data.get("series") if isinstance(data, dict) else None
+    if isinstance(series, dict):
+        for rows in series.values():
+            if not isinstance(rows, list):
+                continue
+            for row in rows:
+                if not isinstance(row, list):
+                    continue
+                multiline = "      [\n" + ",\n".join(
+                    f"        {json.dumps(value)}" for value in row
+                ) + "\n      ]"
+                inline = "      " + json.dumps(row)
+                text = text.replace(multiline, inline)
+    return text + "\n"
+
 
 def parse_datetime(value):
     if not value:
@@ -96,8 +125,20 @@ def normalize_ltp(value):
     return int(number) if number.is_integer() else number
 
 
+def normalize_non_negative_number(value):
+    if value is None or value == "":
+        return None
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None
+    if not (number == number) or number < 0:
+        return None
+    return int(number) if number.is_integer() else number
+
+
 def extract_ltp_snapshot(rows):
-    prices = {}
+    series = {}
     skipped = 0
 
     for row in rows:
@@ -111,9 +152,12 @@ def extract_ltp_snapshot(rows):
             skipped += 1
             continue
 
-        prices[symbol] = ltp
+        values = [ltp]
+        for field in METRIC_FIELDS:
+            values.append(normalize_non_negative_number(row.get(field)))
+        series[symbol] = values
 
-    return dict(sorted(prices.items())), skipped
+    return dict(sorted(series.items())), skipped
 
 
 def validate_snapshot_date(snapshot_date, allow_future=False):
@@ -138,7 +182,7 @@ def ensure_month_shape(month_data, month):
         raise ValueError(f"Existing shard month {existing_month} does not match target month {month}.")
 
     dates = month_data.get("dates")
-    prices = month_data.get("prices")
+    series = month_data.get("series")
 
     if not isinstance(dates, list):
         dates = []
@@ -151,37 +195,124 @@ def ensure_month_shape(month_data, month):
     if bad_dates:
         raise ValueError(f"Month shard {month} contains dates outside the month: {bad_dates[:3]}.")
 
-    if not isinstance(prices, dict):
-        prices = {}
-
-    normalized_prices = {}
-    for symbol, series in prices.items():
-        normalized_symbol = normalize_symbol(symbol)
-        if not normalized_symbol:
-            continue
-        if not isinstance(series, list):
-            series = []
-        aligned = list(series[: len(dates)])
-        if len(aligned) < len(dates):
-            aligned.extend([None] * (len(dates) - len(aligned)))
-        normalized_prices[normalized_symbol] = aligned
+    normalized_series = normalize_existing_series(month_data, dates)
 
     return {
         "version": VERSION,
         "market": MARKET,
         "currency": CURRENCY,
         "month": month,
-        "source": SOURCE,
         "updatedAt": month_data.get("updatedAt"),
         "dates": dates,
-        "prices": normalized_prices,
+        "columns": list(COLUMNS),
+        "series": normalized_series,
     }
+
+
+def normalize_day_values(values):
+    if not isinstance(values, list):
+        values = []
+    normalized = list(values[: len(VALUE_COLUMNS)])
+    if len(normalized) < len(VALUE_COLUMNS):
+        normalized.extend([None] * (len(VALUE_COLUMNS) - len(normalized)))
+    return normalized
+
+
+def compact_sparse_row(date_index, values):
+    normalized = normalize_day_values(values)
+    if normalized[0] is None:
+        return None
+
+    while normalized and normalized[-1] is None:
+        normalized.pop()
+
+    return [date_index, *normalized]
+
+
+def sparse_row_date_index(row):
+    if not isinstance(row, list) or not row:
+        return None
+    index = row[0]
+    return index if isinstance(index, int) and index >= 0 else None
+
+
+def normalize_existing_series(month_data, dates):
+    raw_series = month_data.get("series")
+    if isinstance(raw_series, dict):
+        normalized = {}
+        for symbol, rows in raw_series.items():
+            normalized_symbol = normalize_symbol(symbol)
+            if not normalized_symbol:
+                continue
+            if not isinstance(rows, list):
+                rows = []
+            compact_rows = []
+            for row_index, row in enumerate(rows):
+                existing_date_index = sparse_row_date_index(row)
+                if existing_date_index is not None:
+                    if existing_date_index < len(dates) and len(row) > 1:
+                        compact_rows.append(row)
+                    continue
+
+                # Migrate the earlier dense row format: [[ltp, volume, turnover, trades], ...]
+                if row_index < len(dates):
+                    compact_row = compact_sparse_row(row_index, row)
+                    if compact_row is not None:
+                        compact_rows.append(compact_row)
+
+            if compact_rows:
+                normalized[normalized_symbol] = sorted(compact_rows, key=lambda item: item[0])
+        return normalized
+
+    # Migrate the previous expanded shape:
+    # prices: { SYMBOL: [ltp...] }, metrics: { volume: { SYMBOL: [...] } }
+    prices = month_data.get("prices")
+    metrics = month_data.get("metrics")
+    if not isinstance(prices, dict):
+        prices = {}
+    if not isinstance(metrics, dict):
+        metrics = {}
+
+    symbols = set(prices.keys())
+    for field in METRIC_FIELDS:
+        field_values = metrics.get(field)
+        if isinstance(field_values, dict):
+            symbols.update(field_values.keys())
+
+    normalized = {}
+    for raw_symbol in symbols:
+        symbol = normalize_symbol(raw_symbol)
+        if not symbol:
+            continue
+        rows = []
+        price_values = prices.get(raw_symbol, [])
+        if not isinstance(price_values, list):
+            price_values = []
+        metric_values = {}
+        for field in METRIC_FIELDS:
+            values = metrics.get(field, {}).get(raw_symbol, []) if isinstance(metrics.get(field), dict) else []
+            metric_values[field] = values if isinstance(values, list) else []
+
+        for index in range(len(dates)):
+            compact_row = compact_sparse_row(index, [
+                price_values[index] if index < len(price_values) else None,
+                *[
+                    metric_values[field][index] if index < len(metric_values[field]) else None
+                    for field in METRIC_FIELDS
+                ],
+            ])
+            if compact_row is not None:
+                rows.append(compact_row)
+        if rows:
+            normalized[symbol] = rows
+    return normalized
 
 
 def validate_month_data(month_data):
     month = month_data.get("month")
     dates = month_data.get("dates")
-    prices = month_data.get("prices")
+    columns = month_data.get("columns")
+    series = month_data.get("series")
 
     if not isinstance(month, str) or len(month) != 7:
         raise ValueError("Month shard has an invalid month field.")
@@ -193,23 +324,33 @@ def validate_month_data(month_data):
         raise ValueError(f"Month shard {month} contains duplicate dates.")
     if any(not str(item).startswith(f"{month}-") for item in dates):
         raise ValueError(f"Month shard {month} contains dates outside its month.")
-    if not isinstance(prices, dict):
-        raise ValueError(f"Month shard {month} prices must be an object.")
+    if columns != list(COLUMNS):
+        raise ValueError(f"Month shard {month} has invalid columns.")
+    if not isinstance(series, dict):
+        raise ValueError(f"Month shard {month} series must be an object.")
 
-    for symbol, series in prices.items():
+    for symbol, rows in series.items():
         if normalize_symbol(symbol) != symbol:
             raise ValueError(f"Month shard {month} has an invalid symbol key: {symbol}")
-        if not isinstance(series, list):
-            raise ValueError(f"Price series for {symbol} must be a list.")
-        if len(series) != len(dates):
-            raise ValueError(
-                f"Price series for {symbol} has {len(series)} values but {len(dates)} dates."
-            )
+        if not isinstance(rows, list):
+            raise ValueError(f"Series for {symbol} must be a list.")
+        previous_index = -1
+        for row in rows:
+            if not isinstance(row, list) or len(row) < 2 or len(row) > len(COLUMNS):
+                raise ValueError(f"Series row for {symbol} must be [dateIndex, ...values].")
+            date_index = sparse_row_date_index(row)
+            if date_index is None or date_index >= len(dates):
+                raise ValueError(f"Series row for {symbol} has an invalid date index.")
+            if date_index <= previous_index:
+                raise ValueError(f"Series rows for {symbol} must be sorted and unique by date index.")
+            if any(value is None for value in row):
+                raise ValueError(f"Series row for {symbol} must omit missing values, not use null.")
+            previous_index = date_index
 
 
-def upsert_month(month_data, date, snapshot_prices, updated_at):
+def upsert_month(month_data, date, snapshot_series, updated_at):
     dates = month_data["dates"]
-    prices = month_data["prices"]
+    series = month_data["series"]
 
     if date in dates:
         date_index = dates.index(date)
@@ -217,21 +358,32 @@ def upsert_month(month_data, date, snapshot_prices, updated_at):
         dates.append(date)
         dates.sort()
         date_index = dates.index(date)
-        for series in prices.values():
-            series.insert(date_index, None)
+        for rows in series.values():
+            for row in rows:
+                if row[0] >= date_index:
+                    row[0] += 1
 
-    for symbol in snapshot_prices:
-        if symbol not in prices:
-            prices[symbol] = [None] * len(dates)
-        elif len(prices[symbol]) < len(dates):
-            prices[symbol].extend([None] * (len(dates) - len(prices[symbol])))
+    for symbol in snapshot_series:
+        if symbol not in series:
+            series[symbol] = []
 
-    for symbol, ltp in snapshot_prices.items():
-        prices[symbol][date_index] = ltp
+    for symbol, values in snapshot_series.items():
+        compact_row = compact_sparse_row(date_index, values)
+        if compact_row is None:
+            continue
+
+        rows = [
+            row
+            for row in series[symbol]
+            if sparse_row_date_index(row) != date_index
+        ]
+        rows.append(compact_row)
+        series[symbol] = sorted(rows, key=lambda item: item[0])
 
     month_data["updatedAt"] = updated_at
     month_data["dates"] = dates
-    month_data["prices"] = dict(sorted(prices.items()))
+    month_data["columns"] = list(COLUMNS)
+    month_data["series"] = dict(sorted(series.items()))
     validate_month_data(month_data)
     return month_data
 
@@ -272,13 +424,13 @@ def build_shards(
     validate_snapshot_date(snapshot_date, allow_future=allow_future)
     month = snapshot_date[:7]
     updated_at = npt_now().isoformat(timespec="seconds")
-    snapshot_prices, skipped = extract_ltp_snapshot(rows)
+    snapshot_series, skipped = extract_ltp_snapshot(rows)
 
-    if not snapshot_prices:
+    if not snapshot_series:
         raise ValueError("No valid LTP rows found in source snapshot.")
-    if len(snapshot_prices) < min_symbols:
+    if len(snapshot_series) < min_symbols:
         raise ValueError(
-            f"Only {len(snapshot_prices)} valid symbols found; refusing to update shards "
+            f"Only {len(snapshot_series)} valid symbols found; refusing to update shards "
             f"below the minimum of {min_symbols}."
         )
 
@@ -286,7 +438,7 @@ def build_shards(
     manifest_path = os.path.join(output_dir, "manifest.json")
 
     month_data = ensure_month_shape(load_json(month_path, {}), month)
-    month_data = upsert_month(month_data, snapshot_date, snapshot_prices, updated_at)
+    month_data = upsert_month(month_data, snapshot_date, snapshot_series, updated_at)
 
     if not dry_run:
         write_json(month_path, month_data, compact=compact)
@@ -301,7 +453,7 @@ def build_shards(
         "output": output_dir,
         "date": snapshot_date,
         "month": month,
-        "symbol_count": len(snapshot_prices),
+        "symbol_count": len(snapshot_series),
         "skipped_rows": skipped,
         "dry_run": dry_run,
         "files": [manifest_path, month_path],
@@ -320,7 +472,7 @@ def main():
     parser.add_argument(
         "--output",
         default=os.path.join("data", "nepse-ltp"),
-        help="Output directory for manifest/latest/monthly shards.",
+        help="Output directory for manifest/monthly shards.",
     )
     parser.add_argument(
         "--date",
