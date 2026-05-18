@@ -79,7 +79,7 @@ def build_demo(output_dir, reset=True, days=30, start_date=date(2026, 5, 18)):
 
     demo_dates = trading_dates(start_date, days)
 
-    with tempfile.TemporaryDirectory(prefix="nepse-ltp-demo-") as temp_dir:
+    with tempfile.TemporaryDirectory(prefix="ltp-demo-") as temp_dir:
         for index, snapshot_date in enumerate(demo_dates):
             source_path = os.path.join(temp_dir, f"nepse_data_{snapshot_date}.json")
             write_fake_snapshot(source_path, snapshot_date, index)
@@ -119,8 +119,8 @@ def main():
     )
     parser.add_argument(
         "--output",
-        default=os.path.join("data", "nepse-ltp-demo"),
-        help="Demo output directory. Defaults to data/nepse-ltp-demo.",
+        default=os.path.join("data", "ltp-demo"),
+        help="Demo output directory. Defaults to data/ltp-demo.",
     )
     parser.add_argument(
         "--keep-existing",

@@ -193,14 +193,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function getLtpHistoryManifest() {
         if (ltpHistoryManifestCache) return ltpHistoryManifestCache;
-        const raw = await fetchJson('nepse-ltp/manifest.json');
+        const raw = await fetchJson('ltp/manifest.json');
         ltpHistoryManifestCache = raw && typeof raw === 'object' ? raw : {};
         return ltpHistoryManifestCache;
     }
 
     async function getLtpHistoryShard(month) {
         if (ltpHistoryShardCache[month]) return ltpHistoryShardCache[month];
-        const raw = await fetchJson(`nepse-ltp/monthly/${month}.json`);
+        const raw = await fetchJson(`ltp/monthly/${month}.json`);
         ltpHistoryShardCache[month] = raw && typeof raw === 'object' ? raw : null;
         return ltpHistoryShardCache[month];
     }
@@ -769,15 +769,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 supplyDemand
             ] = await Promise.all([
                 fetchJson('nepse_data.json'),
-                fetchJson('nepse_sector_wise_codes.json'),
-                fetchJson('upcoming_ipo.json'),
-                fetchJson('market_summary.json'),
-                fetchJson('indices.json'),
-                fetchJson('top_stocks.json'),
-                fetchJson('notices.json'),
-                fetchJson('market_status.json'),
-                fetchJson('market_summary_history.json'),
-                fetchJson('supply_demand.json')
+                fetchJson('other/sector_codes.json'),
+                fetchJson('ipo/upcoming.json'),
+                fetchJson('market/summary.json'),
+                fetchJson('market/indices.json'),
+                fetchJson('market/top_stocks.json'),
+                fetchJson('notify/notices.json'),
+                fetchJson('market/status.json'),
+                fetchJson('market/history.json'),
+                fetchJson('market/supply_demand.json')
             ]);
 
             if (!stocks || stocks.length === 0) {

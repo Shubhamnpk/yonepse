@@ -222,11 +222,23 @@ def scrape_upcoming_ipo():
 if __name__ == "__main__":
     from datetime import timedelta
     import os
+    import shutil
 
+    legacy_support_end = datetime(2026, 11, 18).date()
+    write_legacy = datetime.now().date() <= legacy_support_end
     new_data = scrape_upcoming_ipo()
-    output_file = "data/upcoming_ipo.json"
-    history_file = "data/oldipo.json"
-    os.makedirs("data", exist_ok=True)
+    output_file = "data/ipo/upcoming.json"
+    history_file = "data/ipo/old.json"
+    legacy_output_file = "data/upcoming_ipo.json"
+    legacy_history_file = "data/oldipo.json"
+    os.makedirs("data/ipo", exist_ok=True)
+    if not write_legacy:
+        for legacy_file in (legacy_output_file, legacy_history_file):
+            try:
+                if os.path.exists(legacy_file):
+                    os.remove(legacy_file)
+            except OSError:
+                pass
 
     # 1. Load existing data
     existing_items = {}
@@ -257,8 +269,8 @@ if __name__ == "__main__":
                 existing_items[url] = item
 
     # 3. Split items:
-    # - Keep recent items in upcoming_ipo.json (within last 10 days by scraped_at)
-    # - Move older items into data/oldipo.json history archive
+    # - Keep recent items in ipo/upcoming.json (within last 10 days by scraped_at)
+    # - Move older items into data/ipo/old.json history archive
     now = datetime.now()
     cutoff_date = now - timedelta(days=10)
     
@@ -295,7 +307,7 @@ if __name__ == "__main__":
     history_list.sort(key=lambda x: x.get('scraped_at', ''), reverse=True)
 
     # 4. Save results
-    # Intentionally preserve the previous upcoming_ipo.json snapshot when
+    # Intentionally preserve the previous ipo/upcoming.json snapshot when
     # final_data is empty, so the last known upcoming IPO list remains available.
     if final_data:
         # Sort by scraped_at descending so newest are first
@@ -303,10 +315,14 @@ if __name__ == "__main__":
         
         with open(output_file, "w", encoding='utf-8') as f:
             json.dump(final_data, f, indent=4, ensure_ascii=False)
+        if write_legacy:
+            shutil.copyfile(output_file, legacy_output_file)
         print(f"Successfully processed {len(final_data)} upcoming items (New: {len(new_data) if new_data else 0}). Saved to {output_file}")
     else:
         print("No data to save.")
 
     with open(history_file, "w", encoding='utf-8') as f:
         json.dump(history_list, f, indent=4, ensure_ascii=False)
+    if write_legacy:
+        shutil.copyfile(history_file, legacy_history_file)
     print(f"Archived IPO history count: {len(history_list)}. Saved to {history_file}")

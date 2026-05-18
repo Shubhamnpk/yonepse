@@ -79,14 +79,21 @@ def clean_html_anchor(value: str) -> Tuple[str, str]:
     return soup.get_text(strip=True), ""
 
 
+def clean_record(record: Dict) -> Dict:
+    return {
+        key: value
+        for key, value in record.items()
+        if key not in {"company_url", "status"} and value is not None
+    }
+
+
 def normalize_record(row: Dict) -> Dict:
     symbol_text, _ = clean_html_anchor(row.get("symbol"))
-    company_text, company_url = clean_html_anchor(row.get("companyname"))
-    return {
+    company_text, _ = clean_html_anchor(row.get("companyname"))
+    return clean_record({
         "id": row.get("id"),
         "symbol": symbol_text,
         "company_name": company_text,
-        "company_url": company_url,
         "bonus_share": row.get("bonus_share"),
         "cash_dividend": row.get("cash_dividend"),
         "total_dividend": row.get("total_dividend"),
@@ -97,9 +104,8 @@ def normalize_record(row: Dict) -> Dict:
         "fiscal_year": row.get("year"),
         "ltp": row.get("close"),
         "price_as_of": row.get("published_date"),
-        "status": row.get("status"),
         "scraped_at": datetime.now().isoformat(),
-    }
+    })
 
 
 def parse_date(value: str) -> datetime:
@@ -225,13 +231,15 @@ def fetch_all_years(session: requests.Session) -> List[Dict]:
 
 def merge_into_history(out_dir: str, incoming: List[Dict], incremental: bool = True) -> int:
     history_path = os.path.join(out_dir, HISTORY_FILE)
-    history = load_json_list(history_path)
+    raw_history = load_json_list(history_path)
+    history = [clean_record(item) for item in raw_history]
 
     # one-time migration from legacy file name
     legacy_backfill = os.path.join(out_dir, "all_years_backfill.json")
     if not history and os.path.exists(legacy_backfill):
-        history = load_json_list(legacy_backfill)
+        history = [clean_record(item) for item in load_json_list(legacy_backfill)]
 
+    incoming = [clean_record(item) for item in incoming]
     seen = {record_key(item) for item in history}
     to_add = [item for item in incoming if record_key(item) not in seen]
     if to_add:
@@ -244,6 +252,8 @@ def merge_into_history(out_dir: str, incoming: List[Dict], incremental: bool = T
             # Full merge for backfill to preserve global newest-first ordering.
             updated_history = sort_newest_first(dedupe_records(history + to_add))
             save_json_list(history_path, updated_history)
+    elif raw_history != history:
+        save_json_list(history_path, history)
     elif not os.path.exists(history_path):
         history = sort_newest_first(dedupe_records(history))
         save_json_list(history_path, history)
@@ -253,7 +263,7 @@ def merge_into_history(out_dir: str, incoming: List[Dict], incremental: bool = T
 
 def write_latest(out_dir: str, latest_rows: List[Dict]) -> None:
     latest_path = os.path.join(out_dir, LATEST_FILE)
-    save_json_list(latest_path, latest_rows)
+    save_json_list(latest_path, [clean_record(item) for item in latest_rows])
 
 
 def cleanup_legacy_files(out_dir: str) -> None:

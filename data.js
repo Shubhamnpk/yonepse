@@ -24,23 +24,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const historyChartStatus = document.getElementById('history-chart-status');
 
     const DATASET_FILES = [
-        'all_securities.json',
-        'brokers.json',
-        'disclosures.json',
-        'exchange_messages.json',
-        'indices.json',
-        'market_status.json',
-        'market_summary.json',
-        'market_summary_history.json',
-        'nepse-ltp/manifest.json',
+        'other/securities.json',
+        'other/brokers.json',
+        'notify/disclosures.json',
+        'notify/exchange_messages.json',
+        'market/indices.json',
+        'market/status.json',
+        'market/summary.json',
+        'market/history.json',
+        'market/live.json',
+        'ltp/manifest.json',
         'nepse_data.json',
-        'nepse_sector_wise_codes.json',
-        'notices.json',
-        'sector_indices.json',
-        'supply_demand.json',
-        'top_stocks.json',
-        'upcoming_ipo.json',
-        'oldipo.json'
+        'other/sector_codes.json',
+        'notify/notices.json',
+        'market/sector_indices.json',
+        'market/supply_demand.json',
+        'market/top_stocks.json',
+        'ipo/upcoming.json',
+        'ipo/old.json'
     ];
 
     let brokers = [];
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!indicesMarqueeTrack) return;
 
         try {
-            const res = await fetch('data/indices.json', { cache: 'no-store' });
+            const res = await fetch('data/market/indices.json', { cache: 'no-store' });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const indices = await res.json();
 
@@ -525,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
         }));
 
-        const nonBrokerRows = rows.filter((row) => row.fileName !== 'brokers.json');
+        const nonBrokerRows = rows.filter((row) => row.fileName !== 'other/brokers.json');
         datasetCount.textContent = `${rows.filter((row) => row.loaded).length}/${rows.length} datasets loaded`;
 
         datasetList.innerHTML = nonBrokerRows
@@ -607,12 +608,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function init() {
         const [brokerData, exchangeMessages, disclosures, notices, historyData, oldIpoData] = await Promise.all([
-            fetchJson('brokers.json'),
-            fetchJson('exchange_messages.json'),
-            fetchJson('disclosures.json'),
-            fetchJson('notices.json'),
-            fetchJson('market_summary_history.json'),
-            fetchJson('oldipo.json')
+            fetchJson('other/brokers.json'),
+            fetchJson('notify/exchange_messages.json'),
+            fetchJson('notify/disclosures.json'),
+            fetchJson('notify/notices.json'),
+            fetchJson('market/history.json'),
+            fetchJson('ipo/old.json')
         ]);
 
         brokers = Array.isArray(brokerData) ? brokerData : [];

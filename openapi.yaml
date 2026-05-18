@@ -8,12 +8,17 @@ info:
     This API is static-file based and served from GitHub Pages. Data is refreshed
     by GitHub Actions schedules.
 
+    Endpoint migration notice:
+    New folder-based endpoints are canonical. Legacy endpoint paths are supported
+    for six months, until November 18, 2026, and will be removed after that date.
+    Please update integrations to the new endpoint paths during this support window.
+
     Quick start:
-    1. Fetch `/data/market_status.json` to understand market state.
+    1. Fetch `/data/market/status.json` to understand market state.
     2. Fetch `/data/nepse_data.json` for the main ticker feed.
     3. Optionally fetch `/data/OMF.json` for full open-ended mutual fund NAV detail.
-    4. Fetch `/data/nepse-ltp/manifest.json` and monthly shards for daily LTP history.
-    5. Use `/data/proposed_dividend/latest_1y.json` and `/data/upcoming_ipo.json`
+    4. Fetch `/data/ltp/manifest.json` and monthly shards for daily LTP history.
+    5. Use `/data/proposed_dividend/latest_1y.json` and `/data/ipo/upcoming.json`
        for corporate action style datasets.
 
     Notes:
@@ -32,7 +37,7 @@ tags:
   - name: Notices
   - name: Reference
 paths:
-  /data/market_status.json:
+  /data/market/status.json:
     get:
       tags: [Market]
       summary: Market open/closed status
@@ -81,7 +86,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/OmfRow'
 
-  /data/indices.json:
+  /data/market/indices.json:
     get:
       tags: [Market]
       summary: Main NEPSE indices
@@ -94,7 +99,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObjectArray'
 
-  /data/sector_indices.json:
+  /data/market/sector_indices.json:
     get:
       tags: [Market]
       summary: Sector-wise indices
@@ -107,7 +112,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObjectArray'
 
-  /data/top_stocks.json:
+  /data/market/top_stocks.json:
     get:
       tags: [Market]
       summary: Top movers and activity buckets
@@ -120,7 +125,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/TopStocks'
 
-  /data/market_summary.json:
+  /data/market/summary.json:
     get:
       tags: [Market]
       summary: Latest market summary
@@ -133,7 +138,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObject'
 
-  /data/market_summary_history.json:
+  /data/market/history.json:
     get:
       tags: [Market]
       summary: Historical market summary
@@ -146,7 +151,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObjectArray'
 
-  /data/nepse-ltp/manifest.json:
+  /data/market/live.json:
+    get:
+      tags: [Market]
+      summary: Live market rows
+      description: Alias dataset containing the same current market rows as `/data/nepse_data.json`.
+      operationId: getMarketLive
+      responses:
+        '200':
+          description: Array of current market rows
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NepseDataRow'
+
+  /data/ltp/manifest.json:
     get:
       tags: [Market]
       summary: Daily LTP history manifest
@@ -159,7 +180,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LtpHistoryManifest'
 
-  /data/nepse-ltp/monthly/{month}.json:
+  /data/ltp/monthly/{month}.json:
     get:
       tags: [Market]
       summary: Monthly daily LTP history shard
@@ -181,7 +202,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/LtpHistoryMonth'
 
-  /data/supply_demand.json:
+  /data/market/supply_demand.json:
     get:
       tags: [Market]
       summary: Supply and demand snapshot
@@ -194,7 +215,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObject'
 
-  /data/upcoming_ipo.json:
+  /data/ipo/upcoming.json:
     get:
       tags: [IPO]
       summary: Active/recent upcoming IPO records
@@ -209,7 +230,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/UpcomingIpoRow'
 
-  /data/oldipo.json:
+  /data/ipo/old.json:
     get:
       tags: [IPO]
       summary: Archived IPO history
@@ -267,7 +288,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ProposedDividendMeta'
 
-  /data/notices.json:
+  /data/notify/notices.json:
     get:
       tags: [Notices]
       summary: General notices bundle
@@ -280,7 +301,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/NoticesResponse'
 
-  /data/disclosures.json:
+  /data/notify/disclosures.json:
     get:
       tags: [Notices]
       summary: Company disclosures
@@ -293,7 +314,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObjectArray'
 
-  /data/exchange_messages.json:
+  /data/notify/exchange_messages.json:
     get:
       tags: [Notices]
       summary: Exchange messages
@@ -306,7 +327,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObjectArray'
 
-  /data/brokers.json:
+  /data/other/brokers.json:
     get:
       tags: [Reference]
       summary: Broker directory
@@ -319,7 +340,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObjectArray'
 
-  /data/all_securities.json:
+  /data/other/securities.json:
     get:
       tags: [Reference]
       summary: Full securities list
@@ -332,7 +353,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObjectArray'
 
-  /data/nepse_sector_wise_codes.json:
+  /data/other/sector_codes.json:
     get:
       tags: [Reference]
       summary: Sector-to-symbol mapping
@@ -580,8 +601,6 @@ components:
           type: string
         company_name:
           type: string
-        company_url:
-          type: string
         bonus_share:
           type: string
         cash_dividend:
@@ -601,8 +620,6 @@ components:
         ltp:
           type: string
         price_as_of:
-          type: string
-        status:
           type: string
         scraped_at:
           type: string

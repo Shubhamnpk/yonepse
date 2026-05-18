@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YONEPSE | Endpoint Migration Guide</title>
+    <meta name="description" content="Migration guide for YONEPSE JSON API endpoint changes.">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .migration-layout {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .migration-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .migration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .migration-card h2,
+        .migration-card h3 {
+            margin-bottom: 0.8rem;
+        }
+
+        .migration-card p,
+        .migration-card li {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .migration-table-wrap {
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+
+        .migration-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 760px;
+        }
+
+        .migration-table th,
+        .migration-table td {
+            padding: 0.85rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .migration-table th {
+            color: rgba(255, 255, 255, 0.82);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .migration-table code,
+        .code-block code,
+        .inline-code {
+            font-family: "JetBrains Mono", Consolas, monospace;
+        }
+
+        .migration-table code,
+        .inline-code {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 6px;
+            padding: 0.15rem 0.35rem;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .code-block {
+            margin-top: 0.85rem;
+            background: rgba(2, 6, 23, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            padding: 1rem;
+            color: rgb(226, 232, 240);
+            font-size: 0.85rem;
+            line-height: 1.65;
+        }
+
+        .deadline-card {
+            border-color: rgba(245, 158, 11, 0.32);
+            background: rgba(245, 158, 11, 0.09);
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .migration-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 999px;
+            padding: 0.45rem 0.75rem;
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgba(99, 102, 241, 0.65);
+            background: rgba(99, 102, 241, 0.16);
+            border-radius: 999px;
+            padding: 0.7rem 1rem;
+        }
+
+        .link-button:hover,
+        .link-button:focus-visible {
+            border-color: rgba(129, 140, 248, 0.95);
+            background: rgba(99, 102, 241, 0.26);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="top-nav" aria-label="Primary">
+            <a class="nav-link" href="index.html">Market Dashboard</a>
+            <a class="nav-link" href="data.html">Brokers & Datasets</a>
+            <a class="nav-link" href="docs.html">JSON Docs</a>
+            <a class="nav-link active" href="migration.html">Migration Guide</a>
+            <a class="nav-link" href="openapi.yaml">OpenAPI Spec</a>
+        </nav>
+
+        <header>
+            <h1 class="hero-title">Endpoint Migration</h1>
+            <p class="hero-subtitle">A developer-friendly guide for moving from the old flat JSON endpoints to the new
+                folder-based YONEPSE API paths.</p>
+            <div class="market-status">
+                <div class="status-item">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Legacy support ends November 18, 2026</span>
+                </div>
+                <div class="status-item">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <span>New endpoints are canonical now</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="migration-layout">
+            <section class="migration-card deadline-card">
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> What Changed</h2>
+                <p>
+                    YONEPSE data files are being grouped by domain so the API is easier to scan and extend. Market
+                    support files now live under <span class="inline-code">/data/market/</span>, IPO files under
+                    <span class="inline-code">/data/ipo/</span>, and LTP history under
+                    <span class="inline-code">/data/ltp/</span>.
+                </p>
+                <p>
+                    Old endpoint paths remain available for six months, until <strong>November 18, 2026</strong>. After
+                    that date, old paths will stop being updated and may be removed.
+                </p>
+                <a class="link-button" href="docs.html"><i class="fa-solid fa-book-open"></i> Open API Docs</a>
+            </section>
+
+            <section class="migration-grid">
+                <article class="migration-card">
+                    <h3><i class="fa-solid fa-circle-check"></i> New Integrations</h3>
+                    <p>Use only the new folder-based paths. They are the canonical endpoints and will receive future
+                        additions first.</p>
+                </article>
+                <article class="migration-card">
+                    <h3><i class="fa-solid fa-hourglass-half"></i> Existing Integrations</h3>
+                    <p>Old paths are supported temporarily. Update your URLs during the six-month window to avoid a
+                        production break later.</p>
+                </article>
+                <article class="migration-card">
+                    <h3><i class="fa-solid fa-code"></i> Code Changes</h3>
+                    <p>Most migrations are simple string replacements. No auth, headers, pagination, or response parsing
+                        changes are required for these moved files.</p>
+                </article>
+            </section>
+
+            <section class="migration-card">
+                <h2><i class="fa-solid fa-right-left"></i> Endpoint Mapping</h2>
+                <div class="migration-table-wrap">
+                    <table class="migration-table">
+                        <thead>
+                            <tr>
+                                <th>Old endpoint</th>
+                                <th>New endpoint</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/data/indices.json</code></td>
+                                <td><code>/data/market/indices.json</code></td>
+                                <td>Main index rows.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/sector_indices.json</code></td>
+                                <td><code>/data/market/sector_indices.json</code></td>
+                                <td>Sector index rows.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/top_stocks.json</code></td>
+                                <td><code>/data/market/top_stocks.json</code></td>
+                                <td>Top gainers, losers, turnover, trades, and transactions.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/market_status.json</code></td>
+                                <td><code>/data/market/status.json</code></td>
+                                <td>Shorter name because it is already inside the market folder.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/market_summary.json</code></td>
+                                <td><code>/data/market/summary.json</code></td>
+                                <td>Current market summary metrics.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/market_summary_history.json</code></td>
+                                <td><code>/data/market/history.json</code></td>
+                                <td>Historical market summary rows.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/supply_demand.json</code></td>
+                                <td><code>/data/market/supply_demand.json</code></td>
+                                <td>Supply and demand snapshots.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/live_trades.json</code></td>
+                                <td><code>/data/market/live.json</code></td>
+                                <td>New live file mirrors <code>/data/nepse_data.json</code>. The old live-trades feed
+                                    is not continued.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/upcoming_ipo.json</code></td>
+                                <td><code>/data/ipo/upcoming.json</code></td>
+                                <td>Current and upcoming IPO records.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/oldipo.json</code></td>
+                                <td><code>/data/ipo/old.json</code></td>
+                                <td>IPO archive.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/notices.json</code></td>
+                                <td><code>/data/notify/notices.json</code></td>
+                                <td>General notices bundle.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/disclosures.json</code></td>
+                                <td><code>/data/notify/disclosures.json</code></td>
+                                <td>Company disclosures and news.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/exchange_messages.json</code></td>
+                                <td><code>/data/notify/exchange_messages.json</code></td>
+                                <td>Exchange-level messages and circulars.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/brokers.json</code></td>
+                                <td><code>/data/other/brokers.json</code></td>
+                                <td>Broker directory.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/all_securities.json</code></td>
+                                <td><code>/data/other/securities.json</code></td>
+                                <td>Master list of securities metadata.</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/nepse_sector_wise_codes.json</code></td>
+                                <td><code>/data/other/sector_codes.json</code></td>
+                                <td>Sector-to-symbol mapping for filtering.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="migration-grid">
+                <article class="migration-card">
+                    <h2><i class="fa-brands fa-js"></i> JavaScript Example</h2>
+                    <p>Before:</p>
+                    <div class="code-block">
+                        <pre><code>const status = await fetch('/data/market_status.json').then(r => r.json());
+const ipos = await fetch('/data/upcoming_ipo.json').then(r => r.json());</code></pre>
+                    </div>
+                    <p style="margin-top:1rem;">After:</p>
+                    <div class="code-block">
+                        <pre><code>const status = await fetch('/data/market/status.json').then(r => r.json());
+const ipos = await fetch('/data/ipo/upcoming.json').then(r => r.json());</code></pre>
+                    </div>
+                </article>
+
+                <article class="migration-card">
+                    <h2><i class="fa-brands fa-python"></i> Python Example</h2>
+                    <p>Before:</p>
+                    <div class="code-block">
+                        <pre><code>import requests
+
+base = "https://shubhamnpk.github.io/yonepse"
+rows = requests.get(f"{base}/data/ltp/manifest.json", timeout=20).json()</code></pre>
+                    </div>
+                    <p style="margin-top:1rem;">After:</p>
+                    <div class="code-block">
+                        <pre><code>import requests
+
+base = "https://shubhamnpk.github.io/yonepse"
+rows = requests.get(f"{base}/data/market/history.json", timeout=20).json()</code></pre>
+                    </div>
+                </article>
+            </section>
+
+            <section class="migration-card">
+                <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Copy-Paste AI Prompt</h2>
+                <p>
+                    Paste this into your coding assistant with your project open. It asks the AI to make only the
+                    endpoint migration changes and then verify the result.
+                </p>
+                <div class="code-block">
+                    <pre><code>Please update this codebase to use the new YONEPSE JSON API endpoints.
+
+Rules:
+- Change only endpoint paths and closely related docs/tests.
+- Do not rewrite unrelated code.
+- Keep response parsing the same unless the code depends on removed dividend fields: company_url, status, or JSON null fields.
+- After editing, search the repo for old endpoint strings and report anything intentionally left.
+
+Endpoint replacements:
+/data/indices.json -> /data/market/indices.json
+/data/sector_indices.json -> /data/market/sector_indices.json
+/data/top_stocks.json -> /data/market/top_stocks.json
+/data/market_status.json -> /data/market/status.json
+/data/market_summary.json -> /data/market/summary.json
+/data/market_summary_history.json -> /data/market/history.json
+/data/supply_demand.json -> /data/market/supply_demand.json
+/data/live_trades.json -> /data/market/live.json
+/data/upcoming_ipo.json -> /data/ipo/upcoming.json
+/data/oldipo.json -> /data/ipo/old.json
+/data/notices.json -> /data/notify/notices.json
+/data/disclosures.json -> /data/notify/disclosures.json
+/data/exchange_messages.json -> /data/notify/exchange_messages.json
+/data/brokers.json -> /data/other/brokers.json
+/data/all_securities.json -> /data/other/securities.json
+/data/nepse_sector_wise_codes.json -> /data/other/sector_codes.json
+
+Canonical endpoints that should remain unchanged:
+/data/nepse_data.json
+/data/OMF.json
+/data/ltp/manifest.json
+/data/ltp/monthly/YYYY-MM.json
+/data/proposed_dividend/latest_1y.json
+/data/proposed_dividend/history_all_years.json
+/data/proposed_dividend/meta.json</code></pre>
+                </div>
+            </section>
+
+            <section class="migration-card">
+                <h2><i class="fa-solid fa-list-check"></i> Migration Checklist</h2>
+                <ul>
+                    <li>Replace old endpoint strings with the new folder-based paths.</li>
+                    <li>Prefer <span class="inline-code">/data/market/live.json</span> for a folder-based alias of
+                        <span class="inline-code">/data/nepse_data.json</span>.</li>
+                    <li>Update tests, docs, env examples, and dashboards that hard-code old URLs.</li>
+                    <li>Deploy before <strong>November 18, 2026</strong>.</li>
+                    <li>Keep response parsing unchanged unless you were depending on removed dividend fields like
+                        <span class="inline-code">company_url</span>, <span class="inline-code">status</span>, or JSON
+                        <span class="inline-code">null</span> fields.</li>
+                </ul>
+                <div class="pill-row">
+                    <span class="migration-pill"><i class="fa-solid fa-lock-open"></i> No auth changes</span>
+                    <span class="migration-pill"><i class="fa-solid fa-file-code"></i> Same JSON format</span>
+                    <span class="migration-pill"><i class="fa-solid fa-clock"></i> Six-month legacy support</span>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

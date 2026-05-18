@@ -3,7 +3,7 @@ import os
 import json
 import argparse
 import subprocess
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 import urllib.parse
 import re
 import requests
@@ -19,6 +19,19 @@ from ltp_history.build_ltp_shards import build_shards
 NPT = timezone(timedelta(hours=5, minutes=45))
 LTP_HISTORY_CLOSE_HOUR = 16
 LTP_HISTORY_CLOSE_MINUTE = 0
+LEGACY_ENDPOINT_SUPPORT_END = date(2026, 11, 18)
+
+
+def should_write_legacy_aliases():
+    return datetime.now(NPT).date() <= LEGACY_ENDPOINT_SUPPORT_END
+
+
+def remove_file_if_exists(path):
+    try:
+        if os.path.exists(path):
+            os.remove(path)
+    except OSError:
+        pass
 
 def get_file_last_commit_date(filepath):
     """Get the datetime of the last git commit for a specific file."""
@@ -143,6 +156,7 @@ def write_json_if_changed(filepath, data):
     existing = load_json_object(filepath)
     if existing == data:
         return False
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4)
     return True
@@ -454,6 +468,37 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
         data_dir = os.path.join(base_dir, 'data')
         os.makedirs(data_dir, exist_ok=True)
+        market_dir = os.path.join(data_dir, 'market')
+        os.makedirs(market_dir, exist_ok=True)
+        notify_dir = os.path.join(data_dir, 'notify')
+        os.makedirs(notify_dir, exist_ok=True)
+        other_dir = os.path.join(data_dir, 'other')
+        os.makedirs(other_dir, exist_ok=True)
+        write_legacy = should_write_legacy_aliases()
+
+        def write_json(path, data):
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            with open(path, 'w') as f:
+                json.dump(data, f, indent=4)
+
+        if not write_legacy:
+            for legacy_name in (
+                'market_status.json',
+                'indices.json',
+                'sector_indices.json',
+                'top_stocks.json',
+                'market_summary.json',
+                'market_summary_history.json',
+                'disclosures.json',
+                'exchange_messages.json',
+                'notices.json',
+                'brokers.json',
+                'all_securities.json',
+                'nepse_sector_wise_codes.json',
+                'supply_demand.json',
+            ):
+                remove_file_if_exists(os.path.join(data_dir, legacy_name))
+            remove_file_if_exists(os.path.join(data_dir, 'brokers', 'list.json'))
         
         # 2. Market Status
         print("Checking market status...")
@@ -462,8 +507,9 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
             "is_open": is_open,
             "last_checked": datetime.now().isoformat()
         }
-        with open(os.path.join(data_dir, 'market_status.json'), 'w') as f:
-            json.dump(market_status, f, indent=4)
+        write_json(os.path.join(market_dir, 'status.json'), market_status)
+        if write_legacy:
+            write_json(os.path.join(data_dir, 'market_status.json'), market_status)
         
         # 3. Refresh open-ended mutual funds (OMF.json)
         print("Refreshing open-ended mutual fund data...")
@@ -516,14 +562,14 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
 
         mapped_prices.sort(key=lambda x: str(x.get('symbol', '')))
 
-        with open(os.path.join(data_dir, 'nepse_data.json'), 'w') as f:
-            json.dump(mapped_prices, f, indent=4)
+        write_json(os.path.join(data_dir, 'nepse_data.json'), mapped_prices)
+        write_json(os.path.join(market_dir, 'live.json'), mapped_prices)
 
         if should_update_ltp_history(ltp_history_mode):
             print(f"Updating monthly LTP history shards ({ltp_history_mode}).")
             build_shards(
                 source_path=os.path.join(data_dir, 'nepse_data.json'),
-                output_dir=os.path.join(data_dir, 'nepse-ltp')
+                output_dir=os.path.join(data_dir, 'ltp')
             )
         else:
             now_npt = datetime.now(NPT).isoformat(timespec='minutes')
@@ -536,20 +582,23 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
         print("Fetching indices...")
         indices = scraper.get_nepse_index()
         sector_indices = scraper.get_sector_indices()
-        with open(os.path.join(data_dir, 'indices.json'), 'w') as f:
-            json.dump(indices, f, indent=4)
-        with open(os.path.join(data_dir, 'sector_indices.json'), 'w') as f:
-            json.dump(sector_indices, f, indent=4)
+        write_json(os.path.join(market_dir, 'indices.json'), indices)
+        write_json(os.path.join(market_dir, 'sector_indices.json'), sector_indices)
+        if write_legacy:
+            write_json(os.path.join(data_dir, 'indices.json'), indices)
+            write_json(os.path.join(data_dir, 'sector_indices.json'), sector_indices)
 
         # 4b. Sector-wise Company Codes
         print("Fetching sector-wise company codes...")
         sector_wise_codes = get_sector_wise_codes()
-        sector_codes_path = os.path.join(data_dir, 'nepse_sector_wise_codes.json')
+        sector_codes_path = os.path.join(other_dir, 'sector_codes.json')
         if isinstance(sector_wise_codes, dict) and sector_wise_codes:
             if write_json_if_changed(sector_codes_path, sector_wise_codes):
                 print("Updated sector-wise codes.")
             else:
                 print("Sector-wise codes unchanged. Keeping existing file.")
+            if write_legacy:
+                write_json_if_changed(os.path.join(data_dir, 'nepse_sector_wise_codes.json'), sector_wise_codes)
         else:
             print("No sector-wise data found or error. Keeping existing file unchanged.")
 
@@ -562,17 +611,19 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
                 top_stocks[cat] = scraper.get_top_stocks(cat, show_all=True)
             except:
                 top_stocks[cat] = []
-        with open(os.path.join(data_dir, 'top_stocks.json'), 'w') as f:
-            json.dump(top_stocks, f, indent=4)
+        write_json(os.path.join(market_dir, 'top_stocks.json'), top_stocks)
+        if write_legacy:
+            write_json(os.path.join(data_dir, 'top_stocks.json'), top_stocks)
 
         # 6. Market Summary & History
         print("Fetching market summaries...")
         summary = scraper.get_market_summary()
         summary_history = scraper.get_market_summary_history()
-        with open(os.path.join(data_dir, 'market_summary.json'), 'w') as f:
-            json.dump(summary, f, indent=4)
-        with open(os.path.join(data_dir, 'market_summary_history.json'), 'w') as f:
-            json.dump(summary_history, f, indent=4)
+        write_json(os.path.join(market_dir, 'summary.json'), summary)
+        write_json(os.path.join(market_dir, 'history.json'), summary_history)
+        if write_legacy:
+            write_json(os.path.join(data_dir, 'market_summary.json'), summary)
+            write_json(os.path.join(data_dir, 'market_summary_history.json'), summary_history)
 
         # 7. Notices & News (Restored Disclosures)
         print("Fetching company disclosures...")
@@ -580,8 +631,8 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
         company_disclosures = disclosure_data.get('companyNews', [])
         exchange_messages = disclosure_data.get('exchangeMessages', [])
 
-        disclosures_path = os.path.join(data_dir, 'disclosures.json')
-        exchange_messages_path = os.path.join(data_dir, 'exchange_messages.json')
+        disclosures_path = os.path.join(notify_dir, 'disclosures.json')
+        exchange_messages_path = os.path.join(notify_dir, 'exchange_messages.json')
 
         existing_company_disclosures = load_json_list(disclosures_path)
         existing_exchange_messages = load_json_list(exchange_messages_path)
@@ -623,11 +674,11 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
                 date_keys=('addedDate', 'modifiedDate', 'approvedDate', 'expiryDate')
             )
             
-            with open(disclosures_path, 'w', encoding='utf-8') as f:
-                json.dump(merged_company_disclosures, f, indent=4)
-            
-            with open(exchange_messages_path, 'w', encoding='utf-8') as f:
-                json.dump(merged_exchange_messages, f, indent=4)
+            write_json(disclosures_path, merged_company_disclosures)
+            write_json(exchange_messages_path, merged_exchange_messages)
+            if write_legacy:
+                write_json(os.path.join(data_dir, 'disclosures.json'), merged_company_disclosures)
+                write_json(os.path.join(data_dir, 'exchange_messages.json'), merged_exchange_messages)
 
             print(
                 "New disclosures found: "
@@ -642,7 +693,7 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
         print("Fetching notices...")
         general_notices = scraper.get_notices()
         filtered_general_notices = filter_general_notices(general_notices, merged_exchange_messages)
-        notices_path = os.path.join(data_dir, 'notices.json')
+        notices_path = os.path.join(notify_dir, 'notices.json')
 
         existing_notices = {}
         if os.path.exists(notices_path):
@@ -668,12 +719,14 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
             )
             merged_general_notices = sort_notices_latest_first(merged_general_notices)
 
-            with open(os.path.join(data_dir, 'notices.json'), 'w') as f:
-                # Keep notices file dedicated to general notices only.
-                json.dump({
-                    "general": merged_general_notices,
-                    "last_updated": datetime.now().isoformat()
-                }, f, indent=4)
+            notices_payload = {
+                "general": merged_general_notices,
+                "last_updated": datetime.now().isoformat()
+            }
+            # Keep notices file dedicated to general notices only.
+            write_json(notices_path, notices_payload)
+            if write_legacy:
+                write_json(os.path.join(data_dir, 'notices.json'), notices_payload)
             print(f"New notices found: {len(new_general_notices)}.")
         else:
             print("No new notices found. Keeping existing notices file unchanged.")
@@ -682,12 +735,14 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
         if include_brokers:
             print("Fetching broker list...")
             brokers = scraper.get_brokers()
-            brokers_path = os.path.join(data_dir, 'brokers.json')
+            brokers_path = os.path.join(other_dir, 'brokers.json')
             if isinstance(brokers, list) and brokers:
                 if write_json_if_changed(brokers_path, brokers):
                     print("Updated broker list.")
                 else:
                     print("Broker list unchanged. Keeping existing file.")
+                if write_legacy:
+                    write_json_if_changed(os.path.join(data_dir, 'brokers.json'), brokers)
             else:
                 print("No broker data found or error. Keeping existing file unchanged.")
         else:
@@ -696,15 +751,9 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
         # 9. Supply & Demand (Disabled)
         print("Fetching supply and demand...")
         supply_demand = scraper.get_supply_demand(show_all=True)
-        with open(os.path.join(data_dir, 'supply_demand.json'), 'w') as f:
-            json.dump(supply_demand, f, indent=4)
-
-        # 10. Live Trades (Only if market open)
-        if is_open:
-            print("Fetching live trades...")
-            live_trades = scraper.get_live_trades()
-            with open(os.path.join(data_dir, 'live_trades.json'), 'w') as f:
-                json.dump(live_trades, f, indent=4)
+        write_json(os.path.join(market_dir, 'supply_demand.json'), supply_demand)
+        if write_legacy:
+            write_json(os.path.join(data_dir, 'supply_demand.json'), supply_demand)
 
         print(f"Successfully completed comprehensive official scraping.")
         return True
@@ -750,7 +799,7 @@ if __name__ == "__main__":
         print(f"{filename} is {age.days} days old (limit 60). Skipping update.")
         return False
 
-    include_brokers = should_update('brokers.json', args.brokers)
+    include_brokers = should_update(os.path.join('other', 'brokers.json'), args.brokers)
             
     success = scrape_all_official_data(
         include_brokers=include_brokers,

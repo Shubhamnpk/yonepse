@@ -471,7 +471,7 @@ def main():
     )
     parser.add_argument(
         "--output",
-        default=os.path.join("data", "nepse-ltp"),
+        default=os.path.join("data", "ltp"),
         help="Output directory for manifest/monthly shards.",
     )
     parser.add_argument(

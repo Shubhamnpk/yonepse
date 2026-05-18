@@ -1,0 +1,257 @@
+[
+    {
+        "id": 51,
+        "indexCode": "BANKSUBIND",
+        "indexName": "Banking SubIndex",
+        "description": "Index of All the Listed Commercial Banks",
+        "sectorMaster": {
+            "id": 37,
+            "sectorDescription": "Commercial Banks",
+            "activeStatus": "A",
+            "regulatoryBody": "Nepal Rastra Bank"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 77351.6855
+    },
+    {
+        "id": 52,
+        "indexCode": "HOTELIND",
+        "indexName": "Hotels And Tourism Index",
+        "description": "All the companies Listed in Hotels Group",
+        "sectorMaster": {
+            "id": 39,
+            "sectorDescription": "Hotels And Tourism",
+            "activeStatus": "A",
+            "regulatoryBody": "Ministry of Tourism"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 1997.6871
+    },
+    {
+        "id": 53,
+        "indexCode": "OTHERSIND",
+        "indexName": "Others Index",
+        "description": "All the companies Listed in Others  Group",
+        "sectorMaster": {
+            "id": 40,
+            "sectorDescription": "Others",
+            "activeStatus": "A",
+            "regulatoryBody": "N/A"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 19544.8826
+    },
+    {
+        "id": 54,
+        "indexCode": "HYDPOWIND",
+        "indexName": "HydroPower Index",
+        "description": "All the companies listed in Hydropower Group",
+        "sectorMaster": {
+            "id": 41,
+            "sectorDescription": "Hydro Power",
+            "activeStatus": "A",
+            "regulatoryBody": "Nepal Hydropower Board"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 21317.6436
+    },
+    {
+        "id": 55,
+        "indexCode": "DEVBANKIND",
+        "indexName": "Development Bank Index",
+        "description": "Index of  the listed development Banks",
+        "sectorMaster": {
+            "id": 44,
+            "sectorDescription": "Development Banks",
+            "activeStatus": "A",
+            "regulatoryBody": "Nepal Rastra Bank"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 3713.3472
+    },
+    {
+        "id": 56,
+        "indexCode": "MANPROCIND",
+        "indexName": "Manufacturing And Processing",
+        "description": "Manufacturing and Processing Index",
+        "sectorMaster": {
+            "id": 38,
+            "sectorDescription": "Manufacturing And Processing",
+            "activeStatus": "A",
+            "regulatoryBody": "Department of Industry"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 3627.5391
+    },
+    {
+        "id": 57,
+        "indexCode": "SENSIND",
+        "indexName": "Sensitive Index",
+        "description": "Sensitive Index",
+        "sectorMaster": {
+            "id": 51,
+            "sectorDescription": "ALL",
+            "activeStatus": "A",
+            "regulatoryBody": "N/A"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 447841.1858
+    },
+    {
+        "id": 58,
+        "indexCode": "NEPSE",
+        "indexName": "NEPSE Index",
+        "description": "All Equity Index",
+        "sectorMaster": {
+            "id": 51,
+            "sectorDescription": "ALL",
+            "activeStatus": "A",
+            "regulatoryBody": "N/A"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "Y",
+        "baseYearMarketCapitalization": 170555.0075
+    },
+    {
+        "id": 59,
+        "indexCode": "NONLIFIND",
+        "indexName": "Non Life Insurance",
+        "description": "All Non Life Insurance Index",
+        "sectorMaster": {
+            "id": 43,
+            "sectorDescription": "Non Life Insurance",
+            "activeStatus": "A",
+            "regulatoryBody": "Nepal Insurance Board"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 1923.1267
+    },
+    {
+        "id": 60,
+        "indexCode": "FININD",
+        "indexName": "Finance Index",
+        "description": "Index of Finance Companies",
+        "sectorMaster": {
+            "id": 45,
+            "sectorDescription": "Finance",
+            "activeStatus": "A",
+            "regulatoryBody": "Nepal Rastra Bank"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 3235.9835
+    },
+    {
+        "id": 61,
+        "indexCode": "TRDIND",
+        "indexName": "Trading Index",
+        "description": "All Trading Companies",
+        "sectorMaster": {
+            "id": 42,
+            "sectorDescription": "Tradings",
+            "activeStatus": "A",
+            "regulatoryBody": "Department of Industry"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 5613.7011
+    },
+    {
+        "id": 62,
+        "indexCode": "FLOATIND",
+        "indexName": "Float Index",
+        "description": "All Float Index",
+        "sectorMaster": {
+            "id": 51,
+            "sectorDescription": "ALL",
+            "activeStatus": "A",
+            "regulatoryBody": "N/A"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 839190.1912
+    },
+    {
+        "id": 63,
+        "indexCode": "SENSFLTIND",
+        "indexName": "Sensitive Float Index",
+        "description": "All Sensitive Float Index",
+        "sectorMaster": {
+            "id": 51,
+            "sectorDescription": "ALL",
+            "activeStatus": "A",
+            "regulatoryBody": "N/A"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 527142.7323
+    },
+    {
+        "id": 64,
+        "indexCode": "MICRFININD",
+        "indexName": "Microfinance Index",
+        "description": "all microfinance company index",
+        "sectorMaster": {
+            "id": 49,
+            "sectorDescription": "Microfinance",
+            "activeStatus": "A",
+            "regulatoryBody": "Nepal Rastra Bank"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 7593.988
+    },
+    {
+        "id": 65,
+        "indexCode": "LIFINSIND",
+        "indexName": "Life Insurance",
+        "description": "All Life Insurance Index",
+        "sectorMaster": {
+            "id": 50,
+            "sectorDescription": "Life Insurance",
+            "activeStatus": "A",
+            "regulatoryBody": "Nepal Insurance Board"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 3069.8792
+    },
+    {
+        "id": 66,
+        "indexCode": "MUTUALIND",
+        "indexName": "Mutual Fund",
+        "description": "All Mutual Fund Index",
+        "sectorMaster": {
+            "id": 46,
+            "sectorDescription": "Mutual Fund",
+            "activeStatus": "A",
+            "regulatoryBody": "Nepal Rastra Bank"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 22268.487
+    },
+    {
+        "id": 67,
+        "indexCode": "INVIDX",
+        "indexName": "Investment Index",
+        "description": "All Investment Index",
+        "sectorMaster": {
+            "id": 52,
+            "sectorDescription": "Investment",
+            "activeStatus": "A",
+            "regulatoryBody": "Nepal Rastra Bank"
+        },
+        "activeStatus": "A",
+        "keyIndexFlag": "N",
+        "baseYearMarketCapitalization": 315640.8816
+    }
+]
