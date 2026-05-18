@@ -153,26 +153,24 @@ def normalize_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     normalized: List[Dict[str, Any]] = []
 
     for row in rows:
-        normalized.append(
-            {
-                "company_id": row.get("companyid"),
-                "symbol": row.get("symbol"),
-                "fund_name": row.get("companyname"),
-                "fund_size": to_int(row.get("fund_size")),
-                "daily_nav": to_float(row.get("daily_nav_price")),
-                "daily_nav_date": clean_date(row.get("daily_date")),
-                "weekly_nav": to_float(row.get("weekly_nav_price")),
-                "weekly_nav_date": clean_date(row.get("weekly_date")),
-                "monthly_nav": to_float(row.get("monthly_nav_price")),
-                "monthly_nav_date": clean_date(row.get("monthly_date")),
-                "ltp": to_float(row.get("close")),
-                "price_as_of": clean_date(row.get("published_date")),
-                "premium_discount_percent": to_float(row.get("prem_dis")),
-                "refund_nav": to_float(row.get("refund_nav")),
-                "source_url": BASE_URL,
-                "scraped_at": scraped_at,
-            }
-        )
+        item = {
+            "company_id": row.get("companyid"),
+            "symbol": row.get("symbol"),
+            "fund_name": row.get("companyname"),
+            "fund_size": to_int(row.get("fund_size")),
+            "daily_nav": to_float(row.get("daily_nav_price")),
+            "daily_nav_date": clean_date(row.get("daily_date")),
+            "weekly_nav": to_float(row.get("weekly_nav_price")),
+            "weekly_nav_date": clean_date(row.get("weekly_date")),
+            "monthly_nav": to_float(row.get("monthly_nav_price")),
+            "monthly_nav_date": clean_date(row.get("monthly_date")),
+            "ltp": to_float(row.get("close")),
+            "price_as_of": clean_date(row.get("published_date")),
+            "premium_discount_percent": to_float(row.get("prem_dis")),
+            "refund_nav": to_float(row.get("refund_nav")),
+            "scraped_at": scraped_at,
+        }
+        normalized.append({key: value for key, value in item.items() if value is not None})
 
     normalized.sort(key=lambda item: ((item.get("symbol") or ""), (item.get("fund_name") or "")))
     return normalized

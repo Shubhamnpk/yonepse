@@ -437,8 +437,6 @@ components:
         refund_nav:
           type: number
           nullable: true
-        source_url:
-          type: string
         scraped_at:
           type: string
 
