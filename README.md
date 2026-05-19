@@ -2,6 +2,8 @@
 
 ![YONEPSE Favicon](assets/img/favicon.png)
 
+**Current app version:** YONEPSE v2
+
 > [!IMPORTANT]
 > **Endpoint paths are changing.** New folder-based JSON endpoints are canonical now. Please update integrations before **November 18, 2026**; legacy paths remain available only during this transition window. See the [Migration Guide](pages/migration.html) for mappings and examples.
 
@@ -18,6 +20,7 @@ A modern dashboard and static JSON API for tracking Nepal Stock Exchange (NEPSE)
 | [Data Hub](https://shubhamnpk.github.io/yonepse/pages/data.html) | Broker directory and dataset browser |
 | [JSON Docs](https://shubhamnpk.github.io/yonepse/pages/docs.html) | Human-readable API documentation |
 | [Migration Guide](https://shubhamnpk.github.io/yonepse/pages/migration.html) | Endpoint migration details and old-to-new mappings |
+| [About](https://shubhamnpk.github.io/yonepse/pages/about.html) | Project version, philosophy, and system notes |
 | [OpenAPI Spec](https://shubhamnpk.github.io/yonepse/api/openapi.yaml) | Machine-readable API schema |
 | [GitHub Repository](https://github.com/Shubhamnpk/yonepse) | Source code and project history |
 | [Issues](https://github.com/Shubhamnpk/yonepse/issues) | Bug reports and feature requests |
@@ -92,6 +95,7 @@ nepse-scraper/
 |   |-- data.html                 # Brokers & datasets page
 |   |-- docs.html                 # JSON API documentation
 |   |-- migration.html            # Endpoint migration guide
+|   |-- about.html                # Project/version overview
 |-- start_server.bat              # Windows local server starter
 |-- api/                          # Machine-readable API specs
 |   |-- openapi.yaml              # Published YONEPSE API schema
@@ -323,6 +327,7 @@ OpenAPI spec:
 - [`index.html`](index.html) - Main dashboard with stock cards, search, filters
 - [`data.html`](pages/data.html) - Broker directory with tables and filters
 - [`docs.html`](pages/docs.html) - API documentation
+- [`about.html`](pages/about.html) - Project/version overview
 - [`script.js`](assets/js/script.js) - Dashboard logic, IPO date parsing, Nepali date conversion
 - [`data.js`](assets/js/data.js) - Broker filtering, dataset rendering
 - [`style.css`](assets/css/style.css) - Complete dashboard styling

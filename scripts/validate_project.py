@@ -14,6 +14,7 @@ REQUIRED_PATHS = [
     "pages/data.html",
     "pages/docs.html",
     "pages/migration.html",
+    "pages/about.html",
     "assets/css/style.css",
     "assets/js/script.js",
     "assets/js/data.js",
@@ -113,6 +114,7 @@ def assert_html_links_resolve():
         ROOT / "pages" / "data.html",
         ROOT / "pages" / "docs.html",
         ROOT / "pages" / "migration.html",
+        ROOT / "pages" / "about.html",
     ]
     attr_pattern = re.compile(r"""(?:href|src)=["']([^"']+)["']""")
     ignored_schemes = {"http", "https", "mailto", "tel"}
