@@ -7292,5 +7292,29 @@
         "modifiedDate": "2026-05-18T09:07:02.313",
         "approvedDate": null,
         "symbol": "UPPER"
+    },
+    {
+        "id": 45887,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 31031,
+                "activeStatus": "A",
+                "modifiedBy": "nric_user",
+                "modifiedDate": "2026-05-19T10:25:39.303",
+                "application": 45887,
+                "documentType": 54,
+                "submittedDate": "2026-05-19",
+                "filePath": "Nepal_Reinsurance_Company_Limited/Company News/2026-05-19/OCR -NIA Company Scretrary Resignation_1779165610130.pdf",
+                "encryptedId": "c1dc5b58c87378608fcead4d616e2299135bb44ade6a49030f755cd0c404484f7ff55c9007c7872229dafa063078d332619cf9b30fed30c2df9e0a82056164ae",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Reinsurance_Company_Limited/Company%20News/2026-05-19/OCR%20-NIA%20Company%20Scretrary%20Resignation_1779165610130.pdf"
+            }
+        ],
+        "newsHeadline": "Resignation of Company Secretary [NRIC] ",
+        "newsBody": "<p>Resignation of Company Secretary</p>",
+        "addedDate": "2026-05-19T10:25:39.3",
+        "newsSource": "BOD",
+        "modifiedDate": "2026-05-19T10:36:35.09",
+        "approvedDate": null,
+        "symbol": "NRIC"
     }
 ]
