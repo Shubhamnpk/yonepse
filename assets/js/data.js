@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let brokers = [];
     let marketSummaryHistory = [];
     let historyChart = null;
+    const DATA_ROOT = window.location.pathname.includes('/pages/') ? '../data/' : 'data/';
 
     function formatIndexChange(changeValue, perChange) {
         const safeChange = Number(changeValue);
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!indicesMarqueeTrack) return;
 
         try {
-            const res = await fetch('data/market/indices.json', { cache: 'no-store' });
+            const res = await fetch(`${DATA_ROOT}market/indices.json`, { cache: 'no-store' });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const indices = await res.json();
 
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function fetchJson(fileName) {
-        const candidates = [`data/${fileName}`, fileName];
+        const candidates = [`${DATA_ROOT}${fileName}`, `data/${fileName}`, fileName];
         const errors = [];
 
         for (const url of candidates) {

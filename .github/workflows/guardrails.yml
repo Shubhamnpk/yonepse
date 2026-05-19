@@ -1,10 +1,7 @@
-name: Validate Project
+name: Guardrails
 
 on:
   pull_request:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
@@ -25,24 +22,20 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Validate JSON data files
+      - name: Install validation dependencies
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          for path in sorted(Path("data").rglob("*.json")):
-              with path.open("r", encoding="utf-8") as handle:
-                  json.load(handle)
-              print(f"valid json: {path}")
-          PY
+          python -m pip install --upgrade pip
+          python -m pip install PyYAML
 
       - name: Check JavaScript syntax
         run: |
-          node --check script.js
-          node --check data.js
+          node --check assets/js/script.js
+          node --check assets/js/data.js
 
       - name: Compile Python scripts
         run: |
           python -m compileall scripts
 
+      - name: Run project guardrails
+        run: |
+          python scripts/validate_project.py

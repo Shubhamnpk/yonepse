@@ -30,11 +30,19 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r scripts/nepse-scraper/requirements.txt
+        pip install PyYAML
 
     - name: Run Market Scraper
       run: |
         mkdir -p data
         python scripts/nepse-scraper/official_scraper.py --ltp-history live-close
+
+    - name: Run project guardrails
+      run: |
+        node --check assets/js/script.js
+        node --check assets/js/data.js
+        python -m compileall scripts
+        python scripts/validate_project.py
     
     - name: Commit and push changes
       run: |

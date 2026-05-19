@@ -3,7 +3,7 @@
 ![YONEPSE Favicon](assets/img/favicon.png)
 
 > [!IMPORTANT]
-> **Endpoint paths are changing.** New folder-based JSON endpoints are canonical now. Please update integrations before **November 18, 2026**; legacy paths remain available only during this transition window. See the [Migration Guide](migration.html) for mappings and examples.
+> **Endpoint paths are changing.** New folder-based JSON endpoints are canonical now. Please update integrations before **November 18, 2026**; legacy paths remain available only during this transition window. See the [Migration Guide](pages/migration.html) for mappings and examples.
 
 ![YONEPSE](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-blue)
@@ -15,10 +15,10 @@ A modern dashboard and static JSON API for tracking Nepal Stock Exchange (NEPSE)
 | Link | Description |
 |------|-------------|
 | [Live Dashboard](https://shubhamnpk.github.io/yonepse/) | Main YONEPSE market dashboard |
-| [Data Hub](https://shubhamnpk.github.io/yonepse/data.html) | Broker directory and dataset browser |
-| [JSON Docs](https://shubhamnpk.github.io/yonepse/docs.html) | Human-readable API documentation |
-| [Migration Guide](https://shubhamnpk.github.io/yonepse/migration.html) | Endpoint migration details and old-to-new mappings |
-| [OpenAPI Spec](https://shubhamnpk.github.io/yonepse/openapi.yaml) | Machine-readable API schema |
+| [Data Hub](https://shubhamnpk.github.io/yonepse/pages/data.html) | Broker directory and dataset browser |
+| [JSON Docs](https://shubhamnpk.github.io/yonepse/pages/docs.html) | Human-readable API documentation |
+| [Migration Guide](https://shubhamnpk.github.io/yonepse/pages/migration.html) | Endpoint migration details and old-to-new mappings |
+| [OpenAPI Spec](https://shubhamnpk.github.io/yonepse/api/openapi.yaml) | Machine-readable API schema |
 | [GitHub Repository](https://github.com/Shubhamnpk/yonepse) | Source code and project history |
 | [Issues](https://github.com/Shubhamnpk/yonepse/issues) | Bug reports and feature requests |
 | [Contributing Guide](CONTRIBUTING.md) | Local setup, PR checklist, and data change notes |
@@ -54,11 +54,11 @@ A modern dashboard and static JSON API for tracking Nepal Stock Exchange (NEPSE)
 - **Open-Ended Mutual Funds**: Daily/weekly/monthly NAV snapshots in dedicated dataset
 
 ### JSON API
-All data is available as static JSON endpoints for developers. See the [JSON Docs](https://shubhamnpk.github.io/yonepse/docs.html) for the published API reference, or [`docs.html`](docs.html) locally.
+All data is available as static JSON endpoints for developers. See the [JSON Docs](https://shubhamnpk.github.io/yonepse/pages/docs.html) for the published API reference, or [`pages/docs.html`](pages/docs.html) locally.
 
-- **Endpoint migration notice**: New folder-based endpoints are now canonical. Legacy endpoint paths will continue to be supported for six months, until **November 18, 2026**, and will be removed after that date. See the [Migration Guide](migration.html) for old-to-new mappings and code examples.
-- Public static API spec: [published OpenAPI](https://shubhamnpk.github.io/yonepse/openapi.yaml) / [`openapi.yaml`](openapi.yaml)
-- Legacy NEPSE upstream endpoint spec: [`openapi_legacy_nepse.yaml`](openapi_legacy_nepse.yaml)
+- **Endpoint migration notice**: New folder-based endpoints are now canonical. Legacy endpoint paths will continue to be supported for six months, until **November 18, 2026**, and will be removed after that date. See the [Migration Guide](pages/migration.html) for old-to-new mappings and code examples.
+- Public static API spec: [published OpenAPI](https://shubhamnpk.github.io/yonepse/api/openapi.yaml) / [`api/openapi.yaml`](api/openapi.yaml)
+- Legacy NEPSE upstream endpoint spec: [`api/openapi_legacy_nepse.yaml`](api/openapi_legacy_nepse.yaml)
 
 ---
 
@@ -88,9 +88,14 @@ Visit the dashboard at: [https://shubhamnpk.github.io/yonepse/](https://shubhamn
 ```
 nepse-scraper/
 |-- index.html                    # Main market dashboard
-|-- data.html                     # Brokers & datasets page
-|-- docs.html                     # JSON API documentation
+|-- pages/                        # Secondary HTML pages
+|   |-- data.html                 # Brokers & datasets page
+|   |-- docs.html                 # JSON API documentation
+|   |-- migration.html            # Endpoint migration guide
 |-- start_server.bat              # Windows local server starter
+|-- api/                          # Machine-readable API specs
+|   |-- openapi.yaml              # Published YONEPSE API schema
+|   |-- openapi_legacy_nepse.yaml # Legacy upstream NEPSE reference
 |-- assets/                       # Static frontend assets
 |   |-- css/
 |   |   |-- style.css             # Shared styling
@@ -256,7 +261,7 @@ Migration notice: use the new endpoints listed below for all new integrations. L
 | `/data/proposed_dividend/meta.json` | Object | Proposed dividend scraper run metadata |
 | `/data/other/sector_codes.json` | Object | Sector mapping for stocks |
 
-See [`docs.html`](docs.html) for complete documentation.
+See [`pages/docs.html`](pages/docs.html) for complete documentation.
 
 ---
 
@@ -288,8 +293,8 @@ curl -s https://shubhamnpk.github.io/yonepse/data/ltp/monthly/2026-05.json
 ```
 
 OpenAPI spec:
-- [`openapi.yaml`](openapi.yaml)
-- [`openapi_legacy_nepse.yaml`](openapi_legacy_nepse.yaml) (legacy NEPSE upstream reference)
+- [`api/openapi.yaml`](api/openapi.yaml)
+- [`api/openapi_legacy_nepse.yaml`](api/openapi_legacy_nepse.yaml) (legacy NEPSE upstream reference)
 
 ---
 
@@ -316,8 +321,8 @@ OpenAPI spec:
 
 #### Frontend
 - [`index.html`](index.html) - Main dashboard with stock cards, search, filters
-- [`data.html`](data.html) - Broker directory with tables and filters
-- [`docs.html`](docs.html) - API documentation
+- [`data.html`](pages/data.html) - Broker directory with tables and filters
+- [`docs.html`](pages/docs.html) - API documentation
 - [`script.js`](assets/js/script.js) - Dashboard logic, IPO date parsing, Nepali date conversion
 - [`data.js`](assets/js/data.js) - Broker filtering, dataset rendering
 - [`style.css`](assets/css/style.css) - Complete dashboard styling

@@ -29,6 +29,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r scripts/nepse-scraper/requirements.txt
+        pip install PyYAML
 
     - name: Run IPO Scraper
       run: |
@@ -36,6 +37,13 @@ jobs:
         python scripts/nepse-scraper/upcoming_ipo_scraper.py
         python scripts/nepse-scraper/proposed_dividend_scraper.py --mode latest
         python scripts/nepse-scraper/sectors.py
+
+    - name: Run project guardrails
+      run: |
+        node --check assets/js/script.js
+        node --check assets/js/data.js
+        python -m compileall scripts
+        python scripts/validate_project.py
 
     - name: Commit and push changes
       run: |
