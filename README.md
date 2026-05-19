@@ -1,6 +1,6 @@
 # YONEPSE - Real-time NEPSE Stock Dashboard & Static API
 
-![YONEPSE Favicon](favicon.png)
+![YONEPSE Favicon](assets/img/favicon.png)
 
 > [!IMPORTANT]
 > **Endpoint paths are changing.** New folder-based JSON endpoints are canonical now. Please update integrations before **November 18, 2026**; legacy paths remain available only during this transition window. See the [Migration Guide](migration.html) for mappings and examples.
@@ -90,11 +90,16 @@ nepse-scraper/
 |-- index.html                    # Main market dashboard
 |-- data.html                     # Brokers & datasets page
 |-- docs.html                     # JSON API documentation
-|-- script.js                     # Main dashboard logic
-|-- data.js                       # Data hub logic
-|-- style.css                     # All styling
 |-- start_server.bat              # Windows local server starter
-|-- favicon.png                   # Site favicon
+|-- assets/                       # Static frontend assets
+|   |-- css/
+|   |   |-- style.css             # Shared styling
+|   |-- js/
+|   |   |-- script.js             # Main dashboard logic
+|   |   |-- data.js               # Data hub logic
+|   |-- img/
+|   |   |-- favicon.svg           # SVG favicon
+|   |   |-- favicon.png           # PNG favicon/social image
 |-- data/                         # JSON data files
 |   |-- nepse_data.json           # Stock prices
 |   |-- OMF.json                  # Open-ended mutual fund NAV data
@@ -313,9 +318,9 @@ OpenAPI spec:
 - [`index.html`](index.html) - Main dashboard with stock cards, search, filters
 - [`data.html`](data.html) - Broker directory with tables and filters
 - [`docs.html`](docs.html) - API documentation
-- [`script.js`](script.js) - Dashboard logic, IPO date parsing, Nepali date conversion
-- [`data.js`](data.js) - Broker filtering, dataset rendering
-- [`style.css`](style.css) - Complete dashboard styling
+- [`script.js`](assets/js/script.js) - Dashboard logic, IPO date parsing, Nepali date conversion
+- [`data.js`](assets/js/data.js) - Broker filtering, dataset rendering
+- [`style.css`](assets/css/style.css) - Complete dashboard styling
 
 #### Backend
 - [`official_scraper.py`](scripts/nepse-scraper/official_scraper.py) - Main scraper using NEPSE API
