@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getMembership(broker) {
-        return broker.membershipTypeMaster?.membershipType || 'N/A';
+        return broker.membershipType || broker.membershipTypeMaster?.membershipType || 'N/A';
     }
 
     function getMembershipDisplayLabel(membership) {
@@ -153,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getDistrictNames(broker) {
+        if (Array.isArray(broker.districts)) return broker.districts.filter(Boolean);
         if (!Array.isArray(broker.districtList) || broker.districtList.length === 0) return [];
         return broker.districtList.map((item) => item.districtName).filter(Boolean);
     }
@@ -163,8 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getProvinceNames(broker) {
-        if (!Array.isArray(broker.provinceList) || broker.provinceList.length === 0) return [];
-        const normalized = broker.provinceList
+        const source = Array.isArray(broker.provinces) ? broker.provinces : broker.provinceList;
+        if (!Array.isArray(source) || source.length === 0) return [];
+        if (Array.isArray(broker.provinces)) {
+            return Array.from(new Set(source.map((value) => String(value || '').trim()).filter(Boolean)));
+        }
+        const normalized = source
             .map((item) => item.description || item.name)
             .filter(Boolean)
             .map((value) => {
@@ -181,11 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getBranchCount(broker) {
+        if (Number.isFinite(Number(broker.branchCount))) return Number(broker.branchCount);
         return Array.isArray(broker.memberBranchMappings) ? broker.memberBranchMappings.length : 0;
     }
 
     function getTmsLink(broker) {
-        return broker.memberTMSLinkMapping?.tmsLink || '';
+        return broker.tmsLink || broker.memberTMSLinkMapping?.tmsLink || '';
     }
 
     function buildBrokerCountReason(rows) {
@@ -278,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .sort((a, b) => Number(a.memberCode || 0) - Number(b.memberCode || 0))
             .map((broker) => {
                 const tms = getTmsLink(broker);
-                const phone = broker.authorizedContactPersonNumber || '-';
+                const phone = broker.phone || broker.authorizedContactPersonNumber || '-';
                 const membership = getMembership(broker);
                 const membershipLabel = getMembershipDisplayLabel(membership);
                 const branches = getBranchCount(broker);

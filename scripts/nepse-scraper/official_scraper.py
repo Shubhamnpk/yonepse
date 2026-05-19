@@ -135,7 +135,61 @@ def refresh_omf_data(data_dir):
         print(f"OMF refresh failed, falling back to existing OMF.json: {exc}")
         return load_json_list(omf_path)
 
-def should_update_ltp_history(mode):
+def unique_text_values(values):
+    seen = set()
+    out = []
+    for value in values:
+        text = str(value or '').strip()
+        if not text or text in seen:
+            continue
+        seen.add(text)
+        out.append(text)
+    return out
+
+def compact_broker_record(broker):
+    """Keep only public broker-directory fields used by the site/API."""
+    if not isinstance(broker, dict):
+        return {}
+
+    membership = broker.get('membershipTypeMaster') or {}
+    tms_mapping = broker.get('memberTMSLinkMapping') or {}
+    branches = broker.get('memberBranchMappings')
+    provinces = unique_text_values(
+        (item or {}).get('description') or (item or {}).get('name')
+        for item in broker.get('provinceList') or []
+    )
+    districts = unique_text_values(
+        (item or {}).get('districtName')
+        for item in broker.get('districtList') or []
+    )
+
+    compact = {
+        "id": broker.get('id'),
+        "memberCode": broker.get('memberCode'),
+        "memberName": broker.get('memberName'),
+        "membershipType": membership.get('membershipType'),
+        "phone": broker.get('authorizedContactPersonNumber'),
+        "provinces": provinces,
+        "districts": districts,
+        "tmsLink": tms_mapping.get('tmsLink'),
+        "branchCount": len(branches) if isinstance(branches, list) else 0,
+        "activeStatus": broker.get('activeStatus'),
+        "isDealer": broker.get('isDealer'),
+    }
+    return {
+        key: value
+        for key, value in compact.items()
+        if value not in (None, "", [], {})
+    }
+
+def compact_broker_records(brokers):
+    if not isinstance(brokers, list):
+        return []
+    compact = [compact_broker_record(item) for item in brokers]
+    compact = [item for item in compact if item.get('memberCode') or item.get('memberName')]
+    return sorted(compact, key=lambda item: int(item.get('memberCode') or 0))
+
+def should_update_ltp_history(mode, market_is_open=False):
     """Decide when daily LTP history should be updated."""
     if mode == 'always':
         return True
@@ -149,7 +203,21 @@ def should_update_ltp_history(mode):
         second=0,
         microsecond=0
     )
-    return now_npt >= close_cutoff
+    after_close = now_npt >= close_cutoff
+    if mode == 'live-close':
+        return bool(market_is_open) or after_close
+    return after_close
+
+def ltp_history_latest_status():
+    """Mark intraday LTP history as provisional until the close-time run finalizes it."""
+    now_npt = datetime.now(NPT)
+    close_cutoff = now_npt.replace(
+        hour=LTP_HISTORY_CLOSE_HOUR,
+        minute=LTP_HISTORY_CLOSE_MINUTE,
+        second=0,
+        microsecond=0
+    )
+    return 'final' if now_npt >= close_cutoff else 'provisional'
 
 def write_json_if_changed(filepath, data):
     """Write JSON only if content differs or file does not exist."""
@@ -456,7 +524,7 @@ def get_sector_wise_codes():
         print(f"Error fetching sector-wise codes: {e}")
         return None
 
-def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only'):
+def scrape_all_official_data(include_brokers=False, ltp_history_mode='live-close'):
     print(f"Starting Comprehensive Official NEPSE Scraper at {datetime.now().isoformat()}...")
     
     try:
@@ -565,11 +633,13 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
         write_json(os.path.join(data_dir, 'nepse_data.json'), mapped_prices)
         write_json(os.path.join(market_dir, 'live.json'), mapped_prices)
 
-        if should_update_ltp_history(ltp_history_mode):
-            print(f"Updating monthly LTP history shards ({ltp_history_mode}).")
+        if should_update_ltp_history(ltp_history_mode, market_is_open=is_open):
+            latest_status = ltp_history_latest_status()
+            print(f"Updating monthly LTP history shards ({ltp_history_mode}, {latest_status}).")
             build_shards(
                 source_path=os.path.join(data_dir, 'nepse_data.json'),
-                output_dir=os.path.join(data_dir, 'ltp')
+                output_dir=os.path.join(data_dir, 'ltp'),
+                latest_status=latest_status
             )
         else:
             now_npt = datetime.now(NPT).isoformat(timespec='minutes')
@@ -735,6 +805,7 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
         if include_brokers:
             print("Fetching broker list...")
             brokers = scraper.get_brokers()
+            brokers = compact_broker_records(brokers)
             brokers_path = os.path.join(other_dir, 'brokers.json')
             if isinstance(brokers, list) and brokers:
                 if write_json_if_changed(brokers_path, brokers):
@@ -769,9 +840,9 @@ if __name__ == "__main__":
     parser.add_argument('--brokers', action='store_true', help='Force update broker list')
     parser.add_argument(
         '--ltp-history',
-        choices=('close-only', 'always', 'skip'),
-        default='close-only',
-        help='Control monthly LTP history shard updates. Defaults to close-only.'
+        choices=('live-close', 'close-only', 'always', 'skip'),
+        default='live-close',
+        help='Control monthly LTP history shard updates. Defaults to live-close.'
     )
     args = parser.parse_args()
     

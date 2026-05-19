@@ -5,11 +5,14 @@ on:
     branches:
       - main
   schedule:
-    # Run every 30 minutes from 10:00 AM to 4:00 PM NPT (UTC+5:45)
-    # 10:00 AM NPT is 04:15 UTC
-    # 04:00 PM NPT is 10:15 UTC
+    # Run every 30 minutes from 9:45 AM to 4:15 PM NPT (UTC+5:45).
+    # LTP history refreshes intraday while the market is open, then finalizes after close.
     - cron: '*/30 4-10 * * 1-5'
   workflow_dispatch: # Allow manual trigger
+
+concurrency:
+  group: yonepse-data-scrapers
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -31,7 +34,7 @@ jobs:
     - name: Run Market Scraper
       run: |
         mkdir -p data
-        python scripts/nepse-scraper/official_scraper.py
+        python scripts/nepse-scraper/official_scraper.py --ltp-history live-close
     
     - name: Commit and push changes
       run: |

@@ -2,6 +2,9 @@
 
 ![YONEPSE Favicon](favicon.png)
 
+> [!IMPORTANT]
+> **Endpoint paths are changing.** New folder-based JSON endpoints are canonical now. Please update integrations before **November 18, 2026**; legacy paths remain available only during this transition window. See the [Migration Guide](migration.html) for mappings and examples.
+
 ![YONEPSE](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
@@ -193,7 +196,7 @@ python proposed_dividend_scraper.py --mode latest
 python proposed_dividend_scraper.py --mode backfill
 
 # Rebuild LTP monthly history shards from the current market data
-python ltp_history/build_ltp_shards.py
+python ltp_history/build_ltp_shards.py --latest-status final
 ```
 
 ---
@@ -202,11 +205,11 @@ python ltp_history/build_ltp_shards.py
 
 ### Market Data Scraper ([`.github/workflows/scrape.yml`](.github/workflows/scrape.yml))
 - **Schedule**: Every 30 minutes
-- **Time**: 10:00 AM - 4:00 PM NPT (Sunday - Friday)
+- **Time**: 9:45 AM - 4:15 PM NPT (Monday - Friday)
 - **Data**: Stock prices, indices, market summary, top stocks, notices, disclosures, exchange messages, supply/demand, and open-ended mutual fund NAVs
 - **Files**: Updates market JSON files in `data/` and LTP history shards in `data/ltp/`
 - **OMF Integration**: Refreshes `data/OMF.json` and merges open-ended mutual funds into `data/nepse_data.json` in the same run
-- **LTP History**: Updates monthly shards after the close-time scan so daily history changes once per market day
+- **LTP History**: Refreshes today's monthly shard row while the market is open, then marks the row final after the close-time scan
 
 ### IPO Scraper ([`.github/workflows/scrape_ipo.yml`](.github/workflows/scrape_ipo.yml))
 - **Schedule**: Daily at 4:00 AM UTC (9:45 AM NPT)
@@ -232,7 +235,7 @@ Migration notice: use the new endpoints listed below for all new integrations. L
 | `/data/market/summary.json` | Object | Current day market summary |
 | `/data/market/history.json` | Array | Historical market data |
 | `/data/market/live.json` | Array | Same current market rows as `/data/nepse_data.json` |
-| `/data/ltp/manifest.json` | Object | Daily LTP history manifest with available months |
+| `/data/ltp/manifest.json` | Object | Daily LTP history manifest with available months and latest row status (`provisional` intraday, `final` after close) |
 | `/data/ltp/monthly/YYYY-MM.json` | Object | Monthly sparse daily LTP, volume, turnover, and trades history |
 | `/data/market/status.json` | Object | Market open/closed status |
 | `/data/notify/disclosures.json` | Array | Company disclosures |
