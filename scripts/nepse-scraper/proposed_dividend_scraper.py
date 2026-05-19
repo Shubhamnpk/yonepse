@@ -79,31 +79,42 @@ def clean_html_anchor(value: str) -> Tuple[str, str]:
     return soup.get_text(strip=True), ""
 
 
+def clean_bookclose_date(value) -> str:
+    return str(value or "").replace("[Closed]", "").strip()
+
+
 def clean_record(record: Dict) -> Dict:
-    return {
+    cleaned = {
         key: value
         for key, value in record.items()
-        if key not in {"company_url", "status"} and value is not None
+        if key not in {"company_url", "company_name", "status", "ltp", "price_as_of"} and value is not None
+    }
+    if "bookclose_date" in cleaned:
+        cleaned["bookclose_date"] = clean_bookclose_date(cleaned["bookclose_date"])
+    return cleaned
+
+
+def clean_history_record(record: Dict) -> Dict:
+    return {
+        key: value
+        for key, value in clean_record(record).items()
+        if key != "scraped_at"
     }
 
 
 def normalize_record(row: Dict) -> Dict:
     symbol_text, _ = clean_html_anchor(row.get("symbol"))
-    company_text, _ = clean_html_anchor(row.get("companyname"))
     return clean_record({
         "id": row.get("id"),
         "symbol": symbol_text,
-        "company_name": company_text,
         "bonus_share": row.get("bonus_share"),
         "cash_dividend": row.get("cash_dividend"),
         "total_dividend": row.get("total_dividend"),
         "announcement_date": row.get("announcement_date"),
-        "bookclose_date": row.get("bookclose_date"),
+        "bookclose_date": clean_bookclose_date(row.get("bookclose_date")),
         "distribution_date": row.get("distribution_date"),
         "bonus_listing_date": row.get("bonus_listing_date"),
         "fiscal_year": row.get("year"),
-        "ltp": row.get("close"),
-        "price_as_of": row.get("published_date"),
         "scraped_at": datetime.now().isoformat(),
     })
 
@@ -232,14 +243,14 @@ def fetch_all_years(session: requests.Session) -> List[Dict]:
 def merge_into_history(out_dir: str, incoming: List[Dict], incremental: bool = True) -> int:
     history_path = os.path.join(out_dir, HISTORY_FILE)
     raw_history = load_json_list(history_path)
-    history = [clean_record(item) for item in raw_history]
+    history = [clean_history_record(item) for item in raw_history]
 
     # one-time migration from legacy file name
     legacy_backfill = os.path.join(out_dir, "all_years_backfill.json")
     if not history and os.path.exists(legacy_backfill):
-        history = [clean_record(item) for item in load_json_list(legacy_backfill)]
+        history = [clean_history_record(item) for item in load_json_list(legacy_backfill)]
 
-    incoming = [clean_record(item) for item in incoming]
+    incoming = [clean_history_record(item) for item in incoming]
     seen = {record_key(item) for item in history}
     to_add = [item for item in incoming if record_key(item) not in seen]
     if to_add:

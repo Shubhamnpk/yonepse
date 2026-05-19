@@ -7,8 +7,8 @@
     <title>YONEPSE | Developer API Docs</title>
     <meta name="description" content="Developer-friendly JSON endpoint docs for YONEPSE datasets.">
     <meta name="theme-color" content="#050505">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="alternate icon" href="favicon.png" type="image/png">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="../assets/img/favicon.png" type="image/png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <style>
         .docs-card {
@@ -417,11 +417,12 @@
         </section>
 
         <nav class="top-nav" aria-label="Primary">
-            <a class="nav-link" href="index.html">Market Dashboard</a>
+            <a class="nav-link" href="../index.html">Market Dashboard</a>
             <a class="nav-link" href="data.html">Brokers & Datasets</a>
             <a class="nav-link active" href="docs.html">JSON Docs</a>
             <a class="nav-link" href="migration.html">Migration Guide</a>
-            <a class="nav-link" href="openapi.yaml">OpenAPI Spec</a>
+            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="../api/openapi.yaml">OpenAPI Spec</a>
         </nav>
 
         <aside class="floating-doc-nav" aria-label="Documentation quick navigation">
@@ -462,7 +463,7 @@
                 </div>
                 <div class="status-item">
                     <i class="fa-solid fa-rotate"></i>
-                    <span>Updates: every 30 minutes (Sun-Thu, 11 AM - 3 PM)</span>
+                    <span>Updates: every 30 minutes (Mon-Fri, 11 AM - 3 PM NPT)</span>
                 </div>
                 <div class="status-item">
                     <i class="fa-solid fa-table-list"></i>
@@ -528,7 +529,7 @@
                                 <span class="text-white/80 text-sm font-medium">OpenAPI Spec</span>
                             </div>
                             <a class="text-indigo-200 text-xs font-mono underline underline-offset-4"
-                                href="openapi.yaml">/openapi.yaml</a>
+                                href="../api/openapi.yaml">/api/openapi.yaml</a>
                         </div>
                         <div class="bg-white/5 border border-white/10 rounded-lg p-4">
                             <div class="flex items-center gap-2 mb-2">
@@ -686,56 +687,56 @@ if __name__ == "__main__":
                                 <td><code>/data/nepse_data.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Live stock prices with OHLCV data (updated during market hours)</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~140KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/status.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Market open/closed status with last check timestamp</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>&lt;1KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/indices.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Major NEPSE indices (NEPSE, Sensitive, Float)</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~2KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/sector_indices.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Sector-wise index performance and metadata</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~5KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/top_stocks.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Top gainers, losers, turnover, and volume leaders</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~3KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/summary.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Key market metrics (turnover, trades, scrips)</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~1KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/history.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Historical daily market summary data</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~100KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/live.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Current market rows mirrored from nepse_data.json</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~140KB</td>
                             </tr>
                             <tr>
@@ -756,21 +757,21 @@ if __name__ == "__main__":
                                 <td><code>/data/notify/notices.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>General, company, and exchange notices</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~20KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/notify/disclosures.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Company disclosures and announcements</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~15KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/notify/exchange_messages.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Exchange announcements and circulars</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~8KB</td>
                             </tr>
                             <tr>
@@ -791,7 +792,7 @@ if __name__ == "__main__":
                                 <td><code>/data/market/supply_demand.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Supply and demand book for all securities</td>
-                                <td>Every 30 min (Sun-Fri, market hours)</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>~10KB</td>
                             </tr>
                             <tr>
@@ -856,7 +857,7 @@ if __name__ == "__main__":
                             <span class="badge">array&lt;stock&gt;</span>
                         </div>
                         <p class="endpoint-desc">Live market data with OHLCV, turnover, and real-time pricing. Updated
-                            every 30 minutes during market hours (11AM-3PM NST, Sun-Thu). Contains all active securities
+                            every 30 minutes during market hours (11 AM-3 PM NPT, Mon-Fri). Contains all active securities
                             with current trading information.</p>
                         <div class="endpoint-meta">
                             <div class="endpoint-meta-item">
@@ -1038,13 +1039,16 @@ if __name__ == "__main__":
                             <code class="endpoint-path">/data/ltp/manifest.json</code>
                             <span class="badge">object</span>
                         </div>
-                        <p class="endpoint-desc">Manifest for reusable daily LTP history shards.</p>
+                        <p class="endpoint-desc">Manifest for reusable daily LTP history shards. The latest row is
+                            provisional while the market is open and final after the close-time scraper run.</p>
                         <div class="code-wrap">
                             <div class="code-head"><span>shape</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
                             <pre><code>{
   "version": 1,
   "latestDate": "2026-05-18",
+  "latestStatus": "final",
+  "finalizedThrough": "2026-05-18",
   "availableMonths": ["2026-05"],
   "retention": "no-limit"
 }</code></pre>
@@ -1086,14 +1090,12 @@ if __name__ == "__main__":
                             <code class="endpoint-path">/data/notify/notices.json</code>
                             <span class="badge">object</span>
                         </div>
-                        <p class="endpoint-desc">Combined notices bundle with separate feeds.</p>
+                        <p class="endpoint-desc">General NEPSE notices bundle.</p>
                         <div class="code-wrap">
                             <div class="code-head"><span>shape</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
-                            <pre><code>{
-  "general": [{ "id": 1223, "noticeHeading": "..." }],
-  "company": [{ "id": 44893, "newsHeadline": "..." }],
-  "exchange": [{ "id": 208611, "messageTitle": "..." }],
+<pre><code>{
+  "general": [{ "id": 1223, "title": "..." }],
   "last_updated": "2026-02-27T11:04:56.015637"
 }</code></pre>
                         </div>
@@ -1109,13 +1111,19 @@ if __name__ == "__main__":
                         <div class="code-wrap">
                             <div class="code-head"><span>sample item</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
-                            <pre><code>{
+<pre><code>{
   "id": 44893,
-  "newsHeadline": "Appointment of CEO [SIFC]",
-  "newsBody": "&lt;p&gt;...&lt;/p&gt;",
-  "addedDate": "2026-02-27T13:09:10.243",
-  "applicationDocumentDetailsList": [
-    { "filePath": "...", "encryptedId": "..." }
+  "symbol": "SIFC",
+  "title": "Appointment of CEO",
+  "body": "Appointment of CEO",
+  "source": "Shree Investment Finance Co. Ltd.",
+  "publishedAt": "2026-02-27T13:09:10.243",
+  "documents": [
+    {
+      "id": 30000,
+      "submittedDate": "2026-02-27",
+      "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=..."
+    }
   ]
 }</code></pre>
                         </div>
@@ -1131,12 +1139,13 @@ if __name__ == "__main__":
                         <div class="code-wrap">
                             <div class="code-head"><span>sample item</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
-                            <pre><code>{
+<pre><code>{
   "id": 208611,
-  "messageTitle": "Listing 4.75% Bonus Shares...",
-  "messageBody": "&lt;p&gt;...&lt;/p&gt;",
-  "expiryDate": "2026-02-27",
-  "filePath": null
+  "symbol": "MSHL",
+  "title": "Listing 15% Bonus Shares of Mid Solu Hydropower Limited",
+  "body": "11,22,600 Units Bonus Shares of Mid Solu Hydropower Limited has been listed in NEPSE.",
+  "publishedAt": "2026-05-15T14:36:07.55",
+  "expiresAt": "2026-05-15"
 }</code></pre>
                         </div>
                     </article>
@@ -1147,19 +1156,22 @@ if __name__ == "__main__":
                             <code class="endpoint-path">/data/other/brokers.json</code>
                             <span class="badge">array&lt;broker&gt;</span>
                         </div>
-                        <p class="endpoint-desc">Broker directory with region lists, branch mappings, and TMS link
-                            mapping.</p>
+                        <p class="endpoint-desc">Compact broker directory with membership, regions, branch count, and
+                            TMS link.</p>
                         <div class="code-wrap">
                             <div class="code-head"><span>sample item</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
                             <pre><code>{
   "memberCode": 1,
   "memberName": "Kumari Securities Private Limited",
-  "membershipTypeMaster": { "membershipType": "Trading Cum Clearing Member" },
-  "provinceList": [{ "description": "Province 3" }],
-  "districtList": [{ "districtName": "Kathmandu" }],
-  "memberTMSLinkMapping": { "tmsLink": "tms01.nepsetms.com.np" },
-  "memberBranchMappings": []
+  "membershipType": "Trading Cum Clearing Member",
+  "phone": "4423689",
+  "provinces": ["Province 3", "Province 4"],
+  "districts": ["Kathmandu", "Baglung"],
+  "tmsLink": "tms01.nepsetms.com.np",
+  "branchCount": 2,
+  "activeStatus": "A",
+  "isDealer": "N"
 }</code></pre>
                         </div>
                     </article>
@@ -1539,25 +1551,12 @@ if __name__ == "__main__":
   "general": [
     {
       "id": "integer",
-      "noticeHeading": "string",
-      "noticeDetail": "string",
-      "publishedDate": "datetime"
-    }
-  ],
-  "company": [
-    {
-      "id": "integer",
-      "newsHeadline": "string",
-      "newsBody": "string",
-      "addedDate": "datetime"
-    }
-  ],
-  "exchange": [
-    {
-      "id": "integer",
-      "messageTitle": "string",
-      "messageBody": "string",
-      "expiryDate": "date"
+      "title": "string",
+      "body": "string",
+      "expiresAt": "date",
+      "type": "string",
+      "featured": "boolean",
+      "filePath": "string"
     }
   ],
   "last_updated": "datetime"
@@ -1568,8 +1567,6 @@ if __name__ == "__main__":
                             <h4 style="color: #e7eaff; margin-bottom: 0.5rem;">Notice Categories</h4>
                             <ul style="color: #94a3b8; font-size: 0.9rem; margin: 0;">
                                 <li><strong>general</strong> - NEPSE general announcements</li>
-                                <li><strong>company</strong> - Company-specific disclosures</li>
-                                <li><strong>exchange</strong> - Exchange circulars and messages</li>
                             </ul>
                         </div>
                     </div>
@@ -1680,7 +1677,7 @@ class MarketDataCache {
                     </div>
                     <div class="status-indicator">
                         <i class="fa-solid fa-clock"></i>
-                        <span><strong>Timing:</strong> Market hours: 11:00 AM - 3:00 PM NST (Sun-Thu)</span>
+                        <span><strong>Timing:</strong> Market hours: 11:00 AM - 3:00 PM NPT (Mon-Fri)</span>
                     </div>
                 </div>
             </section>
@@ -2254,7 +2251,7 @@ if __name__ == "__main__":
             if (!track) return;
 
             try {
-                const res = await fetch('data/market/indices.json', { cache: 'no-store' });
+                const res = await fetch('../data/market/indices.json', { cache: 'no-store' });
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const indices = await res.json();
 
@@ -2339,7 +2336,7 @@ if __name__ == "__main__":
                 base_url: 'https://shubhamnpk.github.io/yonepse',
                 data_base_url: 'https://shubhamnpk.github.io/yonepse/data',
                 timezone: 'Asia/Kathmandu',
-                update_schedule: 'Every 30 minutes during market hours (Sun-Thu, 11:00-15:00 NPT)',
+                update_schedule: 'Every 30 minutes during market hours (Mon-Fri, 11:00-15:00 NPT); workflow also runs until 16:15 NPT for post-close finalization',
                 auth: 'none'
             },
             usage_instructions: {
@@ -2384,15 +2381,15 @@ if __name__ == "__main__":
             key_fields: {
                 nepse_data: ['symbol', 'name', 'ltp', 'previous_close', 'change', 'percent_change', 'high', 'low', 'volume', 'turnover', 'trades', 'last_updated', 'market_cap'],
                 ltp_history_month: ['version', 'market', 'currency', 'month', 'updatedAt', 'dates[]', 'columns[]', 'series.{SYMBOL}[]'],
-                notices: ['general[]', 'company[]', 'exchange[]', 'last_updated'],
-                disclosures: ['id', 'newsHeadline', 'newsBody', 'addedDate', 'modifiedDate', 'applicationDocumentDetailsList[]'],
-                exchange_messages: ['id', 'messageTitle', 'messageBody', 'expiryDate', 'addedDate', 'modifiedDate'],
+                notices: ['general[]', 'last_updated'],
+                disclosures: ['id', 'symbol', 'title', 'body', 'source', 'publishedAt', 'documents[]'],
+                exchange_messages: ['id', 'symbol', 'title', 'body', 'publishedAt', 'expiresAt', 'fileUrl'],
                 broker: ['id/memberId', 'memberCode', 'memberName', 'districtList[]', 'brokerBranchDtoList[]']
             },
             examples: {
                 fetch_js: "const data = await fetch('https://shubhamnpk.github.io/yonepse/data/nepse_data.json').then(r => r.json());",
                 fetch_python: "import requests; data = requests.get('https://shubhamnpk.github.io/yonepse/data/nepse_data.json', timeout=20).json()",
-                notice_filter_js: "const onlyExchange = notices.exchange || []; const active = onlyExchange.filter(x => (x.expiryDate || '') >= new Date().toISOString().slice(0,10));"
+                notice_filter_js: "const messages = await fetch('/data/notify/exchange_messages.json').then(r => r.json()); const active = messages.filter(x => (x.expiresAt || '') >= new Date().toISOString().slice(0,10));"
             }
         };
 
@@ -2565,7 +2562,7 @@ if __name__ == "__main__":
         // Auto-update market status indicator
         async function updateMarketStatus() {
             try {
-                let response = await fetch('data/market/status.json', { cache: 'no-store' });
+                let response = await fetch('../data/market/status.json', { cache: 'no-store' });
                 if (!response.ok) {
                     response = await fetch('https://shubhamnpk.github.io/yonepse/data/market/status.json');
                 }

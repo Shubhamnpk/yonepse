@@ -14,9 +14,10 @@
 
 - [ ] Dashboard checked locally
 - [ ] JSON files validated
-- [ ] `node --check script.js`
-- [ ] `node --check data.js`
+- [ ] `node --check assets/js/script.js`
+- [ ] `node --check assets/js/data.js`
 - [ ] `python -m compileall scripts`
+- [ ] `python scripts/validate_project.py`
 - [ ] Not applicable
 
 ## API/Data Notes
@@ -26,4 +27,3 @@ Describe any endpoint, field, schema, or generated data changes:
 ## Screenshots
 
 Add screenshots for UI changes when useful.
-

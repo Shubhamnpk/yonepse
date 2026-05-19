@@ -135,7 +135,61 @@ def refresh_omf_data(data_dir):
         print(f"OMF refresh failed, falling back to existing OMF.json: {exc}")
         return load_json_list(omf_path)
 
-def should_update_ltp_history(mode):
+def unique_text_values(values):
+    seen = set()
+    out = []
+    for value in values:
+        text = str(value or '').strip()
+        if not text or text in seen:
+            continue
+        seen.add(text)
+        out.append(text)
+    return out
+
+def compact_broker_record(broker):
+    """Keep only public broker-directory fields used by the site/API."""
+    if not isinstance(broker, dict):
+        return {}
+
+    membership = broker.get('membershipTypeMaster') or {}
+    tms_mapping = broker.get('memberTMSLinkMapping') or {}
+    branches = broker.get('memberBranchMappings')
+    provinces = unique_text_values(
+        (item or {}).get('description') or (item or {}).get('name')
+        for item in broker.get('provinceList') or []
+    )
+    districts = unique_text_values(
+        (item or {}).get('districtName')
+        for item in broker.get('districtList') or []
+    )
+
+    compact = {
+        "id": broker.get('id'),
+        "memberCode": broker.get('memberCode'),
+        "memberName": broker.get('memberName'),
+        "membershipType": membership.get('membershipType'),
+        "phone": broker.get('authorizedContactPersonNumber'),
+        "provinces": provinces,
+        "districts": districts,
+        "tmsLink": tms_mapping.get('tmsLink'),
+        "branchCount": len(branches) if isinstance(branches, list) else 0,
+        "activeStatus": broker.get('activeStatus'),
+        "isDealer": broker.get('isDealer'),
+    }
+    return {
+        key: value
+        for key, value in compact.items()
+        if value not in (None, "", [], {})
+    }
+
+def compact_broker_records(brokers):
+    if not isinstance(brokers, list):
+        return []
+    compact = [compact_broker_record(item) for item in brokers]
+    compact = [item for item in compact if item.get('memberCode') or item.get('memberName')]
+    return sorted(compact, key=lambda item: int(item.get('memberCode') or 0))
+
+def should_update_ltp_history(mode, market_is_open=False):
     """Decide when daily LTP history should be updated."""
     if mode == 'always':
         return True
@@ -149,7 +203,21 @@ def should_update_ltp_history(mode):
         second=0,
         microsecond=0
     )
-    return now_npt >= close_cutoff
+    after_close = now_npt >= close_cutoff
+    if mode == 'live-close':
+        return bool(market_is_open) or after_close
+    return after_close
+
+def ltp_history_latest_status():
+    """Mark intraday LTP history as provisional until the close-time run finalizes it."""
+    now_npt = datetime.now(NPT)
+    close_cutoff = now_npt.replace(
+        hour=LTP_HISTORY_CLOSE_HOUR,
+        minute=LTP_HISTORY_CLOSE_MINUTE,
+        second=0,
+        microsecond=0
+    )
+    return 'final' if now_npt >= close_cutoff else 'provisional'
 
 def write_json_if_changed(filepath, data):
     """Write JSON only if content differs or file does not exist."""
@@ -200,6 +268,11 @@ def _normalize_text(value):
     """Normalize text for safe duplicate comparisons."""
     return ' '.join(str(value or '').split()).strip().lower()
 
+def strip_html_text(value):
+    if not value:
+        return ""
+    return BeautifulSoup(str(value), "html.parser").get_text(" ", strip=True)
+
 def build_file_url(file_path):
     """Construct the full, valid download URL for a NEPSE attachment path."""
     if not file_path:
@@ -228,6 +301,118 @@ def add_file_urls_to_company_disclosures(records):
             if file_url:
                 doc['fileUrl'] = file_url
     return records
+
+def compact_company_disclosure_record(record):
+    """Return a compact public-facing company disclosure record."""
+    if not isinstance(record, dict):
+        return {}
+
+    raw_title = record.get('title') or record.get('newsHeadline') or ''
+    symbol = record.get('symbol') or extract_symbol_from_title(raw_title)
+    title = re.sub(r'\s*[\[\(][A-Za-z0-9]+[\]\)]\s*$', '', str(raw_title)).strip()
+    raw_documents = record.get('documents')
+    if not isinstance(raw_documents, list):
+        raw_documents = record.get('applicationDocumentDetailsList')
+
+    documents = []
+    if isinstance(raw_documents, list):
+        for doc in raw_documents:
+            if not isinstance(doc, dict):
+                continue
+            compact_doc = {
+                "id": doc.get('id'),
+                "submittedDate": doc.get('submittedDate'),
+                "fileUrl": doc.get('fileUrl') or build_file_url(doc.get('filePath')),
+            }
+            compact_doc = {
+                key: value
+                for key, value in compact_doc.items()
+                if value not in (None, "", [], {})
+            }
+            if compact_doc:
+                documents.append(compact_doc)
+
+    compact = {
+        "id": record.get('id'),
+        "symbol": symbol,
+        "title": title,
+        "body": record.get('body') or strip_html_text(record.get('newsBody')),
+        "source": record.get('source') or record.get('newsSource'),
+        "publishedAt": record.get('publishedAt') or record.get('addedDate'),
+        "documents": documents,
+    }
+    return {
+        key: value
+        for key, value in compact.items()
+        if value not in (None, "", [], {})
+    }
+
+def compact_company_disclosure_records(records):
+    if not isinstance(records, list):
+        return []
+    compact = [compact_company_disclosure_record(item) for item in records]
+    return [item for item in compact if item.get('id') is not None]
+
+def compact_exchange_message_record(record):
+    """Return a compact public-facing exchange message record."""
+    if not isinstance(record, dict):
+        return {}
+
+    raw_title = record.get('title') or record.get('messageTitle') or record.get('newsHeadline') or ''
+    symbol = record.get('symbol') or extract_symbol_from_title(raw_title)
+    title = re.sub(r'\s*[\[\(][A-Za-z0-9]+[\]\)]\s*$', '', str(raw_title)).strip()
+
+    compact = {
+        "id": record.get('id'),
+        "symbol": symbol,
+        "title": title,
+        "body": record.get('body') or strip_html_text(record.get('messageBody')),
+        "publishedAt": record.get('publishedAt') or record.get('addedDate'),
+        "expiresAt": record.get('expiresAt') or record.get('expiryDate'),
+        "fileUrl": record.get('fileUrl') or build_file_url(record.get('filePath')),
+    }
+    return {
+        key: value
+        for key, value in compact.items()
+        if value not in (None, "", [], {})
+    }
+
+def compact_exchange_message_records(records):
+    if not isinstance(records, list):
+        return []
+    compact = [compact_exchange_message_record(item) for item in records]
+    return [item for item in compact if item.get('id') is not None]
+
+def compact_notice_record(record):
+    """Return a compact public-facing general notice record."""
+    if not isinstance(record, dict):
+        return {}
+
+    notice_type = record.get('type')
+    raw_notice_type = record.get('noticeTypeId')
+    if not notice_type and isinstance(raw_notice_type, dict):
+        notice_type = raw_notice_type.get('noticeType')
+
+    compact = {
+        "id": record.get('id'),
+        "title": record.get('title') or record.get('noticeHeading'),
+        "body": record.get('body') or strip_html_text(record.get('noticeBody')),
+        "expiresAt": record.get('expiresAt') or record.get('noticeExpiryDate'),
+        "type": notice_type,
+        "featured": record.get('featured') if 'featured' in record else record.get('feature'),
+        "filePath": record.get('filePath') or record.get('noticeFilePath'),
+    }
+    return {
+        key: value
+        for key, value in compact.items()
+        if value not in (None, "", [], {})
+    }
+
+def compact_notice_records(records):
+    if not isinstance(records, list):
+        return []
+    compact = [compact_notice_record(item) for item in records]
+    return [item for item in compact if item.get('id') is not None]
 
 def add_file_urls_to_exchange_messages(records):
     """Attach fileUrl to each exchange message when filePath is present."""
@@ -272,7 +457,7 @@ def sort_notices_latest_first(records):
     def sort_key(item):
         if not isinstance(item, dict):
             return (datetime.min, 0)
-        for key in ('modifiedDate', 'noticeExpiryDate'):
+        for key in ('publishedAt', 'modifiedDate', 'expiresAt', 'noticeExpiryDate'):
             value = item.get(key)
             if value:
                 return (_parse_datetime(value), 0)
@@ -361,8 +546,8 @@ def filter_general_notices(general_notices, exchange_messages):
     }
     exchange_title_body = {
         (
-            _normalize_text(item.get('messageTitle')),
-            _normalize_text(item.get('messageBody'))
+            _normalize_text(item.get('title') or item.get('messageTitle')),
+            _normalize_text(item.get('body') or item.get('messageBody'))
         )
         for item in exchanges
         if isinstance(item, dict)
@@ -377,8 +562,8 @@ def filter_general_notices(general_notices, exchange_messages):
 
         notice_id = notice.get('id')
         notice_key = (
-            _normalize_text(notice.get('noticeHeading')),
-            _normalize_text(notice.get('noticeBody'))
+            _normalize_text(notice.get('title') or notice.get('noticeHeading')),
+            _normalize_text(notice.get('body') or notice.get('noticeBody'))
         )
 
         is_exchange_duplicate = (
@@ -456,7 +641,7 @@ def get_sector_wise_codes():
         print(f"Error fetching sector-wise codes: {e}")
         return None
 
-def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only'):
+def scrape_all_official_data(include_brokers=False, ltp_history_mode='live-close'):
     print(f"Starting Comprehensive Official NEPSE Scraper at {datetime.now().isoformat()}...")
     
     try:
@@ -565,11 +750,13 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
         write_json(os.path.join(data_dir, 'nepse_data.json'), mapped_prices)
         write_json(os.path.join(market_dir, 'live.json'), mapped_prices)
 
-        if should_update_ltp_history(ltp_history_mode):
-            print(f"Updating monthly LTP history shards ({ltp_history_mode}).")
+        if should_update_ltp_history(ltp_history_mode, market_is_open=is_open):
+            latest_status = ltp_history_latest_status()
+            print(f"Updating monthly LTP history shards ({ltp_history_mode}, {latest_status}).")
             build_shards(
                 source_path=os.path.join(data_dir, 'nepse_data.json'),
-                output_dir=os.path.join(data_dir, 'ltp')
+                output_dir=os.path.join(data_dir, 'ltp'),
+                latest_status=latest_status
             )
         else:
             now_npt = datetime.now(NPT).isoformat(timespec='minutes')
@@ -665,13 +852,16 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
             merged_company_disclosures = add_symbols_to_company_disclosures(merged_company_disclosures)
             merged_exchange_messages = add_symbols_to_exchange_messages(merged_exchange_messages)
 
+            merged_company_disclosures = compact_company_disclosure_records(merged_company_disclosures)
+            merged_exchange_messages = compact_exchange_message_records(merged_exchange_messages)
+
             merged_company_disclosures = sort_disclosures_latest_first(
                 merged_company_disclosures,
-                date_keys=('addedDate', 'modifiedDate', 'approvedDate')
+                date_keys=('publishedAt', 'addedDate', 'modifiedDate', 'approvedDate')
             )
             merged_exchange_messages = sort_disclosures_latest_first(
                 merged_exchange_messages,
-                date_keys=('addedDate', 'modifiedDate', 'approvedDate', 'expiryDate')
+                date_keys=('publishedAt', 'addedDate', 'modifiedDate', 'approvedDate', 'expiresAt', 'expiryDate')
             )
             
             write_json(disclosures_path, merged_company_disclosures)
@@ -686,9 +876,30 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
                 f"{len(new_exchange_messages)} exchange messages."
             )
         else:
-            merged_company_disclosures = existing_company_disclosures
-            merged_exchange_messages = existing_exchange_messages
-            print("No new disclosures found. Keeping existing disclosure files unchanged.")
+            merged_company_disclosures = compact_company_disclosure_records(existing_company_disclosures)
+            merged_company_disclosures = sort_disclosures_latest_first(
+                merged_company_disclosures,
+                date_keys=('publishedAt', 'addedDate', 'modifiedDate', 'approvedDate')
+            )
+            merged_exchange_messages = compact_exchange_message_records(existing_exchange_messages)
+            merged_exchange_messages = sort_disclosures_latest_first(
+                merged_exchange_messages,
+                date_keys=('publishedAt', 'addedDate', 'modifiedDate', 'approvedDate', 'expiresAt', 'expiryDate')
+            )
+            disclosures_changed = merged_company_disclosures != existing_company_disclosures
+            exchange_messages_changed = merged_exchange_messages != existing_exchange_messages
+            if disclosures_changed or exchange_messages_changed:
+                if disclosures_changed:
+                    write_json(disclosures_path, merged_company_disclosures)
+                    if write_legacy:
+                        write_json(os.path.join(data_dir, 'disclosures.json'), merged_company_disclosures)
+                if exchange_messages_changed:
+                    write_json(exchange_messages_path, merged_exchange_messages)
+                    if write_legacy:
+                        write_json(os.path.join(data_dir, 'exchange_messages.json'), merged_exchange_messages)
+                print("No new disclosures found. Compacted existing disclosure files.")
+            else:
+                print("No new disclosures found. Keeping existing disclosure files unchanged.")
 
         print("Fetching notices...")
         general_notices = scraper.get_notices()
@@ -717,6 +928,7 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
                 existing_general_notices if isinstance(existing_general_notices, list) else [],
                 incoming_general_notices
             )
+            merged_general_notices = compact_notice_records(merged_general_notices)
             merged_general_notices = sort_notices_latest_first(merged_general_notices)
 
             notices_payload = {
@@ -729,12 +941,27 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='close-only
                 write_json(os.path.join(data_dir, 'notices.json'), notices_payload)
             print(f"New notices found: {len(new_general_notices)}.")
         else:
-            print("No new notices found. Keeping existing notices file unchanged.")
+            merged_general_notices = compact_notice_records(
+                existing_general_notices if isinstance(existing_general_notices, list) else []
+            )
+            merged_general_notices = sort_notices_latest_first(merged_general_notices)
+            notices_payload = {
+                "general": merged_general_notices,
+                "last_updated": existing_notices.get('last_updated') or datetime.now().isoformat()
+            }
+            if notices_payload != existing_notices:
+                write_json(notices_path, notices_payload)
+                if write_legacy:
+                    write_json(os.path.join(data_dir, 'notices.json'), notices_payload)
+                print("No new notices found. Compacted existing notices file.")
+            else:
+                print("No new notices found. Keeping existing notices file unchanged.")
 
         # 8. Brokers
         if include_brokers:
             print("Fetching broker list...")
             brokers = scraper.get_brokers()
+            brokers = compact_broker_records(brokers)
             brokers_path = os.path.join(other_dir, 'brokers.json')
             if isinstance(brokers, list) and brokers:
                 if write_json_if_changed(brokers_path, brokers):
@@ -769,9 +996,9 @@ if __name__ == "__main__":
     parser.add_argument('--brokers', action='store_true', help='Force update broker list')
     parser.add_argument(
         '--ltp-history',
-        choices=('close-only', 'always', 'skip'),
-        default='close-only',
-        help='Control monthly LTP history shard updates. Defaults to close-only.'
+        choices=('live-close', 'close-only', 'always', 'skip'),
+        default='live-close',
+        help='Control monthly LTP history shard updates. Defaults to live-close.'
     )
     args = parser.parse_args()
     

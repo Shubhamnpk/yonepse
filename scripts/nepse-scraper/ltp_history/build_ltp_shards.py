@@ -100,7 +100,14 @@ def npt_now():
 
 def infer_snapshot_datetime(rows):
     parsed_dates = []
-    for row in rows:
+    official_rows = [
+        row
+        for row in rows
+        if isinstance(row, dict) and row.get("asset_type") != "open_ended_mutual_fund"
+    ]
+    source_rows = official_rows or rows
+
+    for row in source_rows:
         if not isinstance(row, dict):
             continue
         parsed = parse_datetime(row.get("last_updated"))
@@ -388,8 +395,9 @@ def upsert_month(month_data, date, snapshot_series, updated_at):
     return month_data
 
 
-def build_manifest(output_dir, latest_date):
+def build_manifest(output_dir, latest_date, latest_status=None):
     monthly_dir = os.path.join(output_dir, "monthly")
+    existing_manifest = load_json(os.path.join(output_dir, "manifest.json"), {})
     months = []
     if os.path.isdir(monthly_dir):
         months = [
@@ -398,12 +406,19 @@ def build_manifest(output_dir, latest_date):
             if name.endswith(".json")
         ]
 
-    return {
+    manifest = {
         "version": VERSION,
         "latestDate": latest_date,
         "availableMonths": sorted(set(months)),
         "retention": "no-limit",
     }
+    if latest_status:
+        manifest["latestStatus"] = latest_status
+        if latest_status == "final":
+            manifest["finalizedThrough"] = latest_date
+        elif isinstance(existing_manifest, dict) and existing_manifest.get("finalizedThrough"):
+            manifest["finalizedThrough"] = existing_manifest["finalizedThrough"]
+    return manifest
 
 
 def build_shards(
@@ -414,6 +429,7 @@ def build_shards(
     dry_run=False,
     min_symbols=DEFAULT_MIN_SYMBOLS,
     allow_future=False,
+    latest_status=None,
 ):
     rows = load_json(source_path, [])
     if not isinstance(rows, list):
@@ -442,7 +458,7 @@ def build_shards(
 
     if not dry_run:
         write_json(month_path, month_data, compact=compact)
-        manifest_data = build_manifest(output_dir, snapshot_date)
+        manifest_data = build_manifest(output_dir, snapshot_date, latest_status=latest_status)
         if month not in manifest_data["availableMonths"]:
             manifest_data["availableMonths"].append(month)
             manifest_data["availableMonths"].sort()
@@ -499,6 +515,11 @@ def main():
         action="store_true",
         help="Allow future snapshot dates. Intended only for fake/demo data.",
     )
+    parser.add_argument(
+        "--latest-status",
+        choices=("provisional", "final"),
+        help="Mark the latest manifest date as provisional intraday data or final after-close data.",
+    )
     args = parser.parse_args()
 
     if args.date:
@@ -515,6 +536,7 @@ def main():
         dry_run=args.dry_run,
         min_symbols=args.min_symbols,
         allow_future=args.allow_future,
+        latest_status=args.latest_status,
     )
 
     print(

@@ -44,9 +44,10 @@ Before opening a PR, please check:
 
 - The dashboard still loads locally.
 - Changed JSON files are valid JSON.
-- JavaScript syntax checks pass with `node --check script.js` and `node --check data.js`.
+- JavaScript syntax checks pass with `node --check assets/js/script.js` and `node --check assets/js/data.js`.
 - Python files compile with `python -m compileall scripts`.
-- API shape changes are reflected in `docs.html`, `openapi.yaml`, and `README.md`.
+- Project guardrails pass with `python scripts/validate_project.py`.
+- API shape changes are reflected in `pages/docs.html`, `api/openapi.yaml`, and `README.md`.
 - Generated data changes are intentional and described in the PR.
 
 ## Public API Compatibility
@@ -60,4 +61,3 @@ Use short, clear commit messages, for example:
 - `Fix broker filter reset`
 - `Add LTP history docs`
 - `Update proposed dividend parser`
-

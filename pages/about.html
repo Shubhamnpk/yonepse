@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YONEPSE | About</title>
+    <meta name="description" content="About YONEPSE, its data philosophy, version, automation, and public JSON API.">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="../assets/img/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .about-shell {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .about-hero {
+            padding: 3.5rem 0 2rem;
+        }
+
+        .about-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.84rem;
+            letter-spacing: 0;
+        }
+
+        .about-title {
+            max-width: 900px;
+            margin: 0 auto;
+            font-family: "Outfit", Inter, sans-serif;
+            font-size: clamp(2.65rem, 7vw, 5.8rem);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: 0;
+            background: linear-gradient(135deg, #fff 0%, #c7d2fe 42%, #f0abfc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .about-lead {
+            max-width: 740px;
+            margin: 1.25rem auto 0;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+            gap: 1rem;
+        }
+
+        .about-card,
+        .version-panel {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.25rem;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .about-card h2,
+        .about-card h3,
+        .version-panel h2 {
+            margin-bottom: 0.75rem;
+            font-family: "Outfit", Inter, sans-serif;
+        }
+
+        .about-card p,
+        .about-card li,
+        .version-panel p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .about-card ul {
+            display: grid;
+            gap: 0.65rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .about-card li {
+            display: flex;
+            gap: 0.65rem;
+            align-items: flex-start;
+        }
+
+        .about-card li i {
+            color: var(--accent-primary);
+            margin-top: 0.25rem;
+        }
+
+        .version-panel {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .version-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 0.8rem;
+        }
+
+        .version-item {
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+
+        .version-label {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .version-value {
+            display: block;
+            color: var(--text-primary);
+            font-family: "JetBrains Mono", Consolas, monospace;
+            font-size: 0.92rem;
+        }
+
+        .about-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .about-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(99, 102, 241, 0.55);
+            background: rgba(99, 102, 241, 0.14);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 0.75rem 1rem;
+        }
+
+        .about-action.secondary {
+            border-color: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+        }
+
+        .about-action:hover,
+        .about-action:focus-visible {
+            color: #fff;
+            border-color: rgba(129, 140, 248, 0.95);
+            background: rgba(99, 102, 241, 0.24);
+        }
+
+        .source-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+        }
+
+        .source-pill {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 999px;
+            color: var(--text-secondary);
+            padding: 0.5rem 0.75rem;
+            font-size: 0.88rem;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .resource-link {
+            display: grid;
+            gap: 0.35rem;
+            min-height: 116px;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.04);
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .resource-link:hover,
+        .resource-link:focus-visible {
+            border-color: rgba(129, 140, 248, 0.82);
+            background: rgba(99, 102, 241, 0.14);
+        }
+
+        .resource-link strong {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            font-family: "Outfit", Inter, sans-serif;
+            font-size: 1rem;
+        }
+
+        .resource-link span {
+            color: var(--text-secondary);
+            line-height: 1.55;
+            font-size: 0.92rem;
+        }
+
+        .notice-panel {
+            display: grid;
+            gap: 0.85rem;
+            border-color: rgba(245, 158, 11, 0.32);
+            background: rgba(245, 158, 11, 0.09);
+        }
+
+        .notice-panel h2 {
+            color: #fffbeb;
+        }
+
+        .notice-panel .notice-link {
+            width: fit-content;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(245, 158, 11, 0.45);
+            background: rgba(245, 158, 11, 0.14);
+            color: #fffbeb;
+            text-decoration: none;
+            border-radius: 999px;
+            padding: 0.65rem 0.9rem;
+        }
+
+        .notice-panel .notice-link:hover,
+        .notice-panel .notice-link:focus-visible {
+            border-color: rgba(251, 191, 36, 0.92);
+            background: rgba(245, 158, 11, 0.24);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="top-nav" aria-label="Primary">
+            <a class="nav-link" href="../index.html">Market Dashboard</a>
+            <a class="nav-link" href="data.html">Brokers & Datasets</a>
+            <a class="nav-link" href="docs.html">JSON Docs</a>
+            <a class="nav-link" href="migration.html">Migration Guide</a>
+            <a class="nav-link active" href="about.html">About</a>
+            <a class="nav-link" href="../api/openapi.yaml">OpenAPI Spec</a>
+        </nav>
+
+        <header class="about-hero">
+            <div class="about-eyebrow">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Public NEPSE data workspace</span>
+            </div>
+            <h1 class="about-title">YONEPSE keeps market data tidy, fast, and usable.</h1>
+            <p class="about-lead">
+                YONEPSE is a lightweight public dashboard and static JSON API for Nepal Stock Exchange data. It focuses
+                on clean files, predictable endpoint paths, compact schemas, and a frontend that makes the market easier
+                to scan without hiding the underlying data.
+            </p>
+            <div class="about-actions">
+                <a class="about-action" href="data.html"><i class="fa-solid fa-database"></i> Browse Data Hub</a>
+                <a class="about-action secondary" href="#resources"><i class="fa-solid fa-compass"></i> Learn More</a>
+            </div>
+        </header>
+
+        <main class="about-shell">
+            <section class="about-card notice-panel" aria-labelledby="endpoint-notice-heading">
+                <h2 id="endpoint-notice-heading"><i class="fa-solid fa-triangle-exclamation"></i> Endpoint Migration Notice</h2>
+                <p>
+                    YONEPSE v2 uses new folder-based JSON endpoints. Old flat endpoint paths remain available only
+                    during the migration window and are planned to expire after <strong>November 18, 2026</strong>.
+                </p>
+                <a class="notice-link" href="migration.html">
+                    <i class="fa-solid fa-right-left"></i>
+                    Check the migration guide
+                </a>
+            </section>
+
+            <section class="version-panel" aria-labelledby="version-heading">
+                <h2 id="version-heading"><i class="fa-solid fa-code-branch"></i> Version & System Status</h2>
+                <div class="version-list">
+                    <div class="version-item">
+                        <span class="version-label">App version</span>
+                        <span class="version-value">YONEPSE v2</span>
+                    </div>
+                    <div class="version-item">
+                        <span class="version-label">API contract</span>
+                        <span class="version-value">v2 folder endpoints</span>
+                    </div>
+                    <div class="version-item">
+                        <span class="version-label">Market schedule</span>
+                        <span class="version-value">Mon-Fri, 11:00-15:00 NPT</span>
+                    </div>
+                    <div class="version-item">
+                        <span class="version-label">Legacy endpoint support</span>
+                        <span class="version-value">until 2026-11-18</span>
+                    </div>
+                </div>
+                <p>
+                    YONEPSE v2 is the current version of the whole app. It reflects the 2026 endpoint migration,
+                    compact notification feeds, compact broker records, daily LTP history shards, organized pages/assets,
+                    and a guardrail workflow for data integrity.
+                </p>
+            </section>
+
+            <section class="about-grid">
+                <article class="about-card">
+                    <h2><i class="fa-solid fa-bullseye"></i> What YONEPSE Is For</h2>
+                    <p>
+                        The project gives developers and market watchers a simple way to inspect NEPSE data without
+                        needing a backend, token flow, or database. Static JSON files are published directly with the
+                        dashboard.
+                    </p>
+                </article>
+
+                <article class="about-card">
+                    <h2><i class="fa-solid fa-layer-group"></i> Data Principles</h2>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i><span>Keep canonical files grouped by domain.</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Prefer compact public fields over raw upstream payloads.</span></li>
+                        <li><i class="fa-solid fa-check"></i><span>Preserve enough legacy compatibility for migrations.</span></li>
+                    </ul>
+                </article>
+
+                <article class="about-card">
+                    <h2><i class="fa-solid fa-clock"></i> Automation</h2>
+                    <p>
+                        Market data refreshes through scheduled GitHub Actions during trading hours, while IPO,
+                        proposed dividend, sector, broker, and reference data are maintained by scraper workflows.
+                    </p>
+                </article>
+
+                <article class="about-card">
+                    <h2><i class="fa-solid fa-shield-halved"></i> Guardrails</h2>
+                    <p>
+                        The repository checks JSON validity, OpenAPI YAML, compact data shapes, organized page paths,
+                        JavaScript syntax, and Python compilation before automated data updates are committed.
+                    </p>
+                </article>
+            </section>
+
+            <section class="about-card" id="resources">
+                <h2><i class="fa-solid fa-handshake-angle"></i> Use, Learn, Contribute</h2>
+                <p>
+                    You can use the published data freely for dashboards, experiments, research, internal tools, or
+                    learning projects. If you build something useful, improve the scraper, or find a data issue,
+                    contributions are welcome.
+                </p>
+                <div class="resource-grid">
+                    <a class="resource-link" href="docs.html">
+                        <strong><i class="fa-solid fa-book-open"></i> JSON Docs</strong>
+                        <span>Learn every public data endpoint and see sample response shapes.</span>
+                    </a>
+                    <a class="resource-link" href="../api/openapi.yaml">
+                        <strong><i class="fa-solid fa-code"></i> OpenAPI Spec</strong>
+                        <span>Use the machine-readable API schema for clients, tools, and automation.</span>
+                    </a>
+                    <a class="resource-link" href="migration.html">
+                        <strong><i class="fa-solid fa-right-left"></i> Migration Guide</strong>
+                        <span>Understand old-to-new endpoint mappings before legacy paths expire.</span>
+                    </a>
+                    <a class="resource-link" href="https://github.com/Shubhamnpk/yonepse" target="_blank"
+                        rel="noopener noreferrer">
+                        <strong><i class="fa-brands fa-github"></i> Contribute</strong>
+                        <span>Report issues, suggest improvements, or help keep the public data layer healthy.</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="about-card">
+                <h2><i class="fa-solid fa-satellite-dish"></i> Data Sources</h2>
+                <p>
+                    YONEPSE organizes public market and announcement data into stable files. Source attribution remains
+                    visible because the project is a data presentation and packaging layer, not an official exchange.
+                </p>
+                <div class="source-row" aria-label="Data sources">
+                    <span class="source-pill">NEPSE</span>
+                    <span class="source-pill">Merolagani</span>
+                    <span class="source-pill">ShareSansar</span>
+                    <span class="source-pill">GitHub Pages static API</span>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

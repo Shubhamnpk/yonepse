@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let brokers = [];
     let marketSummaryHistory = [];
     let historyChart = null;
+    const DATA_ROOT = window.location.pathname.includes('/pages/') ? '../data/' : 'data/';
 
     function formatIndexChange(changeValue, perChange) {
         const safeChange = Number(changeValue);
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!indicesMarqueeTrack) return;
 
         try {
-            const res = await fetch('data/market/indices.json', { cache: 'no-store' });
+            const res = await fetch(`${DATA_ROOT}market/indices.json`, { cache: 'no-store' });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const indices = await res.json();
 
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function fetchJson(fileName) {
-        const candidates = [`data/${fileName}`, fileName];
+        const candidates = [`${DATA_ROOT}${fileName}`, `data/${fileName}`, fileName];
         const errors = [];
 
         for (const url of candidates) {
@@ -142,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getMembership(broker) {
-        return broker.membershipTypeMaster?.membershipType || 'N/A';
+        return broker.membershipType || broker.membershipTypeMaster?.membershipType || 'N/A';
     }
 
     function getMembershipDisplayLabel(membership) {
@@ -153,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getDistrictNames(broker) {
+        if (Array.isArray(broker.districts)) return broker.districts.filter(Boolean);
         if (!Array.isArray(broker.districtList) || broker.districtList.length === 0) return [];
         return broker.districtList.map((item) => item.districtName).filter(Boolean);
     }
@@ -163,8 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getProvinceNames(broker) {
-        if (!Array.isArray(broker.provinceList) || broker.provinceList.length === 0) return [];
-        const normalized = broker.provinceList
+        const source = Array.isArray(broker.provinces) ? broker.provinces : broker.provinceList;
+        if (!Array.isArray(source) || source.length === 0) return [];
+        if (Array.isArray(broker.provinces)) {
+            return Array.from(new Set(source.map((value) => String(value || '').trim()).filter(Boolean)));
+        }
+        const normalized = source
             .map((item) => item.description || item.name)
             .filter(Boolean)
             .map((value) => {
@@ -181,11 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getBranchCount(broker) {
+        if (Number.isFinite(Number(broker.branchCount))) return Number(broker.branchCount);
         return Array.isArray(broker.memberBranchMappings) ? broker.memberBranchMappings.length : 0;
     }
 
     function getTmsLink(broker) {
-        return broker.memberTMSLinkMapping?.tmsLink || '';
+        return broker.tmsLink || broker.memberTMSLinkMapping?.tmsLink || '';
     }
 
     function buildBrokerCountReason(rows) {
@@ -278,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .sort((a, b) => Number(a.memberCode || 0) - Number(b.memberCode || 0))
             .map((broker) => {
                 const tms = getTmsLink(broker);
-                const phone = broker.authorizedContactPersonNumber || '-';
+                const phone = broker.phone || broker.authorizedContactPersonNumber || '-';
                 const membership = getMembership(broker);
                 const membershipLabel = getMembershipDisplayLabel(membership);
                 const branches = getBranchCount(broker);
@@ -549,9 +556,9 @@ document.addEventListener('DOMContentLoaded', () => {
             exchangeMessages.forEach((item) => {
                 rows.push({
                     type: 'Exchange Message',
-                    title: item.messageTitle || 'Untitled exchange message',
-                    body: item.messageBody || '',
-                    date: item.modifiedDate || item.approvedDate || item.addedDate || ''
+                    title: item.title || item.messageTitle || 'Untitled exchange message',
+                    body: item.body || item.messageBody || '',
+                    date: item.publishedAt || item.modifiedDate || item.approvedDate || item.addedDate || item.expiresAt || item.expiryDate || ''
                 });
             });
         }
@@ -560,9 +567,9 @@ document.addEventListener('DOMContentLoaded', () => {
             disclosures.forEach((item) => {
                 rows.push({
                     type: 'Disclosure',
-                    title: item.newsHeadline || 'Untitled disclosure',
-                    body: item.newsBody || '',
-                    date: item.modifiedDate || item.approvedDate || item.addedDate || ''
+                    title: item.title || item.newsHeadline || 'Untitled disclosure',
+                    body: item.body || item.newsBody || '',
+                    date: item.publishedAt || item.modifiedDate || item.approvedDate || item.addedDate || ''
                 });
             });
         }
@@ -571,9 +578,9 @@ document.addEventListener('DOMContentLoaded', () => {
         generalNotices.forEach((item) => {
             rows.push({
                 type: 'Notice',
-                title: item.noticeHeading || 'Untitled notice',
-                body: item.noticeBody || '',
-                date: item.modifiedDate || item.noticeExpiryDate || ''
+                title: item.title || item.noticeHeading || 'Untitled notice',
+                body: item.body || item.noticeBody || '',
+                date: item.publishedAt || item.modifiedDate || item.expiresAt || item.noticeExpiryDate || ''
             });
         });
 

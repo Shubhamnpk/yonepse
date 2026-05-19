@@ -7510,18 +7510,18 @@
             "securityId": 8132
         },
         {
-            "symbol": "RBCLPO",
-            "shareTraded": 140,
-            "closingPrice": 11783.0,
-            "securityName": "Rastriya Beema Company Limited Promoter Share",
-            "securityId": 634
-        },
-        {
             "symbol": "CKHL",
             "shareTraded": 140,
             "closingPrice": 665.0,
             "securityName": "Chirkhwa Hydropower Limited ",
             "securityId": 9232
+        },
+        {
+            "symbol": "RBCLPO",
+            "shareTraded": 140,
+            "closingPrice": 11783.0,
+            "securityName": "Rastriya Beema Company Limited Promoter Share",
+            "securityId": 634
         },
         {
             "symbol": "HEIP",
@@ -7678,6 +7678,13 @@
             "securityId": 8044
         },
         {
+            "symbol": "ICFCD83",
+            "shareTraded": 25,
+            "closingPrice": 1082.0,
+            "securityName": "12% ICFC Finance Limited Debenture 2083",
+            "securityId": 2882
+        },
+        {
             "symbol": "NMBD87/88",
             "shareTraded": 25,
             "closingPrice": 1078.0,
@@ -7690,13 +7697,6 @@
             "closingPrice": 1038.2,
             "securityName": "NIFRA Uraj Rinpatra7%-2085/86",
             "securityId": 9141
-        },
-        {
-            "symbol": "ICFCD83",
-            "shareTraded": 25,
-            "closingPrice": 1082.0,
-            "securityName": "12% ICFC Finance Limited Debenture 2083",
-            "securityId": 2882
         },
         {
             "symbol": "BNL",
