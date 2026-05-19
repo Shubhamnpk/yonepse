@@ -7316,5 +7316,29 @@
         "modifiedDate": "2026-05-19T10:36:35.09",
         "approvedDate": null,
         "symbol": "NRIC"
+    },
+    {
+        "id": 45888,
+        "applicationDocumentDetailsList": [
+            {
+                "id": 31032,
+                "activeStatus": "A",
+                "modifiedBy": "nbl_user",
+                "modifiedDate": "2026-05-19T13:26:46.587",
+                "application": 45888,
+                "documentType": 54,
+                "submittedDate": "2026-05-19",
+                "filePath": "nbl_user/2026-05-19/Appointment and Sapath Grahan of Chairman_1779176485567.PDF",
+                "encryptedId": "2a9628f564198a71be772cb3c6c813f42b884948043d499eee9c8734dcd0c7b3cc95420986b0f30f1949e26ef004bfc2f59ec333a7a70672ec38c2454988bddb",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nbl_user/2026-05-19/Appointment%20and%20Sapath%20Grahan%20of%20Chairman_1779176485567.PDF"
+            }
+        ],
+        "newsHeadline": "Appointment and Sapath Grahan of Chairman [NBL] ",
+        "newsBody": "<p>Appointment and Sapath Grahan of Chairman.</p>",
+        "addedDate": "2026-05-19T13:26:46.58",
+        "newsSource": "Nepal Bank Limited",
+        "modifiedDate": "2026-05-19T14:02:35.39",
+        "approvedDate": null,
+        "symbol": "NBL"
     }
 ]
