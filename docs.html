@@ -1089,14 +1089,12 @@ if __name__ == "__main__":
                             <code class="endpoint-path">/data/notify/notices.json</code>
                             <span class="badge">object</span>
                         </div>
-                        <p class="endpoint-desc">Combined notices bundle with separate feeds.</p>
+                        <p class="endpoint-desc">General NEPSE notices bundle.</p>
                         <div class="code-wrap">
                             <div class="code-head"><span>shape</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
-                            <pre><code>{
-  "general": [{ "id": 1223, "noticeHeading": "..." }],
-  "company": [{ "id": 44893, "newsHeadline": "..." }],
-  "exchange": [{ "id": 208611, "messageTitle": "..." }],
+<pre><code>{
+  "general": [{ "id": 1223, "title": "..." }],
   "last_updated": "2026-02-27T11:04:56.015637"
 }</code></pre>
                         </div>
@@ -1112,13 +1110,19 @@ if __name__ == "__main__":
                         <div class="code-wrap">
                             <div class="code-head"><span>sample item</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
-                            <pre><code>{
+<pre><code>{
   "id": 44893,
-  "newsHeadline": "Appointment of CEO [SIFC]",
-  "newsBody": "&lt;p&gt;...&lt;/p&gt;",
-  "addedDate": "2026-02-27T13:09:10.243",
-  "applicationDocumentDetailsList": [
-    { "filePath": "...", "encryptedId": "..." }
+  "symbol": "SIFC",
+  "title": "Appointment of CEO",
+  "body": "Appointment of CEO",
+  "source": "Shree Investment Finance Co. Ltd.",
+  "publishedAt": "2026-02-27T13:09:10.243",
+  "documents": [
+    {
+      "id": 30000,
+      "submittedDate": "2026-02-27",
+      "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=..."
+    }
   ]
 }</code></pre>
                         </div>
@@ -1134,12 +1138,13 @@ if __name__ == "__main__":
                         <div class="code-wrap">
                             <div class="code-head"><span>sample item</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
-                            <pre><code>{
+<pre><code>{
   "id": 208611,
-  "messageTitle": "Listing 4.75% Bonus Shares...",
-  "messageBody": "&lt;p&gt;...&lt;/p&gt;",
-  "expiryDate": "2026-02-27",
-  "filePath": null
+  "symbol": "MSHL",
+  "title": "Listing 15% Bonus Shares of Mid Solu Hydropower Limited",
+  "body": "11,22,600 Units Bonus Shares of Mid Solu Hydropower Limited has been listed in NEPSE.",
+  "publishedAt": "2026-05-15T14:36:07.55",
+  "expiresAt": "2026-05-15"
 }</code></pre>
                         </div>
                     </article>
@@ -1545,25 +1550,12 @@ if __name__ == "__main__":
   "general": [
     {
       "id": "integer",
-      "noticeHeading": "string",
-      "noticeDetail": "string",
-      "publishedDate": "datetime"
-    }
-  ],
-  "company": [
-    {
-      "id": "integer",
-      "newsHeadline": "string",
-      "newsBody": "string",
-      "addedDate": "datetime"
-    }
-  ],
-  "exchange": [
-    {
-      "id": "integer",
-      "messageTitle": "string",
-      "messageBody": "string",
-      "expiryDate": "date"
+      "title": "string",
+      "body": "string",
+      "expiresAt": "date",
+      "type": "string",
+      "featured": "boolean",
+      "filePath": "string"
     }
   ],
   "last_updated": "datetime"
@@ -1574,8 +1566,6 @@ if __name__ == "__main__":
                             <h4 style="color: #e7eaff; margin-bottom: 0.5rem;">Notice Categories</h4>
                             <ul style="color: #94a3b8; font-size: 0.9rem; margin: 0;">
                                 <li><strong>general</strong> - NEPSE general announcements</li>
-                                <li><strong>company</strong> - Company-specific disclosures</li>
-                                <li><strong>exchange</strong> - Exchange circulars and messages</li>
                             </ul>
                         </div>
                     </div>
@@ -2390,15 +2380,15 @@ if __name__ == "__main__":
             key_fields: {
                 nepse_data: ['symbol', 'name', 'ltp', 'previous_close', 'change', 'percent_change', 'high', 'low', 'volume', 'turnover', 'trades', 'last_updated', 'market_cap'],
                 ltp_history_month: ['version', 'market', 'currency', 'month', 'updatedAt', 'dates[]', 'columns[]', 'series.{SYMBOL}[]'],
-                notices: ['general[]', 'company[]', 'exchange[]', 'last_updated'],
-                disclosures: ['id', 'newsHeadline', 'newsBody', 'addedDate', 'modifiedDate', 'applicationDocumentDetailsList[]'],
-                exchange_messages: ['id', 'messageTitle', 'messageBody', 'expiryDate', 'addedDate', 'modifiedDate'],
+                notices: ['general[]', 'last_updated'],
+                disclosures: ['id', 'symbol', 'title', 'body', 'source', 'publishedAt', 'documents[]'],
+                exchange_messages: ['id', 'symbol', 'title', 'body', 'publishedAt', 'expiresAt', 'fileUrl'],
                 broker: ['id/memberId', 'memberCode', 'memberName', 'districtList[]', 'brokerBranchDtoList[]']
             },
             examples: {
                 fetch_js: "const data = await fetch('https://shubhamnpk.github.io/yonepse/data/nepse_data.json').then(r => r.json());",
                 fetch_python: "import requests; data = requests.get('https://shubhamnpk.github.io/yonepse/data/nepse_data.json', timeout=20).json()",
-                notice_filter_js: "const onlyExchange = notices.exchange || []; const active = onlyExchange.filter(x => (x.expiryDate || '') >= new Date().toISOString().slice(0,10));"
+                notice_filter_js: "const messages = await fetch('/data/notify/exchange_messages.json').then(r => r.json()); const active = messages.filter(x => (x.expiresAt || '') >= new Date().toISOString().slice(0,10));"
             }
         };
 

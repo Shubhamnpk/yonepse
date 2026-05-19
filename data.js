@@ -555,9 +555,9 @@ document.addEventListener('DOMContentLoaded', () => {
             exchangeMessages.forEach((item) => {
                 rows.push({
                     type: 'Exchange Message',
-                    title: item.messageTitle || 'Untitled exchange message',
-                    body: item.messageBody || '',
-                    date: item.modifiedDate || item.approvedDate || item.addedDate || ''
+                    title: item.title || item.messageTitle || 'Untitled exchange message',
+                    body: item.body || item.messageBody || '',
+                    date: item.publishedAt || item.modifiedDate || item.approvedDate || item.addedDate || item.expiresAt || item.expiryDate || ''
                 });
             });
         }
@@ -566,9 +566,9 @@ document.addEventListener('DOMContentLoaded', () => {
             disclosures.forEach((item) => {
                 rows.push({
                     type: 'Disclosure',
-                    title: item.newsHeadline || 'Untitled disclosure',
-                    body: item.newsBody || '',
-                    date: item.modifiedDate || item.approvedDate || item.addedDate || ''
+                    title: item.title || item.newsHeadline || 'Untitled disclosure',
+                    body: item.body || item.newsBody || '',
+                    date: item.publishedAt || item.modifiedDate || item.approvedDate || item.addedDate || ''
                 });
             });
         }
@@ -577,9 +577,9 @@ document.addEventListener('DOMContentLoaded', () => {
         generalNotices.forEach((item) => {
             rows.push({
                 type: 'Notice',
-                title: item.noticeHeading || 'Untitled notice',
-                body: item.noticeBody || '',
-                date: item.modifiedDate || item.noticeExpiryDate || ''
+                title: item.title || item.noticeHeading || 'Untitled notice',
+                body: item.body || item.noticeBody || '',
+                date: item.publishedAt || item.modifiedDate || item.expiresAt || item.noticeExpiryDate || ''
             });
         });
 
