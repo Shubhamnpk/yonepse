@@ -30,6 +30,7 @@ For LTP history:
 
 ```bash
 python scripts/nepse-scraper/ltp_history/build_ltp_shards.py
+python scripts/nepse-scraper/ltp_history/build_ltp_intraday.py
 ```
 
 For market data:

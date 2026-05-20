@@ -53,7 +53,7 @@ A modern dashboard and static JSON API for tracking Nepal Stock Exchange (NEPSE)
 - **District/Province Filters**: Geographic broker search
 - **TMS Links**: Direct access to broker trading platforms
 - **Market History**: Historical market summary data
-- **LTP History**: Monthly price history shards for efficient portfolio range views
+- **LTP History**: Monthly daily-history shards plus day-level intraday LTP snapshots
 - **Open-Ended Mutual Funds**: Daily/weekly/monthly NAV snapshots in dedicated dataset
 
 ### JSON API
@@ -121,9 +121,10 @@ nepse-scraper/
 |   |   |-- status.json    # Market open/closed status
 |   |   |-- live.json      # Same rows as nepse_data.json
 |   |   |-- supply_demand.json    # Supply/demand data
-|   |-- ltp/                # Daily LTP history shards
+|   |-- ltp/                # LTP history shards
 |   |   |-- manifest.json         # Available months + latest date
 |   |   |-- monthly/              # Monthly sparse symbol history
+|   |   |-- daily/                # Daily intraday sparse symbol snapshots
 |   |-- notify/            # Notices, disclosures, and exchange messages
 |   |   |-- notices.json          # Exchange notices
 |   |   |-- disclosures.json      # Company disclosures
@@ -211,6 +212,9 @@ python proposed_dividend_scraper.py --mode backfill
 
 # Rebuild LTP monthly history shards from the current market data
 python ltp_history/build_ltp_shards.py --latest-status final
+
+# Add/update today's intraday LTP shard from the current market data
+python ltp_history/build_ltp_intraday.py
 ```
 
 ---
@@ -223,7 +227,7 @@ python ltp_history/build_ltp_shards.py --latest-status final
 - **Data**: Stock prices, indices, market summary, top stocks, notices, disclosures, exchange messages, supply/demand, and open-ended mutual fund NAVs
 - **Files**: Updates market JSON files in `data/` and LTP history shards in `data/ltp/`
 - **OMF Integration**: Refreshes `data/OMF.json` and merges open-ended mutual funds into `data/nepse_data.json` in the same run
-- **LTP History**: Refreshes today's monthly shard row while the market is open, then marks the row final after the close-time scan
+- **LTP History**: Appends intraday slots under `data/ltp/daily/` and refreshes today's monthly shard row while the market is open, then marks the row final after the close-time scan
 
 ### IPO Scraper ([`.github/workflows/scrape_ipo.yml`](.github/workflows/scrape_ipo.yml))
 - **Schedule**: Daily at 4:00 AM UTC (9:45 AM NPT)
@@ -249,8 +253,9 @@ Migration notice: use the new endpoints listed below for all new integrations. L
 | `/data/market/summary.json` | Object | Current day market summary |
 | `/data/market/history.json` | Array | Historical market data |
 | `/data/market/live.json` | Array | Same current market rows as `/data/nepse_data.json` |
-| `/data/ltp/manifest.json` | Object | Daily LTP history manifest with available months and latest row status (`provisional` intraday, `final` after close) |
+| `/data/ltp/manifest.json` | Object | LTP history manifest with available months, available intraday days, and latest row status (`provisional` intraday, `final` after close) |
 | `/data/ltp/monthly/YYYY-MM.json` | Object | Monthly sparse daily LTP, volume, turnover, and trades history |
+| `/data/ltp/daily/YYYY-MM-DD.json` | Object | Day-level intraday sparse LTP, volume, turnover, and trades snapshots |
 | `/data/market/status.json` | Object | Market open/closed status |
 | `/data/notify/disclosures.json` | Array | Company disclosures |
 | `/data/notify/exchange_messages.json` | Array | Exchange announcements |
@@ -294,6 +299,9 @@ curl -s https://shubhamnpk.github.io/yonepse/data/ltp/manifest.json
 
 # Monthly LTP history shard
 curl -s https://shubhamnpk.github.io/yonepse/data/ltp/monthly/2026-05.json
+
+# Daily intraday LTP shard
+curl -s https://shubhamnpk.github.io/yonepse/data/ltp/daily/2026-05-20.json
 ```
 
 OpenAPI spec:
@@ -338,6 +346,7 @@ OpenAPI spec:
 - [`upcoming_ipo_scraper.py`](scripts/nepse-scraper/upcoming_ipo_scraper.py) - IPO data from Merolagani
 - [`proposed_dividend_scraper.py`](scripts/nepse-scraper/proposed_dividend_scraper.py) - Proposed dividend data from ShareSansar
 - [`ltp_history/build_ltp_shards.py`](scripts/nepse-scraper/ltp_history/build_ltp_shards.py) - Builds sparse monthly LTP history shards
+- [`ltp_history/build_ltp_intraday.py`](scripts/nepse-scraper/ltp_history/build_ltp_intraday.py) - Builds sparse daily intraday LTP history shards
 - [`ltp_history/generate_ltp_shard_demo.py`](scripts/nepse-scraper/ltp_history/generate_ltp_shard_demo.py) - Generates demo LTP shard data for testing
 - [`official_api/`](scripts/nepse-scraper/official_api/) - NEPSE API Python client with WASM auth
 

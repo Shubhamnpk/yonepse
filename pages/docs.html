@@ -742,16 +742,23 @@ if __name__ == "__main__":
                             <tr>
                                 <td><code>/data/ltp/manifest.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
-                                <td>LTP history manifest with latest date and available months</td>
-                                <td>After close</td>
+                                <td>LTP history manifest with available months and intraday days</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>&lt;1KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/ltp/monthly/YYYY-MM.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Monthly per-symbol LTP, volume, turnover, and trades history</td>
-                                <td>After close</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
                                 <td>Varies by month</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/ltp/daily/YYYY-MM-DD.json</code></td>
+                                <td><span class="badge ok">GET</span></td>
+                                <td>Day-level intraday LTP, volume, turnover, and trades snapshots</td>
+                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Varies by day</td>
                             </tr>
                             <tr>
                                 <td><code>/data/notify/notices.json</code></td>
@@ -1039,8 +1046,9 @@ if __name__ == "__main__":
                             <code class="endpoint-path">/data/ltp/manifest.json</code>
                             <span class="badge">object</span>
                         </div>
-                        <p class="endpoint-desc">Manifest for reusable daily LTP history shards. The latest row is
-                            provisional while the market is open and final after the close-time scraper run.</p>
+                        <p class="endpoint-desc">Manifest for reusable LTP history shards. Monthly shards keep daily
+                            rows, while daily shards keep intraday snapshots. The latest monthly row is provisional
+                            while the market is open and final after the close-time scraper run.</p>
                         <div class="code-wrap">
                             <div class="code-head"><span>shape</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
@@ -1050,7 +1058,38 @@ if __name__ == "__main__":
   "latestStatus": "final",
   "finalizedThrough": "2026-05-18",
   "availableMonths": ["2026-05"],
+  "availableDays": ["2026-05-20"],
   "retention": "no-limit"
+}</code></pre>
+                        </div>
+                    </article>
+
+                    <article class="endpoint-card">
+                        <div class="endpoint-head">
+                            <span class="badge ok">GET</span>
+                            <code class="endpoint-path">/data/ltp/daily/YYYY-MM-DD.json</code>
+                            <span class="badge">object</span>
+                        </div>
+                        <p class="endpoint-desc">Daily intraday sparse rows for per-symbol LTP tracking. Each row
+                            follows <code>columns</code>; the first value is a time index into <code>times</code>.
+                            Repeated scraper runs for the same minute replace that slot.</p>
+                        <div class="code-wrap">
+                            <div class="code-head"><span>shape</span><button class="copy-btn"
+                                    onclick="copyCode(this)">Copy</button></div>
+                            <pre><code>{
+  "version": 1,
+  "market": "NEPSE",
+  "currency": "NPR",
+  "date": "2026-05-20",
+  "updatedAt": "2026-05-20T13:30:00+05:45",
+  "times": ["11:00", "11:30", "12:00"],
+  "columns": ["timeIndex", "ltp", "volume", "turnover", "trades"],
+  "series": {
+    "NABIL": [
+      [0, 526, 44305, 23313421.6, 463],
+      [1, 528, 51840, 27371520, 512]
+    ]
+  }
 }</code></pre>
                         </div>
                     </article>
@@ -2363,8 +2402,9 @@ if __name__ == "__main__":
                 { path: '/data/market/summary.json', method: 'GET', shape: 'array', purpose: 'Current market summary key/value metrics.' },
                 { path: '/data/market/history.json', method: 'GET', shape: 'array', purpose: 'Historical market summary rows by business date.' },
                 { path: '/data/market/live.json', method: 'GET', shape: 'array', purpose: 'Same current market rows as nepse_data.json.' },
-                { path: '/data/ltp/manifest.json', method: 'GET', shape: 'object', purpose: 'Manifest for available monthly daily LTP history shards.' },
+                { path: '/data/ltp/manifest.json', method: 'GET', shape: 'object', purpose: 'Manifest for available monthly daily LTP history shards and daily intraday shards.' },
                 { path: '/data/ltp/monthly/YYYY-MM.json', method: 'GET', shape: 'object', purpose: 'Monthly sparse per-symbol daily LTP, volume, turnover, and trades history.' },
+                { path: '/data/ltp/daily/YYYY-MM-DD.json', method: 'GET', shape: 'object', purpose: 'Daily sparse per-symbol intraday LTP, volume, turnover, and trades snapshots.' },
                 { path: '/data/notify/notices.json', method: 'GET', shape: 'object', purpose: 'Combined general, company, and exchange notices.' },
                 { path: '/data/notify/disclosures.json', method: 'GET', shape: 'array', purpose: 'Company disclosures and news.' },
                 { path: '/data/notify/exchange_messages.json', method: 'GET', shape: 'array', purpose: 'Exchange-level messages and circulars.' },
@@ -2381,6 +2421,7 @@ if __name__ == "__main__":
             key_fields: {
                 nepse_data: ['symbol', 'name', 'ltp', 'previous_close', 'change', 'percent_change', 'high', 'low', 'volume', 'turnover', 'trades', 'last_updated', 'market_cap'],
                 ltp_history_month: ['version', 'market', 'currency', 'month', 'updatedAt', 'dates[]', 'columns[]', 'series.{SYMBOL}[]'],
+                ltp_history_day: ['version', 'market', 'currency', 'date', 'updatedAt', 'times[]', 'columns[]', 'series.{SYMBOL}[]'],
                 notices: ['general[]', 'last_updated'],
                 disclosures: ['id', 'symbol', 'title', 'body', 'source', 'publishedAt', 'documents[]'],
                 exchange_messages: ['id', 'symbol', 'title', 'body', 'publishedAt', 'expiresAt', 'fileUrl'],

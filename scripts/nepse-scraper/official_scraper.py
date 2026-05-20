@@ -14,6 +14,7 @@ sys.path.append(os.path.dirname(__file__))
 
 from official_api import NepseScraper
 from open_ended_mutual_fund_scraper import scrape_and_save_open_ended_navs
+from ltp_history.build_ltp_intraday import build_intraday_shard
 from ltp_history.build_ltp_shards import build_shards
 
 NPT = timezone(timedelta(hours=5, minutes=45))
@@ -752,6 +753,12 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='live-close
 
         if should_update_ltp_history(ltp_history_mode, market_is_open=is_open):
             latest_status = ltp_history_latest_status()
+            print(f"Updating daily intraday LTP shard ({ltp_history_mode}, {latest_status}).")
+            build_intraday_shard(
+                source_path=os.path.join(data_dir, 'nepse_data.json'),
+                output_dir=os.path.join(data_dir, 'ltp')
+            )
+
             print(f"Updating monthly LTP history shards ({ltp_history_mode}, {latest_status}).")
             build_shards(
                 source_path=os.path.join(data_dir, 'nepse_data.json'),

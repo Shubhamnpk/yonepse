@@ -47,7 +47,7 @@ jobs:
 
     - name: Commit and push changes
       run: |
-        git config --global user.name "github-actions[bot]"
+        git config --global user.name "YONEPSE Ipo Bot"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git pull --rebase --autostash
         git add data/ipo/upcoming.json data/ipo/old.json data/upcoming_ipo.json data/oldipo.json data/proposed_dividend/latest_1y.json data/proposed_dividend/history_all_years.json data/proposed_dividend/meta.json data/nepse_sector_wise_codes.json

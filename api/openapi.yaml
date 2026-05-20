@@ -17,7 +17,8 @@ info:
     1. Fetch `/data/market/status.json` to understand market state.
     2. Fetch `/data/nepse_data.json` for the main ticker feed.
     3. Optionally fetch `/data/OMF.json` for full open-ended mutual fund NAV detail.
-    4. Fetch `/data/ltp/manifest.json` and monthly shards for daily LTP history.
+    4. Fetch `/data/ltp/manifest.json`, monthly shards for daily LTP history,
+       and daily shards for intraday LTP snapshots.
     5. Use `/data/proposed_dividend/latest_1y.json` and `/data/ipo/upcoming.json`
        for corporate action style datasets.
 
@@ -170,11 +171,11 @@ paths:
   /data/ltp/manifest.json:
     get:
       tags: [Market]
-      summary: Daily LTP history manifest
+      summary: LTP history manifest
       operationId: getLtpHistoryManifest
       responses:
         '200':
-          description: Available monthly LTP history shards
+          description: Available monthly and daily LTP history shards
           content:
             application/json:
               schema:
@@ -201,6 +202,28 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LtpHistoryMonth'
+
+  /data/ltp/daily/{date}.json:
+    get:
+      tags: [Market]
+      summary: Daily intraday LTP history shard
+      operationId: getDailyIntradayLtpHistory
+      parameters:
+        - name: date
+          in: path
+          required: true
+          description: Trading date in YYYY-MM-DD format.
+          schema:
+            type: string
+            pattern: '^\d{4}-\d{2}-\d{2}$'
+          example: "2026-05-20"
+      responses:
+        '200':
+          description: Sparse per-symbol intraday LTP, volume, turnover, and trades snapshots
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LtpHistoryDay'
 
   /data/market/supply_demand.json:
     get:
@@ -406,6 +429,11 @@ components:
           items:
             type: string
           example: ["2026-05"]
+        availableDays:
+          type: array
+          items:
+            type: string
+          example: ["2026-05-20"]
         retention:
           type: string
           example: "no-limit"
@@ -459,6 +487,57 @@ components:
           example:
             NABIL:
               - [0, 526, 44305, 23313421.6, 463]
+
+    LtpHistoryDay:
+      type: object
+      required:
+        - version
+        - market
+        - currency
+        - date
+        - updatedAt
+        - times
+        - columns
+        - series
+      properties:
+        version:
+          type: integer
+          example: 1
+        market:
+          type: string
+          example: NEPSE
+        currency:
+          type: string
+          example: NPR
+        date:
+          type: string
+          example: "2026-05-20"
+        updatedAt:
+          type: string
+          example: "2026-05-20T13:30:00+05:45"
+        times:
+          type: array
+          items:
+            type: string
+          example: ["11:00", "11:30", "12:00"]
+        columns:
+          type: array
+          items:
+            type: string
+          example: ["timeIndex", "ltp", "volume", "turnover", "trades"]
+        series:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: array
+              items:
+                type: number
+          description: Symbol-keyed sparse rows. Row values follow `columns`; `timeIndex` references `times`.
+          example:
+            NABIL:
+              - [0, 526, 44305, 23313421.6, 463]
+              - [1, 528, 51840, 27371520, 512]
 
     MarketStatus:
       type: object
