@@ -9,12 +9,7 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "15100",
-        "dpsCodes": [
-            "15100",
-            "16800"
-        ]
+        "instrumentType": "Equity"
     },
     {
         "id": 132,
@@ -62,8 +57,7 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "15300"
+        "instrumentType": "Equity"
     },
     {
         "id": 136,
@@ -147,12 +141,7 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "15200",
-        "dpsCodes": [
-            "15200",
-            "16300"
-        ]
+        "instrumentType": "Equity"
     },
     {
         "id": 143,
@@ -400,8 +389,8 @@
         "symbol": "NUBL",
         "securityName": "Nirdhan Utthan Laghubitta Bittiya Sanstha Limited",
         "status": "A",
-        "companyEmail": "rbchaudhary@nirdhan.com.np",
-        "website": "",
+        "companyEmail": "jagya.panta@nirdhan.com.np",
+        "website": "www.nirdhan.com.np",
         "sectorName": "Microfinance",
         "regulatoryBody": "Nepal Rastra Bank",
         "instrumentType": "Equity"
@@ -436,8 +425,8 @@
         "symbol": "DDBL",
         "securityName": "Deprosc Laghubitta Bittiya Sanstha Limited",
         "status": "A",
-        "companyEmail": "ddbl@ddbank.org.np",
-        "website": "",
+        "companyEmail": "info@deproscbank.com.np",
+        "website": "www.deproscbank.com.np",
         "sectorName": "Microfinance",
         "regulatoryBody": "Nepal Rastra Bank",
         "instrumentType": "Equity"
@@ -496,7 +485,7 @@
         "symbol": "SANIMA",
         "securityName": "Sanima Bank Limited",
         "status": "A",
-        "companyEmail": "RUDRA@sanimabank.com",
+        "companyEmail": "sanima@sanimabank.com",
         "website": "www.sanimabank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
@@ -604,7 +593,7 @@
         "symbol": "UAIL",
         "securityName": "United Ajod Insurance Limited",
         "status": "A",
-        "companyEmail": "info@unitedajodinsurance.com",
+        "companyEmail": "info@uail.com.np",
         "website": "www.unitedajodinsurance.com",
         "sectorName": "Non Life Insurance",
         "regulatoryBody": "Nepal Insurance Board",
@@ -880,7 +869,7 @@
         "symbol": "GUFL",
         "securityName": "Gurkhas Finance Ltd.",
         "status": "A",
-        "companyEmail": "deepak.neupane@gurkhasfinance.com.np",
+        "companyEmail": "yan.rai@gurkhasfinance.com.np",
         "website": "www.gurkhasfinance.com.np",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
@@ -1496,12 +1485,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "13900",
-        "dpsCodes": [
-            "13900",
-            "16000"
-        ]
+        "instrumentType": "Equity"
     },
     {
         "id": 256,
@@ -1510,7 +1494,7 @@
         "securityName": "Samriddhi Finance Company Limited",
         "status": "A",
         "companyEmail": "cs@sfcl.com.np",
-        "website": "http://www.wmerchantbank.com",
+        "website": "sfcl.com.np ",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
         "instrumentType": "Equity"
@@ -1717,8 +1701,7 @@
         "website": "www.icfc.com.np",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "17400"
+        "instrumentType": "Equity"
     },
     {
         "id": 274,
@@ -1742,8 +1725,7 @@
         "website": "",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "16700"
+        "instrumentType": "Equity"
     },
     {
         "id": 277,
@@ -1935,8 +1917,7 @@
         "website": "http://www.pfltd.com.np",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "18600"
+        "instrumentType": "Equity"
     },
     {
         "id": 340,
@@ -1960,12 +1941,7 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "11100",
-        "dpsCodes": [
-            "11100",
-            "12200"
-        ]
+        "instrumentType": "Equity"
     },
     {
         "id": 342,
@@ -2013,8 +1989,7 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "11700"
+        "instrumentType": "Equity"
     },
     {
         "id": 349,
@@ -2078,12 +2053,12 @@
     },
     {
         "id": 360,
-        "companyName": "Arun Valley Hydropower Development Co. Ltd.",
+        "companyName": "Arun Valley Hydropower Development Company Limited",
         "symbol": "AHPC",
         "securityName": "Arun Valley Hydropower Development Co. Ltd.",
         "status": "A",
         "companyEmail": "arunvalley2054@gmail.com",
-        "website": "",
+        "website": "https://arunhydro.com.np",
         "sectorName": "Hydro Power",
         "regulatoryBody": "Nepal Hydropower Board",
         "instrumentType": "Equity"
@@ -2254,8 +2229,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "17200"
+        "instrumentType": "Equity"
     },
     {
         "id": 398,
@@ -2627,8 +2601,7 @@
         "website": "https://www.kamanasewabank.com/",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "18200"
+        "instrumentType": "Equity"
     },
     {
         "id": 460,
@@ -2676,8 +2649,7 @@
         "website": "www.shangrilabank.com",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "18400"
+        "instrumentType": "Equity"
     },
     {
         "id": 473,
@@ -2869,8 +2841,7 @@
         "website": "www.nepalbank.com.np",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Equity",
-        "dpsCode": "15700"
+        "instrumentType": "Equity"
     },
     {
         "id": 526,
@@ -2978,12 +2949,7 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "15100",
-        "dpsCodes": [
-            "15100",
-            "16800"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 539,
@@ -3472,7 +3438,7 @@
         "securityName": "Vijaya laghubitta Bittiya Sanstha Ltd.",
         "status": "A",
         "companyEmail": "vlbs@vlbs.com.np",
-        "website": "",
+        "website": "https://vlbs.com.np",
         "sectorName": "Microfinance",
         "regulatoryBody": "Nepal Rastra Bank",
         "instrumentType": "Equity"
@@ -3619,12 +3585,7 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "11100",
-        "dpsCodes": [
-            "11100",
-            "12200"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 1741,
@@ -3744,12 +3705,7 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "15100",
-        "dpsCodes": [
-            "15100",
-            "16800"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 2754,
@@ -3937,7 +3893,7 @@
         "symbol": "SAEF",
         "securityName": "Sanima Equity Fund",
         "status": "D",
-        "companyEmail": "RUDRA@sanimabank.com",
+        "companyEmail": "sanima@sanimabank.com",
         "website": "www.sanimabank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
@@ -4001,8 +3957,7 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "11700"
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 2781,
@@ -4166,7 +4121,7 @@
         "symbol": "UPCL",
         "securityName": "UNIVERSAL POWER COMPANY LTD",
         "status": "A",
-        "companyEmail": "upcl.share@tkkhp.com.np",
+        "companyEmail": "universal2067@gmail.com",
         "website": "www.universalpowercompany.com.np",
         "sectorName": "Hydro Power",
         "regulatoryBody": "Nepal Hydropower Board",
@@ -4262,8 +4217,8 @@
         "symbol": "GLBSL",
         "securityName": "Gurans Laghubitta Bittiya Sanstha Limited",
         "status": "A",
-        "companyEmail": "guranslbbs@gmail.com",
-        "website": "www.guranslaghubitta.com.np",
+        "companyEmail": "info@glbsl.com.np",
+        "website": "www.glbsl.com.np",
         "sectorName": "Microfinance",
         "regulatoryBody": "Nepal Rastra Bank",
         "instrumentType": "Equity"
@@ -4274,7 +4229,7 @@
         "symbol": "SAND2085",
         "securityName": "10% Sanima Bank Limited Debenture",
         "status": "A",
-        "companyEmail": "RUDRA@sanimabank.com",
+        "companyEmail": "sanima@sanimabank.com",
         "website": "www.sanimabank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
@@ -4338,12 +4293,7 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "15100",
-        "dpsCodes": [
-            "15100",
-            "16800"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 2840,
@@ -4355,12 +4305,7 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "11100",
-        "dpsCodes": [
-            "11100",
-            "12200"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 2841,
@@ -4636,12 +4581,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "13900",
-        "dpsCodes": [
-            "13900",
-            "16000"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 2877,
@@ -4713,8 +4653,7 @@
         "website": "www.icfc.com.np",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "17400"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 2883,
@@ -4738,12 +4677,7 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15200",
-        "dpsCodes": [
-            "15200",
-            "16300"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 2886,
@@ -4755,8 +4689,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "17200"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 2887,
@@ -4780,8 +4713,7 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "11700"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 2890,
@@ -4793,8 +4725,7 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15300"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 2892,
@@ -4806,12 +4737,7 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15100",
-        "dpsCodes": [
-            "15100",
-            "16800"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 2893,
@@ -4907,12 +4833,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "13900",
-        "dpsCodes": [
-            "13900",
-            "16000"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 2905,
@@ -5028,7 +4949,7 @@
         "symbol": "SBD87",
         "securityName": "8.5% Sanima Debenture 2087",
         "status": "A",
-        "companyEmail": "RUDRA@sanimabank.com",
+        "companyEmail": "sanima@sanimabank.com",
         "website": "www.sanimabank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
@@ -5040,7 +4961,7 @@
         "symbol": "SLCF",
         "securityName": "Sanima Large Cap Fund",
         "status": "A",
-        "companyEmail": "RUDRA@sanimabank.com",
+        "companyEmail": "sanima@sanimabank.com",
         "website": "www.sanimabank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
@@ -5116,12 +5037,7 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "15200",
-        "dpsCodes": [
-            "15200",
-            "16300"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 2934,
@@ -5137,7 +5053,7 @@
     },
     {
         "id": 2935,
-        "companyName": "Ru Ru Jalbidhyut Pariyojana Limited",
+        "companyName": "Ru Ru Jalbidhyut  Pariyojana Ltd.",
         "symbol": "RURU",
         "securityName": "Ru Ru Jalbidhyut Pariyojana Limited",
         "status": "A",
@@ -5193,12 +5109,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "13900",
-        "dpsCodes": [
-            "13900",
-            "16000"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 4948,
@@ -5210,8 +5121,7 @@
         "website": "https://www.kamanasewabank.com/",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "18200"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 4949,
@@ -5271,8 +5181,7 @@
         "website": "www.nepalbank.com.np",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15700"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 4960,
@@ -5284,8 +5193,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "17200"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 4961,
@@ -5309,12 +5217,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "13900",
-        "dpsCodes": [
-            "13900",
-            "16000"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 4963,
@@ -5374,8 +5277,7 @@
         "website": "www.rbbmbl.com.np",
         "sectorName": "Mutual Fund",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "16500"
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 4969,
@@ -5435,8 +5337,7 @@
         "website": "www.shangrilabank.com",
         "sectorName": "Development Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "18400"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 7985,
@@ -5484,12 +5385,7 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "11100",
-        "dpsCodes": [
-            "11100",
-            "12200"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 8005,
@@ -5573,12 +5469,7 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "15100",
-        "dpsCodes": [
-            "15100",
-            "16800"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 8025,
@@ -5586,7 +5477,7 @@
         "symbol": "SPC",
         "securityName": "Samling Power Company Limited",
         "status": "A",
-        "companyEmail": "info@urjadeveloper.com",
+        "companyEmail": "info@spcl.com.np",
         "website": "spcl.com.np",
         "sectorName": "Hydro Power",
         "regulatoryBody": "Nepal Hydropower Board",
@@ -5614,12 +5505,7 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15100",
-        "dpsCodes": [
-            "15100",
-            "16800"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 8029,
@@ -5631,8 +5517,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "17200"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 8030,
@@ -5644,8 +5529,7 @@
         "website": "",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "17200"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 8031,
@@ -5773,7 +5657,7 @@
         "symbol": "BHL",
         "securityName": "Balephi Hydropower Limited",
         "status": "A",
-        "companyEmail": "info.balephi@gmail.com",
+        "companyEmail": "info@balephihydro.com",
         "website": "www.balephihydro.com",
         "sectorName": "Hydro Power",
         "regulatoryBody": "Nepal Hydropower Board",
@@ -5873,12 +5757,7 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "15200",
-        "dpsCodes": [
-            "15200",
-            "16300"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 8075,
@@ -6018,7 +5897,7 @@
         "symbol": "SBD89",
         "securityName": "10.25% Sanima Debenture 2089",
         "status": "A",
-        "companyEmail": "RUDRA@sanimabank.com",
+        "companyEmail": "sanima@sanimabank.com",
         "website": "www.sanimabank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
@@ -6034,8 +5913,7 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15300"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 8116,
@@ -6143,12 +6021,7 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15200",
-        "dpsCodes": [
-            "15200",
-            "16300"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 8128,
@@ -6472,12 +6345,7 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "11100",
-        "dpsCodes": [
-            "11100",
-            "12200"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 9170,
@@ -6525,8 +6393,7 @@
         "website": " www.prabhucapital.com",
         "sectorName": "Mutual Fund",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "12600"
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 9175,
@@ -6574,8 +6441,7 @@
         "website": "www.rbbmbl.com.np",
         "sectorName": "Mutual Fund",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "16500"
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 9179,
@@ -6659,8 +6525,7 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "11700"
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 9192,
@@ -6816,8 +6681,7 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15300"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 9212,
@@ -6913,12 +6777,7 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15200",
-        "dpsCodes": [
-            "15200",
-            "16300"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 9221,
@@ -6966,8 +6825,7 @@
         "website": "www.ctznbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "11700"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 9232,
@@ -7027,12 +6885,7 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15100",
-        "dpsCodes": [
-            "15100",
-            "16800"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 9241,
@@ -7044,12 +6897,7 @@
         "website": "http://www.kumaribank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "15200",
-        "dpsCodes": [
-            "15200",
-            "16300"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 9242,
@@ -7133,8 +6981,7 @@
         "website": "www.icfc.com.np",
         "sectorName": "Finance",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "17400"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 9250,
@@ -7314,12 +7161,7 @@
         "website": "http://www.globalimebank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "11100",
-        "dpsCodes": [
-            "11100",
-            "12200"
-        ]
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 9270,
@@ -7379,8 +7221,7 @@
         "website": "https://nsbl.statebank",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15300"
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 9290,
@@ -7464,12 +7305,7 @@
         "website": "www.nabilbank.com",
         "sectorName": "Commercial Banks",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Non-Convertible Debentures",
-        "dpsCode": "15100",
-        "dpsCodes": [
-            "15100",
-            "16800"
-        ]
+        "instrumentType": "Non-Convertible Debentures"
     },
     {
         "id": 9300,
@@ -7505,8 +7341,7 @@
         "website": "www.rbbmbl.com.np",
         "sectorName": "Mutual Fund",
         "regulatoryBody": "Nepal Rastra Bank",
-        "instrumentType": "Mutual Funds",
-        "dpsCode": "16500"
+        "instrumentType": "Mutual Funds"
     },
     {
         "id": 9303,
@@ -7518,6 +7353,222 @@
         "website": "https://synepal.com/about.php",
         "sectorName": "Manufacturing And Processing",
         "regulatoryBody": "Department of Industry",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9304,
+        "companyName": "Citizens Bank International Limited",
+        "symbol": "CSY",
+        "securityName": "Citizens Santulit Yojana",
+        "status": "A",
+        "companyEmail": "pramesh.kayastha@ctznbank.com",
+        "website": "www.ctznbank.com",
+        "sectorName": "Commercial Banks",
+        "regulatoryBody": "Nepal Rastra Bank",
+        "instrumentType": "Mutual Funds"
+    },
+    {
+        "id": 9305,
+        "companyName": "Salapa Bikas Bank Limited",
+        "symbol": "SABBL",
+        "securityName": "Salapa Bikas Bank Limited",
+        "status": "A",
+        "companyEmail": "info@salapabikasbank.com.np",
+        "website": "www.salapabikasbank.com.np",
+        "sectorName": "Development Banks",
+        "regulatoryBody": "Nepal Rastra Bank",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9306,
+        "companyName": "Reliance Spinning Mills Limited",
+        "symbol": "RSML",
+        "securityName": "Reliance Spinning Mills Limited",
+        "status": "A",
+        "companyEmail": "info@reliancespinningnepal.com",
+        "website": "https://www.reliancespinningnepal.com/",
+        "sectorName": "Manufacturing And Processing",
+        "regulatoryBody": "Department of Industry",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9308,
+        "companyName": "Hotel Forest Inn Limited",
+        "symbol": "HFIN",
+        "securityName": "Hotel Forest Inn Limited",
+        "status": "A",
+        "companyEmail": "legal.hfin@gmail.com",
+        "website": "https://hotelforestinn.com.np/",
+        "sectorName": "Hotels And Tourism",
+        "regulatoryBody": "Ministry of Tourism",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9311,
+        "companyName": "Solu Hydropower Limited",
+        "symbol": "SOHL",
+        "securityName": "Solu Hydropower Limited",
+        "status": "A",
+        "companyEmail": "info@soluhydro.com",
+        "website": "www.soluhydro.com",
+        "sectorName": "Hydro Power",
+        "regulatoryBody": "Nepal Hydropower Board",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9312,
+        "companyName": "NEPAL LIFE INSURANCE COMPANY LIMITED",
+        "symbol": "NSY",
+        "securityName": "Nepal Life Samriddhi Lagani Yojana",
+        "status": "A",
+        "companyEmail": "info@nepallife.com.np",
+        "website": "www.nepallife.com.np",
+        "sectorName": "Life Insurance",
+        "regulatoryBody": "Nepal Insurance Board",
+        "instrumentType": "Mutual Funds"
+    },
+    {
+        "id": 9322,
+        "companyName": "Bhujung Hydropower Limited",
+        "symbol": "BJHL",
+        "securityName": "Bhujung Hydropower Limited",
+        "status": "A",
+        "companyEmail": "bhujung.hydro@gmail.com",
+        "website": "",
+        "sectorName": "Hydro Power",
+        "regulatoryBody": "Nepal Hydropower Board",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9323,
+        "companyName": "Super Khudi Hydropower Ltd.",
+        "symbol": "SKHL",
+        "securityName": "Super Khudi Hydropower Limited",
+        "status": "A",
+        "companyEmail": "info@superkhudi.com.np",
+        "website": "www.superkhudi.com.np",
+        "sectorName": "Hydro Power",
+        "regulatoryBody": "Nepal Hydropower Board",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9324,
+        "companyName": "RIDGE LINE ENERGY LIMITED",
+        "symbol": "RLEL",
+        "securityName": "Ridge Line Energy Limited",
+        "status": "A",
+        "companyEmail": "info@ridgeline.com.np",
+        "website": "www.ridgeline.com.np",
+        "sectorName": "Hydro Power",
+        "regulatoryBody": "Nepal Hydropower Board",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9325,
+        "companyName": "Suryakunda Hydro Electric Limited",
+        "symbol": "SKHEL",
+        "securityName": "Suryakunda Hydro Electric Limited",
+        "status": "A",
+        "companyEmail": "info@suryakundahydro.com.np",
+        "website": "www.suryakundahydro.com.np",
+        "sectorName": "Hydro Power",
+        "regulatoryBody": "Nepal Hydropower Board",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9326,
+        "companyName": "Nabil Bank Limited",
+        "symbol": "NABILPNP",
+        "securityName": "Nabil 8% Perpetual Non Cumulative Preference Share",
+        "status": "A",
+        "companyEmail": "company.affairs@nabilbank.com",
+        "website": "www.nabilbank.com",
+        "sectorName": "Commercial Banks",
+        "regulatoryBody": "Nepal Rastra Bank",
+        "instrumentType": "Preference Shares"
+    },
+    {
+        "id": 9327,
+        "companyName": "ICFC Finance Limited",
+        "symbol": "ICFCD89",
+        "securityName": "8% ICFC Finance Limited Debenture 2089",
+        "status": "A",
+        "companyEmail": "nepsereport@icfcbank.com",
+        "website": "www.icfc.com.np",
+        "sectorName": "Finance",
+        "regulatoryBody": "Nepal Rastra Bank",
+        "instrumentType": "Non-Convertible Debentures"
+    },
+    {
+        "id": 9328,
+        "companyName": "Kamana Sewa Bikas Bank Limited",
+        "symbol": "KSBBLPNP",
+        "securityName": "KSBBL 9% Perpetual Non Cumulative Preference Share",
+        "status": "A",
+        "companyEmail": "pranay.tuladhar@kamanasewabank.com",
+        "website": "https://www.kamanasewabank.com/",
+        "sectorName": "Development Banks",
+        "regulatoryBody": "Nepal Rastra Bank",
+        "instrumentType": "Preference Shares"
+    },
+    {
+        "id": 9329,
+        "companyName": "Shikhar Power Development Ltd.",
+        "symbol": "SIPD",
+        "securityName": "Shikhar power Development Limited",
+        "status": "A",
+        "companyEmail": "shikhar.power71@gmail.com",
+        "website": "shikharpower.com.np",
+        "sectorName": "Hydro Power",
+        "regulatoryBody": "Nepal Hydropower Board",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9330,
+        "companyName": "Palpa Cement Industries Limited",
+        "symbol": "PCIL",
+        "securityName": "Palpa Cement Industries Limited",
+        "status": "A",
+        "companyEmail": "info@rmcnepal.com",
+        "website": "www.tansencement.com",
+        "sectorName": "Manufacturing And Processing",
+        "regulatoryBody": "Department of Industry",
+        "instrumentType": "Equity"
+    },
+    {
+        "id": 9331,
+        "companyName": "Siddhartha Bank Limited",
+        "symbol": "SBLPNP",
+        "securityName": "SBL 8.25% Perpetual Non Cumulative Preference Share",
+        "status": "A",
+        "companyEmail": "laxman.ghimire@sbl.com.np",
+        "website": "www.siddharthabank.com",
+        "sectorName": "Commercial Banks",
+        "regulatoryBody": "Nepal Rastra Bank",
+        "instrumentType": "Preference Shares"
+    },
+    {
+        "id": 9333,
+        "companyName": "Sanima Bank Limited",
+        "symbol": "SANIMAPNP",
+        "securityName": "8.25% Sanima Perpetual Non Cumulative Preference Share",
+        "status": "A",
+        "companyEmail": "sanima@sanimabank.com",
+        "website": "www.sanimabank.com",
+        "sectorName": "Commercial Banks",
+        "regulatoryBody": "Nepal Rastra Bank",
+        "instrumentType": "Preference Shares"
+    },
+    {
+        "id": 9334,
+        "companyName": "Kalinchock Hydropower Limited",
+        "symbol": "KHPL",
+        "securityName": "Kalinchock Hydropower Limited",
+        "status": "A",
+        "companyEmail": "kalinchwokhydro@gmail.com",
+        "website": "http://khpl.com.np",
+        "sectorName": "Hydro Power",
+        "regulatoryBody": "Nepal Hydropower Board",
         "instrumentType": "Equity"
     }
 ]
