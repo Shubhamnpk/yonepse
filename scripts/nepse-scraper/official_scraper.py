@@ -71,6 +71,38 @@ def load_json_object(filepath):
     except Exception:
         return None
 
+def today_npt_string():
+    return datetime.now(NPT).date().isoformat()
+
+def update_company_run_metadata(company_dir, key):
+    metadata_path = os.path.join(company_dir, 'run_metadata.json')
+    metadata = load_json_object(metadata_path)
+    if not isinstance(metadata, dict):
+        metadata = {}
+    now_npt = datetime.now(NPT).isoformat(timespec='seconds')
+    metadata[key] = today_npt_string()
+    metadata[f"{key}_at"] = now_npt
+    write_json_if_changed(metadata_path, metadata)
+
+def should_run_daily_company_dataset(company_dir, key, label, force=False):
+    if force:
+        return True
+    metadata = load_json_object(os.path.join(company_dir, 'run_metadata.json'))
+    last_checked = metadata.get(key) if isinstance(metadata, dict) else None
+    today = today_npt_string()
+    if last_checked == today:
+        print(f"Skipping {label}; already checked today ({today} NPT). Use force flag to run again.")
+        return False
+    return True
+
+def snapshot_complete_enough(filepath, data, min_existing_ratio=0.8):
+    if not data:
+        return False
+    existing = load_json_object(filepath)
+    if isinstance(existing, list) and isinstance(data, list) and existing:
+        return len(data) >= int(len(existing) * min_existing_ratio)
+    return True
+
 def build_omf_rows_for_nepse_data(data_dir, omf_items=None):
     """
     Load open-ended mutual funds from OMF.json and map them into nepse_data schema.
@@ -190,6 +222,154 @@ def compact_broker_records(brokers):
     compact = [item for item in compact if item.get('memberCode') or item.get('memberName')]
     return sorted(compact, key=lambda item: int(item.get('memberCode') or 0))
 
+def compact_financial_report_record(record):
+    """Return the useful public fields from a NEPSE fiscal report application."""
+    if not isinstance(record, dict):
+        return {}
+
+    fiscal_report = record.get('fiscalReport') or {}
+    report_type = fiscal_report.get('reportTypeMaster') or {}
+    quarter = fiscal_report.get('quarterMaster') or {}
+    financial_year = fiscal_report.get('financialYear') or {}
+
+    documents = []
+    raw_documents = record.get('applicationDocumentDetailsList')
+    if isinstance(raw_documents, list):
+        for doc in raw_documents:
+            if not isinstance(doc, dict):
+                continue
+            compact_doc = {
+                "submitted_date": doc.get('submittedDate'),
+                "path": doc.get('filePath'),
+            }
+            compact_doc = {
+                key: value
+                for key, value in compact_doc.items()
+                if value not in (None, "", [], {})
+            }
+            if compact_doc:
+                documents.append(compact_doc)
+
+    compact = {
+        "type": report_type.get('reportName'),
+        "quarter": quarter.get('quarterName'),
+        "fy": financial_year.get('fyName'),
+        "fy_nepali": financial_year.get('fyNameNepali'),
+        "pe": fiscal_report.get('peValue'),
+        "eps": fiscal_report.get('epsValue'),
+        "paid_up_capital": fiscal_report.get('paidUpCapital'),
+        "profit": fiscal_report.get('profitAmount'),
+        "net_worth_per_share": fiscal_report.get('netWorthPerShare'),
+        "remarks": fiscal_report.get('remarks'),
+        "documents": documents,
+    }
+    return {
+        key: value
+        for key, value in compact.items()
+        if value not in (None, "", [], {})
+    }
+
+def compact_financial_report_records(records):
+    if not isinstance(records, list):
+        return []
+    compact = [compact_financial_report_record(item) for item in records]
+    return [item for item in compact if item]
+
+def compact_company_profile_record(profile, security):
+    """Return the brief company profile and contact facts from NEPSE."""
+    if not isinstance(profile, dict):
+        profile = {}
+    if not isinstance(security, dict):
+        security = {}
+
+    address_parts = [
+        profile.get('addressField'),
+        profile.get('town'),
+    ]
+    address = ', '.join(str(part).strip() for part in address_parts if str(part or '').strip())
+
+    compact = {
+        "id": security.get('id'),
+        "symbol": security.get('symbol'),
+        "profile": profile.get('companyProfile'),
+        "email": profile.get('companyEmail') or security.get('companyEmail'),
+        "phone": profile.get('phoneNumber'),
+        "fax": profile.get('fax'),
+        "contact_person": profile.get('companyContactPerson'),
+        "address_type": profile.get('addressType'),
+        "address": address,
+        "logo_path": profile.get('logoFilePath'),
+    }
+    return {
+        key: value
+        for key, value in compact.items()
+        if value not in (None, "", [], {})
+    }
+
+def build_company_profiles_snapshot(scraper, securities):
+    """Fetch brief company profile data for every security ID."""
+    snapshot = []
+    if not isinstance(securities, list):
+        return snapshot
+
+    total = len(securities)
+    for index, security in enumerate(securities, start=1):
+        if not isinstance(security, dict):
+            continue
+
+        company_id = security.get('id')
+        if company_id is None:
+            continue
+
+        symbol = security.get('symbol') or str(company_id)
+        try:
+            profile = compact_company_profile_record(
+                scraper.get_company_profile(int(company_id)),
+                security
+            )
+            if profile.get('profile') or profile.get('email') or profile.get('phone') or profile.get('address'):
+                snapshot.append(profile)
+            if index % 25 == 0 or index == total:
+                print(f"Fetched company profiles for {index}/{total} securities...")
+        except Exception as exc:
+            print(f"Failed to fetch company profile for {symbol} ({company_id}): {exc}")
+
+    return sorted(snapshot, key=lambda item: str(item.get('symbol') or item.get('id') or ''))
+
+def build_company_financials_snapshot(scraper, securities):
+    """Fetch financial reports for every security ID from the company detail endpoint."""
+    snapshot = []
+    if not isinstance(securities, list):
+        return snapshot
+
+    total = len(securities)
+    for index, security in enumerate(securities, start=1):
+        if not isinstance(security, dict):
+            continue
+
+        company_id = security.get('id')
+        if company_id is None:
+            continue
+
+        symbol = security.get('symbol') or str(company_id)
+        try:
+            reports = compact_financial_report_records(
+                scraper.get_company_financials(int(company_id))
+            )
+            if not reports:
+                continue
+            snapshot.append({
+                "id": company_id,
+                "symbol": security.get('symbol'),
+                "reports": reports,
+            })
+            if index % 25 == 0 or index == total:
+                print(f"Fetched company financials for {index}/{total} securities...")
+        except Exception as exc:
+            print(f"Failed to fetch financials for {symbol} ({company_id}): {exc}")
+
+    return sorted(snapshot, key=lambda item: str(item.get('symbol') or item.get('id') or ''))
+
 def should_update_ltp_history(mode, market_is_open=False):
     """Decide when daily LTP history should be updated."""
     if mode == 'always':
@@ -229,6 +409,148 @@ def write_json_if_changed(filepath, data):
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4)
     return True
+
+def write_snapshot_if_changed(filepath, data, label, min_existing_ratio=0.8):
+    """Write a fetched snapshot only when it is non-empty, complete enough, and changed."""
+    if not data:
+        print(f"No {label} data fetched. Keeping existing file unchanged.")
+        return False
+
+    existing = load_json_object(filepath)
+    if isinstance(existing, list) and isinstance(data, list) and existing:
+        minimum_count = int(len(existing) * min_existing_ratio)
+        if len(data) < minimum_count:
+            print(
+                f"Fetched only {len(data)} {label} rows; existing file has {len(existing)}. "
+                "Keeping existing file unchanged to avoid a partial overwrite."
+            )
+            return False
+
+    if existing == data:
+        print(f"{label.capitalize()} unchanged. Keeping existing file.")
+        return False
+
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
+    print(f"Updated {label} with {len(data) if isinstance(data, list) else 'new'} rows.")
+    return True
+
+def financial_report_key(report):
+    """Build a stable identity for append-only financial reports."""
+    if not isinstance(report, dict):
+        return json.dumps(report, sort_keys=True)
+    documents = report.get('documents') if isinstance(report.get('documents'), list) else []
+    document_keys = tuple(
+        (
+            str((doc or {}).get('path') or ''),
+            str((doc or {}).get('submitted_date') or ''),
+        )
+        for doc in documents
+        if isinstance(doc, dict)
+    )
+    return (
+        str(report.get('type') or ''),
+        str(report.get('quarter') or ''),
+        str(report.get('fy') or ''),
+        str(report.get('fy_nepali') or ''),
+        document_keys,
+    )
+
+def company_financial_key(company):
+    if not isinstance(company, dict):
+        return ''
+    symbol = company.get('symbol')
+    if symbol:
+        return f"symbol:{str(symbol).upper()}"
+    company_id = company.get('id')
+    return f"id:{company_id}" if company_id is not None else ''
+
+def merge_append_only_financials(existing_records, incoming_records):
+    """
+    Preserve stored financial reports and append only reports/companies not seen before.
+    Existing report values are not overwritten because historical financial filings should
+    remain stable once captured.
+    """
+    existing = existing_records if isinstance(existing_records, list) else []
+    incoming = incoming_records if isinstance(incoming_records, list) else []
+    merged = []
+    company_index = {}
+    added_reports = 0
+    added_companies = 0
+
+    for company in existing:
+        if not isinstance(company, dict):
+            continue
+        cloned = {**company}
+        reports = company.get('reports')
+        cloned['reports'] = reports[:] if isinstance(reports, list) else []
+        key = company_financial_key(cloned)
+        if key:
+            company_index[key] = cloned
+        merged.append(cloned)
+
+    for company in incoming:
+        if not isinstance(company, dict):
+            continue
+        reports = company.get('reports') if isinstance(company.get('reports'), list) else []
+        key = company_financial_key(company)
+        if not key or key not in company_index:
+            cloned = {**company, "reports": reports[:]}
+            merged.append(cloned)
+            if key:
+                company_index[key] = cloned
+            added_companies += 1
+            added_reports += len(reports)
+            continue
+
+        target = company_index[key]
+        target_reports = target.get('reports') if isinstance(target.get('reports'), list) else []
+        seen_reports = {financial_report_key(report) for report in target_reports}
+        for report in reports:
+            report_key = financial_report_key(report)
+            if report_key in seen_reports:
+                continue
+            target_reports.append(report)
+            seen_reports.add(report_key)
+            added_reports += 1
+        target['reports'] = target_reports
+
+    return merged, added_companies, added_reports
+
+def write_financials_append_only(filepath, incoming_records, min_existing_ratio=0.8):
+    """Append new financial report records without replacing existing historical rows."""
+    if not incoming_records:
+        print("No company financial report data fetched. Keeping existing file unchanged.")
+        return False, load_json_list(filepath)
+
+    existing = load_json_list(filepath)
+    if existing:
+        minimum_count = int(len(existing) * min_existing_ratio)
+        if len(incoming_records) < minimum_count:
+            print(
+                f"Fetched only {len(incoming_records)} company financial rows; existing file has {len(existing)}. "
+                "Keeping existing file unchanged to avoid a partial append run."
+            )
+            return False, existing
+
+    merged, added_companies, added_reports = merge_append_only_financials(existing, incoming_records)
+    if not existing:
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(merged, f, indent=4)
+        print(f"Created company financial reports with {len(merged)} companies.")
+        return True, merged
+
+    if added_reports == 0 and added_companies == 0:
+        print("No new company financial reports found. Keeping existing financials file.")
+        return False, existing
+
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(merged, f, indent=4)
+    print(f"Appended {added_reports} new financial reports across {added_companies} new companies.")
+    return True, merged
 
 def merge_records_by_id(existing_records, incoming_records):
     """
@@ -642,7 +964,14 @@ def get_sector_wise_codes():
         print(f"Error fetching sector-wise codes: {e}")
         return None
 
-def scrape_all_official_data(include_brokers=False, ltp_history_mode='live-close'):
+def scrape_all_official_data(
+    include_brokers=False,
+    include_financials=False,
+    include_profiles=False,
+    force_financials=False,
+    force_profiles=False,
+    ltp_history_mode='live-close'
+):
     print(f"Starting Comprehensive Official NEPSE Scraper at {datetime.now().isoformat()}...")
     
     try:
@@ -982,7 +1311,75 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='live-close
         else:
             print("Skipping broker list (not requested or recently updated).")
 
-        # 9. Supply & Demand (Disabled)
+        # 9. Securities metadata and optional company financial reports
+        print("Fetching all securities for company IDs...")
+        all_securities = scraper.get_all_securities()
+        securities_path = os.path.join(other_dir, 'securities.json')
+        if isinstance(all_securities, list) and all_securities:
+            if write_json_if_changed(securities_path, all_securities):
+                print(f"Updated securities list with {len(all_securities)} company IDs.")
+            else:
+                print(f"Securities list unchanged ({len(all_securities)} company IDs).")
+            if write_legacy:
+                write_json_if_changed(os.path.join(data_dir, 'all_securities.json'), all_securities)
+        else:
+            print("No securities data found or error. Keeping existing securities file unchanged.")
+            all_securities = load_json_list(securities_path)
+
+        if include_financials:
+            company_dir = os.path.join(data_dir, 'company')
+            os.makedirs(company_dir, exist_ok=True)
+            financials_path = os.path.join(company_dir, 'financials.json')
+            metadata_path = os.path.join(company_dir, 'metadata.json')
+            if should_run_daily_company_dataset(
+                company_dir,
+                'financials_last_checked',
+                'company financial reports',
+                force_financials
+            ):
+                print("Fetching company financial reports from company detail pages...")
+                financials = build_company_financials_snapshot(scraper, all_securities)
+                financials_changed, merged_financials = write_financials_append_only(
+                    financials_path,
+                    financials
+                )
+                if financials_changed or not os.path.exists(metadata_path):
+                    metadata_payload = {
+                        "last_updated": datetime.now().isoformat(),
+                        "source": "https://nepalstock.com/company/detail/{company_id}",
+                        "document_base_url": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=",
+                        "count": len(merged_financials),
+                    }
+                    write_json_if_changed(metadata_path, metadata_payload)
+                    print("Updated company financial metadata.")
+                if snapshot_complete_enough(financials_path, financials):
+                    update_company_run_metadata(company_dir, 'financials_last_checked')
+        else:
+            print("Skipping company financial reports (use --financials to fetch them).")
+
+        if include_profiles:
+            company_dir = os.path.join(data_dir, 'company')
+            os.makedirs(company_dir, exist_ok=True)
+            profiles_path = os.path.join(company_dir, 'profiles.json')
+            if should_run_daily_company_dataset(
+                company_dir,
+                'profiles_last_checked',
+                'company profiles',
+                force_profiles
+            ):
+                print("Fetching company profiles from company detail pages...")
+                profiles = build_company_profiles_snapshot(scraper, all_securities)
+                write_snapshot_if_changed(
+                    profiles_path,
+                    profiles,
+                    'company profiles'
+                )
+                if snapshot_complete_enough(profiles_path, profiles):
+                    update_company_run_metadata(company_dir, 'profiles_last_checked')
+        else:
+            print("Skipping company profiles (use --profiles to fetch them).")
+
+        # 10. Supply & Demand
         print("Fetching supply and demand...")
         supply_demand = scraper.get_supply_demand(show_all=True)
         write_json(os.path.join(market_dir, 'supply_demand.json'), supply_demand)
@@ -1001,6 +1398,26 @@ def scrape_all_official_data(include_brokers=False, ltp_history_mode='live-close
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='NEPSE Official Data Scraper')
     parser.add_argument('--brokers', action='store_true', help='Force update broker list')
+    parser.add_argument(
+        '--financials',
+        action='store_true',
+        help='Fetch financial reports for all company IDs from /company/detail/{company_id}'
+    )
+    parser.add_argument(
+        '--profiles',
+        action='store_true',
+        help='Fetch brief company profiles for all company IDs from /company/detail/{company_id}'
+    )
+    parser.add_argument(
+        '--force-financials',
+        action='store_true',
+        help='Run company financial fetching even if it already ran today'
+    )
+    parser.add_argument(
+        '--force-profiles',
+        action='store_true',
+        help='Run company profile fetching even if it already ran today'
+    )
     parser.add_argument(
         '--ltp-history',
         choices=('live-close', 'close-only', 'always', 'skip'),
@@ -1037,6 +1454,10 @@ if __name__ == "__main__":
             
     success = scrape_all_official_data(
         include_brokers=include_brokers,
+        include_financials=args.financials,
+        include_profiles=args.profiles,
+        force_financials=args.force_financials,
+        force_profiles=args.force_profiles,
         ltp_history_mode=args.ltp_history
     )
     sys.exit(0 if success else 1)

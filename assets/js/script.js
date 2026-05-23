@@ -6,24 +6,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const marketSummaryEl = document.getElementById('market-summary');
     const stockModal = document.getElementById('stock-modal');
     const closeModalBtn = document.getElementById('close-modal');
-    const modalDividendLoadBtn = document.getElementById('modal-dividend-load');
     const modalDividendOpenBtn = document.getElementById('modal-dividend-open');
     const modalDividendBackBtn = document.getElementById('modal-dividend-back');
-    const modalLtpHistoryLoadBtn = document.getElementById('modal-ltp-history-load');
     const modalLtpHistoryOpenBtn = document.getElementById('modal-ltp-history-open');
     const modalLtpHistoryBackBtn = document.getElementById('modal-ltp-history-back');
+    const modalFinancialOpenBtn = document.getElementById('modal-financial-open');
+    const modalFinancialBackBtn = document.getElementById('modal-financial-back');
     const modalLtpHistoryBlockEl = document.getElementById('modal-ltp-history-block');
     const modalLtpHistoryStatusEl = document.getElementById('modal-ltp-history-status');
     const modalLtpHistorySummaryEl = document.getElementById('modal-ltp-history-summary');
     const modalLtpHistoryListEl = document.getElementById('modal-ltp-history-list');
     const modalLtpHistoryChartEl = document.getElementById('modal-ltp-history-chart');
+    const modalLtpHistoryTooltipEl = document.getElementById('modal-ltp-history-tooltip');
     const modalLtpHistoryStatsEl = document.getElementById('modal-ltp-history-stats');
+    const modalFinancialBlockEl = document.getElementById('modal-financial-block');
+    const modalFinancialStatusEl = document.getElementById('modal-financial-status');
+    const modalFinancialSummaryEl = document.getElementById('modal-financial-summary');
+    const modalFinancialListEl = document.getElementById('modal-financial-list');
+    const modalFinancialDocumentViewerEl = document.getElementById('modal-financial-document-viewer');
+    const modalFinancialDocumentTitleEl = document.getElementById('modal-financial-document-title');
+    const modalFinancialDocumentOpenEl = document.getElementById('modal-financial-document-open');
+    const modalFinancialDocumentBackBtn = document.getElementById('modal-financial-document-back');
+    const modalCompanyProfilePreviewEl = document.getElementById('modal-company-profile-preview');
+    const modalCompanyProfileToggleBtn = document.getElementById('modal-company-profile-toggle');
+    const modalCompanyProfileTitleEl = document.getElementById('modal-company-profile-title');
+    const modalCompanyProfileBodyEl = document.getElementById('modal-company-profile-body');
+    const modalCompanyProfileTextEl = document.getElementById('modal-company-profile-text');
+    const modalCompanyProfileFactsEl = document.getElementById('modal-company-profile-facts');
     const modalDividendBlockEl = document.getElementById('modal-dividend-block');
     const modalMarketGridEl = document.getElementById('modal-market-grid');
     const modalDividendStatusEl = document.getElementById('modal-dividend-status');
     const modalDividendSummaryEl = document.getElementById('modal-dividend-summary');
     const modalDividendAnalysisEl = document.getElementById('modal-dividend-analysis');
     const modalDividendListEl = document.getElementById('modal-dividend-list');
+    const modalNewsOpenBtn = document.getElementById('modal-news-open');
+    const modalNewsBackBtn = document.getElementById('modal-news-back');
+    const modalNewsBlockEl = document.getElementById('modal-news-block');
+    const modalNewsStatusEl = document.getElementById('modal-news-status');
+    const modalNewsListEl = document.getElementById('modal-news-list');
 
     // Custom Dropdown Logic
     const dropdownTrigger = document.getElementById('dropdown-trigger');
@@ -53,10 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeModalTrigger = null;
     let currentModalSymbol = '';
     let dividendHistoryCache = null;
+    let financialReportsCache = null;
+    let financialMetadataCache = null;
+    let companyProfilesCache = null;
+    let modalNewsCache = null;
     let ltpHistoryManifestCache = null;
     const ltpHistoryShardCache = {};
     let currentLtpHistoryRows = [];
     let currentLtpHistoryRange = '1m';
+    let currentLtpChartState = { rows: [], points: [], cssWidth: 0, cssHeight: 0 };
+    let currentLtpChartHoverIndex = null;
+    let currentLtpChartPinnedIndex = null;
     let hasRenderableIpos = false;
     let showAllIpos = false;
     let ipoChartSnapshot = { open: 0, upcoming: 0, closed: 0 };
@@ -184,11 +211,69 @@ document.addEventListener('DOMContentLoaded', () => {
         return value;
     }
 
+    function escapeAttribute(value) {
+        return String(value ?? '').replace(/[&<>"']/g, (char) => {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            };
+            return map[char] || char;
+        });
+    }
+
     async function getDividendHistoryData() {
         if (Array.isArray(dividendHistoryCache)) return dividendHistoryCache;
         const raw = await fetchJson('proposed_dividend/history_all_years.json');
         dividendHistoryCache = Array.isArray(raw) ? raw : [];
         return dividendHistoryCache;
+    }
+
+    async function getFinancialReportsData() {
+        if (Array.isArray(financialReportsCache)) return financialReportsCache;
+        const raw = await fetchJson('company/financials.json');
+        financialReportsCache = Array.isArray(raw) ? raw : [];
+        return financialReportsCache;
+    }
+
+    async function getFinancialMetadata() {
+        if (financialMetadataCache) return financialMetadataCache;
+        const raw = await fetchJson('company/metadata.json');
+        financialMetadataCache = raw && typeof raw === 'object' ? raw : {};
+        return financialMetadataCache;
+    }
+
+    async function getCompanyProfilesData() {
+        if (Array.isArray(companyProfilesCache)) return companyProfilesCache;
+        const raw = await fetchJson('company/profiles.json');
+        companyProfilesCache = Array.isArray(raw) ? raw : [];
+        return companyProfilesCache;
+    }
+
+    async function getModalNewsData() {
+        if (Array.isArray(modalNewsCache)) return modalNewsCache;
+        const [disclosures, exchangeMessages, notices] = await Promise.all([
+            fetchJson('notify/disclosures.json'),
+            fetchJson('notify/exchange_messages.json'),
+            fetchJson('notify/notices.json')
+        ]);
+        modalNewsCache = [
+            ...normalizeNewsRows(disclosures, 'Disclosure'),
+            ...normalizeNewsRows(exchangeMessages, 'Exchange'),
+            ...normalizeNotices(notices).map((item) => ({ ...item, category: item.category || 'Notice' }))
+        ].sort((a, b) => parseDateValue(b.date) - parseDateValue(a.date));
+        return modalNewsCache;
+    }
+
+    function buildDocumentUrl(path, metadata) {
+        const baseUrl = metadata?.document_base_url || 'https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=';
+        const encodedPath = String(path || '')
+            .split('/')
+            .map((part) => encodeURIComponent(part))
+            .join('/');
+        return `${baseUrl}${encodedPath}`;
     }
 
     async function getLtpHistoryManifest() {
@@ -248,13 +333,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const latestTime = parseDateValue(latest.date);
         if (!latestTime) return rows.slice();
 
-        const days = range === '1y' ? 365 : 31;
+        const rangeDays = {
+            '1m': 31,
+            '3m': 92,
+            '6m': 183,
+            '1y': 365
+        };
+        const days = rangeDays[range] || 31;
         const cutoff = latestTime - (days * 24 * 60 * 60 * 1000);
         return rows.filter((row) => parseDateValue(row.date) >= cutoff);
     }
 
     function resetDividendSection(symbol) {
-        modalDividendStatusEl.textContent = `Click "Load for Symbol" to view dividend history for ${symbol}.`;
+        modalDividendStatusEl.textContent = `Open dividend history for ${symbol}.`;
         modalDividendSummaryEl.textContent = '';
         modalDividendAnalysisEl.textContent = '';
         modalDividendListEl.innerHTML = '';
@@ -264,7 +355,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!modalLtpHistoryStatusEl) return;
         currentLtpHistoryRows = [];
         currentLtpHistoryRange = '1m';
-        modalLtpHistoryStatusEl.textContent = `Click "Load for Symbol" to view price history for ${symbol}.`;
+        currentLtpChartHoverIndex = null;
+        currentLtpChartPinnedIndex = null;
+        hideLtpChartTooltip();
+        modalLtpHistoryStatusEl.textContent = `Open price history for ${symbol}.`;
         modalLtpHistorySummaryEl.textContent = '';
         modalLtpHistoryListEl.innerHTML = '';
         if (modalLtpHistoryStatsEl) modalLtpHistoryStatsEl.innerHTML = '';
@@ -272,18 +366,119 @@ document.addEventListener('DOMContentLoaded', () => {
         drawLtpHistoryChart([]);
     }
 
+    function resetFinancialSection(symbol) {
+        if (!modalFinancialStatusEl) return;
+        modalFinancialStatusEl.textContent = `Open financial reports for ${symbol}.`;
+        modalFinancialSummaryEl.innerHTML = '';
+        modalFinancialListEl.innerHTML = '';
+        closeFinancialDocumentViewer();
+    }
+
+    function resetNewsSection(symbol) {
+        if (!modalNewsStatusEl) return;
+        modalNewsStatusEl.textContent = `Open related news for ${symbol}.`;
+        modalNewsListEl.innerHTML = '';
+    }
+
+    function resetCompanyProfilePreview(symbol) {
+        if (modalCompanyProfileTitleEl) modalCompanyProfileTitleEl.textContent = `Loading profile for ${symbol}...`;
+        if (modalCompanyProfileTextEl) modalCompanyProfileTextEl.textContent = 'Company profile loads on demand for this symbol.';
+        if (modalCompanyProfileFactsEl) modalCompanyProfileFactsEl.innerHTML = '';
+    }
+
+    function setCompanyProfileOpen(isOpen) {
+        if (!modalCompanyProfileBodyEl || !modalCompanyProfileToggleBtn) return;
+        modalCompanyProfileBodyEl.classList.toggle('is-hidden', !isOpen);
+        modalCompanyProfileToggleBtn.setAttribute('aria-expanded', String(isOpen));
+        modalCompanyProfileToggleBtn.classList.toggle('is-collapsed', !isOpen);
+    }
+
+    function closeFinancialDocumentViewer() {
+        if (modalFinancialDocumentViewerEl) modalFinancialDocumentViewerEl.classList.add('is-hidden');
+        if (modalFinancialListEl) modalFinancialListEl.classList.remove('is-hidden');
+        if (modalFinancialSummaryEl) modalFinancialSummaryEl.classList.remove('is-hidden');
+    }
+
+    function openFinancialDocumentViewer(url, title) {
+        if (!modalFinancialDocumentViewerEl) return;
+        modalFinancialDocumentTitleEl.textContent = title || 'Report document';
+        if (modalFinancialDocumentOpenEl) {
+            modalFinancialDocumentOpenEl.href = url;
+        }
+        modalFinancialSummaryEl.classList.add('is-hidden');
+        modalFinancialListEl.classList.add('is-hidden');
+        modalFinancialDocumentViewerEl.classList.remove('is-hidden');
+    }
+
+    function renderCompanyProfilePreview(profile) {
+        if (!profile) {
+            if (modalCompanyProfileTitleEl) modalCompanyProfileTitleEl.textContent = 'No company profile found';
+            if (modalCompanyProfileTextEl) modalCompanyProfileTextEl.textContent = 'NEPSE has no profile text for this symbol in the current dataset.';
+            if (modalCompanyProfileFactsEl) modalCompanyProfileFactsEl.innerHTML = '';
+            return;
+        }
+
+        const profileText = String(profile.profile || '').replace(/\s+/g, ' ').trim();
+        if (modalCompanyProfileTitleEl) {
+            modalCompanyProfileTitleEl.textContent = profileText ? 'Brief profile from NEPSE' : 'Contact details from NEPSE';
+        }
+        if (modalCompanyProfileTextEl) {
+            modalCompanyProfileTextEl.textContent = profileText || 'NEPSE has contact details for this symbol, but no profile description yet.';
+        }
+
+        const facts = [
+            ['Address', profile.address],
+            ['Phone', profile.phone],
+            ['Email', profile.email],
+            ['Contact', profile.contact_person],
+        ].filter(([, value]) => value);
+
+        if (modalCompanyProfileFactsEl) {
+            modalCompanyProfileFactsEl.innerHTML = facts.length
+                ? facts.map(([label, value]) => `<span><strong>${escapeAttribute(label)}</strong>${escapeAttribute(value)}</span>`).join('')
+                : '';
+        }
+    }
+
+    async function loadCompanyProfilePreviewForCurrentSymbol() {
+        if (!currentModalSymbol) return;
+        try {
+            const rows = await getCompanyProfilesData();
+            const profile = rows.find((row) => normalizeSymbol(row.symbol) === currentModalSymbol);
+            renderCompanyProfilePreview(profile);
+        } catch (err) {
+            console.error('Company profile load failed:', err);
+            if (modalCompanyProfileTitleEl) modalCompanyProfileTitleEl.textContent = 'Company profile unavailable';
+            if (modalCompanyProfileTextEl) modalCompanyProfileTextEl.textContent = 'Could not load the company profile right now.';
+            if (modalCompanyProfileFactsEl) modalCompanyProfileFactsEl.innerHTML = '';
+        }
+    }
+
     function setModalFocusMode(mode) {
         const isDividend = mode === 'dividend';
         const isLtpHistory = mode === 'ltp-history';
+        const isFinancial = mode === 'financial';
+        const isNews = mode === 'news';
 
         stockModal.classList.toggle('dividend-focus', isDividend);
         stockModal.classList.toggle('ltp-history-focus', isLtpHistory);
+        stockModal.classList.toggle('financial-focus', isFinancial);
+        stockModal.classList.toggle('news-focus', isNews);
         modalDividendBlockEl.classList.toggle('is-hidden', !isDividend);
         if (modalLtpHistoryBlockEl) {
             modalLtpHistoryBlockEl.classList.toggle('is-hidden', !isLtpHistory);
         }
+        if (modalFinancialBlockEl) {
+            modalFinancialBlockEl.classList.toggle('is-hidden', !isFinancial);
+        }
+        if (modalNewsBlockEl) {
+            modalNewsBlockEl.classList.toggle('is-hidden', !isNews);
+        }
         if (modalMarketGridEl) {
-            modalMarketGridEl.classList.toggle('is-hidden', isDividend || isLtpHistory);
+            modalMarketGridEl.classList.toggle('is-hidden', isDividend || isLtpHistory || isFinancial || isNews);
+        }
+        if (modalCompanyProfilePreviewEl) {
+            modalCompanyProfilePreviewEl.classList.toggle('is-hidden', isDividend || isLtpHistory || isFinancial || isNews);
         }
     }
 
@@ -344,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
             : 0;
         const percent = firstLtp ? (change / firstLtp) * 100 : 0;
         const sign = change > 0 ? '+' : '';
-        return `${rows.length} daily records from ${safeValue(first.date)} to ${safeValue(latest.date)} | ${sign}${change.toFixed(2)} (${sign}${percent.toFixed(2)}%)`;
+        return `${rows.length} daily records from ${safeValue(first.date)} to ${safeValue(latest.date)}. Latest close Rs. ${formatNumber(latestLtp, 2)} with ${sign}${change.toFixed(2)} (${sign}${percent.toFixed(2)}%) over this range.`;
     }
 
     function updateLtpRangeButtons() {
@@ -365,18 +560,76 @@ document.addEventListener('DOMContentLoaded', () => {
         const ltpValues = rows.map((row) => Number(row.ltp)).filter(Number.isFinite);
         const volumeTotal = rows.reduce((sum, row) => sum + (Number(row.volume) || 0), 0);
         const turnoverTotal = rows.reduce((sum, row) => sum + (Number(row.turnover) || 0), 0);
+        const tradesTotal = rows.reduce((sum, row) => sum + (Number(row.trades) || 0), 0);
         const high = ltpValues.length ? Math.max(...ltpValues) : NaN;
         const low = ltpValues.length ? Math.min(...ltpValues) : NaN;
+        const sorted = rows.slice().sort((a, b) => String(a.date || '').localeCompare(String(b.date || '')));
+        const first = sorted[0] || {};
+        const latest = sorted[sorted.length - 1] || {};
+        const change = Number(latest.ltp) - Number(first.ltp);
+        const percent = Number(first.ltp) ? (change / Number(first.ltp)) * 100 : 0;
+        const sign = change > 0 ? '+' : '';
+        const avgVolume = rows.length ? volumeTotal / rows.length : 0;
 
         modalLtpHistoryStatsEl.innerHTML = `
+            <div><span>Latest</span><strong>Rs. ${formatNumber(Number(latest.ltp), 2)}</strong></div>
+            <div><span>Range Change</span><strong class="${change >= 0 ? 'up-text' : 'down-text'}">${sign}${formatNumber(change, 2)} (${sign}${percent.toFixed(2)}%)</strong></div>
             <div><span>High</span><strong>Rs. ${formatNumber(high, 2)}</strong></div>
             <div><span>Low</span><strong>Rs. ${formatNumber(low, 2)}</strong></div>
-            <div><span>Volume</span><strong>${formatCompactNumber(volumeTotal)}</strong></div>
+            <div><span>Avg Volume</span><strong>${formatCompactNumber(avgVolume)}</strong></div>
+            <div><span>Total Volume</span><strong>${formatCompactNumber(volumeTotal)}</strong></div>
             <div><span>Turnover</span><strong>Rs. ${formatCompactNumber(turnoverTotal)}</strong></div>
+            <div><span>Trades</span><strong>${formatCompactNumber(tradesTotal)}</strong></div>
         `;
     }
 
-    function drawLtpHistoryChart(rows) {
+    function hideLtpChartTooltip() {
+        if (modalLtpHistoryTooltipEl) modalLtpHistoryTooltipEl.classList.add('is-hidden');
+    }
+
+    function drawLtpChartSelection(ctx, point, row, cssHeight, pinned) {
+        if (!point || !row) return;
+        ctx.save();
+        ctx.strokeStyle = pinned ? 'rgba(251, 191, 36, 0.9)' : 'rgba(226, 232, 240, 0.55)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.moveTo(point.x, 12);
+        ctx.lineTo(point.x, cssHeight - 22);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = pinned ? 'rgba(251, 191, 36, 1)' : 'rgba(248, 250, 252, 1)';
+        ctx.strokeStyle = 'rgba(10, 10, 10, 0.9)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(point.x, point.y, pinned ? 5.5 : 4.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+    }
+
+    function showLtpChartTooltip(index, pinned = false) {
+        if (!modalLtpHistoryTooltipEl || !currentLtpChartState.rows[index] || !currentLtpChartState.points[index]) return;
+        const row = currentLtpChartState.rows[index];
+        const point = currentLtpChartState.points[index];
+        const tooltipWidth = 190;
+        const left = Math.min(
+            Math.max(point.x - tooltipWidth / 2, 8),
+            Math.max(8, currentLtpChartState.cssWidth - tooltipWidth - 8)
+        );
+        const top = point.y > 78 ? point.y - 70 : point.y + 16;
+
+        modalLtpHistoryTooltipEl.innerHTML = `
+            <span>${pinned ? 'Selected' : 'Price point'} | ${escapeAttribute(row.date)}</span>
+            <strong>Rs. ${formatNumber(Number(row.ltp), 2)}</strong>
+            <small>Vol ${formatCompactNumber(Number(row.volume))} | Trades ${formatNumber(Number(row.trades), 0)}</small>
+        `;
+        modalLtpHistoryTooltipEl.style.left = `${left}px`;
+        modalLtpHistoryTooltipEl.style.top = `${top}px`;
+        modalLtpHistoryTooltipEl.classList.remove('is-hidden');
+    }
+
+    function drawLtpHistoryChart(rows, activeIndex = null) {
         if (!modalLtpHistoryChartEl) return;
         const ctx = modalLtpHistoryChartEl.getContext('2d');
         if (!ctx) return;
@@ -395,6 +648,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .filter((row) => Number.isFinite(Number(row.ltp)));
 
         if (sorted.length === 0) {
+            currentLtpChartState = { rows: [], points: [], cssWidth, cssHeight };
+            hideLtpChartTooltip();
             ctx.fillStyle = 'rgba(160, 168, 200, 0.9)';
             ctx.font = '500 13px Inter, sans-serif';
             ctx.textAlign = 'center';
@@ -429,6 +684,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const y = pad.top + chartH - ((value - min) / span) * chartH;
             return { x, y };
         });
+        currentLtpChartState = { rows: sorted, points, cssWidth, cssHeight };
 
         ctx.beginPath();
         points.forEach((point, index) => {
@@ -461,15 +717,44 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.textAlign = 'center';
         ctx.fillText(sorted[0].date, pad.left, cssHeight - 6);
         ctx.fillText(sorted[sorted.length - 1].date, pad.left + chartW, cssHeight - 6);
+
+        const selectedIndex = Number.isInteger(activeIndex) ? activeIndex : currentLtpChartPinnedIndex;
+        if (Number.isInteger(selectedIndex) && points[selectedIndex]) {
+            drawLtpChartSelection(ctx, points[selectedIndex], sorted[selectedIndex], cssHeight, selectedIndex === currentLtpChartPinnedIndex);
+            showLtpChartTooltip(selectedIndex, selectedIndex === currentLtpChartPinnedIndex);
+        } else {
+            hideLtpChartTooltip();
+        }
     }
 
     function renderCurrentLtpHistoryRange() {
         const rows = filterLtpRowsByRange(currentLtpHistoryRows, currentLtpHistoryRange);
+        currentLtpChartHoverIndex = null;
+        currentLtpChartPinnedIndex = null;
         modalLtpHistorySummaryEl.textContent = buildLtpHistorySummary(rows);
         renderLtpHistoryStats(rows);
         drawLtpHistoryChart(rows);
         renderLtpHistoryRows(rows);
         updateLtpRangeButtons();
+    }
+
+    function getNearestLtpChartIndex(event) {
+        if (!modalLtpHistoryChartEl || !currentLtpChartState.points.length) return null;
+        const rect = modalLtpHistoryChartEl.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        let nearest = null;
+        let nearestDistance = Infinity;
+
+        currentLtpChartState.points.forEach((point, index) => {
+            const distance = Math.hypot(point.x - x, point.y - y);
+            if (distance < nearestDistance) {
+                nearestDistance = distance;
+                nearest = index;
+            }
+        });
+
+        return nearestDistance <= 28 ? nearest : null;
     }
 
     function renderLtpHistoryRows(rows) {
@@ -479,7 +764,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        modalLtpHistoryListEl.innerHTML = rows.slice(0, 20).map((row) => `
+        const sorted = rows
+            .slice()
+            .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+
+        modalLtpHistoryListEl.innerHTML = sorted.slice(0, 30).map((row) => `
             <div class="history-row">
                 <div class="history-row-head">
                     <strong>${safeValue(row.date)}</strong>
@@ -495,9 +784,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function loadLtpHistoryForCurrentSymbol() {
-        if (!currentModalSymbol || !modalLtpHistoryLoadBtn) return;
+        if (!currentModalSymbol) return;
         setModalFocusMode('ltp-history');
-        modalLtpHistoryLoadBtn.disabled = true;
         modalLtpHistoryStatusEl.textContent = `Loading price history for ${currentModalSymbol}...`;
         modalLtpHistorySummaryEl.textContent = '';
         modalLtpHistoryListEl.innerHTML = '';
@@ -515,15 +803,134 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (err) {
             console.error('LTP history load failed:', err);
             modalLtpHistoryStatusEl.textContent = 'Failed to load price history.';
-        } finally {
-            modalLtpHistoryLoadBtn.disabled = false;
+        }
+    }
+
+    function getLatestReport(reports) {
+        if (!Array.isArray(reports) || reports.length === 0) return null;
+        const sorted = reports.slice().sort((a, b) => {
+            const aDoc = Array.isArray(a.documents) ? a.documents[0] : null;
+            const bDoc = Array.isArray(b.documents) ? b.documents[0] : null;
+            return parseDateValue(bDoc?.submitted_date) - parseDateValue(aDoc?.submitted_date);
+        });
+        return sorted[0];
+    }
+
+    function renderFinancialSummary(company, reports) {
+        const latest = getLatestReport(reports);
+        if (!latest) {
+            modalFinancialSummaryEl.innerHTML = '';
+            return;
+        }
+
+        const latestDoc = Array.isArray(latest.documents) ? latest.documents[0] : null;
+        modalFinancialSummaryEl.innerHTML = `
+            <div class="financial-kpi-grid">
+                <div class="financial-kpi"><span>Latest Report</span><strong>${safeValue(latest.type)}</strong><small>${safeValue(latest.quarter || latest.fy_nepali || latest.fy)}</small></div>
+                <div class="financial-kpi"><span>EPS</span><strong>${formatNumber(Number(latest.eps), 2)}</strong><small>Earnings per share</small></div>
+                <div class="financial-kpi"><span>P/E</span><strong>${formatNumber(Number(latest.pe), 2)}</strong><small>Price to earnings</small></div>
+                <div class="financial-kpi"><span>Profit</span><strong>Rs. ${formatCompactNumber(Number(latest.profit))}</strong><small>${safeValue(latest.fy_nepali || latest.fy)}</small></div>
+                <div class="financial-kpi"><span>Paid-up Capital</span><strong>Rs. ${formatCompactNumber(Number(latest.paid_up_capital))}</strong><small>Reported capital</small></div>
+                <div class="financial-kpi"><span>Net Worth / Share</span><strong>${formatNumber(Number(latest.net_worth_per_share), 2)}</strong><small>Submitted ${safeValue(latestDoc?.submitted_date)}</small></div>
+            </div>
+            <p class="financial-note">NPL / Non-performing loan is not available in NEPSE's structured financial JSON; it may exist only inside attached PDF reports.</p>
+        `;
+    }
+
+    function renderFinancialReports(company, metadata) {
+        const reports = Array.isArray(company?.reports) ? company.reports : [];
+        renderFinancialSummary(company, reports);
+
+        if (!reports.length) {
+            modalFinancialListEl.innerHTML = '';
+            return;
+        }
+
+        const rowsHtml = reports.map((report) => {
+            const documents = Array.isArray(report.documents) ? report.documents : [];
+            const documentLinks = documents.length
+                ? documents.map((doc, index) => {
+                    const docUrl = buildDocumentUrl(doc.path, metadata);
+                    const docTitle = `${safeValue(report.type)} ${safeValue(report.quarter || report.fy_nepali || report.fy)}`;
+                    return `
+                    <button type="button" data-doc-url="${escapeAttribute(docUrl)}" data-doc-title="${escapeAttribute(docTitle)}">
+                        <i class="fa-regular fa-file-pdf"></i> ${index + 1}${doc.submitted_date ? ` (${safeValue(doc.submitted_date)})` : ''}
+                    </button>
+                `;
+                }).join('')
+                : '<span class="financial-document-empty">No attached documents</span>';
+
+            return `
+                <tr>
+                    <td>
+                        <strong>${safeValue(report.type)}</strong>
+                        <span>${safeValue(report.quarter || 'Annual')}</span>
+                    </td>
+                    <td>
+                        <strong>${safeValue(report.fy_nepali || report.fy)}</strong>
+                        <span>${safeValue(report.fy)}</span>
+                    </td>
+                    <td>${formatNumber(Number(report.eps), 2)}</td>
+                    <td>${formatNumber(Number(report.pe), 2)}</td>
+                    <td>Rs. ${formatCompactNumber(Number(report.profit))}</td>
+                    <td>Rs. ${formatCompactNumber(Number(report.paid_up_capital))}</td>
+                    <td>${formatNumber(Number(report.net_worth_per_share), 2)}</td>
+                    <td><div class="financial-documents">${documentLinks}</div></td>
+                </tr>
+            `;
+        }).join('');
+
+        modalFinancialListEl.innerHTML = `
+            <div class="financial-table-wrap">
+                <table class="financial-report-table">
+                    <thead>
+                        <tr>
+                            <th>Report</th>
+                            <th>Fiscal Year</th>
+                            <th>EPS</th>
+                            <th>P/E</th>
+                            <th>Profit</th>
+                            <th>Paid-up Capital</th>
+                            <th>Net Worth / Share</th>
+                            <th>Documents</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rowsHtml}</tbody>
+                </table>
+            </div>
+        `;
+    }
+
+    async function loadFinancialReportsForCurrentSymbol() {
+        if (!currentModalSymbol) return;
+        setModalFocusMode('financial');
+        modalFinancialStatusEl.textContent = `Loading financial reports for ${currentModalSymbol}...`;
+        modalFinancialSummaryEl.innerHTML = '';
+        modalFinancialListEl.innerHTML = '';
+        closeFinancialDocumentViewer();
+
+        try {
+            const [rows, metadata] = await Promise.all([
+                getFinancialReportsData(),
+                getFinancialMetadata()
+            ]);
+            const company = rows.find((row) => normalizeSymbol(row.symbol) === currentModalSymbol);
+            if (!company || !Array.isArray(company.reports) || company.reports.length === 0) {
+                modalFinancialStatusEl.textContent = `No structured financial reports found for ${currentModalSymbol}.`;
+                return;
+            }
+
+            modalFinancialStatusEl.textContent = `Loaded ${company.reports.length} financial reports for ${currentModalSymbol}.`;
+            renderFinancialReports(company, metadata);
+        } catch (err) {
+            console.error('Financial reports load failed:', err);
+            modalFinancialStatusEl.textContent = 'Failed to load financial reports.';
         }
     }
 
     async function loadDividendHistoryForCurrentSymbol() {
         if (!currentModalSymbol) return;
         setModalFocusMode('dividend');
-        modalDividendLoadBtn.disabled = true;
         modalDividendStatusEl.textContent = `Loading dividend history for ${currentModalSymbol}...`;
         modalDividendSummaryEl.textContent = '';
         modalDividendListEl.innerHTML = '';
@@ -547,8 +954,82 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (err) {
             console.error('Dividend history load failed:', err);
             modalDividendStatusEl.textContent = 'Failed to load dividend history.';
-        } finally {
-            modalDividendLoadBtn.disabled = false;
+        }
+    }
+
+    function normalizeNewsRows(rows, category) {
+        if (!Array.isArray(rows)) return [];
+        return rows.map((item) => ({
+            category,
+            symbol: normalizeSymbol(item.symbol || ''),
+            title: item.title || item.noticeHeading || item.newsHeadline || item.messageTitle || 'Untitled update',
+            body: stripHtml(item.body || item.noticeBody || item.newsBody || item.messageBody || ''),
+            source: item.source || '',
+            date: item.publishedAt || item.modifiedDate || item.addedDate || item.expiresAt || item.noticeExpiryDate || '',
+            documents: Array.isArray(item.documents) ? item.documents : [],
+            filePath: item.filePath || item.noticeFilePath || item.fileUrl || ''
+        })).filter((item) => item.title || item.body);
+    }
+
+    function relatedNewsMatches(item, symbol, companyName) {
+        if (item.symbol && item.symbol === symbol) return true;
+        const haystack = `${item.title || ''} ${item.body || ''} ${item.source || ''}`.toUpperCase();
+        if (haystack.includes(symbol)) return true;
+
+        const usefulWords = String(companyName || '')
+            .toUpperCase()
+            .split(/\s+/)
+            .map((word) => word.replace(/[^A-Z0-9]/g, ''))
+            .filter((word) => word.length >= 4 && !['LIMITED', 'BITTIYA', 'SANSTHA', 'COMPANY'].includes(word));
+        return usefulWords.slice(0, 3).some((word) => haystack.includes(word));
+    }
+
+    function renderModalNewsRows(rows) {
+        if (!rows.length) {
+            modalNewsListEl.innerHTML = '';
+            return;
+        }
+
+        modalNewsListEl.innerHTML = rows.slice(0, 16).map((item) => {
+            const firstDoc = Array.isArray(item.documents) ? item.documents[0] : null;
+            const docUrl = firstDoc?.fileUrl || item.filePath || '';
+            const docLink = docUrl
+                ? `<a href="${escapeAttribute(docUrl)}" target="_blank" rel="noopener noreferrer">Open document</a>`
+                : '';
+            return `
+                <article class="modal-news-item">
+                    <div class="notice-head">
+                        <span class="chip small">${escapeAttribute(item.category)}</span>
+                        <span class="notice-date">${item.date ? new Date(item.date).toLocaleDateString() : 'N/A'}</span>
+                    </div>
+                    <h4>${escapeAttribute(item.title)}</h4>
+                    <p>${escapeAttribute(item.body || 'No description provided.')}</p>
+                    ${docLink}
+                </article>
+            `;
+        }).join('');
+    }
+
+    async function loadNewsForCurrentSymbol() {
+        if (!currentModalSymbol) return;
+        setModalFocusMode('news');
+        modalNewsStatusEl.textContent = `Loading related news for ${currentModalSymbol}...`;
+        modalNewsListEl.innerHTML = '';
+
+        try {
+            const companyName = document.getElementById('modal-company-name')?.textContent || '';
+            const rows = await getModalNewsData();
+            const matched = rows.filter((item) => relatedNewsMatches(item, currentModalSymbol, companyName));
+            if (!matched.length) {
+                modalNewsStatusEl.textContent = `No related news found for ${currentModalSymbol}.`;
+                return;
+            }
+
+            modalNewsStatusEl.textContent = `Loaded ${matched.length} related updates for ${currentModalSymbol}.`;
+            renderModalNewsRows(matched);
+        } catch (err) {
+            console.error('Related news load failed:', err);
+            modalNewsStatusEl.textContent = 'Failed to load related news.';
         }
     }
 
@@ -969,18 +1450,23 @@ document.addEventListener('DOMContentLoaded', () => {
     function normalizeNotices(notices) {
         const rows = [];
         const categories = ['general', 'company', 'exchange'];
+        const noticeGroups = notices && typeof notices === 'object' && !Array.isArray(notices)
+            ? notices
+            : { general: Array.isArray(notices) ? notices : [] };
 
         categories.forEach(category => {
-            if (!Array.isArray(notices[category])) return;
-            notices[category].forEach(item => {
-                const title = item.noticeHeading || item.newsHeadline || item.messageTitle || 'Untitled notice';
-                const body = item.noticeBody || item.newsBody || item.messageBody || '';
-                const rawDate = item.modifiedDate || item.addedDate || item.noticeExpiryDate || item.expiryDate || '';
+            if (!Array.isArray(noticeGroups[category])) return;
+            noticeGroups[category].forEach(item => {
+                const title = item.title || item.noticeHeading || item.newsHeadline || item.messageTitle || 'Untitled notice';
+                const body = item.body || item.noticeBody || item.newsBody || item.messageBody || '';
+                const rawDate = item.publishedAt || item.modifiedDate || item.addedDate || item.expiresAt || item.noticeExpiryDate || item.expiryDate || '';
+                const type = item.type || (category === 'general' ? 'Notice' : category);
                 rows.push({
-                    category,
+                    category: type,
                     title,
                     body: stripHtml(body),
-                    date: rawDate
+                    date: rawDate,
+                    filePath: item.filePath || item.noticeFilePath || item.fileUrl || ''
                 });
             });
         });
@@ -1002,11 +1488,11 @@ document.addEventListener('DOMContentLoaded', () => {
         noticeFeedEl.innerHTML = entries.map(item => `
             <div class="notice-item">
                 <div class="notice-head">
-                    <span class="chip small">${item.category}</span>
+                    <span class="chip small">${escapeAttribute(item.category)}</span>
                     <span class="notice-date">${item.date ? new Date(item.date).toLocaleDateString() : 'N/A'}</span>
                 </div>
-                <p class="notice-title">${item.title}</p>
-                <p class="notice-body">${item.body || 'No description provided.'}</p>
+                <p class="notice-title">${escapeAttribute(item.title)}</p>
+                <p class="notice-body">${escapeAttribute(item.body || 'No description provided.')}</p>
             </div>
         `).join('');
     }
@@ -1523,6 +2009,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modal-high').textContent = formatNumber(stock.high, 2);
         document.getElementById('modal-low').textContent = formatNumber(stock.low, 2);
         document.getElementById('modal-volume').textContent = formatNumber(Math.floor(Number(stock.volume || 0)), 0);
+        document.getElementById('modal-turnover').textContent = `Rs. ${formatCompactNumber(Number(stock.turnover || 0))}`;
+        document.getElementById('modal-trades').textContent = formatNumber(Number(stock.trades || 0), 0);
+        document.getElementById('modal-market-cap').textContent = stock.market_cap ? `Rs. ${formatCompactNumber(Number(stock.market_cap))}` : '-';
+        document.getElementById('modal-day-range').textContent = `${formatNumber(Number(stock.low), 2)} - ${formatNumber(Number(stock.high), 2)}`;
 
         const lastUpdated = new Date(stock.last_updated);
         document.getElementById('modal-last-updated').textContent = lastUpdated.toLocaleString([], {
@@ -1535,7 +2025,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         resetDividendSection(currentModalSymbol);
         resetLtpHistorySection(currentModalSymbol);
+        resetFinancialSection(currentModalSymbol);
+        resetNewsSection(currentModalSymbol);
+        resetCompanyProfilePreview(currentModalSymbol);
+        setCompanyProfileOpen(false);
         setModalFocusMode(null);
+        loadCompanyProfilePreviewForCurrentSymbol();
 
         stockModal.classList.add('show');
         document.body.style.overflow = 'hidden';
@@ -1552,17 +2047,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     closeModalBtn.addEventListener('click', closeModal);
-    if (modalDividendLoadBtn) {
-        modalDividendLoadBtn.addEventListener('click', loadDividendHistoryForCurrentSymbol);
-    }
     if (modalDividendOpenBtn) {
         modalDividendOpenBtn.addEventListener('click', loadDividendHistoryForCurrentSymbol);
     }
     if (modalDividendBackBtn) {
         modalDividendBackBtn.addEventListener('click', () => setModalFocusMode(null));
-    }
-    if (modalLtpHistoryLoadBtn) {
-        modalLtpHistoryLoadBtn.addEventListener('click', loadLtpHistoryForCurrentSymbol);
     }
     if (modalLtpHistoryOpenBtn) {
         modalLtpHistoryOpenBtn.addEventListener('click', loadLtpHistoryForCurrentSymbol);
@@ -1570,12 +2059,75 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalLtpHistoryBackBtn) {
         modalLtpHistoryBackBtn.addEventListener('click', () => setModalFocusMode(null));
     }
+    if (modalFinancialOpenBtn) {
+        modalFinancialOpenBtn.addEventListener('click', loadFinancialReportsForCurrentSymbol);
+    }
+    if (modalNewsOpenBtn) {
+        modalNewsOpenBtn.addEventListener('click', loadNewsForCurrentSymbol);
+    }
+    if (modalNewsBackBtn) {
+        modalNewsBackBtn.addEventListener('click', () => setModalFocusMode(null));
+    }
+    if (modalCompanyProfileToggleBtn) {
+        modalCompanyProfileToggleBtn.addEventListener('click', () => {
+            const isOpen = modalCompanyProfileToggleBtn.getAttribute('aria-expanded') !== 'false';
+            setCompanyProfileOpen(!isOpen);
+        });
+    }
+    if (modalFinancialBackBtn) {
+        modalFinancialBackBtn.addEventListener('click', () => {
+            closeFinancialDocumentViewer();
+            setModalFocusMode(null);
+        });
+    }
+    if (modalFinancialDocumentBackBtn) {
+        modalFinancialDocumentBackBtn.addEventListener('click', closeFinancialDocumentViewer);
+    }
+    if (modalFinancialListEl) {
+        modalFinancialListEl.addEventListener('click', (event) => {
+            const button = event.target.closest('[data-doc-url]');
+            if (!button) return;
+            openFinancialDocumentViewer(button.getAttribute('data-doc-url'), button.getAttribute('data-doc-title'));
+        });
+    }
     document.querySelectorAll('[data-history-range]').forEach((button) => {
         button.addEventListener('click', () => {
             currentLtpHistoryRange = button.getAttribute('data-history-range') || '1m';
             renderCurrentLtpHistoryRange();
         });
     });
+    if (modalLtpHistoryChartEl) {
+        modalLtpHistoryChartEl.addEventListener('mousemove', (event) => {
+            if (currentLtpChartPinnedIndex !== null) return;
+            const nearest = getNearestLtpChartIndex(event);
+            if (nearest === currentLtpChartHoverIndex) return;
+            currentLtpChartHoverIndex = nearest;
+            modalLtpHistoryChartEl.classList.toggle('is-point-hovered', nearest !== null);
+            drawLtpHistoryChart(
+                filterLtpRowsByRange(currentLtpHistoryRows, currentLtpHistoryRange),
+                nearest
+            );
+        });
+        modalLtpHistoryChartEl.addEventListener('mouseleave', () => {
+            if (currentLtpChartPinnedIndex !== null) return;
+            currentLtpChartHoverIndex = null;
+            modalLtpHistoryChartEl.classList.remove('is-point-hovered');
+            drawLtpHistoryChart(filterLtpRowsByRange(currentLtpHistoryRows, currentLtpHistoryRange));
+        });
+        modalLtpHistoryChartEl.addEventListener('click', (event) => {
+            const nearest = getNearestLtpChartIndex(event);
+            if (nearest === null) {
+                currentLtpChartPinnedIndex = null;
+                currentLtpChartHoverIndex = null;
+                drawLtpHistoryChart(filterLtpRowsByRange(currentLtpHistoryRows, currentLtpHistoryRange));
+                return;
+            }
+            const wasPinned = currentLtpChartPinnedIndex === nearest;
+            currentLtpChartPinnedIndex = wasPinned ? null : nearest;
+            currentLtpChartHoverIndex = nearest;
+            drawLtpHistoryChart(filterLtpRowsByRange(currentLtpHistoryRows, currentLtpHistoryRange), wasPinned ? null : nearest);
+        });
+    }
 
     window.addEventListener('click', (e) => {
         if (e.target === stockModal) {

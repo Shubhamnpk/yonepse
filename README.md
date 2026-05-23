@@ -25,6 +25,7 @@ A modern dashboard and static JSON API for tracking Nepal Stock Exchange (NEPSE)
 | [GitHub Repository](https://github.com/Shubhamnpk/yonepse) | Source code and project history |
 | [Issues](https://github.com/Shubhamnpk/yonepse/issues) | Bug reports and feature requests |
 | [Contributing Guide](CONTRIBUTING.md) | Local setup, PR checklist, and data change notes |
+| [Workflow Flowchart](pages/workflow.html) | Cron schedules, data flow, update rules, and estimated runtime |
 | [Security Policy](SECURITY.md) | Private vulnerability reporting |
 
 ---
@@ -201,6 +202,19 @@ python official_scraper.py
 # Update broker data (forced)
 python official_scraper.py --brokers
 
+# Refresh company financial reports for all company IDs
+# Existing historical reports are preserved; only new reports are appended.
+# By default this all-company fetch runs at most once per NPT day.
+python official_scraper.py --financials
+
+# Refresh brief company profiles for all company IDs
+# Existing profiles are replaced when NEPSE modifies the source profile data.
+# By default this all-company fetch runs at most once per NPT day.
+python official_scraper.py --profiles
+
+# Manual override for same-day rechecks
+python official_scraper.py --financials --profiles --force-financials --force-profiles
+
 # Update IPO data
 python upcoming_ipo_scraper.py
 
@@ -261,6 +275,10 @@ Migration notice: use the new endpoints listed below for all new integrations. L
 | `/data/notify/exchange_messages.json` | Array | Exchange announcements |
 | `/data/other/brokers.json` | Array | Complete broker directory |
 | `/data/other/securities.json` | Array | Master list of securities metadata |
+| `/data/company/profiles.json` | Array | Brief company profiles and contact facts from NEPSE |
+| `/data/company/financials.json` | Array | Compact company financial reports from `/company/detail/{company_id}` |
+| `/data/company/metadata.json` | Object | Metadata and document base URL for company financial reports |
+| `/data/company/field_descriptions.json` | Object | Full forms and descriptions for financial report fields |
 | `/data/market/supply_demand.json` | Object | Supply/demand snapshots |
 | `/data/ipo/upcoming.json` | Array | Upcoming IPO listings |
 | `/data/ipo/old.json` | Array | Historical IPO archive |

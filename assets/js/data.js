@@ -40,6 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'market/sector_indices.json',
         'market/supply_demand.json',
         'market/top_stocks.json',
+        'company/profiles.json',
+        'company/financials.json',
+        'company/metadata.json',
+        'company/field_descriptions.json',
         'ipo/upcoming.json',
         'ipo/old.json'
     ];

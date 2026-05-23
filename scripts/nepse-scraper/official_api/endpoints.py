@@ -24,6 +24,7 @@ api_dict = {
     "security":{"api":"/api/nots/security", "method":"GET"},
     "ticker_info_api":{"api":"/api/nots/security", "method":"POST"},
     "ticker_contact_api":{"api":"/api/nots/security/profile", "method":"GET"},
+    "company_financials_api":{"api":"/api/nots/application/reports", "method":"GET"},
     "ticker_price_api":{"api":"/api/nots/market/security/price","method":"GET"},
     "nepse_index_api": {"api": "/api/nots/nepse-index", "method": "GET"},
     "security_daily_trade_stat_api": {"api": "/api/nots/securityDailyTradeStat", "method": "GET"},

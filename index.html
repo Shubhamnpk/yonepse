@@ -27,7 +27,7 @@
         rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=price-chart-points-20260523">
 </head>
 
 <body>
@@ -260,40 +260,109 @@
                         <span class="label">Volume</span>
                         <span id="modal-volume" class="value">0.00</span>
                     </div>
+                    <div class="modal-detail-item">
+                        <span class="label">Turnover</span>
+                        <span id="modal-turnover" class="value">0.00</span>
+                    </div>
+                    <div class="modal-detail-item">
+                        <span class="label">Trades</span>
+                        <span id="modal-trades" class="value">0.00</span>
+                    </div>
+                    <div class="modal-detail-item">
+                        <span class="label">Market Cap</span>
+                        <span id="modal-market-cap" class="value">0.00</span>
+                    </div>
+                    <div class="modal-detail-item">
+                        <span class="label">Range</span>
+                        <span id="modal-day-range" class="value">0.00</span>
+                    </div>
                 </div>
+                <section id="modal-company-profile-preview" class="modal-company-profile-preview" aria-live="polite">
+                    <div class="financial-preview-head">
+                        <button id="modal-company-profile-toggle" class="financial-preview-toggle" type="button"
+                            aria-expanded="false" aria-controls="modal-company-profile-body">
+                            <i class="fa-solid fa-chevron-down"></i>
+                            <span>
+                                <span class="label">About Company</span>
+                                <strong id="modal-company-profile-title">Loading company profile...</strong>
+                            </span>
+                        </button>
+                    </div>
+                    <div id="modal-company-profile-body" class="company-profile-body is-hidden">
+                        <p id="modal-company-profile-text">Company profile loads on demand for this symbol.</p>
+                        <div id="modal-company-profile-facts" class="company-profile-facts"></div>
+                    </div>
+                </section>
                 <div class="modal-footer-info">
                     <button id="modal-ltp-history-open" class="modal-dividend-btn" type="button">View Price History</button>
+                    <button id="modal-financial-open" class="modal-dividend-btn" type="button">View Financial Reports</button>
                     <button id="modal-dividend-open" class="modal-dividend-btn" type="button">View Dividend History</button>
+                    <button id="modal-news-open" class="modal-dividend-btn" type="button">View News</button>
                     <p><i class="fa-solid fa-clock"></i> Last updated: <span id="modal-last-updated">-</span></p>
                     <div id="modal-ltp-history-block" class="modal-dividend-block is-hidden">
                         <div class="modal-dividend-header">
                             <h3><i class="fa-solid fa-chart-line"></i> Price History</h3>
                             <button id="modal-ltp-history-back" class="modal-dividend-btn modal-dividend-back" type="button">Back to Market Data</button>
-                            <button id="modal-ltp-history-load" class="modal-dividend-btn" type="button">Load for Symbol</button>
                         </div>
                         <p id="modal-ltp-history-status" class="modal-dividend-status">Select a stock to load price history.</p>
                         <p id="modal-ltp-history-summary" class="modal-dividend-summary"></p>
                         <div class="modal-history-controls" aria-label="Price history range">
                             <button class="history-range-btn active" type="button" data-history-range="1m">1M</button>
+                            <button class="history-range-btn" type="button" data-history-range="3m">3M</button>
+                            <button class="history-range-btn" type="button" data-history-range="6m">6M</button>
                             <button class="history-range-btn" type="button" data-history-range="1y">1Y</button>
                             <button class="history-range-btn" type="button" data-history-range="all">All</button>
                         </div>
                         <div class="modal-history-chart-wrap">
                             <canvas id="modal-ltp-history-chart" height="150" aria-label="Price history chart" role="img"></canvas>
+                            <div id="modal-ltp-history-tooltip" class="modal-history-tooltip is-hidden"></div>
                         </div>
                         <div id="modal-ltp-history-stats" class="modal-history-stats"></div>
                         <div id="modal-ltp-history-list" class="modal-history-list"></div>
+                    </div>
+                    <div id="modal-financial-block" class="modal-dividend-block is-hidden">
+                        <div class="modal-dividend-header">
+                            <h3><i class="fa-solid fa-file-invoice-dollar"></i> Financial Reports</h3>
+                            <button id="modal-financial-back" class="modal-dividend-btn modal-dividend-back" type="button">Back to Market Data</button>
+                        </div>
+                        <p id="modal-financial-status" class="modal-dividend-status">Select a stock to load financial reports.</p>
+                        <div id="modal-financial-summary" class="modal-financial-summary"></div>
+                        <div id="modal-financial-list" class="modal-financial-list"></div>
+                        <div id="modal-financial-document-viewer" class="financial-document-viewer is-hidden">
+                            <div class="financial-document-viewer-head">
+                                <div>
+                                    <span>Document Preview</span>
+                                    <strong id="modal-financial-document-title">Report document</strong>
+                                </div>
+                                <div class="financial-document-actions">
+                                    <a id="modal-financial-document-open" rel="noopener noreferrer" target="_blank" href="#">Open document</a>
+                                    <button id="modal-financial-document-back" class="modal-dividend-btn modal-dividend-back" type="button">Back to Reports</button>
+                                </div>
+                            </div>
+                            <div id="modal-financial-document-frame" class="financial-document-placeholder">
+                                <i class="fa-regular fa-file-pdf"></i>
+                                <p>Document preview is blocked by the source site's browser security headers.</p>
+                                <span>Use Open document to view the PDF.</span>
+                            </div>
+                        </div>
                     </div>
                     <div id="modal-dividend-block" class="modal-dividend-block is-hidden">
                         <div class="modal-dividend-header">
                             <h3><i class="fa-solid fa-money-bill-trend-up"></i> Dividend History</h3>
                             <button id="modal-dividend-back" class="modal-dividend-btn modal-dividend-back" type="button">Back to Market Data</button>
-                            <button id="modal-dividend-load" class="modal-dividend-btn" type="button">Load for Symbol</button>
                         </div>
                         <p id="modal-dividend-status" class="modal-dividend-status">Select a stock to load dividend history.</p>
                         <p id="modal-dividend-summary" class="modal-dividend-summary"></p>
                         <p id="modal-dividend-analysis" class="modal-dividend-analysis"></p>
                         <div id="modal-dividend-list" class="modal-dividend-list"></div>
+                    </div>
+                    <div id="modal-news-block" class="modal-dividend-block modal-news-block is-hidden">
+                        <div class="modal-dividend-header">
+                            <h3><i class="fa-regular fa-newspaper"></i> Related News</h3>
+                            <button id="modal-news-back" class="modal-dividend-btn modal-dividend-back" type="button">Back to Market Data</button>
+                        </div>
+                        <p id="modal-news-status" class="modal-dividend-status">Select a stock to load related news.</p>
+                        <div id="modal-news-list" class="modal-news-list"></div>
                     </div>
                 </div>
             </div>
@@ -301,7 +370,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/nepali-date-converter@3.3.1/dist/nepali-date-converter.umd.min.js" defer></script>
-    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/script.js?v=company-news-modal-20260523" defer></script>
 </body>
 
 </html>

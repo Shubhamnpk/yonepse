@@ -376,6 +376,60 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericObjectArray'
 
+  /data/company/financials.json:
+    get:
+      tags: [Reference]
+      summary: Company financial reports
+      operationId: getCompanyFinancials
+      responses:
+        '200':
+          description: Financial report rows grouped by company
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObjectArray'
+
+  /data/company/profiles.json:
+    get:
+      tags: [Reference]
+      summary: Company profiles
+      operationId: getCompanyProfiles
+      responses:
+        '200':
+          description: Brief company profiles and contact facts from NEPSE
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericObjectArray'
+
+  /data/company/metadata.json:
+    get:
+      tags: [Reference]
+      summary: Company financial metadata
+      operationId: getCompanyFinancialMetadata
+      responses:
+        '200':
+          description: Metadata for company financial reports
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+
+  /data/company/field_descriptions.json:
+    get:
+      tags: [Reference]
+      summary: Company financial field descriptions
+      operationId: getCompanyFinancialFieldDescriptions
+      responses:
+        '200':
+          description: Full forms and descriptions for financial fields
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+
   /data/other/sector_codes.json:
     get:
       tags: [Reference]

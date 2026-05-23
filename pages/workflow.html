@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YONEPSE | Data Workflow</title>
+    <meta name="description" content="Visual flowchart for YONEPSE cron jobs, data refreshes, validation, and commits.">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="../assets/img/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .workflow-hero {
+            padding: 3.5rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .workflow-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.84rem;
+        }
+
+        .workflow-title {
+            max-width: 920px;
+            margin: 0 auto;
+            font-family: "Outfit", Inter, sans-serif;
+            font-size: clamp(2.5rem, 7vw, 5.6rem);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: 0;
+            background: linear-gradient(135deg, #fff 0%, #bfdbfe 42%, #fde68a 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .workflow-lead {
+            max-width: 760px;
+            margin: 1.2rem auto 0;
+            color: var(--text-secondary);
+            font-size: 1.03rem;
+            line-height: 1.75;
+        }
+
+        .workflow-board {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            align-items: stretch;
+            margin: 2rem 0;
+        }
+
+        .workflow-lane {
+            min-width: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.045);
+            padding: 1rem;
+        }
+
+        .workflow-lane.market {
+            border-color: rgba(96, 165, 250, 0.28);
+            background: rgba(37, 99, 235, 0.07);
+        }
+
+        .workflow-lane.daily {
+            border-color: rgba(52, 211, 153, 0.25);
+            background: rgba(5, 150, 105, 0.065);
+        }
+
+        .workflow-lane.guard {
+            border-color: rgba(251, 191, 36, 0.24);
+            background: rgba(217, 119, 6, 0.055);
+        }
+
+        .lane-head {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .lane-icon {
+            width: 2.4rem;
+            height: 2.4rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+        }
+
+        .lane-head h2 {
+            margin: 0;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .lane-head p {
+            margin: 0.18rem 0 0;
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+        }
+
+        .flow-step {
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            background: rgba(5, 5, 5, 0.34);
+            padding: 0.85rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .flow-step:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -0.78rem;
+            width: 1px;
+            height: 0.65rem;
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .flow-step strong {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .flow-step p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.55;
+        }
+
+        .flow-step code {
+            display: inline-block;
+            max-width: 100%;
+            margin-top: 0.45rem;
+            padding: 0.35rem 0.45rem;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.07);
+            color: #e5e7eb;
+            font-family: "JetBrains Mono", ui-monospace, monospace;
+            font-size: 0.72rem;
+            overflow-wrap: anywhere;
+        }
+
+        .data-list {
+            display: grid;
+            gap: 0.42rem;
+            margin-top: 0.6rem;
+        }
+
+        .data-list span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.42rem;
+            color: var(--text-secondary);
+            font-size: 0.76rem;
+        }
+
+        .data-list i {
+            color: rgba(147, 197, 253, 0.9);
+        }
+
+        .workflow-summary {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0 3rem;
+        }
+
+        .summary-card {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.045);
+            padding: 1rem;
+        }
+
+        .summary-card span {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-bottom: 0.45rem;
+        }
+
+        .summary-card strong {
+            color: var(--text-primary);
+            font-size: 0.98rem;
+        }
+
+        @media (max-width: 980px) {
+            .workflow-board,
+            .workflow-summary {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="top-nav" aria-label="Primary">
+            <a class="nav-link" href="../index.html">Market Dashboard</a>
+            <a class="nav-link" href="data.html">Brokers & Datasets</a>
+            <a class="nav-link" href="docs.html">JSON Docs</a>
+            <a class="nav-link" href="migration.html">Migration Guide</a>
+            <a class="nav-link active" href="workflow.html">Workflow</a>
+            <a class="nav-link" href="about.html">About</a>
+        </nav>
+
+        <header class="workflow-hero">
+            <span class="workflow-eyebrow"><i class="fa-solid fa-diagram-project"></i> Automation Map</span>
+            <h1 class="workflow-title">Data Workflow Flowchart</h1>
+            <p class="workflow-lead">
+                A visual map of the scheduled jobs that keep YONEPSE updated: fast market refreshes during trading
+                hours, one daily company/IPO refresh, and validation-only guardrails.
+            </p>
+        </header>
+
+        <main>
+            <section class="workflow-board" aria-label="YONEPSE workflow lanes">
+                <article class="workflow-lane market">
+                    <div class="lane-head">
+                        <span class="lane-icon"><i class="fa-solid fa-chart-line"></i></span>
+                        <div>
+                            <h2>Market Cron</h2>
+                            <p>Every 30 minutes, Monday-Friday market window</p>
+                        </div>
+                    </div>
+
+                    <div class="flow-step">
+                        <strong><i class="fa-brands fa-github"></i> Trigger</strong>
+                        <p><code>.github/workflows/scrape.yml</code></p>
+                        <p>Runs from about 09:45 to 16:15 NPT.</p>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-box-open"></i> Setup</strong>
+                        <p>Checkout repo, set up Python 3.9, install scraper dependencies and PyYAML.</p>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-terminal"></i> Command</strong>
+                        <code>python scripts/nepse-scraper/official_scraper.py --ltp-history live-close</code>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-database"></i> Pulls Data</strong>
+                        <div class="data-list">
+                            <span><i class="fa-solid fa-circle-dot"></i> Live prices and market status</span>
+                            <span><i class="fa-solid fa-circle-dot"></i> Indices, summary, top stocks</span>
+                            <span><i class="fa-solid fa-circle-dot"></i> Notices, disclosures, exchange messages</span>
+                            <span><i class="fa-solid fa-circle-dot"></i> LTP monthly and daily shards</span>
+                            <span><i class="fa-solid fa-circle-dot"></i> Securities reference list</span>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-shield-halved"></i> Validate</strong>
+                        <p>Checks JavaScript syntax, compiles Python, and runs project guardrails.</p>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-code-commit"></i> Commit</strong>
+                        <p>Commits changed files under <code>data</code> as YONEPSE Data Bot.</p>
+                    </div>
+                </article>
+
+                <article class="workflow-lane daily">
+                    <div class="lane-head">
+                        <span class="lane-icon"><i class="fa-solid fa-building-columns"></i></span>
+                        <div>
+                            <h2>Daily IPO + Company Cron</h2>
+                            <p>Once daily at 09:45 NPT</p>
+                        </div>
+                    </div>
+
+                    <div class="flow-step">
+                        <strong><i class="fa-brands fa-github"></i> Trigger</strong>
+                        <p><code>.github/workflows/scrape_ipo.yml</code></p>
+                        <p>Runs once daily and can be started manually.</p>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-terminal"></i> Company Command</strong>
+                        <code>python scripts/nepse-scraper/official_scraper.py --financials --profiles --ltp-history skip</code>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-calendar-check"></i> Daily Guard</strong>
+                        <p><code>data/company/run_metadata.json</code> prevents financial/profile fetches from running more than once per Nepal day.</p>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-file-invoice-dollar"></i> Company Data</strong>
+                        <div class="data-list">
+                            <span><i class="fa-solid fa-circle-plus"></i> Financial reports append to <code>financials.json</code></span>
+                            <span><i class="fa-solid fa-rotate"></i> Profiles replace on source change in <code>profiles.json</code></span>
+                            <span><i class="fa-solid fa-circle-info"></i> Metadata updates when financials append</span>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-terminal"></i> IPO + Action Commands</strong>
+                        <code>upcoming_ipo_scraper.py</code>
+                        <code>proposed_dividend_scraper.py --mode latest</code>
+                        <code>sectors.py</code>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-database"></i> Pulls Data</strong>
+                        <div class="data-list">
+                            <span><i class="fa-solid fa-circle-dot"></i> IPO upcoming and archive files</span>
+                            <span><i class="fa-solid fa-circle-dot"></i> Proposed dividend latest and history</span>
+                            <span><i class="fa-solid fa-circle-dot"></i> Sector code aliases</span>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-code-commit"></i> Commit</strong>
+                        <p>Commits <code>data/company</code>, IPO, dividend, and sector files as YONEPSE Ipo Bot.</p>
+                    </div>
+                </article>
+
+                <article class="workflow-lane guard">
+                    <div class="lane-head">
+                        <span class="lane-icon"><i class="fa-solid fa-shield"></i></span>
+                        <div>
+                            <h2>Guardrails</h2>
+                            <p>Pull request or manual validation</p>
+                        </div>
+                    </div>
+
+                    <div class="flow-step">
+                        <strong><i class="fa-brands fa-github"></i> Trigger</strong>
+                        <p><code>.github/workflows/guardrails.yml</code></p>
+                        <p>Runs for pull requests or manual checks.</p>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-box-open"></i> Setup</strong>
+                        <p>Checkout repo, set up Python 3.11 and Node 20.</p>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-list-check"></i> Checks</strong>
+                        <div class="data-list">
+                            <span><i class="fa-solid fa-check"></i> <code>node --check assets/js/script.js</code></span>
+                            <span><i class="fa-solid fa-check"></i> <code>node --check assets/js/data.js</code></span>
+                            <span><i class="fa-solid fa-check"></i> <code>python -m compileall scripts</code></span>
+                            <span><i class="fa-solid fa-check"></i> <code>python scripts/validate_project.py</code></span>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <strong><i class="fa-solid fa-ban"></i> No Data Writes</strong>
+                        <p>This workflow does not scrape, commit, or push data.</p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="workflow-summary" aria-label="Workflow summary">
+                <article class="summary-card">
+                    <span>Fast Loop</span>
+                    <strong>Market data refreshes every 30 minutes during market hours.</strong>
+                </article>
+                <article class="summary-card">
+                    <span>Heavy Loop</span>
+                    <strong>Financials and profiles get one daily scheduled check.</strong>
+                </article>
+                <article class="summary-card">
+                    <span>Financial Rule</span>
+                    <strong>Historical financial reports are append-only.</strong>
+                </article>
+                <article class="summary-card">
+                    <span>Profile Rule</span>
+                    <strong>Company profiles replace only when source data changes.</strong>
+                </article>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

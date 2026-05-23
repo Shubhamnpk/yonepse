@@ -796,6 +796,34 @@ if __name__ == "__main__":
                                 <td>~30KB</td>
                             </tr>
                             <tr>
+                                <td><code>/data/company/profiles.json</code></td>
+                                <td><span class="badge ok">GET</span></td>
+                                <td>Brief company profiles and contact facts from NEPSE</td>
+                                <td>Manual / optional scraper run</td>
+                                <td>~477KB</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/company/financials.json</code></td>
+                                <td><span class="badge ok">GET</span></td>
+                                <td>Compact company financial reports grouped by company</td>
+                                <td>Manual / optional scraper run</td>
+                                <td>~3.2MB</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/company/metadata.json</code></td>
+                                <td><span class="badge ok">GET</span></td>
+                                <td>Company financial dataset metadata</td>
+                                <td>Manual / optional scraper run</td>
+                                <td>&lt;1KB</td>
+                            </tr>
+                            <tr>
+                                <td><code>/data/company/field_descriptions.json</code></td>
+                                <td><span class="badge ok">GET</span></td>
+                                <td>Full forms and descriptions for financial fields</td>
+                                <td>As needed</td>
+                                <td>&lt;5KB</td>
+                            </tr>
+                            <tr>
                                 <td><code>/data/market/supply_demand.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Supply and demand book for all securities</td>
@@ -1233,6 +1261,43 @@ if __name__ == "__main__":
   "status": "A",
   "sectorName": "Commercial Banks",
   "instrumentType": "Equity"
+}</code></pre>
+                        </div>
+                    </article>
+
+                    <article class="endpoint-card">
+                        <div class="endpoint-head">
+                            <span class="badge ok">GET</span>
+                            <code class="endpoint-path">/data/company/financials.json</code>
+                            <span class="badge">array&lt;companyFinancials&gt;</span>
+                        </div>
+                        <p class="endpoint-desc">Compact financial report data from NEPSE company detail pages. Dataset
+                            metadata and document base URL live in <code>/data/company/metadata.json</code>.</p>
+                        <div class="code-wrap">
+                            <div class="code-head"><span>sample item</span><button class="copy-btn"
+                                    onclick="copyCode(this)">Copy</button></div>
+                            <pre><code>{
+  "id": 131,
+  "symbol": "NABIL",
+  "reports": [
+    {
+      "type": "Quarterly Report",
+      "quarter": "Third Quarter",
+      "fy": "2025-2026",
+      "fy_nepali": "2082-2083",
+      "pe": 16.05,
+      "eps": 33.02,
+      "paid_up_capital": 27056996729.0,
+      "profit": 6764646000.0,
+      "net_worth_per_share": 243.3,
+      "documents": [
+        {
+          "submitted_date": "2026-04-28",
+          "path": "nabil_user/2026-04-28/report.pdf"
+        }
+      ]
+    }
+  ]
 }</code></pre>
                         </div>
                     </article>
@@ -2410,6 +2475,9 @@ if __name__ == "__main__":
                 { path: '/data/notify/exchange_messages.json', method: 'GET', shape: 'array', purpose: 'Exchange-level messages and circulars.' },
                 { path: '/data/other/brokers.json', method: 'GET', shape: 'array', purpose: 'Broker directory with membership and district info.' },
                 { path: '/data/other/securities.json', method: 'GET', shape: 'array', purpose: 'Master security metadata list.' },
+                { path: '/data/company/financials.json', method: 'GET', shape: 'array', purpose: 'Compact company financial reports from NEPSE company detail pages.' },
+                { path: '/data/company/metadata.json', method: 'GET', shape: 'object', purpose: 'Metadata and document base URL for company financial reports.' },
+                { path: '/data/company/field_descriptions.json', method: 'GET', shape: 'object', purpose: 'Full forms and descriptions for company financial fields.' },
                 { path: '/data/market/supply_demand.json', method: 'GET', shape: 'array', purpose: 'Supply/demand orderbook snapshots.' },
                 { path: '/data/ipo/upcoming.json', method: 'GET', shape: 'array', purpose: 'Upcoming/open IPO records.' },
                 { path: '/data/ipo/old.json', method: 'GET', shape: 'array', purpose: 'Historical IPO archive.' },
@@ -2425,7 +2493,8 @@ if __name__ == "__main__":
                 notices: ['general[]', 'last_updated'],
                 disclosures: ['id', 'symbol', 'title', 'body', 'source', 'publishedAt', 'documents[]'],
                 exchange_messages: ['id', 'symbol', 'title', 'body', 'publishedAt', 'expiresAt', 'fileUrl'],
-                broker: ['id/memberId', 'memberCode', 'memberName', 'districtList[]', 'brokerBranchDtoList[]']
+                broker: ['id/memberId', 'memberCode', 'memberName', 'districtList[]', 'brokerBranchDtoList[]'],
+                company_financials: ['id', 'symbol', 'reports[]', 'type', 'quarter', 'fy', 'fy_nepali', 'pe', 'eps', 'paid_up_capital', 'profit', 'net_worth_per_share', 'documents[]']
             },
             examples: {
                 fetch_js: "const data = await fetch('https://shubhamnpk.github.io/yonepse/data/nepse_data.json').then(r => r.json());",

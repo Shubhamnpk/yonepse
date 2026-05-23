@@ -402,6 +402,38 @@ class NepseScraper:
 
         return results[ticker_list[0]] if len(ticker_list) == 1 else results
 
+    def get_company_financials(self, company_id: int) -> List[Dict[str, Any]]:
+        """
+        Retrieve fiscal report / financial data for a company detail page.
+
+        Args:
+            company_id (int): The security/company ID used by `/company/detail/{id}`.
+
+        Returns:
+            List[Dict[str, Any]]: Fiscal report applications for the company.
+        """
+        logger.info(f"Fetching company financial reports for company ID: {company_id}")
+        endpoint = self.endpoints['company_financials_api']
+        path = f"{endpoint['api']}/{company_id}"
+        response = self.session.get(path)
+        return response.json()
+
+    def get_company_profile(self, company_id: int) -> Dict[str, Any]:
+        """
+        Retrieve company profile/contact data for a company detail page.
+
+        Args:
+            company_id (int): The security/company ID used by `/company/detail/{id}`.
+
+        Returns:
+            Dict[str, Any]: Profile and contact data for the company.
+        """
+        logger.info(f"Fetching company profile for company ID: {company_id}")
+        endpoint = self.endpoints['ticker_contact_api']
+        path = f"{endpoint['api']}/{company_id}"
+        response = self.session.get(path)
+        return response.json()
+
     def get_ticker_price_history(self, ticker: str, start_date: str, end_date: str, page: int = 0, size: int = 500) -> List[Dict[str, Any]]:
         """
         Fetches the price history for a given ticker within a date range.
