@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "latestDate": "2026-05-22",
+  "latestDate": "2026-05-25",
   "availableMonths": [
     "2012-01",
     "2012-02",
@@ -178,9 +178,10 @@
   "availableDays": [
     "2026-05-20",
     "2026-05-21",
-    "2026-05-22"
+    "2026-05-22",
+    "2026-05-25"
   ],
   "retention": "no-limit",
-  "latestStatus": "final",
+  "latestStatus": "provisional",
   "finalizedThrough": "2026-05-22"
 }
