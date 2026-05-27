@@ -1,5 +1,25 @@
 [
     {
+        "id": 45960,
+        "symbol": "CZBIL",
+        "title": "Notice of 8th SGM of the bank",
+        "body": "Annual General Meeting of CZBIL\nFiscal Year: 2082-2083\nAGM Type: SGM\nAGM Date: 6/17/2026\nAGM No: 8\nBook Close Date: 6/9/2026",
+        "source": "As per BOD ",
+        "publishedAt": "2026-05-26T17:57:53.313",
+        "documents": [
+            {
+                "id": 31086,
+                "submittedDate": "2026-05-26",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=czbil_user/2026-05-26/Notice%20of%208th%20AGM_1779797489997.pdf"
+            },
+            {
+                "id": 31087,
+                "submittedDate": "2026-05-26",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=czbil_user/2026-05-26/Letter%20of%20SGM%20and%20Book%20Close_1779797482849.pdf"
+            }
+        ]
+    },
+    {
         "id": 45953,
         "symbol": "NBL",
         "title": "Director Appointment",
@@ -4897,6 +4917,35 @@
                 "id": 31083,
                 "submittedDate": "2026-05-26",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=hidcl_user/2026-05-26/688C_1779767782514.pdf"
+            }
+        ]
+    },
+    {
+        "id": 45959,
+        "symbol": "RSML",
+        "title": "Completion of Lock-In period for Mutual Funds",
+        "source": " Nagarik Daily Dated 2083/02/13",
+        "publishedAt": "2026-05-26T17:44:30.24",
+        "documents": [
+            {
+                "id": 31085,
+                "submittedDate": "2026-05-26",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Reliance_Spinning_Mills_Limited/Company%20News/2026-05-26/Share%20Lock-In%20Expiry%20Notice_1779796759781.pdf"
+            }
+        ]
+    },
+    {
+        "id": 45961,
+        "symbol": "CZBIL",
+        "title": "Information of Book Closure Notice for  8th SGM",
+        "body": "Book Close of CZBIL\nBook Close Date : 6/9/2026",
+        "source": "As per BOD ",
+        "publishedAt": "2026-05-26T18:00:36.01",
+        "documents": [
+            {
+                "id": 31088,
+                "submittedDate": "2026-05-26",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=czbil_user/2026-05-26/Letter%20of%20SGM%20and%20Book%20Close_1779797717299.pdf"
             }
         ]
     }
