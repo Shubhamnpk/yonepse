@@ -6765,18 +6765,18 @@
             "securityId": 2832
         },
         {
-            "symbol": "NBF3",
-            "shareTraded": 8050,
-            "closingPrice": 9.98,
-            "securityName": "Nabil Balanced Fund-3",
-            "securityId": 8024
-        },
-        {
             "symbol": "KSY",
             "shareTraded": 8050,
             "closingPrice": 9.83,
             "securityName": "Kumari Sabal Yojana",
             "securityId": 9241
+        },
+        {
+            "symbol": "NBF3",
+            "shareTraded": 8050,
+            "closingPrice": 9.98,
+            "securityName": "Nabil Balanced Fund-3",
+            "securityId": 8024
         },
         {
             "symbol": "DDBL",
@@ -7276,18 +7276,18 @@
             "securityId": 8043
         },
         {
-            "symbol": "DLBS",
-            "shareTraded": 1900,
-            "closingPrice": 1315.0,
-            "securityName": "Dhaulagiri Laghubitta Bittiya Sanstha Limited",
-            "securityId": 8123
-        },
-        {
             "symbol": "C30MF",
             "shareTraded": 1900,
             "closingPrice": 10.19,
             "securityName": "Citizens Super 30 Mutual Fund",
             "securityId": 9191
+        },
+        {
+            "symbol": "DLBS",
+            "shareTraded": 1900,
+            "closingPrice": 1315.0,
+            "securityName": "Dhaulagiri Laghubitta Bittiya Sanstha Limited",
+            "securityId": 8123
         },
         {
             "symbol": "PMLI",
@@ -7731,18 +7731,18 @@
             "securityId": 9327
         },
         {
-            "symbol": "HEIP",
-            "shareTraded": 80,
-            "closingPrice": 323.0,
-            "securityName": "Himalayan Everest Insurance Limited Promoter",
-            "securityId": 700
-        },
-        {
             "symbol": "NBLD87",
             "shareTraded": 80,
             "closingPrice": 1110.1,
             "securityName": "8.5% Nepal Bank Debenture 2087",
             "securityId": 4959
+        },
+        {
+            "symbol": "HEIP",
+            "shareTraded": 80,
+            "closingPrice": 323.0,
+            "securityName": "Himalayan Everest Insurance Limited Promoter",
+            "securityId": 700
         },
         {
             "symbol": "SBID89",
@@ -7773,13 +7773,6 @@
             "securityId": 9197
         },
         {
-            "symbol": "EBLD85",
-            "shareTraded": 50,
-            "closingPrice": 1160.0,
-            "securityName": "10.50% Everest Bank Limited Debenture 2085",
-            "securityId": 8119
-        },
-        {
             "symbol": "NICAD2091",
             "shareTraded": 50,
             "closingPrice": 1065.0,
@@ -7787,11 +7780,18 @@
             "securityId": 9266
         },
         {
-            "symbol": "SBLD2091",
+            "symbol": "EBLD85",
             "shareTraded": 50,
-            "closingPrice": 1061.0,
-            "securityName": "7.25% SBL Debenture 2091",
-            "securityId": 9271
+            "closingPrice": 1160.0,
+            "securityName": "10.50% Everest Bank Limited Debenture 2085",
+            "securityId": 8119
+        },
+        {
+            "symbol": "NMBD2085",
+            "shareTraded": 50,
+            "closingPrice": 1160.0,
+            "securityName": "10 % NMB DEBENTURE 2085",
+            "securityId": 2850
         },
         {
             "symbol": "PBLD87",
@@ -7801,11 +7801,11 @@
             "securityId": 4962
         },
         {
-            "symbol": "NMBD2085",
+            "symbol": "SBLD2091",
             "shareTraded": 50,
-            "closingPrice": 1160.0,
-            "securityName": "10 % NMB DEBENTURE 2085",
-            "securityId": 2850
+            "closingPrice": 1061.0,
+            "securityName": "7.25% SBL Debenture 2091",
+            "securityId": 9271
         },
         {
             "symbol": "SBIBD86",
@@ -7822,18 +7822,18 @@
             "securityId": 2866
         },
         {
-            "symbol": "SBLD89",
+            "symbol": "CCBD88",
             "shareTraded": 25,
-            "closingPrice": 1255.0,
-            "securityName": "10.75% SBL Debenture 2089",
-            "securityId": 8098
+            "closingPrice": 1253.0,
+            "securityName": "Century Debenture 2088",
+            "securityId": 8068
         },
         {
-            "symbol": "GBILD84/85",
+            "symbol": "PBD88",
             "shareTraded": 25,
-            "closingPrice": 1155.0,
-            "securityName": "Global IME Bank Debenture, 2084/85",
-            "securityId": 9168
+            "closingPrice": 1215.0,
+            "securityName": "10% Prime Debenture 2088",
+            "securityId": 8097
         },
         {
             "symbol": "NABILD2089",
@@ -7857,18 +7857,18 @@
             "securityId": 9249
         },
         {
-            "symbol": "CCBD88",
+            "symbol": "SBLD89",
             "shareTraded": 25,
-            "closingPrice": 1253.0,
-            "securityName": "Century Debenture 2088",
-            "securityId": 8068
+            "closingPrice": 1255.0,
+            "securityName": "10.75% SBL Debenture 2089",
+            "securityId": 8098
         },
         {
-            "symbol": "PBD88",
+            "symbol": "GBILD84/85",
             "shareTraded": 25,
-            "closingPrice": 1215.0,
-            "securityName": "10% Prime Debenture 2088",
-            "securityId": 8097
+            "closingPrice": 1155.0,
+            "securityName": "Global IME Bank Debenture, 2084/85",
+            "securityId": 9168
         },
         {
             "symbol": "UNL",
@@ -7885,18 +7885,18 @@
             "securityId": 2879
         },
         {
-            "symbol": "GBBD85",
-            "shareTraded": 10,
-            "closingPrice": 1085.0,
-            "securityName": "Garima Debenture, 2085",
-            "securityId": 8033
-        },
-        {
             "symbol": "BNL",
             "shareTraded": 10,
             "closingPrice": 14551.0,
             "securityName": "Bottlers Nepal (Balaju) Limited",
             "securityId": 195
+        },
+        {
+            "symbol": "GBBD85",
+            "shareTraded": 10,
+            "closingPrice": 1085.0,
+            "securityName": "Garima Debenture, 2085",
+            "securityId": 8033
         },
         {
             "symbol": "KBLD86",
