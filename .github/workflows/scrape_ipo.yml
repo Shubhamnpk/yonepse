@@ -5,8 +5,8 @@ on:
     branches:
       - main
   schedule:
-    # Run once daily at 4:00 AM UTC (9:45 AM NPT)
-    - cron: '0 4 * * *'
+    # Run once daily at 4:02 AM UTC (9:47 AM NPT), avoiding crowded :00 UTC scheduler slots.
+    - cron: '2 4 * * *'
   workflow_dispatch: # Allow manual trigger
 
 concurrency:
@@ -34,7 +34,7 @@ jobs:
     - name: Run IPO Scraper
       run: |
         mkdir -p data
-        python scripts/nepse-scraper/official_scraper.py --financials --profiles --ltp-history skip
+        python scripts/nepse-scraper/official_scraper.py --financials --profiles --ltp-history skip --skip-market
         python scripts/nepse-scraper/upcoming_ipo_scraper.py
         python scripts/nepse-scraper/proposed_dividend_scraper.py --mode latest
         python scripts/nepse-scraper/sectors.py
