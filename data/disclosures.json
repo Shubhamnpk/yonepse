@@ -1,5 +1,64 @@
 [
     {
+        "id": 45989,
+        "symbol": "NMLBBL",
+        "title": "Board Approves Financial Statements and Dividend Proposal",
+        "body": "Nerude Mirmire Laghubitta Bittiya Sanstha Ltd. hereby informs that the 393rd Meeting of the Board of Directors held on 2083/02/18 (June 1, 2026) approved the financial statements and proposed dividend for FY 2081/82. The same shall be submitted to Nepal Rastra Bank for approval and thereafter to the Annual General Meeting for final approval.",
+        "source": "BOD Meeting",
+        "publishedAt": "2026-06-02T09:00:57.433",
+        "documents": [
+            {
+                "id": 31124,
+                "submittedDate": "2026-06-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nlbbl_user/2026-06-02/CS-217%20financial%20statements%20and%20proposed%20dividend_1780370122341.pdf"
+            }
+        ]
+    },
+    {
+        "id": 45988,
+        "symbol": "NMLBBL",
+        "title": "Appointment of Board of Director",
+        "body": "Nerude Mirmire Laghubitta Bittiya Sanstha Ltd. hereby informs all concerned stakeholders that the 392nd Meeting of the Board of Directors held on June 1, 2026 (2083/02/18 B.S.) has appointed Mr. Ganesh Prasad Acharya as a Director of the Company against the vacant position on the Board.",
+        "source": "BOD Meeting",
+        "publishedAt": "2026-06-02T08:56:41.777",
+        "documents": [
+            {
+                "id": 31123,
+                "submittedDate": "2026-06-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nlbbl_user/2026-06-02/CS-216%20BOD%20Appointment_1780369891369.pdf"
+            }
+        ]
+    },
+    {
+        "id": 45986,
+        "symbol": "AHL",
+        "title": "Plant Resumption Notice of Lower Jogmai Khola Hydropower Project(6.2 MW)",
+        "source": "AHL",
+        "publishedAt": "2026-06-01T17:46:41.663",
+        "documents": [
+            {
+                "id": 31121,
+                "submittedDate": "2026-06-01",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Asian_Hydropower_Limited/Company%20News/2026-06-01/IMG_0001_1780315259967.pdf"
+            }
+        ]
+    },
+    {
+        "id": 45984,
+        "symbol": "MANDU",
+        "title": "Bonus share/dividend declaration",
+        "body": "Dividend Declaration of MANDU\nFiscal Year: 2081-2082\nCash Dividend: 0.5263%\nBonus Shares: 10%",
+        "source": "Bonus share/dividend declaration ",
+        "publishedAt": "2026-06-01T16:56:11.797",
+        "documents": [
+            {
+                "id": 31118,
+                "submittedDate": "2026-06-01",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Mandu_Hydropower_Limited/Company%20News/2026-06-01/Share%20Divident%20Letter%20%28%20Nepal%20Stock%29_1780312227909.pdf"
+            }
+        ]
+    },
+    {
         "id": 45983,
         "symbol": "SMPDA",
         "title": "Auditors Appointment",
@@ -5151,6 +5210,53 @@
                 "id": 30050,
                 "submittedDate": "2026-02-27",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=ushl_user/2026-02-27/Nepse_1772183982322.pdf"
+            }
+        ]
+    },
+    {
+        "id": 45991,
+        "symbol": "USHL",
+        "title": "Lock In period Notice",
+        "source": "Board Meeting",
+        "publishedAt": "2026-06-02T09:54:26.89",
+        "documents": [
+            {
+                "id": 31126,
+                "submittedDate": "2026-06-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=ushl_user/2026-06-02/USHL-Lock%20In%20period%20notice_1780373361217.jpeg"
+            }
+        ]
+    },
+    {
+        "id": 45985,
+        "symbol": "TSHL",
+        "title": "End of Lock In Period",
+        "source": "Himalayan Capital",
+        "publishedAt": "2026-06-01T17:04:31.95",
+        "documents": [
+            {
+                "id": 31120,
+                "submittedDate": "2026-06-01",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Three_Star_Hydropower_ltd/Company%20News/2026-06-01/lock%20in%20news_1780312692145.pdf"
+            },
+            {
+                "id": 31119,
+                "submittedDate": "2026-06-01",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Three_Star_Hydropower_ltd/Company%20News/2026-06-01/cover%20letter_1780312672111.pdf"
+            }
+        ]
+    },
+    {
+        "id": 45987,
+        "symbol": "JHAPA",
+        "title": "Plant Partially Closed",
+        "source": "Plant Partially Closed",
+        "publishedAt": "2026-06-01T17:46:43.29",
+        "documents": [
+            {
+                "id": 31122,
+                "submittedDate": "2026-06-01",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Jhapa_Energy_Limited/Company%20News/2026-06-01/Plant%20Partly%20Closed_1780315271996.pdf"
             }
         ]
     }

@@ -7548,6 +7548,18 @@
         "instrumentType": "Preference Shares"
     },
     {
+        "id": 9332,
+        "companyName": "NMB Bank Limited",
+        "symbol": "NMBPNP",
+        "securityName": "NMB Perpetual Non Cumulative Preference Share-2081/82-8.25%",
+        "status": "A",
+        "companyEmail": "pramod.dahal@nmb.com.np",
+        "website": "http://www.nmb.com.np",
+        "sectorName": "Commercial Banks",
+        "regulatoryBody": "Nepal Rastra Bank",
+        "instrumentType": "Preference Shares"
+    },
+    {
         "id": 9333,
         "companyName": "Sanima Bank Limited",
         "symbol": "SANIMAPNP",
@@ -7570,5 +7582,17 @@
         "sectorName": "Hydro Power",
         "regulatoryBody": "Nepal Hydropower Board",
         "instrumentType": "Equity"
+    },
+    {
+        "id": 9335,
+        "companyName": "Machhapuchhre Bank Limited",
+        "symbol": "MBLPNP",
+        "securityName": "8.25% Machhapuchchhre Perpetual Non Cumulative Preference Share",
+        "status": "A",
+        "companyEmail": "machbank@mbl.com.np",
+        "website": "http://www.machbank.com",
+        "sectorName": "Commercial Banks",
+        "regulatoryBody": "Nepal Rastra Bank",
+        "instrumentType": "Preference Shares"
     }
 ]
