@@ -19,15 +19,6 @@
             "securityId": 245
         },
         {
-            "symbol": "CREST",
-            "ltp": 1389.0,
-            "cp": null,
-            "pointChange": 132.8,
-            "percentageChange": 10.57,
-            "securityName": "Crest Micro Life Insurance Limited",
-            "securityId": 9252
-        },
-        {
             "symbol": "NRIC",
             "ltp": 1146.5,
             "cp": null,
@@ -233,6 +224,15 @@
             "percentageChange": 3.0,
             "securityName": "9.5% Manjushree Finance Limited Debenture 2085",
             "securityId": 2932
+        },
+        {
+            "symbol": "ADBLD83",
+            "ltp": 1083.4,
+            "cp": null,
+            "pointChange": 31.5,
+            "percentageChange": 2.99,
+            "securityName": "10.35% Agricultural Bank Debenture 2083",
+            "securityId": 2886
         },
         {
             "symbol": "RMF2",
@@ -784,15 +784,6 @@
             "securityId": 9218
         },
         {
-            "symbol": "NIL",
-            "ltp": 655.0,
-            "cp": null,
-            "pointChange": 7.3,
-            "percentageChange": 1.13,
-            "securityName": "Neco Insurance Limited",
-            "securityId": 183
-        },
-        {
             "symbol": "EHPL",
             "ltp": 394.5,
             "cp": null,
@@ -809,6 +800,15 @@
             "percentageChange": 1.12,
             "securityName": "Sanima Mai Hydropower Ltd.",
             "securityId": 591
+        },
+        {
+            "symbol": "DHEL",
+            "ltp": 629.9,
+            "cp": null,
+            "pointChange": 6.9,
+            "percentageChange": 1.11,
+            "securityName": "Daramkhola Hydro Energy Limited",
+            "securityId": 9293
         },
         {
             "symbol": "MHCL",
@@ -874,6 +874,15 @@
             "securityId": 583
         },
         {
+            "symbol": "HIDCL",
+            "ltp": 269.0,
+            "cp": null,
+            "pointChange": 2.8,
+            "percentageChange": 1.05,
+            "securityName": "Hydorelectricity Investment and Development Company Ltd",
+            "securityId": 2742
+        },
+        {
             "symbol": "PCBL",
             "ltp": 243.4,
             "cp": null,
@@ -935,15 +944,6 @@
             "percentageChange": 0.96,
             "securityName": "NESDO Sambridha Laghubitta Bittiya Sanstha Limited",
             "securityId": 8041
-        },
-        {
-            "symbol": "DHEL",
-            "ltp": 629.0,
-            "cp": null,
-            "pointChange": 6.0,
-            "percentageChange": 0.96,
-            "securityName": "Daramkhola Hydro Energy Limited",
-            "securityId": 9293
         },
         {
             "symbol": "SJCL",
@@ -1081,6 +1081,15 @@
             "securityId": 9305
         },
         {
+            "symbol": "NIL",
+            "ltp": 653.0,
+            "cp": null,
+            "pointChange": 5.3,
+            "percentageChange": 0.82,
+            "securityName": "Neco Insurance Limited",
+            "securityId": 183
+        },
+        {
             "symbol": "HPPL",
             "ltp": 379.5,
             "cp": null,
@@ -1205,15 +1214,6 @@
             "percentageChange": 0.7,
             "securityName": "Arun Kabeli Power Ltd.",
             "securityId": 2757
-        },
-        {
-            "symbol": "HIDCL",
-            "ltp": 268.0,
-            "cp": null,
-            "pointChange": 1.8,
-            "percentageChange": 0.68,
-            "securityName": "Hydorelectricity Investment and Development Company Ltd",
-            "securityId": 2742
         },
         {
             "symbol": "SJLIC",
@@ -1403,6 +1403,15 @@
             "percentageChange": 0.5,
             "securityName": "Siddhartha Bank Limited",
             "securityId": 145
+        },
+        {
+            "symbol": "UMHL",
+            "ltp": 579.8,
+            "cp": null,
+            "pointChange": 2.8,
+            "percentageChange": 0.49,
+            "securityName": "United Modi Hydropower Ltd.",
+            "securityId": 2760
         },
         {
             "symbol": "UPPER",
@@ -1657,15 +1666,6 @@
             "securityId": 176
         },
         {
-            "symbol": "UMHL",
-            "ltp": 579.0,
-            "cp": null,
-            "pointChange": 2.0,
-            "percentageChange": 0.35,
-            "securityName": "United Modi Hydropower Ltd.",
-            "securityId": 2760
-        },
-        {
             "symbol": "HBL",
             "ltp": 201.2,
             "cp": null,
@@ -1673,6 +1673,15 @@
             "percentageChange": 0.35,
             "securityName": "Himalayan Bank Limited",
             "securityId": 134
+        },
+        {
+            "symbol": "NIFRA",
+            "ltp": 264.9,
+            "cp": null,
+            "pointChange": 0.9,
+            "percentageChange": 0.34,
+            "securityName": "Nepal Infrastructure Bank Limited",
+            "securityId": 2919
         },
         {
             "symbol": "DORDI",
@@ -1918,15 +1927,6 @@
             "securityId": 385
         },
         {
-            "symbol": "NIFRA",
-            "ltp": 264.1,
-            "cp": null,
-            "pointChange": 0.1,
-            "percentageChange": 0.04,
-            "securityName": "Nepal Infrastructure Bank Limited",
-            "securityId": 2919
-        },
-        {
             "symbol": "UNHPL",
             "ltp": 436.9,
             "cp": null,
@@ -2056,12 +2056,21 @@
         },
         {
             "symbol": "BHCL",
-            "ltp": 608.0,
+            "ltp": 609.0,
             "cp": null,
-            "pointChange": -16.0,
-            "percentageChange": -2.56,
+            "pointChange": -15.0,
+            "percentageChange": -2.4,
             "securityName": "Bikash Hydropower Company Limited",
             "securityId": 9267
+        },
+        {
+            "symbol": "CREST",
+            "ltp": 1226.2,
+            "cp": null,
+            "pointChange": -30.0,
+            "percentageChange": -2.39,
+            "securityName": "Crest Micro Life Insurance Limited",
+            "securityId": 9252
         },
         {
             "symbol": "NMBD87/88",
@@ -2966,7 +2975,7 @@
         {
             "symbol": "BHCL",
             "turnover": 89919720.1,
-            "closingPrice": 608.0,
+            "closingPrice": 609.0,
             "securityName": "Bikash Hydropower Company Limited",
             "securityId": 9267
         },
@@ -3113,7 +3122,7 @@
         {
             "symbol": "UMHL",
             "turnover": 33409368.1,
-            "closingPrice": 579.0,
+            "closingPrice": 579.8,
             "securityName": "United Modi Hydropower Ltd.",
             "securityId": 2760
         },
@@ -3225,7 +3234,7 @@
         {
             "symbol": "CREST",
             "turnover": 24055243.2,
-            "closingPrice": 1389.0,
+            "closingPrice": 1226.2,
             "securityName": "Crest Micro Life Insurance Limited",
             "securityId": 9252
         },
@@ -3484,14 +3493,14 @@
         {
             "symbol": "HIDCL",
             "turnover": 14331911.5,
-            "closingPrice": 268.0,
+            "closingPrice": 269.0,
             "securityName": "Hydorelectricity Investment and Development Company Ltd",
             "securityId": 2742
         },
         {
             "symbol": "NIFRA",
             "turnover": 14287895.0,
-            "closingPrice": 264.1,
+            "closingPrice": 264.9,
             "securityName": "Nepal Infrastructure Bank Limited",
             "securityId": 2919
         },
@@ -3526,7 +3535,7 @@
         {
             "symbol": "DHEL",
             "turnover": 13466332.9,
-            "closingPrice": 629.0,
+            "closingPrice": 629.9,
             "securityName": "Daramkhola Hydro Energy Limited",
             "securityId": 9293
         },
@@ -4051,7 +4060,7 @@
         {
             "symbol": "NIL",
             "turnover": 5260249.4,
-            "closingPrice": 655.0,
+            "closingPrice": 653.0,
             "securityName": "Neco Insurance Limited",
             "securityId": 183
         },
@@ -5311,7 +5320,7 @@
         {
             "symbol": "ADBLD83",
             "turnover": 1083.4,
-            "closingPrice": 1051.9,
+            "closingPrice": 1083.4,
             "securityName": "10.35% Agricultural Bank Debenture 2083",
             "securityId": 2886
         }
@@ -5418,7 +5427,7 @@
         {
             "symbol": "BHCL",
             "shareTraded": 145445,
-            "closingPrice": 608.0,
+            "closingPrice": 609.0,
             "securityName": "Bikash Hydropower Company Limited",
             "securityId": 9267
         },
@@ -5656,7 +5665,7 @@
         {
             "symbol": "UMHL",
             "shareTraded": 58787,
-            "closingPrice": 579.0,
+            "closingPrice": 579.8,
             "securityName": "United Modi Hydropower Ltd.",
             "securityId": 2760
         },
@@ -5705,14 +5714,14 @@
         {
             "symbol": "NIFRA",
             "shareTraded": 54166,
-            "closingPrice": 264.1,
+            "closingPrice": 264.9,
             "securityName": "Nepal Infrastructure Bank Limited",
             "securityId": 2919
         },
         {
             "symbol": "HIDCL",
             "shareTraded": 53695,
-            "closingPrice": 268.0,
+            "closingPrice": 269.0,
             "securityName": "Hydorelectricity Investment and Development Company Ltd",
             "securityId": 2742
         },
@@ -6118,7 +6127,7 @@
         {
             "symbol": "DHEL",
             "shareTraded": 21582,
-            "closingPrice": 629.0,
+            "closingPrice": 629.9,
             "securityName": "Daramkhola Hydro Energy Limited",
             "securityId": 9293
         },
@@ -6188,7 +6197,7 @@
         {
             "symbol": "CREST",
             "shareTraded": 19323,
-            "closingPrice": 1389.0,
+            "closingPrice": 1226.2,
             "securityName": "Crest Micro Life Insurance Limited",
             "securityId": 9252
         },
@@ -6573,7 +6582,7 @@
         {
             "symbol": "NIL",
             "shareTraded": 8104,
-            "closingPrice": 655.0,
+            "closingPrice": 653.0,
             "securityName": "Neco Insurance Limited",
             "securityId": 183
         },
@@ -7649,6 +7658,13 @@
             "securityId": 8018
         },
         {
+            "symbol": "RBCLPO",
+            "shareTraded": 30,
+            "closingPrice": 12000.0,
+            "securityName": "Rastriya Beema Company Limited Promoter Share",
+            "securityId": 634
+        },
+        {
             "symbol": "BNT",
             "shareTraded": 30,
             "closingPrice": 11900.0,
@@ -7656,11 +7672,18 @@
             "securityId": 213
         },
         {
-            "symbol": "RBCLPO",
-            "shareTraded": 30,
-            "closingPrice": 12000.0,
-            "securityName": "Rastriya Beema Company Limited Promoter Share",
-            "securityId": 634
+            "symbol": "HBLD86",
+            "shareTraded": 25,
+            "closingPrice": 1188.9,
+            "securityName": "Himalayan Bank Limited Bond, 2086",
+            "securityId": 9137
+        },
+        {
+            "symbol": "CCBD88",
+            "shareTraded": 25,
+            "closingPrice": 1227.0,
+            "securityName": "Century Debenture 2088",
+            "securityId": 8068
         },
         {
             "symbol": "BOKD86",
@@ -7682,20 +7705,6 @@
             "closingPrice": 1036.0,
             "securityName": "10% Himalayan Bank Debenture 2083",
             "securityId": 2873
-        },
-        {
-            "symbol": "CCBD88",
-            "shareTraded": 25,
-            "closingPrice": 1227.0,
-            "securityName": "Century Debenture 2088",
-            "securityId": 8068
-        },
-        {
-            "symbol": "HBLD86",
-            "shareTraded": 25,
-            "closingPrice": 1188.9,
-            "securityName": "Himalayan Bank Limited Bond, 2086",
-            "securityId": 9137
         },
         {
             "symbol": "CIZBD90",
@@ -7735,7 +7744,7 @@
         {
             "symbol": "ADBLD83",
             "shareTraded": 1,
-            "closingPrice": 1051.9,
+            "closingPrice": 1083.4,
             "securityName": "10.35% Agricultural Bank Debenture 2083",
             "securityId": 2886
         }
@@ -7786,7 +7795,7 @@
         {
             "securityId": 9267,
             "totalTrades": 1136,
-            "lastTradedPrice": 608.0,
+            "lastTradedPrice": 609.0,
             "securityName": "Bikash Hydropower Company Limited",
             "symbol": "BHCL"
         },
@@ -7982,7 +7991,7 @@
         {
             "securityId": 2919,
             "totalTrades": 403,
-            "lastTradedPrice": 264.1,
+            "lastTradedPrice": 264.9,
             "securityName": "Nepal Infrastructure Bank Limited",
             "symbol": "NIFRA"
         },
@@ -8045,7 +8054,7 @@
         {
             "securityId": 9293,
             "totalTrades": 362,
-            "lastTradedPrice": 629.0,
+            "lastTradedPrice": 629.9,
             "securityName": "Daramkhola Hydro Energy Limited",
             "symbol": "DHEL"
         },
@@ -8094,7 +8103,7 @@
         {
             "securityId": 9252,
             "totalTrades": 331,
-            "lastTradedPrice": 1389.0,
+            "lastTradedPrice": 1226.2,
             "securityName": "Crest Micro Life Insurance Limited",
             "symbol": "CREST"
         },
@@ -8136,7 +8145,7 @@
         {
             "securityId": 2742,
             "totalTrades": 291,
-            "lastTradedPrice": 268.0,
+            "lastTradedPrice": 269.0,
             "securityName": "Hydorelectricity Investment and Development Company Ltd",
             "symbol": "HIDCL"
         },
@@ -8507,7 +8516,7 @@
         {
             "securityId": 2760,
             "totalTrades": 161,
-            "lastTradedPrice": 579.0,
+            "lastTradedPrice": 579.8,
             "securityName": "United Modi Hydropower Ltd.",
             "symbol": "UMHL"
         },
@@ -8920,7 +8929,7 @@
         {
             "securityId": 183,
             "totalTrades": 82,
-            "lastTradedPrice": 655.0,
+            "lastTradedPrice": 653.0,
             "securityName": "Neco Insurance Limited",
             "symbol": "NIL"
         },
@@ -10082,7 +10091,7 @@
         {
             "securityId": 2886,
             "totalTrades": 1,
-            "lastTradedPrice": 1051.9,
+            "lastTradedPrice": 1083.4,
             "securityName": "10.35% Agricultural Bank Debenture 2083",
             "symbol": "ADBLD83"
         },
