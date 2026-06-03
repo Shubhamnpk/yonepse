@@ -6978,18 +6978,18 @@
             "securityId": 210
         },
         {
-            "symbol": "NSY",
-            "shareTraded": 4600,
-            "closingPrice": 9.47,
-            "securityName": "Nepal Life Samriddhi Lagani Yojana",
-            "securityId": 9312
-        },
-        {
             "symbol": "GIBF1",
             "shareTraded": 4600,
             "closingPrice": 10.85,
             "securityName": "Global IME Balanced Fund-1",
             "securityId": 8106
+        },
+        {
+            "symbol": "NSY",
+            "shareTraded": 4600,
+            "closingPrice": 9.47,
+            "securityName": "Nepal Life Samriddhi Lagani Yojana",
+            "securityId": 9312
         },
         {
             "symbol": "MEHL",
@@ -7146,18 +7146,18 @@
             "securityId": 9181
         },
         {
-            "symbol": "KDL",
-            "shareTraded": 2461,
-            "closingPrice": 837.0,
-            "securityName": "Kalinchowk Darshan Limited",
-            "securityId": 9151
-        },
-        {
             "symbol": "SWMF",
             "shareTraded": 2461,
             "closingPrice": 674.8,
             "securityName": "Suryodaya Womi Laghubitta Bittiya Sanstha Limited",
             "securityId": 706
+        },
+        {
+            "symbol": "KDL",
+            "shareTraded": 2461,
+            "closingPrice": 837.0,
+            "securityName": "Kalinchowk Darshan Limited",
+            "securityId": 9151
         },
         {
             "symbol": "DDBL",
@@ -7321,18 +7321,18 @@
             "securityId": 8041
         },
         {
-            "symbol": "NICGF2",
-            "shareTraded": 1100,
-            "closingPrice": 9.4,
-            "securityName": "NIC ASIA Growth Fund-2",
-            "securityId": 9236
-        },
-        {
             "symbol": "KSY",
             "shareTraded": 1100,
             "closingPrice": 9.72,
             "securityName": "Kumari Sabal Yojana",
             "securityId": 9241
+        },
+        {
+            "symbol": "NICGF2",
+            "shareTraded": 1100,
+            "closingPrice": 9.4,
+            "securityName": "NIC ASIA Growth Fund-2",
+            "securityId": 9236
         },
         {
             "symbol": "TSHL",
@@ -7370,18 +7370,18 @@
             "securityId": 8125
         },
         {
-            "symbol": "STC",
-            "shareTraded": 735,
-            "closingPrice": 5485.0,
-            "securityName": "Salt Trading Corporation",
-            "securityId": 155
-        },
-        {
             "symbol": "SPL",
             "shareTraded": 735,
             "closingPrice": 709.0,
             "securityName": "Shuvam Power Limited",
             "securityId": 9147
+        },
+        {
+            "symbol": "STC",
+            "shareTraded": 735,
+            "closingPrice": 5485.0,
+            "securityName": "Salt Trading Corporation",
+            "securityId": 155
         },
         {
             "symbol": "GILB",
@@ -7538,18 +7538,18 @@
             "securityId": 9295
         },
         {
-            "symbol": "MLBS",
-            "shareTraded": 290,
-            "closingPrice": 1277.0,
-            "securityName": "Manushi Laghubitta Bittiya Sanstha Limited",
-            "securityId": 8018
-        },
-        {
             "symbol": "MSLB",
             "shareTraded": 290,
             "closingPrice": 1252.0,
             "securityName": "Mahuli Laghubitta Bittiya Sanstha Limited",
             "securityId": 2768
+        },
+        {
+            "symbol": "MLBS",
+            "shareTraded": 290,
+            "closingPrice": 1277.0,
+            "securityName": "Manushi Laghubitta Bittiya Sanstha Limited",
+            "securityId": 8018
         },
         {
             "symbol": "UNLB",
@@ -7692,6 +7692,13 @@
             "securityId": 8020
         },
         {
+            "symbol": "PBLD87",
+            "shareTraded": 25,
+            "closingPrice": 1129.0,
+            "securityName": "8.5% Prabhu Bank Debenture 2087",
+            "securityId": 4962
+        },
+        {
             "symbol": "SBID83",
             "shareTraded": 25,
             "closingPrice": 1064.5,
@@ -7699,18 +7706,32 @@
             "securityId": 8110
         },
         {
-            "symbol": "SBLD2091",
+            "symbol": "GBBD85",
             "shareTraded": 25,
-            "closingPrice": 1061.0,
-            "securityName": "7.25% SBL Debenture 2091",
-            "securityId": 9271
+            "closingPrice": 1086.0,
+            "securityName": "Garima Debenture, 2085",
+            "securityId": 8033
         },
         {
-            "symbol": "SHINED",
+            "symbol": "NICAD2091",
             "shareTraded": 25,
-            "closingPrice": 1093.0,
-            "securityName": "Shine Resunga Debenture",
-            "securityId": 9286
+            "closingPrice": 1065.0,
+            "securityName": "7% NIC ASIA Debenture 2091",
+            "securityId": 9266
+        },
+        {
+            "symbol": "CIZBD90",
+            "shareTraded": 25,
+            "closingPrice": 1266.9,
+            "securityName": "10% Citizens Bank Debenture 2090",
+            "securityId": 9231
+        },
+        {
+            "symbol": "BNL",
+            "shareTraded": 25,
+            "closingPrice": 14400.0,
+            "securityName": "Bottlers Nepal (Balaju) Limited",
+            "securityId": 195
         },
         {
             "symbol": "KBLD90",
@@ -7734,39 +7755,18 @@
             "securityId": 9168
         },
         {
-            "symbol": "PBLD87",
+            "symbol": "SBLD2091",
             "shareTraded": 25,
-            "closingPrice": 1129.0,
-            "securityName": "8.5% Prabhu Bank Debenture 2087",
-            "securityId": 4962
+            "closingPrice": 1061.0,
+            "securityName": "7.25% SBL Debenture 2091",
+            "securityId": 9271
         },
         {
-            "symbol": "GBBD85",
+            "symbol": "SHINED",
             "shareTraded": 25,
-            "closingPrice": 1086.0,
-            "securityName": "Garima Debenture, 2085",
-            "securityId": 8033
-        },
-        {
-            "symbol": "BNL",
-            "shareTraded": 25,
-            "closingPrice": 14400.0,
-            "securityName": "Bottlers Nepal (Balaju) Limited",
-            "securityId": 195
-        },
-        {
-            "symbol": "CIZBD90",
-            "shareTraded": 25,
-            "closingPrice": 1266.9,
-            "securityName": "10% Citizens Bank Debenture 2090",
-            "securityId": 9231
-        },
-        {
-            "symbol": "NICAD2091",
-            "shareTraded": 25,
-            "closingPrice": 1065.0,
-            "securityName": "7% NIC ASIA Debenture 2091",
-            "securityId": 9266
+            "closingPrice": 1093.0,
+            "securityName": "Shine Resunga Debenture",
+            "securityId": 9286
         },
         {
             "symbol": "BNT",
