@@ -570,6 +570,14 @@ def merge_records_by_id(existing_records, incoming_records):
         fallback_counter += 1
         return f"fallback:{fallback_counter}"
 
+    def merge_record(existing, incoming):
+        merged = dict(existing)
+        for key, value in incoming.items():
+            if value in (None, "", [], {}) and merged.get(key) not in (None, "", [], {}):
+                continue
+            merged[key] = value
+        return merged
+
     for record in existing_records:
         key = record_key(record)
         if key not in merged_by_id:
@@ -579,7 +587,7 @@ def merge_records_by_id(existing_records, incoming_records):
     for record in incoming_records:
         key = record_key(record)
         if key in merged_by_id and isinstance(merged_by_id[key], dict) and isinstance(record, dict):
-            merged_by_id[key] = {**merged_by_id[key], **record}
+            merged_by_id[key] = merge_record(merged_by_id[key], record)
         else:
             merged_by_id[key] = record
             if key not in order:
@@ -642,6 +650,14 @@ def compact_company_disclosure_record(record):
     raw_title = record.get('title') or record.get('newsHeadline') or ''
     symbol = record.get('symbol') or extract_symbol_from_title(raw_title)
     title = re.sub(r'\s*[\[\(][A-Za-z0-9]+[\]\)]\s*$', '', str(raw_title)).strip()
+    body = record.get('body') or strip_html_text(record.get('newsBody'))
+    source = record.get('source') or record.get('newsSource')
+    if not title:
+        title = (
+            strip_html_text(body)
+            or strip_html_text(source)
+            or f"Disclosure {record.get('id')}"
+        )
     raw_documents = record.get('documents')
     if not isinstance(raw_documents, list):
         raw_documents = record.get('applicationDocumentDetailsList')
@@ -668,8 +684,8 @@ def compact_company_disclosure_record(record):
         "id": record.get('id'),
         "symbol": symbol,
         "title": title,
-        "body": record.get('body') or strip_html_text(record.get('newsBody')),
-        "source": record.get('source') or record.get('newsSource'),
+        "body": body,
+        "source": source,
         "publishedAt": record.get('publishedAt') or record.get('addedDate'),
         "documents": documents,
     }
