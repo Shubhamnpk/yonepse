@@ -7458,18 +7458,18 @@
             "securityId": 9192
         },
         {
-            "symbol": "HLBSL",
-            "shareTraded": 1100,
-            "closingPrice": 887.0,
-            "securityName": "Himalayan Laghubitta Bittiya Sanstha Limited",
-            "securityId": 693
-        },
-        {
             "symbol": "NMB50",
             "shareTraded": 1100,
             "closingPrice": 11.02,
             "securityName": "NMB 50",
             "securityId": 2867
+        },
+        {
+            "symbol": "HLBSL",
+            "shareTraded": 1100,
+            "closingPrice": 887.0,
+            "securityName": "Himalayan Laghubitta Bittiya Sanstha Limited",
+            "securityId": 693
         },
         {
             "symbol": "EBLEB89",
@@ -7752,11 +7752,11 @@
             "securityId": 2781
         },
         {
-            "symbol": "NBLD82",
+            "symbol": "RBCL",
             "shareTraded": 160,
-            "closingPrice": 1054.1,
-            "securityName": "10% Nabil Debenture 2082",
-            "securityId": 2892
+            "closingPrice": 14981.0,
+            "securityName": "Rastriya Beema Company Limited",
+            "securityId": 177
         },
         {
             "symbol": "GWFD83",
@@ -7766,11 +7766,11 @@
             "securityId": 2883
         },
         {
-            "symbol": "RBCL",
+            "symbol": "NBLD82",
             "shareTraded": 160,
-            "closingPrice": 14981.0,
-            "securityName": "Rastriya Beema Company Limited",
-            "securityId": 177
+            "closingPrice": 1054.1,
+            "securityName": "10% Nabil Debenture 2082",
+            "securityId": 2892
         },
         {
             "symbol": "NMBD89/90",
@@ -7934,13 +7934,6 @@
             "securityId": 2825
         },
         {
-            "symbol": "SBLD89",
-            "shareTraded": 25,
-            "closingPrice": 1287.5,
-            "securityName": "10.75% SBL Debenture 2089",
-            "securityId": 8098
-        },
-        {
             "symbol": "GBBD85",
             "shareTraded": 25,
             "closingPrice": 1110.0,
@@ -7948,11 +7941,11 @@
             "securityId": 8033
         },
         {
-            "symbol": "NMBD87/88",
+            "symbol": "SBLD89",
             "shareTraded": 25,
-            "closingPrice": 1096.9,
-            "securityName": "NMB Debenture 8.50% - 2087/88",
-            "securityId": 4963
+            "closingPrice": 1287.5,
+            "securityName": "10.75% SBL Debenture 2089",
+            "securityId": 8098
         },
         {
             "symbol": "NIBD84",
@@ -7960,6 +7953,13 @@
             "closingPrice": 1052.0,
             "securityName": "8.5% Nepal Investment Bank Debenture 2084",
             "securityId": 2931
+        },
+        {
+            "symbol": "NMBD87/88",
+            "shareTraded": 25,
+            "closingPrice": 1096.9,
+            "securityName": "NMB Debenture 8.50% - 2087/88",
+            "securityId": 4963
         },
         {
             "symbol": "LBLD86",
