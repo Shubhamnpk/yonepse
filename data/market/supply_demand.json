@@ -1,26 +1,4 @@
 {
     "supplyList": [],
-    "demandList": [
-        {
-            "totalQuantity": 249710,
-            "totalOrder": 2417,
-            "securityId": 9336,
-            "symbol": "SOPL",
-            "securityName": "Sopan Pharmaceuticals Limited"
-        },
-        {
-            "totalQuantity": 104178,
-            "totalOrder": 755,
-            "securityId": 9337,
-            "symbol": "APHL",
-            "securityName": "Appolo Hydropower Limited"
-        },
-        {
-            "totalQuantity": 40,
-            "totalOrder": 4,
-            "securityId": 8029,
-            "symbol": "ADBLB86",
-            "securityName": "Agricultural Bond (8 Year)"
-        }
-    ]
+    "demandList": []
 }
