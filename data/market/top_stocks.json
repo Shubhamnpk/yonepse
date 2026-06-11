@@ -7489,18 +7489,18 @@
             "securityId": 9336
         },
         {
-            "symbol": "TRH",
-            "shareTraded": 300,
-            "closingPrice": 769.0,
-            "securityName": "Taragaon Regency Hotel Limited",
-            "securityId": 148
-        },
-        {
             "symbol": "SIGS3",
             "shareTraded": 300,
             "closingPrice": 10.8,
             "securityName": "Siddhartha Investment Growth Scheme 3",
             "securityId": 9182
+        },
+        {
+            "symbol": "TRH",
+            "shareTraded": 300,
+            "closingPrice": 769.0,
+            "securityName": "Taragaon Regency Hotel Limited",
+            "securityId": 148
         },
         {
             "symbol": "JSLBB",
@@ -7545,18 +7545,18 @@
             "securityId": 9178
         },
         {
-            "symbol": "STC",
-            "shareTraded": 230,
-            "closingPrice": 5400.0,
-            "securityName": "Salt Trading Corporation",
-            "securityId": 155
-        },
-        {
             "symbol": "SPL",
             "shareTraded": 230,
             "closingPrice": 704.9,
             "securityName": "Shuvam Power Limited",
             "securityId": 9147
+        },
+        {
+            "symbol": "STC",
+            "shareTraded": 230,
+            "closingPrice": 5400.0,
+            "securityName": "Salt Trading Corporation",
+            "securityId": 155
         },
         {
             "symbol": "MATRI",
@@ -7636,18 +7636,11 @@
             "securityId": 8098
         },
         {
-            "symbol": "CMF2",
+            "symbol": "APHL",
             "shareTraded": 100,
-            "closingPrice": 9.9,
-            "securityName": "CITIZENS MUTUAL FUND 2",
-            "securityId": 2862
-        },
-        {
-            "symbol": "PBLD86",
-            "shareTraded": 100,
-            "closingPrice": 1136.4,
-            "securityName": "10.25% Prabhu Bank  Debenture 2086",
-            "securityId": 2875
+            "closingPrice": 396.2,
+            "securityName": "Appolo Hydropower Limited",
+            "securityId": 9337
         },
         {
             "symbol": "NICBF",
@@ -7664,11 +7657,18 @@
             "securityId": 2873
         },
         {
-            "symbol": "APHL",
+            "symbol": "CMF2",
             "shareTraded": 100,
-            "closingPrice": 396.2,
-            "securityName": "Appolo Hydropower Limited",
-            "securityId": 9337
+            "closingPrice": 9.9,
+            "securityName": "CITIZENS MUTUAL FUND 2",
+            "securityId": 2862
+        },
+        {
+            "symbol": "PBLD86",
+            "shareTraded": 100,
+            "closingPrice": 1136.4,
+            "securityName": "10.25% Prabhu Bank  Debenture 2086",
+            "securityId": 2875
         },
         {
             "symbol": "DLBS",
@@ -7720,6 +7720,13 @@
             "securityId": 9211
         },
         {
+            "symbol": "ICFCD83",
+            "shareTraded": 50,
+            "closingPrice": 1100.0,
+            "securityName": "12% ICFC Finance Limited Debenture 2083",
+            "securityId": 2882
+        },
+        {
             "symbol": "GBBD85",
             "shareTraded": 50,
             "closingPrice": 1081.0,
@@ -7732,13 +7739,6 @@
             "closingPrice": 1100.0,
             "securityName": "8.5% Nepal Bank Debenture 2087",
             "securityId": 4959
-        },
-        {
-            "symbol": "ICFCD83",
-            "shareTraded": 50,
-            "closingPrice": 1100.0,
-            "securityName": "12% ICFC Finance Limited Debenture 2083",
-            "securityId": 2882
         },
         {
             "symbol": "GBILD84/85",
