@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${safeText(broker.imageUrl)}" alt="" style="width:52px;height:52px;border-radius:14px;object-fit:cover;border:2px solid rgba(255,255,255,0.08);flex-shrink:0;"
                         onerror="this.style.display='none'">
                     <div style="flex:1;min-width:0;">
-                        <div style="font-size:0.7rem;color:#818cf8;font-weight:600;letter-spacing:0.3px;">Broker #${safeText(broker.code)}</div>
+                        <div style="font-size:0.7rem;color:#818cf8;font-weight:600;letter-spacing:0.3px;">Broker #${safeText(broker.memberCode)}</div>
                         <div style="font-size:1.15rem;font-weight:700;margin:0.1rem 0 0.35rem;">${safeText(broker.name)}</div>
                         <div style="display:flex;flex-wrap:wrap;gap:0.35rem;">
                             ${tmsTag}${membershipTag}${phoneTag}
@@ -387,7 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             document.getElementById(`podium-${rank}-img`).src = broker.imageUrl || '';
             document.getElementById(`podium-${rank}-name`).textContent = broker.name;
-            document.getElementById(`podium-${rank}-code`).textContent = `Broker #${broker.code}`;
+            document.getElementById(`podium-${rank}-code`).textContent = `Broker #${broker.memberCode}`;
             const metricEl = document.getElementById(`podium-${rank}-metric`);
             if (metricEl) {
                 metricEl.innerHTML = getSortDisplayValue(broker, currentSort) + '<small>' + label + '</small>';
@@ -528,7 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isSearching) {
             listSource = sorted.filter(b =>
                 b.name.toLowerCase().includes(query) ||
-                b.code.toLowerCase().includes(query)
+                String(b.memberCode).toLowerCase().includes(query)
             );
         } else {
             listSource = sorted.slice(3);
@@ -549,12 +549,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Build a rank lookup: broker code -> overall position in sorted list
         const rankMap = {};
-        sorted.forEach((b, i) => { rankMap[b.code] = i; });
+        sorted.forEach((b, i) => { rankMap[b.memberCode] = i; });
 
         elements.grid.innerHTML = '';
 
         listSource.forEach((broker, idx) => {
-            const overallIdx = rankMap[broker.code] ?? idx;
+            const overallIdx = rankMap[broker.memberCode] ?? idx;
             const rank = overallIdx + 1;
             const isActive = !!broker.todayStats;
             const turnover = isActive ? broker.todayStats.totalAmount : broker.latestTurnover;
@@ -640,7 +640,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div>
                             <div class="broker-name" title="${safeText(broker.name)}">${safeText(broker.name)}</div>
                             <div class="broker-code">
-                                Broker #${safeText(broker.code)}
+                                Broker #${safeText(broker.memberCode)}
                                 ${broker.totalBranches > 0 ? `&middot; ${broker.totalBranches} branch${broker.totalBranches > 1 ? 'es' : ''}` : ''}
                                 ${(broker.tmsLink || broker.tmsUrl) ? `&middot; TMS: ${safeText(broker.tmsLink || broker.tmsUrl)}` : ''}
                                 ${broker.membershipType ? `&middot; ${safeText(getMembershipLabel(broker.membershipType))}` : ''}
