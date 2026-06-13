@@ -419,6 +419,7 @@
         <nav class="top-nav" aria-label="Primary">
             <a class="nav-link" href="../index.html">Market Dashboard</a>
             <a class="nav-link" href="data.html">Brokers & Datasets</a>
+            <a class="nav-link" href="broker-leaderboard.html">Broker Leaderboard</a>
             <a class="nav-link active" href="docs.html">JSON Docs</a>
             <a class="nav-link" href="migration.html">Migration Guide</a>
             <a class="nav-link" href="about.html">About</a>
@@ -784,7 +785,7 @@ if __name__ == "__main__":
                             <tr>
                                 <td><code>/data/other/brokers.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
-                                <td>Complete broker directory with contact info</td>
+                                <td>Complete broker directory with contact info, ratings, turnover & daily stats</td>
                                 <td>Conditional (about every 60 days)</td>
                                 <td>~25KB</td>
                             </tr>
@@ -1223,7 +1224,7 @@ if __name__ == "__main__":
                             <code class="endpoint-path">/data/other/brokers.json</code>
                             <span class="badge">array&lt;broker&gt;</span>
                         </div>
-                        <p class="endpoint-desc">Compact broker directory with membership, regions, branch count, and
+                        <p class="endpoint-desc">Compact broker directory with membership, regions, branch count, ratings & turnover, and
                             TMS link.</p>
                         <div class="code-wrap">
                             <div class="code-head"><span>sample item</span><button class="copy-btn"
@@ -2473,7 +2474,7 @@ if __name__ == "__main__":
                 { path: '/data/notify/notices.json', method: 'GET', shape: 'object', purpose: 'Combined general, company, and exchange notices.' },
                 { path: '/data/notify/disclosures.json', method: 'GET', shape: 'array', purpose: 'Company disclosures and news.' },
                 { path: '/data/notify/exchange_messages.json', method: 'GET', shape: 'array', purpose: 'Exchange-level messages and circulars.' },
-                { path: '/data/other/brokers.json', method: 'GET', shape: 'array', purpose: 'Broker directory with membership and district info.' },
+                { path: '/data/other/brokers.json', method: 'GET', shape: 'array', purpose: 'Broker directory with membership, district info, ratings, turnover, and daily stats from ShareHub.' },
                 { path: '/data/other/securities.json', method: 'GET', shape: 'array', purpose: 'Master security metadata list.' },
                 { path: '/data/company/financials.json', method: 'GET', shape: 'array', purpose: 'Compact company financial reports from NEPSE company detail pages.' },
                 { path: '/data/company/metadata.json', method: 'GET', shape: 'object', purpose: 'Metadata and document base URL for company financial reports.' },

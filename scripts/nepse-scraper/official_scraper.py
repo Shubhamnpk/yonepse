@@ -187,10 +187,13 @@ def compact_broker_record(broker):
     membership = broker.get('membershipTypeMaster') or {}
     tms_mapping = broker.get('memberTMSLinkMapping') or {}
     branches = broker.get('memberBranchMappings')
-    provinces = unique_text_values(
+    raw_provinces = list(unique_text_values(
         (item or {}).get('description') or (item or {}).get('name')
         for item in broker.get('provinceList') or []
-    )
+    ))
+    provinces = raw_provinces[0] if raw_provinces else None
+    if provinces and provinces.startswith('Province '):
+        provinces = provinces.replace('Province ', '')
     districts = unique_text_values(
         (item or {}).get('districtName')
         for item in broker.get('districtList') or []

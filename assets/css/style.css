@@ -1327,93 +1327,97 @@ body.filter-active #ipo-section {
 }
 
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
+    .container { padding: 1.25rem; }
 
-    .market-status {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
+    .hero-title { font-size: 2.5rem; letter-spacing: -1px; }
 
-    .controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
+    .hero-subtitle { font-size: 1rem; padding: 0 0.5rem; }
 
-    .dashboard-shell {
-        grid-template-columns: 1fr;
-    }
+    header { padding: 2rem 0; margin-bottom: 1.5rem; }
 
-    .dash-side {
-        position: static;
-    }
+    .market-status { flex-direction: column; align-items: center; gap: 0.75rem; }
 
-    .intel-grid {
-        grid-template-columns: 1fr;
-    }
+    .status-item { padding: 0.7rem 1.25rem; font-size: 0.8rem; }
 
-    .ipo-card-topline {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+    .controls { flex-direction: column; align-items: stretch; }
 
-    .ipo-card-countdown {
-        white-space: normal;
-    }
+    .custom-dropdown { width: 100%; max-width: none; }
 
-    .ipo-stats-grid {
-        grid-template-columns: 1fr;
-    }
+    .search-box { max-width: none; }
 
-    .ipo-detail-row {
-        flex-direction: column;
-        gap: 0.25rem;
-    }
+    .dashboard-shell { grid-template-columns: 1fr; }
 
-    .ipo-detail-value {
-        text-align: left;
-    }
+    .dash-side { position: static; }
 
-    .snapshot-grid {
-        grid-template-columns: 1fr;
-    }
+    .intel-grid { grid-template-columns: 1fr; }
 
-    .movers-wrap {
-        grid-template-columns: 1fr;
-    }
+    .stock-container { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem; }
 
-    .dataset-catalog {
-        grid-template-columns: 1fr;
-    }
+    .ipo-card-topline { align-items: flex-start; flex-direction: column; }
 
-    .ipo-toolbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    .ipo-card-countdown { white-space: normal; }
 
-    .section-toggle-btn {
-        width: 100%;
-        justify-content: center;
-    }
+    .ipo-stats-grid { grid-template-columns: 1fr; }
 
-    .table-clamp {
-        max-width: 180px;
-    }
+    .ipo-detail-row { flex-direction: column; gap: 0.25rem; }
 
-    .sector-header {
-        align-items: flex-start;
-    }
+    .ipo-detail-value { text-align: left; }
 
-    .footer-content {
-        align-items: center;
-        text-align: center;
-    }
+    .snapshot-grid { grid-template-columns: 1fr; }
 
-    .footer-links {
-        justify-content: center;
-    }
+    .movers-wrap { grid-template-columns: 1fr; }
+
+    .dataset-catalog { grid-template-columns: 1fr; }
+
+    .ipo-toolbar { flex-direction: column; align-items: flex-start; }
+
+    .section-toggle-btn { width: 100%; justify-content: center; }
+
+    .table-clamp { max-width: 180px; }
+
+    .sector-header { align-items: flex-start; }
+
+    .footer-content { align-items: center; text-align: center; }
+
+    .footer-links { justify-content: center; }
+
+    .top-nav { gap: 0.5rem; }
+    .nav-link { padding: 0.4rem 0.75rem; font-size: 0.78rem; }
+}
+@media (max-width: 480px) {
+    .container { padding: 0.75rem; }
+    .hero-title { font-size: 1.8rem; letter-spacing: -0.5px; }
+    .hero-subtitle { font-size: 0.85rem; }
+    header { padding: 1.25rem 0; }
+    .status-item { padding: 0.5rem 0.9rem; font-size: 0.72rem; gap: 0.35rem; border-radius: 50px; }
+    .status-dot { width: 6px; height: 6px; }
+    .stock-container { grid-template-columns: 1fr; gap: 0.6rem; }
+    .top-nav { gap: 0.35rem; }
+    .nav-link { padding: 0.35rem 0.6rem; font-size: 0.7rem; }
+    .stock-card { padding: 0.75rem; border-radius: 14px; }
+    .stock-symbol { font-size: 0.85rem; }
+    .stock-price { font-size: 1rem; }
+    .stock-change { font-size: 0.78rem; }
+    .stock-volume { font-size: 0.65rem; }
+    .section-title { font-size: 0.85rem; }
+    .intel-card { padding: 0.85rem; border-radius: 16px; }
+    .snapshot-value { font-size: 0.85rem; }
+    .index-row { padding: 0.55rem 0.6rem; }
+    .index-name { font-size: 0.8rem; }
+    .index-change { font-size: 0.78rem; }
+    .mover-row { padding: 0.5rem 0.55rem; }
+    .mover-symbol { font-size: 0.8rem; }
+    .mover-change { font-size: 0.78rem; }
+    .footer-content { gap: 0.75rem; }
+    .footer-links { gap: 0.5rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.72rem; padding: 0.3rem 0.6rem; }
+    .footer-credits { font-size: 0.72rem; }
+}
+@media (max-width: 360px) {
+    .container { padding: 0.5rem; }
+    .hero-title { font-size: 1.4rem; }
+    .hero-subtitle { font-size: 0.75rem; }
+    .nav-link { font-size: 0.62rem; padding: 0.25rem 0.45rem; }
 }
 
 /* Custom Scrollbar */

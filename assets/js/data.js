@@ -169,20 +169,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function getProvinceNames(broker) {
-        const source = Array.isArray(broker.provinces) ? broker.provinces : broker.provinceList;
-        if (!Array.isArray(source) || source.length === 0) return [];
-        if (Array.isArray(broker.provinces)) {
-            return Array.from(new Set(source.map((value) => String(value || '').trim()).filter(Boolean)));
+        if (broker.provinces) {
+            return [String(broker.provinces).trim()].filter(Boolean);
         }
-        const normalized = source
-            .map((item) => item.description || item.name)
-            .filter(Boolean)
-            .map((value) => {
-                const text = String(value).trim();
-                const match = text.match(/(\d+)/);
-                return match ? match[1] : text;
-            });
-        return Array.from(new Set(normalized));
+        const source = broker.provinceList;
+        if (!Array.isArray(source) || source.length === 0) return [];
+        return Array.from(new Set(source.map((item) => {
+            const text = String(item.description || item.name || '').trim();
+            const match = text.match(/(\d+)/);
+            return match ? match[1] : text;
+        }).filter(Boolean)));
     }
 
     function getProvinces(broker) {

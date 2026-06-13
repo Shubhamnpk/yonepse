@@ -5,8 +5,9 @@ on:
     branches:
       - main
   schedule:
-    # Run once daily at 4:02 AM UTC (9:47 AM NPT), avoiding crowded :00 UTC scheduler slots.
-    - cron: '2 4 * * *'
+    # Run twice daily Mon-Fri: 4:02 AM UTC (9:47 AM NPT) morning, 11:15 AM UTC (5:00 PM NPT) evening.
+    - cron: '2 4 * * 1-5'
+    - cron: '15 11 * * 1-5'
   workflow_dispatch: # Allow manual trigger
 
 concurrency:
@@ -38,6 +39,8 @@ jobs:
         python scripts/nepse-scraper/upcoming_ipo_scraper.py
         python scripts/nepse-scraper/proposed_dividend_scraper.py --mode latest
         python scripts/nepse-scraper/sectors.py
+        python scripts/sharehub_broker_scraper.py
+        python scripts/merge_brokers.py
 
     - name: Run project guardrails
       run: |
@@ -51,6 +54,6 @@ jobs:
         git config --global user.name "YONEPSE Ipo Bot"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git pull --rebase --autostash
-        git add data/company data/ipo/upcoming.json data/ipo/old.json data/upcoming_ipo.json data/oldipo.json data/proposed_dividend/latest_1y.json data/proposed_dividend/history_all_years.json data/proposed_dividend/meta.json data/nepse_sector_wise_codes.json
-        git commit -m "Update IPO, Proposed Dividend, and Sectors: $(date)" || echo "No changes to commit"
+        git add data/company data/ipo/upcoming.json data/ipo/old.json data/upcoming_ipo.json data/oldipo.json data/proposed_dividend/latest_1y.json data/proposed_dividend/history_all_years.json data/proposed_dividend/meta.json data/nepse_sector_wise_codes.json data/sharehub_brokers.json data/other/brokers.json
+        git commit -m "Update IPO, Proposed Dividend, Sectors, and ShareHub Brokers: $(date)" || echo "No changes to commit"
         git push

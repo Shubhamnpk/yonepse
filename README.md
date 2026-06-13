@@ -273,7 +273,7 @@ Migration notice: use the new endpoints listed below for all new integrations. L
 | `/data/market/status.json` | Object | Market open/closed status |
 | `/data/notify/disclosures.json` | Array | Company disclosures |
 | `/data/notify/exchange_messages.json` | Array | Exchange announcements |
-| `/data/other/brokers.json` | Array | Complete broker directory |
+| `/data/other/brokers.json` | Array | Complete broker directory with ratings, turnover, and daily stats from ShareHub |
 | `/data/other/securities.json` | Array | Master list of securities metadata |
 | `/data/company/profiles.json` | Array | Brief company profiles and contact facts from NEPSE |
 | `/data/company/financials.json` | Array | Compact company financial reports from `/company/detail/{company_id}` |

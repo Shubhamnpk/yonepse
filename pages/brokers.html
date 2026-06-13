@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YONEPSE | ShareHub Broker Rankings</title>
+    <meta name="description" content="Explore NEPSE broker rankings and performance metrics from ShareHub Nepal. Compare ratings, turnover, and daily activity.">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="../assets/img/favicon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'Inter', 'sans-serif']
+                    },
+                    keyframes: {
+                        indicesMarqueeScroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        }
+                    },
+                    animation: {
+                        indicesMarqueeScroll: 'indicesMarqueeScroll 28s linear infinite'
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body class="min-h-screen overflow-x-hidden bg-[#050505] text-white font-display"
+    style="background-image: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 40%);">
+    <div class="mx-auto max-w-[1200px] p-8">
+        <section aria-label="Live market indices"
+            class="mb-4 overflow-hidden rounded-full border border-white/10 bg-white/[0.03]">
+            <div id="indices-marquee-track"
+                class="inline-flex min-w-full items-center gap-6 whitespace-nowrap py-[0.6rem] text-[0.82rem] text-[#a0a0a0] animate-indicesMarqueeScroll">
+                <span class="px-4 text-[0.82rem] text-[#a0a0a0]">Loading market indices...</span>
+            </div>
+        </section>
+
+        <nav aria-label="Primary" class="mb-6 flex flex-wrap justify-center gap-3">
+            <a href="../index.html"
+                class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[0.85rem] text-[#a0a0a0] transition hover:border-indigo-500/70 hover:text-white">Market Dashboard</a>
+            <a href="data.html"
+                class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[0.85rem] text-[#a0a0a0] transition hover:border-indigo-500/70 hover:text-white">Brokers & Datasets</a>
+            <a href="brokers.html"
+                class="rounded-full border border-indigo-500/90 bg-indigo-500/15 px-4 py-2 text-[0.85rem] text-white">ShareHub Rankings</a>
+            <a href="about.html"
+                class="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-[0.85rem] text-[#a0a0a0] transition hover:border-indigo-500/70 hover:text-white">About</a>
+        </nav>
+
+        <header class="relative mb-12 py-12 text-center">
+            <h1
+                class="font-display mb-4 text-5xl font-extrabold tracking-[-1px] bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent">
+                ShareHub Broker Rankings
+            </h1>
+            <p class="mx-auto max-w-[620px] text-xl text-[#a0a0a0]">Comprehensive broker performance metrics and client ratings from ShareHub Nepal. Track turnover, ratings, and daily market activity.</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-4">
+                <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-[#a0a0a0] backdrop-blur">
+                    <i class="fa-solid fa-building"></i>
+                    <span id="broker-total-count">Loading brokers...</span>
+                </div>
+                <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-[#a0a0a0] backdrop-blur">
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <span id="broker-rated-count">Loading ratings...</span>
+                </div>
+                <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm text-[#a0a0a0] backdrop-blur">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span id="market-today-amount">Loading market summary...</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="space-y-8">
+            <!-- Top Ranked Brokers - Horizontal Scroll Cards -->
+            <section>
+                <div class="mb-4 flex items-center justify-between">
+                    <h2 class="flex items-center gap-2 text-2xl font-bold">
+                        <i class="fa-solid fa-trophy text-yellow-500"></i>
+                        Top Rated Brokers
+                    </h2>
+                    <a href="#all-brokers" class="text-sm text-indigo-400 hover:text-indigo-300 transition">View All</a>
+                </div>
+                <div id="top-rated-grid" class="flex gap-4 overflow-x-auto pb-4 -mx-2 px-2">
+                    <p class="text-[#a0a0a0]">Loading top rated brokers...</p>
+                </div>
+            </section>
+
+            <!-- Active Today Brokers -->
+            <section>
+                <div class="mb-4 flex items-center justify-between">
+                    <h2 class="flex items-center gap-2 text-2xl font-bold">
+                        <i class="fa-solid fa-bolt text-amber-500"></i>
+                        Most Active Today
+                    </h2>
+                    <span id="today-date" class="text-sm text-[#a0a0a0]"></span>
+                </div>
+                <div id="active-today-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <p class="text-[#a0a0a0]">Loading active brokers...</p>
+                </div>
+            </section>
+
+            <!-- All Brokers Table -->
+            <section id="all-brokers" class="rounded-[20px] border border-white/10 bg-white/[0.03] p-5 backdrop-blur">
+                <div class="mb-4 flex items-center justify-between gap-3">
+                    <h2 class="flex items-center gap-2 text-lg font-semibold">
+                        <i class="fa-solid fa-list"></i> All Brokers
+                    </h2>
+                    <button id="brokers-toggle" type="button" aria-expanded="false" aria-controls="brokers-content"
+                        class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-indigo-500/10 px-4 py-2 text-xs text-white transition hover:border-indigo-400/60 hover:bg-indigo-500/20">
+                        <span>Show All</span>
+                        <i class="fa-solid fa-chevron-down transition-transform"></i>
+                    </button>
+                </div>
+
+                <div id="brokers-content" class="hidden">
+                    <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+                        <div class="relative min-w-[260px] flex-1">
+                            <i class="fa-solid fa-magnifying-glass pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-[#a0a0a0]"></i>
+                            <input type="text" id="broker-search"
+                                class="w-full rounded-xl border border-white/10 bg-white/[0.03] py-3 pl-12 pr-4 text-white placeholder-[#a0a0a0] outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10"
+                                placeholder="Search by code, name, or TMS..." aria-label="Search brokers">
+                        </div>
+                        <select id="rating-filter"
+                            class="min-w-[200px] rounded-xl border border-white/10 bg-[#0a0a0a] px-3 py-3 text-sm text-white outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10"
+                            aria-label="Filter by minimum rating">
+                            <option value="0">All Ratings</option>
+                            <option value="4">4+ Stars</option>
+                            <option value="4.5">4.5+ Stars</option>
+                            <option value="5">Only 5 Star</option>
+                        </select>
+                        <label class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-3 text-sm text-[#a0a0a0]">
+                            <input type="checkbox" id="active-today-only" class="accent-indigo-500">
+                            <span>Active Today Only</span>
+                        </label>
+                    </div>
+
+                    <div class="overflow-x-auto rounded-xl border border-white/10">
+                        <table class="min-w-[1000px] w-full border-collapse text-left text-sm">
+                            <thead class="bg-black/80 text-xs text-[#a0a0a0]">
+                                <tr>
+                                    <th class="px-3 py-3">Code</th>
+                                    <th class="px-3 py-3">Broker</th>
+                                    <th class="px-3 py-3 text-center">Rating</th>
+                                    <th class="px-3 py-3 text-center">30-Day Turnover</th>
+                                    <th class="px-3 py-3 text-center">Today Activity</th>
+                                    <th class="px-3 py-3">TMS</th>
+                                    <th class="px-3 py-3 text-center">Branches</th>
+                                </tr>
+                            </thead>
+                            <tbody id="brokers-table-body" class="divide-y divide-white/5 bg-transparent">
+                                <tr>
+                                    <td colspan="7" class="px-3 py-6 text-center text-[#a0a0a0]">Loading broker data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Broker Performance Chart -->
+            <section class="rounded-[20px] border border-white/10 bg-white/[0.03] p-5 backdrop-blur">
+                <div class="mb-4">
+                    <h2 class="flex items-center gap-2 text-lg font-semibold">
+                        <i class="fa-solid fa-chart-bar"></i>
+                        Top Brokers by 30-Day Turnover
+                    </h2>
+                </div>
+                <div class="h-[280px] w-full">
+                    <canvas id="turnover-chart" aria-label="Broker turnover chart" role="img"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>YONEPSE</h3>
+                <p>Empowering investors with real-time, comprehensive market data.</p>
+            </div>
+            <div class="footer-links">
+                <a rel="noopener noreferrer" href="https://github.com/Shubhamnpk/nepse-scraper" target="_blank">
+                    <i class="fa-brands fa-github"></i> Open Source
+                </a>
+                <a rel="noopener noreferrer" href="https://www.nepalstock.com/" target="_blank">
+                    <i class="fa-solid fa-building-columns"></i> NEPSE
+                </a>
+                <a rel="noopener noreferrer" href="https://sharehubnepal.com/" target="_blank">
+                    <i class="fa-solid fa-globe"></i> ShareHub
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 YONEPSE. All rights reserved.</p>
+            <div class="source-credit">
+                Data sourced from <a rel="noopener noreferrer" href="https://sharehubnepal.com/" target="_blank">ShareHub Nepal</a>.
+                Not affiliated with ShareHub Nepal.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+    <script src="../assets/js/brokers.js" defer></script>
+</body>
+
+</html>
