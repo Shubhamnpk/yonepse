@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'mostRated':
                 return Number(broker.rating?.totalRatings) || 0;
             case 'branches':
-                return Number(broker.totalBranches) || 0;
+                return Number(broker.branchCount) || 0;
             default:
                 return 0;
         }
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="modal-section-title"><i class="fa-solid fa-star" style="margin-right:0.35rem;"></i>Top Stock Today</div>
                 <div class="modal-topstock">
                     <span class="modal-topstock-symbol clickable-stock-podium"
-                        data-symbol="${safeText(ts.topStock.symbol)}" data-broker="${safeText(broker.name)}"
+                        data-symbol="${safeText(ts.topStock.symbol)}" data-broker="${safeText(broker.memberName)}"
                         data-amount="${ts.topStock.totalAmount}" data-buy="${ts.topStock.buyAmount}"
                         data-sell="${ts.topStock.sellAmount}" data-name="${safeText(ts.topStock.name)}">
                         ${safeText(ts.topStock.symbol)}
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         onerror="this.style.display='none'">
                     <div style="flex:1;min-width:0;">
                         <div style="font-size:0.7rem;color:#818cf8;font-weight:600;letter-spacing:0.3px;">Broker #${safeText(broker.memberCode)}</div>
-                        <div style="font-size:1.15rem;font-weight:700;margin:0.1rem 0 0.35rem;">${safeText(broker.name)}</div>
+                        <div style="font-size:1.15rem;font-weight:700;margin:0.1rem 0 0.35rem;">${safeText(broker.memberName)}</div>
                         <div style="display:flex;flex-wrap:wrap;gap:0.35rem;">
                             ${tmsTag}${membershipTag}${phoneTag}
                         </div>
@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </span>
                         <span class="modal-pill">
                             <span class="pill-label">Branches</span>
-                            <span class="pill-value">${broker.totalBranches || '0'}</span>
+                            <span class="pill-value">${broker.branchCount || '0'}</span>
                         </span>
                     </div>
                 </div>
@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const rank = i + 1;
 
             document.getElementById(`podium-${rank}-img`).src = broker.imageUrl || '';
-            document.getElementById(`podium-${rank}-name`).textContent = broker.name;
+            document.getElementById(`podium-${rank}-name`).textContent = broker.memberName;
             document.getElementById(`podium-${rank}-code`).textContent = `Broker #${broker.memberCode}`;
             const metricEl = document.getElementById(`podium-${rank}-metric`);
             if (metricEl) {
@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let listSource = sorted;
         if (isSearching) {
             listSource = sorted.filter(b =>
-                b.name.toLowerCase().includes(query) ||
+                b.memberName.toLowerCase().includes(query) ||
                 String(b.memberCode).toLowerCase().includes(query)
             );
         } else {
@@ -569,7 +569,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const ts = broker.todayStats;
                 const topStock = ts.topStock;
                 const clickAttr = topStock
-                    ? ` style="cursor:pointer;" class="top-stock-chip clickable-stock" data-symbol="${safeText(topStock.symbol)}" data-broker="${safeText(broker.name)}" data-amount="${topStock.totalAmount}" data-buy="${topStock.buyAmount}" data-sell="${topStock.sellAmount}" data-name="${safeText(topStock.name)}"`
+                    ? ` style="cursor:pointer;" class="top-stock-chip clickable-stock" data-symbol="${safeText(topStock.symbol)}" data-broker="${safeText(broker.memberName)}" data-amount="${topStock.totalAmount}" data-buy="${topStock.buyAmount}" data-sell="${topStock.sellAmount}" data-name="${safeText(topStock.name)}"`
                     : ' class="top-stock-chip"';
                 detailsHtml = `
                     <div class="broker-details" id="details-${broker.id}">
@@ -635,13 +635,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="broker-rank ${rankClass}">#${rank}</div>
                 <div class="broker-info">
                     <div class="flex items-center gap-3">
-                        <img class="broker-logo" src="${safeText(broker.imageUrl)}" alt="${safeText(broker.name)}" loading="lazy"
+                        <img class="broker-logo" src="${safeText(broker.imageUrl)}" alt="${safeText(broker.memberName)}" loading="lazy"
                             onerror="this.style.display='none'">
                         <div>
-                            <div class="broker-name" title="${safeText(broker.name)}">${safeText(broker.name)}</div>
+                            <div class="broker-name" title="${safeText(broker.memberName)}">${safeText(broker.memberName)}</div>
                             <div class="broker-code">
                                 Broker #${safeText(broker.memberCode)}
-                                ${broker.totalBranches > 0 ? `&middot; ${broker.totalBranches} branch${broker.totalBranches > 1 ? 'es' : ''}` : ''}
+                                ${broker.branchCount > 0 ? `&middot; ${broker.branchCount} branch${broker.branchCount > 1 ? 'es' : ''}` : ''}
                                 ${(broker.tmsLink || broker.tmsUrl) ? `&middot; TMS: ${safeText(broker.tmsLink || broker.tmsUrl)}` : ''}
                                 ${broker.membershipType ? `&middot; ${safeText(getMembershipLabel(broker.membershipType))}` : ''}
                             </div>
@@ -661,10 +661,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <i class="fa-regular fa-building" style="font-size:0.7rem;"></i>
                             <span class="metric-value">${formatNumber(broker.rating?.averageCashDepositDays, 1)}d</span> deposit
                         </span>
-                        ${broker.totalBranches > 0 ? `
+                        ${broker.branchCount > 0 ? `
                         <span class="broker-metric" title="${TOOLTIPS.branches}">
                             <i class="fa-solid fa-location-dot" style="font-size:0.7rem;color:#a0a0a0;"></i>
-                            <span class="metric-value">${broker.totalBranches}</span> branches
+                            <span class="metric-value">${broker.branchCount}</span> branches
                         </span>` : ''}
                     </div>
                     <div class="progress-bar-track" title="${isCurrency ? 'Rs. ' + formatNepaliNum(sortVal) : sortVal}">
