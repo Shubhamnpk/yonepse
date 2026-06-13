@@ -7555,6 +7555,20 @@
             "securityId": 8044
         },
         {
+            "symbol": "PBD84",
+            "shareTraded": 50,
+            "closingPrice": 1075.5,
+            "securityName": "10.15% Prime Debenture 2084",
+            "securityId": 8116
+        },
+        {
+            "symbol": "NICAD2091",
+            "shareTraded": 50,
+            "closingPrice": 1057.6,
+            "securityName": "7% NIC ASIA Debenture 2091",
+            "securityId": 9266
+        },
+        {
             "symbol": "PBD88",
             "shareTraded": 50,
             "closingPrice": 1225.0,
@@ -7569,32 +7583,11 @@
             "securityId": 8110
         },
         {
-            "symbol": "NICAD2091",
-            "shareTraded": 50,
-            "closingPrice": 1057.6,
-            "securityName": "7% NIC ASIA Debenture 2091",
-            "securityId": 9266
-        },
-        {
-            "symbol": "PBD84",
-            "shareTraded": 50,
-            "closingPrice": 1075.5,
-            "securityName": "10.15% Prime Debenture 2084",
-            "securityId": 8116
-        },
-        {
             "symbol": "KBLD89",
             "shareTraded": 29,
             "closingPrice": 1243.0,
             "securityName": "11% KBL Debenture 2089",
             "securityId": 8127
-        },
-        {
-            "symbol": "MFLD85",
-            "shareTraded": 25,
-            "closingPrice": 1100.0,
-            "securityName": "9.5% Manjushree Finance Limited Debenture 2085",
-            "securityId": 2932
         },
         {
             "symbol": "RBBD2088",
@@ -7604,18 +7597,25 @@
             "securityId": 9264
         },
         {
-            "symbol": "NICAD85/86",
-            "shareTraded": 25,
-            "closingPrice": 1169.0,
-            "securityName": "10% NIC Asia Debenture 2085/86",
-            "securityId": 2825
-        },
-        {
             "symbol": "GBILD84/85",
             "shareTraded": 25,
             "closingPrice": 1154.9,
             "securityName": "Global IME Bank Debenture, 2084/85",
             "securityId": 9168
+        },
+        {
+            "symbol": "MFLD85",
+            "shareTraded": 25,
+            "closingPrice": 1100.0,
+            "securityName": "9.5% Manjushree Finance Limited Debenture 2085",
+            "securityId": 2932
+        },
+        {
+            "symbol": "NICAD85/86",
+            "shareTraded": 25,
+            "closingPrice": 1169.0,
+            "securityName": "10% NIC Asia Debenture 2085/86",
+            "securityId": 2825
         },
         {
             "symbol": "BNT",
