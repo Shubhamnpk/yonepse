@@ -1,5 +1,12 @@
 [
     {
+        "businessDate": "2026-06-15",
+        "totalTurnover": 4412048609.9,
+        "totalTradedShares": 10739998,
+        "totalTransactions": 51702,
+        "tradedScrips": 350
+    },
+    {
         "businessDate": "2026-06-12",
         "totalTurnover": 4341094764.19,
         "totalTradedShares": 9856525,
@@ -1559,12 +1566,5 @@
         "totalTradedShares": 25393762,
         "totalTransactions": 95374,
         "tradedScrips": 308
-    },
-    {
-        "businessDate": "2025-06-12",
-        "totalTurnover": 12515308961.61,
-        "totalTradedShares": 28607685,
-        "totalTransactions": 102895,
-        "tradedScrips": 311
     }
 ]
