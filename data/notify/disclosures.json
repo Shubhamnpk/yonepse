@@ -1,5 +1,40 @@
 [
     {
+        "id": 46175,
+        "symbol": "NHPC",
+        "title": "AGM Notice",
+        "body": "Book Close of NHPC\nBook Close Date : 6/30/2026",
+        "source": "AGM Notice ",
+        "publishedAt": "2026-06-18T10:27:06.767",
+        "documents": [
+            {
+                "id": 31319,
+                "submittedDate": "2026-06-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nhpc_user/2026-06-18/download%20%282%29-5%20%281%29_1781757214735.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46174,
+        "symbol": "NHPC",
+        "title": "AGM Notice",
+        "body": "Annual General Meeting of NHPC\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 7/15/2026\nAGM No: 29\nBook Close Date: 6/30/2026",
+        "source": "Aarthik Abhiyan",
+        "publishedAt": "2026-06-18T10:08:30.927",
+        "documents": [
+            {
+                "id": 31317,
+                "submittedDate": "2026-06-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nhpc_user/2026-06-18/notice%20nhpc_1781756599930.pdf"
+            },
+            {
+                "id": 31318,
+                "submittedDate": "2026-06-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nhpc_user/2026-06-18/download%20%282%29-5_1781756585780.pdf"
+            }
+        ]
+    },
+    {
         "id": 46169,
         "symbol": "RBCL",
         "title": "company secretary change",
@@ -6563,6 +6598,26 @@
                 "id": 31302,
                 "submittedDate": "2026-06-17",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=czbil_user/2026-06-17/letter%20regarding%20BOD%20for%20NEPSE_1781670622122.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46178,
+        "symbol": "CZBIL",
+        "title": "8th SGM MINUTE",
+        "body": "8TH SGM MINUTE AS PER COVER LETTER",
+        "source": "8th SGM",
+        "publishedAt": "2026-06-18T15:11:02.53",
+        "documents": [
+            {
+                "id": 31323,
+                "submittedDate": "2026-06-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=czbil_user/2026-06-18/8th%20SGM%20Signed%20Minutes_1781774716049.pdf"
+            },
+            {
+                "id": 31324,
+                "submittedDate": "2026-06-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=czbil_user/2026-06-18/Letter%20for%20NEPSE_1781774697667.pdf"
             }
         ]
     }
