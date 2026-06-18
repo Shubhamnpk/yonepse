@@ -7455,18 +7455,18 @@
             "securityId": 9196
         },
         {
-            "symbol": "LUK",
-            "shareTraded": 100,
-            "closingPrice": 10.0,
-            "securityName": "Laxmi Unnati Kosh",
-            "securityId": 2902
-        },
-        {
             "symbol": "CBLD88",
             "shareTraded": 100,
             "closingPrice": 1210.0,
             "securityName": "Civil Bank Debenture 2088",
             "securityId": 8043
+        },
+        {
+            "symbol": "LUK",
+            "shareTraded": 100,
+            "closingPrice": 10.0,
+            "securityName": "Laxmi Unnati Kosh",
+            "securityId": 2902
         },
         {
             "symbol": "NCCD86",
@@ -7532,11 +7532,11 @@
             "securityId": 9141
         },
         {
-            "symbol": "PBLD87",
+            "symbol": "SBLD84",
             "shareTraded": 50,
-            "closingPrice": 1095.0,
-            "securityName": "8.5% Prabhu Bank Debenture 2087",
-            "securityId": 4962
+            "closingPrice": 1047.5,
+            "securityName": "8.5% SBL Debenture 2084",
+            "securityId": 2912
         },
         {
             "symbol": "ADBLD83",
@@ -7546,11 +7546,11 @@
             "securityId": 2886
         },
         {
-            "symbol": "SBLD84",
+            "symbol": "PBLD87",
             "shareTraded": 50,
-            "closingPrice": 1047.5,
-            "securityName": "8.5% SBL Debenture 2084",
-            "securityId": 2912
+            "closingPrice": 1095.0,
+            "securityName": "8.5% Prabhu Bank Debenture 2087",
+            "securityId": 4962
         },
         {
             "symbol": "SHLB",
