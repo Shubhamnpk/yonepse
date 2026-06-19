@@ -1,5 +1,20 @@
 [
     {
+        "id": 46185,
+        "symbol": "UAIL",
+        "title": "Regarding Bonus Share",
+        "body": "Regarding Bonus Share",
+        "source": "BOD",
+        "publishedAt": "2026-06-18T19:50:11.093",
+        "documents": [
+            {
+                "id": 31338,
+                "submittedDate": "2026-06-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=uic_user/2026-06-18/Providing%20in%20Information_1781791493887.pdf"
+            }
+        ]
+    },
+    {
         "id": 46175,
         "symbol": "NHPC",
         "title": "AGM Notice",
@@ -6618,6 +6633,39 @@
                 "id": 31324,
                 "submittedDate": "2026-06-18",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=czbil_user/2026-06-18/Letter%20for%20NEPSE_1781774697667.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46189,
+        "symbol": "STC",
+        "title": "Auditor's Appointed",
+        "source": "Salt Trading Corporation Limited",
+        "publishedAt": "2026-06-19T11:08:25.23",
+        "documents": [
+            {
+                "id": 31343,
+                "submittedDate": "2026-06-19",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=stc_user/2026-06-19/Auditor%20Appointed_1781846599668.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46186,
+        "symbol": "HDHPC",
+        "title": "Postpone of AGM",
+        "source": "Nepal Samacharpatra",
+        "publishedAt": "2026-06-19T10:29:49.01",
+        "documents": [
+            {
+                "id": 31340,
+                "submittedDate": "2026-06-19",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Himal_Dolakha_Hydroipower_/Company%20News/2026-06-19/News%20II_1781844285719.jpeg"
+            },
+            {
+                "id": 31339,
+                "submittedDate": "2026-06-19",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Himal_Dolakha_Hydroipower_/Company%20News/2026-06-19/Letter_1781844203784.pdf"
             }
         ]
     }
