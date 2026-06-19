@@ -7355,18 +7355,18 @@
             "securityId": 8025
         },
         {
-            "symbol": "SFMF",
-            "shareTraded": 1000,
-            "closingPrice": 11.01,
-            "securityName": "Sunrise First Mutual Fund",
-            "securityId": 2877
-        },
-        {
             "symbol": "KBLD89",
             "shareTraded": 1000,
             "closingPrice": 1260.0,
             "securityName": "11% KBL Debenture 2089",
             "securityId": 8127
+        },
+        {
+            "symbol": "SFMF",
+            "shareTraded": 1000,
+            "closingPrice": 11.01,
+            "securityName": "Sunrise First Mutual Fund",
+            "securityId": 2877
         },
         {
             "symbol": "NUBL",
@@ -7712,6 +7712,20 @@
             "securityId": 213
         },
         {
+            "symbol": "NBLD82",
+            "shareTraded": 50,
+            "closingPrice": 1080.0,
+            "securityName": "10% Nabil Debenture 2082",
+            "securityId": 2892
+        },
+        {
+            "symbol": "ADBLD83",
+            "shareTraded": 50,
+            "closingPrice": 1083.0,
+            "securityName": "10.35% Agricultural Bank Debenture 2083",
+            "securityId": 2886
+        },
+        {
             "symbol": "PBLD87",
             "shareTraded": 50,
             "closingPrice": 1095.0,
@@ -7731,20 +7745,6 @@
             "closingPrice": 11550.0,
             "securityName": "Rastriya Beema Company Limited Promoter Share",
             "securityId": 634
-        },
-        {
-            "symbol": "NBLD82",
-            "shareTraded": 50,
-            "closingPrice": 1080.0,
-            "securityName": "10% Nabil Debenture 2082",
-            "securityId": 2892
-        },
-        {
-            "symbol": "ADBLD83",
-            "shareTraded": 50,
-            "closingPrice": 1083.0,
-            "securityName": "10.35% Agricultural Bank Debenture 2083",
-            "securityId": 2886
         },
         {
             "symbol": "NABILD2089",
@@ -7768,13 +7768,6 @@
             "securityId": 5984
         },
         {
-            "symbol": "PBD88",
-            "shareTraded": 25,
-            "closingPrice": 1215.0,
-            "securityName": "10% Prime Debenture 2088",
-            "securityId": 8097
-        },
-        {
             "symbol": "SDBD87",
             "shareTraded": 25,
             "closingPrice": 1125.0,
@@ -7787,6 +7780,13 @@
             "closingPrice": 1109.7,
             "securityName": "Jyoti Bikash Bank Bond 2087",
             "securityId": 8020
+        },
+        {
+            "symbol": "PBD88",
+            "shareTraded": 25,
+            "closingPrice": 1215.0,
+            "securityName": "10% Prime Debenture 2088",
+            "securityId": 8097
         },
         {
             "symbol": "HEIP",
@@ -7810,18 +7810,18 @@
             "securityId": 8043
         },
         {
-            "symbol": "KBLD86",
-            "shareTraded": 10,
-            "closingPrice": 1236.0,
-            "securityName": "10.25% KBL Debenture 2086",
-            "securityId": 2885
-        },
-        {
             "symbol": "ICFCD88",
             "shareTraded": 10,
             "closingPrice": 1140.0,
             "securityName": "9% ICFC Finance Limited Debenture 2088",
             "securityId": 9249
+        },
+        {
+            "symbol": "KBLD86",
+            "shareTraded": 10,
+            "closingPrice": 1236.0,
+            "securityName": "10.25% KBL Debenture 2086",
+            "securityId": 2885
         },
         {
             "symbol": "UNL",
