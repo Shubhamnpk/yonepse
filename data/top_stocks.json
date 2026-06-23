@@ -7760,25 +7760,18 @@
             "securityId": 9180
         },
         {
+            "symbol": "MFLD85",
+            "shareTraded": 50,
+            "closingPrice": 1120.0,
+            "securityName": "9.5% Manjushree Finance Limited Debenture 2085",
+            "securityId": 2932
+        },
+        {
             "symbol": "STC",
             "shareTraded": 50,
             "closingPrice": 5360.0,
             "securityName": "Salt Trading Corporation",
             "securityId": 155
-        },
-        {
-            "symbol": "SBLD2091",
-            "shareTraded": 50,
-            "closingPrice": 1076.0,
-            "securityName": "7.25% SBL Debenture 2091",
-            "securityId": 9271
-        },
-        {
-            "symbol": "EBLEB89",
-            "shareTraded": 50,
-            "closingPrice": 1065.0,
-            "securityName": "Everest Bank Limited Energy Bond, 2089",
-            "securityId": 9152
         },
         {
             "symbol": "SBLD89",
@@ -7788,11 +7781,18 @@
             "securityId": 8098
         },
         {
-            "symbol": "MFLD85",
+            "symbol": "EBLEB89",
             "shareTraded": 50,
-            "closingPrice": 1120.0,
-            "securityName": "9.5% Manjushree Finance Limited Debenture 2085",
-            "securityId": 2932
+            "closingPrice": 1065.0,
+            "securityName": "Everest Bank Limited Energy Bond, 2089",
+            "securityId": 9152
+        },
+        {
+            "symbol": "SBLD2091",
+            "shareTraded": 50,
+            "closingPrice": 1076.0,
+            "securityName": "7.25% SBL Debenture 2091",
+            "securityId": 9271
         },
         {
             "symbol": "BNT",
@@ -7830,18 +7830,18 @@
             "securityId": 4963
         },
         {
-            "symbol": "NBLD87",
-            "shareTraded": 25,
-            "closingPrice": 1074.6,
-            "securityName": "8.5% Nepal Bank Debenture 2087",
-            "securityId": 4959
-        },
-        {
             "symbol": "NIFRAUR85/86",
             "shareTraded": 25,
             "closingPrice": 1065.0,
             "securityName": "NIFRA Uraj Rinpatra7%-2085/86",
             "securityId": 9141
+        },
+        {
+            "symbol": "NBLD87",
+            "shareTraded": 25,
+            "closingPrice": 1074.6,
+            "securityName": "8.5% Nepal Bank Debenture 2087",
+            "securityId": 4959
         },
         {
             "symbol": "SBLD84",
@@ -7851,18 +7851,18 @@
             "securityId": 2912
         },
         {
-            "symbol": "NIFRAGED",
-            "shareTraded": 15,
-            "closingPrice": 1039.4,
-            "securityName": "Nifra Green Energy Debenture 6% - 2088/89",
-            "securityId": 9261
-        },
-        {
             "symbol": "CIZBD90",
             "shareTraded": 15,
             "closingPrice": 1241.0,
             "securityName": "10% Citizens Bank Debenture 2090",
             "securityId": 9231
+        },
+        {
+            "symbol": "NIFRAGED",
+            "shareTraded": 15,
+            "closingPrice": 1039.4,
+            "securityName": "Nifra Green Energy Debenture 6% - 2088/89",
+            "securityId": 9261
         },
         {
             "symbol": "RBBD83",
@@ -7872,18 +7872,18 @@
             "securityId": 8003
         },
         {
-            "symbol": "HBLD86",
-            "shareTraded": 11,
-            "closingPrice": 1166.0,
-            "securityName": "Himalayan Bank Limited Bond, 2086",
-            "securityId": 9137
-        },
-        {
             "symbol": "KBLD89",
             "shareTraded": 11,
             "closingPrice": 1251.0,
             "securityName": "11% KBL Debenture 2089",
             "securityId": 8127
+        },
+        {
+            "symbol": "HBLD86",
+            "shareTraded": 11,
+            "closingPrice": 1166.0,
+            "securityName": "Himalayan Bank Limited Bond, 2086",
+            "securityId": 9137
         },
         {
             "symbol": "NABILD87",
@@ -7914,18 +7914,18 @@
             "securityId": 8068
         },
         {
-            "symbol": "KSBBLD87",
-            "shareTraded": 2,
-            "closingPrice": 1115.0,
-            "securityName": "9% Kamana Sewa Bikas Bank Limited Debenture 2087",
-            "securityId": 4948
-        },
-        {
             "symbol": "HBLD83",
             "shareTraded": 2,
             "closingPrice": 1035.0,
             "securityName": "10% Himalayan Bank Debenture 2083",
             "securityId": 2873
+        },
+        {
+            "symbol": "KSBBLD87",
+            "shareTraded": 2,
+            "closingPrice": 1115.0,
+            "securityName": "9% Kamana Sewa Bikas Bank Limited Debenture 2087",
+            "securityId": 4948
         }
     ],
     "top_transaction": [
