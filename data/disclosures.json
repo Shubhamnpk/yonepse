@@ -1,5 +1,33 @@
 [
     {
+        "id": 46235,
+        "symbol": "PMHPL",
+        "title": "Plant Resume",
+        "source": "Administration",
+        "publishedAt": "2026-06-24T12:50:07.763",
+        "documents": [
+            {
+                "id": 31383,
+                "submittedDate": "2026-06-24",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=pmhpl_user/2026-06-24/Plant%20Resume%20letter%20Upper%20mai_1782284697169.jpg"
+            }
+        ]
+    },
+    {
+        "id": 46228,
+        "symbol": "BHL",
+        "title": "Resignation of Director",
+        "source": "BOD Meeting",
+        "publishedAt": "2026-06-24T10:48:25.987",
+        "documents": [
+            {
+                "id": 31380,
+                "submittedDate": "2026-06-24",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-06-24/pravin%20rai%20resign_1782277394014.pdf"
+            }
+        ]
+    },
+    {
         "id": 46212,
         "symbol": "HRL",
         "title": "Resignation of director",
@@ -6844,6 +6872,41 @@
                 "id": 31357,
                 "submittedDate": "2026-06-23",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=NESDO_Sambridha_Laghubitta_Bittiye_Sanstha_Limited/Company%20News/2026-06-23/period%20compiled%20of%20Director_1782184680048.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46226,
+        "symbol": "AVYAN",
+        "title": "AGM & Book Closure Notice of Aviyan Laghubitta  - AVYAN",
+        "body": "Annual General Meeting of AVYAN\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 7/14/2026\nAGM No: 6\nBook Close Date: 6/30/2026",
+        "source": "Company Secretary",
+        "publishedAt": "2026-06-24T10:03:53.43",
+        "documents": [
+            {
+                "id": 31378,
+                "submittedDate": "2026-06-24",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Aviyan_laghubittya_bittiya_sanstha_limited/Company%20News/2026-06-24/final%20Notice_1782274714505.pdf"
+            },
+            {
+                "id": 31377,
+                "submittedDate": "2026-06-24",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Aviyan_laghubittya_bittiya_sanstha_limited/Company%20News/2026-06-24/Letter%20for%20AGM%20Notice_1782274677485.jpeg"
+            }
+        ]
+    },
+    {
+        "id": 46225,
+        "symbol": "UAIL",
+        "title": "Annual General Meeting of UAIL.",
+        "body": "Annual General Meeting of UAIL\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 7/15/2026\nAGM No: 32\nBook Close Date: 7/3/2026\nCash Dividend: 0.2256%\nBonus Shares: 4.2857%",
+        "source": "BOD",
+        "publishedAt": "2026-06-24T09:16:07.48",
+        "documents": [
+            {
+                "id": 31376,
+                "submittedDate": "2026-06-24",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=uic_user/2026-06-24/Cover%20along%20Notice_1782271857768.pdf"
             }
         ]
     }
