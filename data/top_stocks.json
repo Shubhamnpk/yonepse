@@ -7688,18 +7688,18 @@
             "securityId": 9261
         },
         {
-            "symbol": "GWFD83",
-            "shareTraded": 120,
-            "closingPrice": 1100.0,
-            "securityName": "12 % Goodwill Finance Limited Debenture 2083",
-            "securityId": 2883
-        },
-        {
             "symbol": "RBCL",
             "shareTraded": 120,
             "closingPrice": 14251.0,
             "securityName": "Rastriya Beema Company Limited",
             "securityId": 177
+        },
+        {
+            "symbol": "GWFD83",
+            "shareTraded": 120,
+            "closingPrice": 1100.0,
+            "securityName": "12 % Goodwill Finance Limited Debenture 2083",
+            "securityId": 2883
         },
         {
             "symbol": "ICFCD89",
@@ -7758,11 +7758,11 @@
             "securityId": 8132
         },
         {
-            "symbol": "SNORL",
+            "symbol": "ENL",
             "shareTraded": 60,
-            "closingPrice": 395.0,
-            "securityName": "Snow Rivers Limited",
-            "securityId": 9344
+            "closingPrice": 843.9,
+            "securityName": "Emerging Nepal Limited",
+            "securityId": 8034
         },
         {
             "symbol": "RBCLPO",
@@ -7772,18 +7772,11 @@
             "securityId": 634
         },
         {
-            "symbol": "ENL",
+            "symbol": "SNORL",
             "shareTraded": 60,
-            "closingPrice": 843.9,
-            "securityName": "Emerging Nepal Limited",
-            "securityId": 8034
-        },
-        {
-            "symbol": "GBBD85",
-            "shareTraded": 50,
-            "closingPrice": 1075.3,
-            "securityName": "Garima Debenture, 2085",
-            "securityId": 8033
+            "closingPrice": 395.0,
+            "securityName": "Snow Rivers Limited",
+            "securityId": 9344
         },
         {
             "symbol": "ICFCD88",
@@ -7791,6 +7784,13 @@
             "closingPrice": 1140.0,
             "securityName": "9% ICFC Finance Limited Debenture 2088",
             "securityId": 9249
+        },
+        {
+            "symbol": "GBBD85",
+            "shareTraded": 50,
+            "closingPrice": 1075.3,
+            "securityName": "Garima Debenture, 2085",
+            "securityId": 8033
         },
         {
             "symbol": "PBLD87",
@@ -7835,18 +7835,18 @@
             "securityId": 2904
         },
         {
-            "symbol": "PBD88",
+            "symbol": "SBLD2091",
             "shareTraded": 25,
-            "closingPrice": 1215.0,
-            "securityName": "10% Prime Debenture 2088",
-            "securityId": 8097
+            "closingPrice": 1080.0,
+            "securityName": "7.25% SBL Debenture 2091",
+            "securityId": 9271
         },
         {
-            "symbol": "NBLD82",
+            "symbol": "SHINED",
             "shareTraded": 25,
-            "closingPrice": 1070.0,
-            "securityName": "10% Nabil Debenture 2082",
-            "securityId": 2892
+            "closingPrice": 1097.1,
+            "securityName": "Shine Resunga Debenture",
+            "securityId": 9286
         },
         {
             "symbol": "SBD89",
@@ -7863,18 +7863,18 @@
             "securityId": 9177
         },
         {
-            "symbol": "SBLD2091",
+            "symbol": "NBLD82",
             "shareTraded": 25,
-            "closingPrice": 1080.0,
-            "securityName": "7.25% SBL Debenture 2091",
-            "securityId": 9271
+            "closingPrice": 1070.0,
+            "securityName": "10% Nabil Debenture 2082",
+            "securityId": 2892
         },
         {
-            "symbol": "SHINED",
+            "symbol": "PBD88",
             "shareTraded": 25,
-            "closingPrice": 1097.1,
-            "securityName": "Shine Resunga Debenture",
-            "securityId": 9286
+            "closingPrice": 1215.0,
+            "securityName": "10% Prime Debenture 2088",
+            "securityId": 8097
         },
         {
             "symbol": "MBLD87",
