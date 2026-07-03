@@ -1,26 +1,4 @@
 {
     "supplyList": [],
-    "demandList": [
-        {
-            "totalQuantity": 84087,
-            "totalOrder": 592,
-            "securityId": 9346,
-            "symbol": "KAHL",
-            "securityName": "Kalanga Hydro Limited"
-        },
-        {
-            "totalQuantity": 79858,
-            "totalOrder": 969,
-            "securityId": 9345,
-            "symbol": "SGHL",
-            "securityName": "Sanigad Hydro Limited"
-        },
-        {
-            "totalQuantity": 10,
-            "totalOrder": 1,
-            "securityId": 4960,
-            "symbol": "ADBLB",
-            "securityName": "4% Agricultural Bond"
-        }
-    ]
+    "demandList": []
 }
