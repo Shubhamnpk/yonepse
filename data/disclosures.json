@@ -1,5 +1,65 @@
 [
     {
+        "id": 46335,
+        "symbol": "SWBBL",
+        "title": "Information About Company Secretary",
+        "body": "Information About Company Secretary",
+        "source": "SWBBL",
+        "publishedAt": "2026-07-06T10:04:08.583",
+        "documents": [
+            {
+                "id": 31471,
+                "submittedDate": "2026-07-06",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=swbbl_user/2026-07-06/Information%20About%20Company%20Secretary%20_1783311531477.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46333,
+        "symbol": "SWMF",
+        "title": "Resign of Director",
+        "body": "BOD Decision",
+        "source": "BOD Decision",
+        "publishedAt": "2026-07-05T13:41:44.877",
+        "documents": [
+            {
+                "id": 31470,
+                "submittedDate": "2026-07-05",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=womi_user/2026-07-05/Resign%20Shiva%20Sir_1783238187778.PDF"
+            }
+        ]
+    },
+    {
+        "id": 46332,
+        "symbol": "BANDIPUR",
+        "title": "Tenture Extension of Director",
+        "body": "Tenture Extension of Director",
+        "source": "Tenture Extension of Director",
+        "publishedAt": "2026-07-05T11:03:36.963",
+        "documents": [
+            {
+                "id": 31469,
+                "submittedDate": "2026-07-05",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Bandipur_Cablecar_and_Tourism_Limited/Company%20News/2026-07-05/nepse%20letter-extension%20of%20tenure%20of%20Directors_1783228679615.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46331,
+        "symbol": "MLBBL",
+        "title": "Appointment of BOD Member",
+        "body": "Information Regarding Appointment of BOD Member",
+        "source": "Mithila Laghubitta Bittiya Sanstha Ltd",
+        "publishedAt": "2026-07-03T17:51:53.807",
+        "documents": [
+            {
+                "id": 31468,
+                "submittedDate": "2026-07-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=mlbbl_user/2026-07-03/documents_1783080401104.jpg"
+            }
+        ]
+    },
+    {
         "id": 46327,
         "symbol": "HBL",
         "title": "Appointment of Director-Mr. Birendra Poudel - Representative of EPF",
@@ -7514,6 +7574,51 @@
                 "id": 31450,
                 "submittedDate": "2026-06-30",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Bhujung_Hydropower_Limited/Company%20News/2026-06-30/AGM%20Minute_1782814901089.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46338,
+        "symbol": "HLI",
+        "title": "Resignation of BOD of HLIL",
+        "body": "Resignation of BOD of HLIL",
+        "source": "Resignation of BOD of HLIL",
+        "publishedAt": "2026-07-06T11:08:57.15",
+        "documents": [
+            {
+                "id": 31474,
+                "submittedDate": "2026-07-06",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=hli_user/2026-07-06/Regarding%20Resignation%20of%20BOD%20of%20HLIL_1783315413787.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46339,
+        "symbol": "HLI",
+        "title": "Appointment of BOD of HLIL",
+        "body": "Appointment of BOD of HLIL",
+        "source": "Appointment of BOD of HLIL",
+        "publishedAt": "2026-07-06T11:10:41.65",
+        "documents": [
+            {
+                "id": 31475,
+                "submittedDate": "2026-07-06",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=hli_user/2026-07-06/Appointment%20of%20BOD%20of%20HLIL_1783315528790.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46336,
+        "symbol": "PHCL",
+        "title": "Investment in Promoter Share",
+        "body": "Information Regarding Investment in Promoter Share",
+        "source": "Information Regarding Investment in Promoter Share",
+        "publishedAt": "2026-07-06T10:14:06.71",
+        "documents": [
+            {
+                "id": 31472,
+                "submittedDate": "2026-07-06",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Peoples_Hydropower_Company_Limited/Company%20News/2026-07-06/Information%20-Investment%20in%20Promoter%20Share_1783312094090.pdf"
             }
         ]
     }

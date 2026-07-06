@@ -1,4 +1,19 @@
 {
-    "supplyList": [],
+    "supplyList": [
+        {
+            "totalQuantity": 10000,
+            "totalOrder": 1,
+            "securityId": 7985,
+            "symbol": "MBLD87",
+            "securityName": "8.5% Machhapuchchhre Debenture 2087"
+        },
+        {
+            "totalQuantity": 30,
+            "totalOrder": 3,
+            "securityId": 9136,
+            "symbol": "BOKD86KA",
+            "securityName": "BOK Debenture 2086 \"KA\""
+        }
+    ],
     "demandList": []
 }
