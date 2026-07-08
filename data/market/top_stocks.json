@@ -6780,18 +6780,18 @@
             "securityId": 9263
         },
         {
-            "symbol": "IHL",
-            "shareTraded": 10481,
-            "closingPrice": 357.2,
-            "securityName": "Ingwa Hydropower Limited",
-            "securityId": 9176
-        },
-        {
             "symbol": "RBBF40",
             "shareTraded": 10481,
             "closingPrice": 9.83,
             "securityName": "RBB Focus 40",
             "securityId": 9302
+        },
+        {
+            "symbol": "IHL",
+            "shareTraded": 10481,
+            "closingPrice": 357.2,
+            "securityName": "Ingwa Hydropower Limited",
+            "securityId": 9176
         },
         {
             "symbol": "SRBLD83",
@@ -8005,18 +8005,18 @@
             "securityId": 156
         },
         {
-            "symbol": "SFEF",
-            "shareTraded": 200,
-            "closingPrice": 9.95,
-            "securityName": "Sunrise Focused Equity Fund",
-            "securityId": 9154
-        },
-        {
             "symbol": "LBBLD89",
             "shareTraded": 200,
             "closingPrice": 1300.0,
             "securityName": "11% L.B.B.L. Debenture 2089",
             "securityId": 9197
+        },
+        {
+            "symbol": "SFEF",
+            "shareTraded": 200,
+            "closingPrice": 9.95,
+            "securityName": "Sunrise Focused Equity Fund",
+            "securityId": 9154
         },
         {
             "symbol": "KBSH",
@@ -8033,18 +8033,18 @@
             "securityId": 8018
         },
         {
-            "symbol": "GMFBS",
-            "shareTraded": 150,
-            "closingPrice": 1206.0,
-            "securityName": "Ganapati Laghubitta Bittiya Sanstha Limited",
-            "securityId": 2815
-        },
-        {
             "symbol": "SIGS2",
             "shareTraded": 150,
             "closingPrice": 10.31,
             "securityName": "Siddhartha Investment Growth Scheme - 2",
             "securityId": 2859
+        },
+        {
+            "symbol": "GMFBS",
+            "shareTraded": 150,
+            "closingPrice": 1206.0,
+            "securityName": "Ganapati Laghubitta Bittiya Sanstha Limited",
+            "securityId": 2815
         },
         {
             "symbol": "RBBD2088",
@@ -8131,18 +8131,18 @@
             "securityId": 9261
         },
         {
-            "symbol": "NBLD87",
-            "shareTraded": 25,
-            "closingPrice": 1085.0,
-            "securityName": "8.5% Nepal Bank Debenture 2087",
-            "securityId": 4959
-        },
-        {
             "symbol": "EBLD86",
             "shareTraded": 25,
             "closingPrice": 1080.3,
             "securityName": "Everest Bank Limited",
             "securityId": 8044
+        },
+        {
+            "symbol": "ICFCD88",
+            "shareTraded": 25,
+            "closingPrice": 1140.0,
+            "securityName": "9% ICFC Finance Limited Debenture 2088",
+            "securityId": 9249
         },
         {
             "symbol": "NABILD87",
@@ -8152,11 +8152,11 @@
             "securityId": 9238
         },
         {
-            "symbol": "ICFCD88",
+            "symbol": "NBLD87",
             "shareTraded": 25,
-            "closingPrice": 1140.0,
-            "securityName": "9% ICFC Finance Limited Debenture 2088",
-            "securityId": 9249
+            "closingPrice": 1085.0,
+            "securityName": "8.5% Nepal Bank Debenture 2087",
+            "securityId": 4959
         },
         {
             "symbol": "HBLD86",
