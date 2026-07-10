@@ -103,6 +103,36 @@ def snapshot_complete_enough(filepath, data, min_existing_ratio=0.8):
         return len(data) >= int(len(existing) * min_existing_ratio)
     return True
 
+def _prev_day_ltp_from_history(data_dir, symbol, current_date):
+    """Get LTP from most recent trading day before current_date in LTP history."""
+    if not symbol or not current_date:
+        return None
+    month = current_date[:7]
+    months_to_try = [month]
+    try:
+        dt = datetime.strptime(current_date, "%Y-%m-%d").date()
+        months_to_try.append((dt.replace(day=1) - timedelta(days=1)).strftime("%Y-%m"))
+    except ValueError:
+        pass
+    for m in months_to_try:
+        path = os.path.join(data_dir, "ltp", "monthly", f"{m}.json")
+        if not os.path.exists(path):
+            continue
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        dates = data.get("dates", [])
+        rows = data.get("series", {}).get(symbol, [])
+        if not dates or not rows:
+            continue
+        date_to_idx = {d: i for i, d in enumerate(dates)}
+        for pd in sorted([d for d in dates if d < current_date], reverse=True):
+            idx = date_to_idx[pd]
+            for row in rows:
+                if row[0] == idx:
+                    return row[1]
+    return None
+
+
 def build_omf_rows_for_nepse_data(data_dir, omf_items=None):
     """
     Load open-ended mutual funds from OMF.json and map them into nepse_data schema.
@@ -124,7 +154,10 @@ def build_omf_rows_for_nepse_data(data_dir, omf_items=None):
             continue
 
         ltp = item.get('daily_nav')
-        previous_close = item.get('weekly_nav')
+        daily_nav_date = item.get('daily_nav_date')
+        previous_close = _prev_day_ltp_from_history(data_dir, symbol, daily_nav_date)
+        if previous_close is None:
+            previous_close = item.get('weekly_nav')
         change = (
             round(ltp - previous_close, 2)
             if isinstance(ltp, (int, float)) and isinstance(previous_close, (int, float))
