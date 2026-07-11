@@ -154,7 +154,6 @@ def normalize_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
     for row in rows:
         item = {
-            "company_id": row.get("companyid"),
             "symbol": row.get("symbol"),
             "fund_name": row.get("companyname"),
             "fund_size": to_int(row.get("fund_size")),
@@ -163,7 +162,6 @@ def normalize_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             "weekly_nav": to_float(row.get("weekly_nav_price")),
             "weekly_nav_date": clean_date(row.get("weekly_date")),
             "monthly_nav": to_float(row.get("monthly_nav_price")),
-            "monthly_nav_date": clean_date(row.get("monthly_date")),
             "ltp": to_float(row.get("close")),
             "price_as_of": clean_date(row.get("published_date")),
             "premium_discount_percent": to_float(row.get("prem_dis")),
@@ -191,7 +189,6 @@ def scrape_and_save_open_ended_navs(output_path: Optional[str] = None) -> List[D
 
     final_path = output_path or get_output_path()
     save_json(final_path, data)
-    print(f"Saved {len(data)} open-ended mutual fund rows to {final_path}")
     return data
 
 

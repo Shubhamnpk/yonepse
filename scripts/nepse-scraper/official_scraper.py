@@ -1475,6 +1475,68 @@ def scrape_all_official_data(
         traceback.print_exc()
         return False
 
+def _fetch_garima_gsya_latest():
+    """Fetch latest daily NAV for GSYA from Garima Capital."""
+    import requests
+    url = "https://www.garimacapital.com/nav/category-data/10?daily_page=1&weekly_page=1&monthly_page=1"
+    resp = requests.get(url, timeout=20, headers={"User-Agent": "nepse-scraper/1.0"})
+    resp.raise_for_status()
+    data = resp.json()
+    items = data.get("tables", {}).get("daily", {}).get("data", [])
+    if not items:
+        return None, None
+    return items[0].get("publish_at"), items[0].get("value")
+
+
+def _override_gsya_in_data(data_dir):
+    """Override GSYA entry in OMF.json, nepse_data.json and market/live.json with fresh Garima Capital NAV."""
+    date_str, value = _fetch_garima_gsya_latest()
+    if not date_str or value is None:
+        print("  Garima GSYA fetch returned no data, skipping override.")
+        return
+
+    val = float(value)
+    now_iso = datetime.now().isoformat()
+
+    # 1. Update OMF.json
+    omf_path = os.path.join(data_dir, 'OMF.json')
+    if os.path.exists(omf_path):
+        omf = load_json_list(omf_path)
+        for row in omf:
+            if isinstance(row, dict) and row.get("symbol") == "GSYA":
+                row["daily_nav"] = val
+                row["daily_nav_date"] = date_str
+                row["ltp"] = val
+                row["scraped_at"] = now_iso
+                break
+        with open(omf_path, 'w', encoding='utf-8') as f:
+            json.dump(omf, f, indent=2, ensure_ascii=False)
+
+    # 2. Update nepse_data.json and market/live.json
+    for fname in ('nepse_data.json', 'live.json'):
+        fpath = os.path.join(data_dir, 'market' if fname == 'live.json' else '', fname)
+        if os.path.exists(fpath):
+            data = load_json_list(fpath)
+            for row in data:
+                if isinstance(row, dict) and row.get("symbol") == "GSYA":
+                    daily_nav_date = date_str
+                    pc = _prev_day_ltp_from_history(data_dir, "GSYA", daily_nav_date)
+                    if pc is None:
+                        pc = row.get("weekly_nav")
+                    row["ltp"] = val
+                    row["previous_close"] = pc
+                    change = round(val - pc, 2) if isinstance(pc, (int, float)) else 0
+                    p_change = round((change / pc) * 100, 2) if isinstance(pc, (int, float)) and pc != 0 else 0
+                    row["change"] = change
+                    row["percent_change"] = p_change
+                    row["last_updated"] = daily_nav_date
+                    break
+            with open(fpath, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4)
+
+    print(f"  GSYA overridden from Garima Capital: nav={val}, date={date_str}")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='NEPSE Official Data Scraper')
     parser.add_argument('--brokers', action='store_true', help='Force update broker list')
@@ -1546,4 +1608,11 @@ if __name__ == "__main__":
         ltp_history_mode=args.ltp_history,
         include_market=not args.skip_market
     )
+
+    if success and not args.skip_market:
+        try:
+            _override_gsya_in_data(data_dir)
+        except Exception as exc:
+            print(f"GSYA Garima override failed: {exc}")
+
     sys.exit(0 if success else 1)

@@ -8,6 +8,8 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from urllib3.exceptions import InsecureRequestWarning
 
+warnings.filterwarnings('ignore', category=InsecureRequestWarning)
+
 from .auth import PayloadParser, TokenParser
 from .endpoints import api_dict
 from .exceptions import SSLCertVerificationError, NepseScraperException
