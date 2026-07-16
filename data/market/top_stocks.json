@@ -6985,13 +6985,6 @@
             "securityId": 166
         },
         {
-            "symbol": "H8020",
-            "shareTraded": 10000,
-            "closingPrice": 11.65,
-            "securityName": "Himalayan 80-20",
-            "securityId": 9221
-        },
-        {
             "symbol": "SFMF",
             "shareTraded": 10000,
             "closingPrice": 10.0,
@@ -7004,6 +6997,13 @@
             "closingPrice": 1086.0,
             "securityName": "10% Nabil Debenture 2082",
             "securityId": 2892
+        },
+        {
+            "symbol": "H8020",
+            "shareTraded": 10000,
+            "closingPrice": 11.65,
+            "securityName": "Himalayan 80-20",
+            "securityId": 9221
         },
         {
             "symbol": "NLG",
@@ -8000,18 +8000,18 @@
             "securityId": 8098
         },
         {
-            "symbol": "CYCL",
-            "shareTraded": 384,
-            "closingPrice": 1328.0,
-            "securityName": "CYC Nepal Laghubitta Bittiya Sanstha Limited",
-            "securityId": 8065
-        },
-        {
             "symbol": "SWASTIK",
             "shareTraded": 384,
             "closingPrice": 1960.0,
             "securityName": "Swastik Laghubitta Bittiya Sanstha Limited",
             "securityId": 9295
+        },
+        {
+            "symbol": "CYCL",
+            "shareTraded": 384,
+            "closingPrice": 1328.0,
+            "securityName": "CYC Nepal Laghubitta Bittiya Sanstha Limited",
+            "securityId": 8065
         },
         {
             "symbol": "MLBLD89",
@@ -8266,18 +8266,18 @@
             "securityId": 2932
         },
         {
-            "symbol": "EBLD85",
-            "shareTraded": 25,
-            "closingPrice": 1160.0,
-            "securityName": "10.50% Everest Bank Limited Debenture 2085",
-            "securityId": 8119
-        },
-        {
             "symbol": "PBD88",
             "shareTraded": 25,
             "closingPrice": 1250.0,
             "securityName": "10% Prime Debenture 2088",
             "securityId": 8097
+        },
+        {
+            "symbol": "EBLD85",
+            "shareTraded": 25,
+            "closingPrice": 1160.0,
+            "securityName": "10.50% Everest Bank Limited Debenture 2085",
+            "securityId": 8119
         },
         {
             "symbol": "PBD84",
@@ -8315,6 +8315,13 @@
             "securityId": 4962
         },
         {
+            "symbol": "NICD83/84",
+            "shareTraded": 10,
+            "closingPrice": 1079.9,
+            "securityName": "10.25% NIC Asia Debenture 2083/84",
+            "securityId": 2868
+        },
+        {
             "symbol": "SHLB",
             "shareTraded": 10,
             "closingPrice": 1479.0,
@@ -8327,13 +8334,6 @@
             "closingPrice": 7200.0,
             "securityName": "Aatmanirbhar Laghubitta Bittiya Sanstha Limited",
             "securityId": 9161
-        },
-        {
-            "symbol": "NICD83/84",
-            "shareTraded": 10,
-            "closingPrice": 1079.9,
-            "securityName": "10.25% NIC Asia Debenture 2083/84",
-            "securityId": 2868
         },
         {
             "symbol": "SHINED",
