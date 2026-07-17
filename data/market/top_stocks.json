@@ -7253,13 +7253,6 @@
             "securityId": 9269
         },
         {
-            "symbol": "NICD88",
-            "shareTraded": 900,
-            "closingPrice": 1092.1,
-            "securityName": "NIC ASIA Rinpatra 2088",
-            "securityId": 7986
-        },
-        {
             "symbol": "NICFC",
             "shareTraded": 900,
             "closingPrice": 9.1,
@@ -7272,6 +7265,13 @@
             "closingPrice": 10.0,
             "securityName": "Laxmi Value Fund 2",
             "securityId": 9198
+        },
+        {
+            "symbol": "NICD88",
+            "shareTraded": 900,
+            "closingPrice": 1092.1,
+            "securityName": "NIC ASIA Rinpatra 2088",
+            "securityId": 7986
         },
         {
             "symbol": "SMFBS",
@@ -7337,18 +7337,18 @@
             "securityId": 9327
         },
         {
-            "symbol": "NADEP",
-            "shareTraded": 611,
-            "closingPrice": 750.0,
-            "securityName": "Nadep Laghubittiya bittya Sanstha Ltd.",
-            "securityId": 2784
-        },
-        {
             "symbol": "ACLBSL",
             "shareTraded": 611,
             "closingPrice": 935.0,
             "securityName": "Aarambha Chautari Laghubitta Bittiya Sanstha Limited",
             "securityId": 2790
+        },
+        {
+            "symbol": "NADEP",
+            "shareTraded": 611,
+            "closingPrice": 750.0,
+            "securityName": "Nadep Laghubittiya bittya Sanstha Ltd.",
+            "securityId": 2784
         },
         {
             "symbol": "MANDU",
