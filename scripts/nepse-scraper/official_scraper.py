@@ -398,6 +398,7 @@ def compact_company_profile_record(profile, security):
         "address_type": profile.get('addressType'),
         "address": address,
         "logo_path": profile.get('logoFilePath'),
+        "status": security.get('status'),
     }
     return {
         key: value
@@ -1514,11 +1515,11 @@ def scrape_all_official_data(
             ):
                 print("Fetching company profiles from company detail pages...")
                 profiles = build_company_profiles_snapshot(scraper, all_securities)
-                write_snapshot_if_changed(
-                    profiles_path,
-                    profiles,
-                    'company profiles'
-                )
+                if profiles:
+                    existing = load_json_list(profiles_path)
+                    merged = merge_records_by_id(existing, profiles)
+                    write_json_if_changed(profiles_path, merged)
+                    print(f"Updated company profiles: {len(merged)} entries ({len(profiles)} from API)")
                 if snapshot_complete_enough(profiles_path, profiles):
                     update_company_run_metadata(company_dir, 'profiles_last_checked')
         else:

@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let podiumClickHandler = null;
     let marketPrices = {};
     let lastBroker = null;
+    let moneySystem = localStorage.getItem('moneySystem') || 'international';
 
     const TOOLTIPS = {
         rating: 'Average user rating out of 5 stars',
@@ -92,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadSecurities() {
         try {
-            const res = await fetch(`${DATA_ROOT}all_securities.json`, { cache: 'no-store' });
+            const res = await fetch(`${DATA_ROOT}other/securities.json`, { cache: 'no-store' });
             if (!res.ok) return;
             const list = await res.json();
             if (!Array.isArray(list)) return;
@@ -144,13 +145,25 @@ document.addEventListener('DOMContentLoaded', () => {
         return (negative ? '-' : '') + intPart + (decPart ? '.' + decPart : '');
     }
 
-    function formatCurrency(value) {
+    function formatCurrencyIntl(value) {
+        const num = Number(value);
+        if (!Number.isFinite(num)) return '-';
+        if (Math.abs(num) >= 1e9) return 'Rs. ' + (num / 1e9).toFixed(2) + ' B';
+        if (Math.abs(num) >= 1e6) return 'Rs. ' + (num / 1e6).toFixed(2) + ' M';
+        return 'Rs. ' + (num % 1 === 0 ? num.toFixed(0) : num.toFixed(2));
+    }
+
+    function formatCurrencyNepali(value) {
         const num = Number(value);
         if (!Number.isFinite(num)) return '-';
         if (num >= 1e9) return 'Rs. ' + formatNepaliNum(num / 1e9, 2) + ' B';
         if (num >= 1e7) return 'Rs. ' + formatNepaliNum(num / 1e7, 2) + ' Cr';
         if (num >= 1e5) return 'Rs. ' + formatNepaliNum(num / 1e5, 2) + ' L';
         return 'Rs. ' + formatNepaliNum(num, 2);
+    }
+
+    function formatCurrency(value) {
+        return moneySystem === 'international' ? formatCurrencyIntl(value) : formatCurrencyNepali(value);
     }
 
     function formatNumber(value, digits = 0) {
@@ -428,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const progress = Math.min(elapsed / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
             const current = start + (end - start) * eased;
-            el.textContent = 'Rs. ' + formatNepaliNum(Math.round(current));
+            el.textContent = formatCurrency(Math.round(current));
             if (progress < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
@@ -730,6 +743,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function updateMoneySystemUI() {
+        const label = document.getElementById('money-system-label');
+        if (label) {
+            label.textContent = moneySystem === 'international' ? 'International' : 'Nepali';
+        }
+        document.querySelectorAll('.money-dropdown-option').forEach(opt => {
+            opt.classList.toggle('active', opt.dataset.system === moneySystem);
+        });
+    }
+
+    function updateTotalTurnover() {
+        const totalEl = document.getElementById('total-turnover');
+        if (!totalEl) return;
+        const isThirty = currentSort === 'thirtyDayTurnover';
+        const label = isThirty ? '30D Total' : 'Total';
+        const total = allBrokers.reduce((sum, b) => {
+            let val = 0;
+            if (isThirty) {
+                val = Number(b.thirtyDaysTurnover) || 0;
+            } else {
+                val = b.todayStats ? Number(b.todayStats.totalAmount) : 0;
+            }
+            return sum + (Number.isFinite(val) ? val : 0);
+        }, 0);
+        totalEl.textContent = label + ': ' + formatCurrency(total);
+    }
+
+    function setMoneySystem(system) {
+        moneySystem = system;
+        localStorage.setItem('moneySystem', system);
+        document.getElementById('money-dropdown')?.classList.remove('open');
+        updateMoneySystemUI();
+        updateTotalTurnover();
+        render();
+    }
+
     function handleSortChange(sortKey) {
         currentSort = sortKey;
         elements.sortTabs.forEach(tab => {
@@ -737,12 +786,26 @@ document.addEventListener('DOMContentLoaded', () => {
             tab.classList.toggle('active-tab', isActive);
             tab.setAttribute('aria-selected', isActive);
         });
+        updateTotalTurnover();
         render();
     }
 
     async function init() {
         loadIndicesMarquee();
         await Promise.all([loadSecurities(), loadMarketPrices()]);
+
+        const dropToggle = document.getElementById('money-system-toggle');
+        if (dropToggle) {
+            dropToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                document.getElementById('money-dropdown')?.classList.toggle('open');
+            });
+        }
+        document.querySelectorAll('.money-dropdown-option').forEach(opt => {
+            opt.addEventListener('click', () => setMoneySystem(opt.dataset.system));
+        });
+        document.addEventListener('click', () => document.getElementById('money-dropdown')?.classList.remove('open'));
+        updateMoneySystemUI();
 
         if (elements.modalCloseBtn) elements.modalCloseBtn.addEventListener('click', closeModal);
         if (elements.modal) elements.modal.addEventListener('click', (e) => { if (e.target === elements.modal) closeModal(); });
@@ -765,6 +828,7 @@ document.addEventListener('DOMContentLoaded', () => {
             elements.totalBrokers.textContent = `${allBrokers.length} Brokers`;
             elements.activeToday.textContent = `${activeBrokers.length} Active Today`;
             elements.scrapedAt.textContent = `Updated: ${meta.scrapedAt ? new Date(meta.scrapedAt).toLocaleString() : 'N/A'}`;
+            updateTotalTurnover();
 
             elements.sortTabs.forEach(tab => {
                 tab.addEventListener('click', () => handleSortChange(tab.dataset.sort));

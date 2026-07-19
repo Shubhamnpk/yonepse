@@ -52,6 +52,19 @@
                 class="rounded-full border border-indigo-500/90 bg-indigo-500/15 px-3 sm:px-4 py-1.5 sm:py-2 text-[0.78rem] sm:text-[0.85rem] text-white">Broker Leaderboard</a>
             <a href="about.html"
                 class="rounded-full border border-white/10 bg-white/[0.03] px-3 sm:px-4 py-1.5 sm:py-2 text-[0.78rem] sm:text-[0.85rem] text-[#a0a0a0] transition hover:border-indigo-500/70 hover:text-white">About</a>
+            <div class="relative money-dropdown" id="money-dropdown">
+                <button id="money-system-toggle"
+                    class="rounded-full border border-white/10 bg-white/[0.03] px-3 sm:px-4 py-1.5 sm:py-2 text-[0.78rem] sm:text-[0.85rem] text-[#a0a0a0] transition hover:border-indigo-500/70 hover:text-white cursor-pointer flex items-center gap-1.5"
+                    aria-label="Select money system">
+                    <i class="fa-solid fa-coins"></i>
+                    <span id="money-system-label">International</span>
+                    <i class="fa-solid fa-chevron-down" style="font-size:0.55rem;opacity:0.5;"></i>
+                </button>
+                <div class="money-dropdown-menu">
+                    <button class="money-dropdown-option" data-system="international" type="button">International (Rs. M / B)</button>
+                    <button class="money-dropdown-option" data-system="nepali" type="button">Nepali (Rs. L / Cr)</button>
+                </div>
+            </div>
         </nav>
 
         <header class="relative mb-6 sm:mb-8 py-6 sm:py-10 md:py-12 text-center">
@@ -73,7 +86,10 @@
                     <i class="fa-solid fa-clock"></i>
                     <span id="scraped-at">Loading...</span>
                 </div>
-
+                <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-indigo-500/10 px-5 py-2 text-xs text-indigo-300 backdrop-blur">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <span id="total-turnover">Calculating...</span>
+                </div>
             </div>
         </header>
 
@@ -928,6 +944,39 @@
             .podium-block-stars { font-size: 0.5rem; }
             .podium-block-reviews { font-size: 0.45rem; }
         }
+        .money-dropdown { position: relative; }
+        .money-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 170px;
+            background: rgba(14,14,18,0.98);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 14px;
+            padding: 0.35rem;
+            z-index: 100;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+        .money-dropdown.open .money-dropdown-menu { display: block; }
+        .money-dropdown-option {
+            display: block;
+            width: 100%;
+            background: none;
+            border: none;
+            color: #a0a0a0;
+            padding: 0.5rem 0.85rem;
+            font-size: 0.78rem;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+        .money-dropdown-option:hover { background: rgba(255,255,255,0.06); color: white; }
+        .money-dropdown-option.active { background: rgba(99,102,241,0.12); color: #818cf8; }
         @media (max-width: 640px) {
             .broker-card {
                 grid-template-columns: 1fr;
