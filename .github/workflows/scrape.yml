@@ -5,11 +5,11 @@ on:
     branches:
       - main
   schedule:
-    # Run every 30 minutes from 11:30 AM to 4:30 PM NPT (UTC+5:45).
+    # Run every 30 minutes from 11:30 AM to 3:00 PM NPT (UTC+5:45).
     # Avoid :00/:30 UTC because GitHub Actions scheduled runs are more likely to be delayed or dropped then.
     # LTP history refreshes intraday while the market is open, then finalizes after close.
-    - cron: '45 5-10 * * 1-5'
-    - cron: '15 6-10 * * 1-5'
+    - cron: '45 5-8 * * 1-5'
+    - cron: '15 6-9 * * 1-5'
   workflow_dispatch: # Allow manual trigger
 
 concurrency:
