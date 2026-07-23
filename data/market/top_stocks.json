@@ -7462,13 +7462,6 @@
             "securityId": 8127
         },
         {
-            "symbol": "NIBD84",
-            "shareTraded": 75,
-            "closingPrice": 1036.0,
-            "securityName": "8.5% Nepal Investment Bank Debenture 2084",
-            "securityId": 2931
-        },
-        {
             "symbol": "MBLD2085",
             "shareTraded": 75,
             "closingPrice": 1225.0,
@@ -7476,11 +7469,11 @@
             "securityId": 2866
         },
         {
-            "symbol": "SHLB",
-            "shareTraded": 70,
-            "closingPrice": 1498.0,
-            "securityName": "Shrijanshil Laghubitta Bittiya Sanstha Limited",
-            "securityId": 8132
+            "symbol": "NIBD84",
+            "shareTraded": 75,
+            "closingPrice": 1036.0,
+            "securityName": "8.5% Nepal Investment Bank Debenture 2084",
+            "securityId": 2931
         },
         {
             "symbol": "LLBS",
@@ -7488,6 +7481,13 @@
             "closingPrice": 937.0,
             "securityName": "Laxmi Laghubitta Bittiya Sanstha Ltd.",
             "securityId": 618
+        },
+        {
+            "symbol": "SHLB",
+            "shareTraded": 70,
+            "closingPrice": 1498.0,
+            "securityName": "Shrijanshil Laghubitta Bittiya Sanstha Limited",
+            "securityId": 8132
         },
         {
             "symbol": "RBCL",
@@ -7539,18 +7539,18 @@
             "securityId": 213
         },
         {
-            "symbol": "BOKD86KA",
-            "shareTraded": 25,
-            "closingPrice": 1100.0,
-            "securityName": "BOK Debenture 2086 \"KA\"",
-            "securityId": 9136
-        },
-        {
             "symbol": "NICD88",
             "shareTraded": 25,
             "closingPrice": 1100.0,
             "securityName": "NIC ASIA Rinpatra 2088",
             "securityId": 7986
+        },
+        {
+            "symbol": "BOKD86KA",
+            "shareTraded": 25,
+            "closingPrice": 1100.0,
+            "securityName": "BOK Debenture 2086 \"KA\"",
+            "securityId": 9136
         },
         {
             "symbol": "SBID83",
