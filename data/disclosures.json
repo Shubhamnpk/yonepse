@@ -1,5 +1,54 @@
 [
     {
+        "id": 46628,
+        "symbol": "GBLBS",
+        "title": "Chairman Sapath jankari",
+        "body": "Chairman Sapath jankari",
+        "source": "NRB Sapath ",
+        "publishedAt": "2026-07-29T11:51:47.017",
+        "documents": [
+            {
+                "id": 31878,
+                "submittedDate": "2026-07-29",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gblbs_user/2026-07-29/Chairman%20Sapath%20jankari%20of%20GBLBS%20_1785305189919.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46625,
+        "symbol": "AVYAN",
+        "title": "6 AGM Minute",
+        "source": "AGM",
+        "publishedAt": "2026-07-29T09:52:59.257",
+        "documents": [
+            {
+                "id": 31872,
+                "submittedDate": "2026-07-29",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Aviyan_laghubittya_bittiya_sanstha_limited/Company%20News/2026-07-29/6th%20Agm%20Minute_1785298047422.pdf"
+            },
+            {
+                "id": 31873,
+                "submittedDate": "2026-07-29",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Aviyan_laghubittya_bittiya_sanstha_limited/Company%20News/2026-07-29/6th%20AGM%20Minuter%20letter_1785298024425.jpeg"
+            }
+        ]
+    },
+    {
+        "id": 46623,
+        "symbol": "CLI",
+        "title": "Life Insurance Management System Migration",
+        "body": "Life Insurance Management System Migration",
+        "source": "Company Management",
+        "publishedAt": "2026-07-28T18:34:20.247",
+        "documents": [
+            {
+                "id": 31870,
+                "submittedDate": "2026-07-28",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Citizen_Life_Insurance_Company_Limited/Company%20News/2026-07-28/Life%20Insurance%20Management%20System%20Migration_1785242916803.pdf"
+            }
+        ]
+    },
+    {
         "id": 46620,
         "symbol": "HDHPC",
         "title": "Resignation Approval of Director",
@@ -9052,6 +9101,20 @@
                 "id": 31863,
                 "submittedDate": "2026-07-28",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Ridge_Line_Energy_Limited/Company%20News/2026-07-28/MUTUAL%20FUND%20LOCK-IN%20END%20PUBLICATION%20DATE%20REVISION%20_1785232171858.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46624,
+        "symbol": "SKHL",
+        "title": "Mutual Fund Lock-In End Notice",
+        "source": "Mutual Fund Lock-In End Notice",
+        "publishedAt": "2026-07-29T09:30:07.73",
+        "documents": [
+            {
+                "id": 31871,
+                "submittedDate": "2026-07-29",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Super_Khudi_Hydropower_Limited/Company%20News/2026-07-29/Mutual%20fund%20Lock%20In%20End%20Notice_1785296682794.pdf"
             }
         ]
     }
