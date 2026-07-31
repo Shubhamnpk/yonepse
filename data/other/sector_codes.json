@@ -1471,6 +1471,10 @@
             "name": "NABIL BALANCED FUND-2"
         },
         {
+            "symbol": "CMF2",
+            "name": "CITIZENS MUTUAL FUND 2"
+        },
+        {
             "symbol": "NIBLSF",
             "name": "NIBL Sahabhagita Fund"
         },
@@ -1671,12 +1675,20 @@
             "name": "HLI Large Cap Fund"
         },
         {
+            "symbol": "MSIP",
+            "name": "Machhapuchchhre SIP Yojana"
+        },
+        {
             "symbol": "CSY",
             "name": "Citizens Santulit Yojana"
         },
         {
             "symbol": "NSY",
             "name": "Nepal Life Samriddhi Lagani Yojana"
+        },
+        {
+            "symbol": "GASY",
+            "name": "Garima Subarna Yojana"
         }
     ],
     "Non-Life Insurance": [
