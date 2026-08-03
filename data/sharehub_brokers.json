@@ -1,44 +1,44 @@
 {
-    "scrapedAt": "2026-07-31T13:11:20.270108",
+    "scrapedAt": "2026-08-03T13:53:43.299453",
     "marketSummaryToday": {
-        "date": "2026-07-31",
-        "totalAmount": 3759722340.76,
-        "totalQuantity": 8851216,
-        "totalTransactions": 46752
+        "date": "2026-08-03",
+        "totalAmount": 4572084231.4,
+        "totalQuantity": 11449987,
+        "totalTransactions": 63648
     },
     "enrichment": {
         "58": {
             "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/28/094237-naasa-securities-broker-58-logo.png",
             "rating": {
-                "averageRating": 3.6,
-                "totalRatings": 103,
-                "averageShareTransferDays": 3.34,
-                "averageCashDepositDays": 5.05
+                "averageRating": 3.59,
+                "totalRatings": 106,
+                "averageShareTransferDays": 3.32,
+                "averageCashDepositDays": 4.95
             },
-            "thirtyDaysTurnover": 18073556561.48,
-            "latestTurnover": 664564897.53,
+            "thirtyDaysTurnover": 18442636049.66,
+            "latestTurnover": 1079478590.23,
             "todayStats": {
-                "totalAmount": 664564897.53,
-                "buyAmount": 383910133.66,
-                "buyQuantity": 964818,
-                "buyTransactions": 5709,
-                "buyQuantityPercentage": 10.9,
-                "sellAmount": 280654763.87,
-                "sellQuantity": 607847,
-                "sellTransactions": 6292,
-                "sellQuantityPercentage": 6.87,
-                "matchingAmount": 31623666.12,
-                "matchingQuantity": 69231,
-                "matchingTransactions": 879,
-                "averageBuyRate": 397.91,
-                "averageSellRate": 461.72,
+                "totalAmount": 1079478590.23,
+                "buyAmount": 563136346.83,
+                "buyQuantity": 1236591,
+                "buyTransactions": 7028,
+                "buyQuantityPercentage": 10.8,
+                "sellAmount": 516342243.4,
+                "sellQuantity": 978578,
+                "sellTransactions": 9602,
+                "sellQuantityPercentage": 8.55,
+                "matchingAmount": 104471547.9,
+                "matchingQuantity": 125209,
+                "matchingTransactions": 967,
+                "averageBuyRate": 455.39,
+                "averageSellRate": 527.65,
                 "topStock": {
-                    "symbol": "GBIME",
-                    "name": "Global IME Bank Limited",
-                    "iconUrl": "sharehub/icons/2024/08/07/020459-gbime-logo.png",
-                    "totalAmount": 88429489.4,
-                    "buyAmount": 76026635.9,
-                    "sellAmount": 12402853.5
+                    "symbol": "SAIL",
+                    "name": "Shreenagar Agritech  Industries Ltd.",
+                    "iconUrl": "sharehub/images/2025/07/30/073118-sharenagar-agritech-logo.png",
+                    "totalAmount": 106094368.4,
+                    "buyAmount": 72937443.5,
+                    "sellAmount": 33156924.9
                 }
             }
         },
@@ -50,30 +50,30 @@
                 "averageShareTransferDays": 3.23,
                 "averageCashDepositDays": 4.2
             },
-            "thirtyDaysTurnover": 10528252530.08,
-            "latestTurnover": 256403837.25,
+            "thirtyDaysTurnover": 10285946088.18,
+            "latestTurnover": 295794793.9,
             "todayStats": {
-                "totalAmount": 256403837.25,
-                "buyAmount": 147871622.35,
-                "buyQuantity": 318799,
-                "buyTransactions": 1892,
-                "buyQuantityPercentage": 3.6,
-                "sellAmount": 108532214.9,
-                "sellQuantity": 271368,
-                "sellTransactions": 1999,
-                "sellQuantityPercentage": 3.07,
-                "matchingAmount": 6113124.1,
-                "matchingQuantity": 11516,
-                "matchingTransactions": 96,
-                "averageBuyRate": 463.84,
-                "averageSellRate": 399.94,
+                "totalAmount": 295794793.9,
+                "buyAmount": 143649535.1,
+                "buyQuantity": 396405,
+                "buyTransactions": 2418,
+                "buyQuantityPercentage": 3.46,
+                "sellAmount": 152145258.8,
+                "sellQuantity": 706829,
+                "sellTransactions": 3318,
+                "sellQuantityPercentage": 6.17,
+                "matchingAmount": 3734513.3,
+                "matchingQuantity": 12266,
+                "matchingTransactions": 136,
+                "averageBuyRate": 362.38,
+                "averageSellRate": 215.25,
                 "topStock": {
-                    "symbol": "CHDC",
-                    "name": "CEDB Hydropower Development Company Limited",
-                    "iconUrl": "sharehub/images/2024/09/05/053449-chdc-logo.png",
-                    "totalAmount": 21675605,
-                    "buyAmount": 17821295,
-                    "sellAmount": 3854310
+                    "symbol": "HDL",
+                    "name": "Himalayan Distillery Limited",
+                    "iconUrl": "sharehub/images/2025/02/11/064656-himalayan-distillery-logo.png",
+                    "totalAmount": 8882705.2,
+                    "buyAmount": 7926250.2,
+                    "sellAmount": 956455
                 }
             }
         },
@@ -85,30 +85,30 @@
                 "averageShareTransferDays": 3.97,
                 "averageCashDepositDays": 10.77
             },
-            "thirtyDaysTurnover": 10138882393.46,
-            "latestTurnover": 311534846.9,
+            "thirtyDaysTurnover": 10222804351.06,
+            "latestTurnover": 239695807.39999998,
             "todayStats": {
-                "totalAmount": 311534846.9,
-                "buyAmount": 136892647,
-                "buyQuantity": 308664,
-                "buyTransactions": 1587,
-                "buyQuantityPercentage": 3.49,
-                "sellAmount": 174642199.9,
-                "sellQuantity": 406018,
-                "sellTransactions": 1835,
-                "sellQuantityPercentage": 4.59,
-                "matchingAmount": 12958900.8,
-                "matchingQuantity": 32376,
-                "matchingTransactions": 70,
-                "averageBuyRate": 443.5,
-                "averageSellRate": 430.13,
+                "totalAmount": 239695807.39999998,
+                "buyAmount": 106360963.1,
+                "buyQuantity": 260355,
+                "buyTransactions": 1825,
+                "buyQuantityPercentage": 2.27,
+                "sellAmount": 133334844.3,
+                "sellQuantity": 325946,
+                "sellTransactions": 2195,
+                "sellQuantityPercentage": 2.85,
+                "matchingAmount": 3092910.4,
+                "matchingQuantity": 7691,
+                "matchingTransactions": 69,
+                "averageBuyRate": 408.52,
+                "averageSellRate": 409.07,
                 "topStock": {
-                    "symbol": "UMHL",
-                    "name": "United Modi Hydropower Ltd.",
-                    "iconUrl": "sharehub/icons/2024/01/12/090043-umhl.png",
-                    "totalAmount": 22762298,
-                    "buyAmount": 22711838,
-                    "sellAmount": 50460
+                    "symbol": "UPCL",
+                    "name": "UNIVERSAL POWER COMPANY LTD",
+                    "iconUrl": "sharehub/images/2025/07/02/121844-upcllogo.png",
+                    "totalAmount": 9779816.4,
+                    "buyAmount": 9614326.4,
+                    "sellAmount": 165490
                 }
             }
         },
@@ -120,32 +120,9 @@
                 "averageShareTransferDays": 2.86,
                 "averageCashDepositDays": 2.93
             },
-            "thirtyDaysTurnover": 10098911163.97,
-            "latestTurnover": 178383652.9,
-            "todayStats": {
-                "totalAmount": 178383652.9,
-                "buyAmount": 92744019.2,
-                "buyQuantity": 220767,
-                "buyTransactions": 622,
-                "buyQuantityPercentage": 2.49,
-                "sellAmount": 85639633.7,
-                "sellQuantity": 215971,
-                "sellTransactions": 585,
-                "sellQuantityPercentage": 2.44,
-                "matchingAmount": 57598329.1,
-                "matchingQuantity": 145041,
-                "matchingTransactions": 10,
-                "averageBuyRate": 420.1,
-                "averageSellRate": 396.53,
-                "topStock": {
-                    "symbol": "BHCL",
-                    "name": "Bikash Hydropower Company Limited",
-                    "iconUrl": "sharehub/images/2025/05/13/103340-bikash-hydropower-logo.png",
-                    "totalAmount": 2630136,
-                    "buyAmount": 2545966,
-                    "sellAmount": 84170
-                }
-            }
+            "thirtyDaysTurnover": 10074468428.43,
+            "latestTurnover": 73650156.86,
+            "todayStats": null
         },
         "77": {
             "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012504-broker-77-nabil-securities-ltd.jpeg",
@@ -155,30 +132,30 @@
                 "averageShareTransferDays": 11.18,
                 "averageCashDepositDays": 9094
             },
-            "thirtyDaysTurnover": 9349015362.95,
-            "latestTurnover": 240415182,
+            "thirtyDaysTurnover": 9321360843.25,
+            "latestTurnover": 189975382.7,
             "todayStats": {
-                "totalAmount": 240415182,
-                "buyAmount": 74721232,
-                "buyQuantity": 175994,
-                "buyTransactions": 492,
-                "buyQuantityPercentage": 1.99,
-                "sellAmount": 165693950,
-                "sellQuantity": 269137,
-                "sellTransactions": 780,
-                "sellQuantityPercentage": 3.04,
-                "matchingAmount": 2911890,
-                "matchingQuantity": 1093,
-                "matchingTransactions": 13,
-                "averageBuyRate": 424.57,
-                "averageSellRate": 615.65,
+                "totalAmount": 189975382.7,
+                "buyAmount": 51971056.3,
+                "buyQuantity": 118538,
+                "buyTransactions": 564,
+                "buyQuantityPercentage": 1.04,
+                "sellAmount": 138004326.4,
+                "sellQuantity": 194388,
+                "sellTransactions": 1007,
+                "sellQuantityPercentage": 1.7,
+                "matchingAmount": 500260,
+                "matchingQuantity": 907,
+                "matchingTransactions": 9,
+                "averageBuyRate": 438.43,
+                "averageSellRate": 709.94,
                 "topStock": {
-                    "symbol": "RIDI",
-                    "name": "Ridi Power Company Limited",
-                    "iconUrl": "sharehub/icons/2024/01/12/090037-ridi.png",
-                    "totalAmount": 28120022.4,
-                    "buyAmount": 27694955.4,
-                    "sellAmount": 425067
+                    "symbol": "GBIME",
+                    "name": "Global IME Bank Limited",
+                    "iconUrl": "sharehub/icons/2024/08/07/020459-gbime-logo.png",
+                    "totalAmount": 23927909.6,
+                    "buyAmount": 22344395.1,
+                    "sellAmount": 1583514.5
                 }
             }
         },
@@ -190,8 +167,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 8683198193.13,
-            "latestTurnover": 74445402.8,
+            "thirtyDaysTurnover": 8689771801.13,
+            "latestTurnover": 147244575.1,
             "todayStats": null
         },
         "42": {
@@ -202,30 +179,30 @@
                 "averageShareTransferDays": 2.49,
                 "averageCashDepositDays": 3.09
             },
-            "thirtyDaysTurnover": 8284853227.57,
-            "latestTurnover": 251488553.2,
+            "thirtyDaysTurnover": 8260723021.76,
+            "latestTurnover": 277109075.28999996,
             "todayStats": {
-                "totalAmount": 251488553.2,
-                "buyAmount": 133234952.8,
-                "buyQuantity": 282661,
-                "buyTransactions": 2088,
-                "buyQuantityPercentage": 3.19,
-                "sellAmount": 118253600.4,
-                "sellQuantity": 284732,
-                "sellTransactions": 1981,
-                "sellQuantityPercentage": 3.22,
-                "matchingAmount": 2932864.9,
-                "matchingQuantity": 5737,
-                "matchingTransactions": 74,
-                "averageBuyRate": 471.36,
-                "averageSellRate": 415.32,
+                "totalAmount": 277109075.28999996,
+                "buyAmount": 142409637,
+                "buyQuantity": 309406,
+                "buyTransactions": 2562,
+                "buyQuantityPercentage": 2.7,
+                "sellAmount": 134699438.29,
+                "sellQuantity": 419300,
+                "sellTransactions": 2930,
+                "sellQuantityPercentage": 3.66,
+                "matchingAmount": 5073623.2,
+                "matchingQuantity": 15562,
+                "matchingTransactions": 125,
+                "averageBuyRate": 460.27,
+                "averageSellRate": 321.25,
                 "topStock": {
-                    "symbol": "SBL",
-                    "name": "Siddhartha Bank Limited",
-                    "iconUrl": "sharehub/images/2025/01/08/070230-siddharth-bank-logo.png",
-                    "totalAmount": 16777379.8,
-                    "buyAmount": 16729599.8,
-                    "sellAmount": 47780
+                    "symbol": "RSML",
+                    "name": "Reliance Spinning Mills Limited",
+                    "iconUrl": "sharehub/images/2025/04/04/051045-reliance-spinning-mills-logo.png",
+                    "totalAmount": 10301490.8,
+                    "buyAmount": 10157690.8,
+                    "sellAmount": 143800
                 }
             }
         },
@@ -237,65 +214,30 @@
                 "averageShareTransferDays": 2.67,
                 "averageCashDepositDays": 4.54
             },
-            "thirtyDaysTurnover": 7147318810.66,
-            "latestTurnover": 265291545.3,
+            "thirtyDaysTurnover": 7212249204.85,
+            "latestTurnover": 260669483.7,
             "todayStats": {
-                "totalAmount": 265291545.3,
-                "buyAmount": 109528238.9,
-                "buyQuantity": 250616,
-                "buyTransactions": 1514,
-                "buyQuantityPercentage": 2.83,
-                "sellAmount": 155763306.4,
-                "sellQuantity": 289704,
-                "sellTransactions": 1974,
-                "sellQuantityPercentage": 3.27,
-                "matchingAmount": 2107856.3,
-                "matchingQuantity": 4225,
-                "matchingTransactions": 55,
-                "averageBuyRate": 437.04,
-                "averageSellRate": 537.66,
+                "totalAmount": 260669483.7,
+                "buyAmount": 120580409.7,
+                "buyQuantity": 259567,
+                "buyTransactions": 2205,
+                "buyQuantityPercentage": 2.27,
+                "sellAmount": 140089074,
+                "sellQuantity": 338240,
+                "sellTransactions": 2440,
+                "sellQuantityPercentage": 2.95,
+                "matchingAmount": 4173745.9,
+                "matchingQuantity": 14371,
+                "matchingTransactions": 90,
+                "averageBuyRate": 464.54,
+                "averageSellRate": 414.17,
                 "topStock": {
-                    "symbol": "SOHL",
-                    "name": "Solu Hydropower Limited",
-                    "iconUrl": "sharehub/images/2025/11/11/121030-solu-hydropower-logo.png",
-                    "totalAmount": 12793182.2,
-                    "buyAmount": 10347927,
-                    "sellAmount": 2445255.2
-                }
-            }
-        },
-        "48": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012455-broker-48-trishakti-securities-public-limited.png",
-            "rating": {
-                "averageRating": 3.33,
-                "totalRatings": 12,
-                "averageShareTransferDays": 3.83,
-                "averageCashDepositDays": 4.17
-            },
-            "thirtyDaysTurnover": 6831529174.4,
-            "latestTurnover": 205163185.2,
-            "todayStats": {
-                "totalAmount": 205163185.2,
-                "buyAmount": 105178329.2,
-                "buyQuantity": 227631,
-                "buyTransactions": 1452,
-                "buyQuantityPercentage": 2.57,
-                "sellAmount": 99984856,
-                "sellQuantity": 244258,
-                "sellTransactions": 1141,
-                "sellQuantityPercentage": 2.76,
-                "matchingAmount": 3551298.4,
-                "matchingQuantity": 8717,
-                "matchingTransactions": 45,
-                "averageBuyRate": 462.06,
-                "averageSellRate": 409.34,
-                "topStock": {
-                    "symbol": "SOHL",
-                    "name": "Solu Hydropower Limited",
-                    "iconUrl": "sharehub/images/2025/11/11/121030-solu-hydropower-logo.png",
-                    "totalAmount": 7019127,
-                    "buyAmount": 6967239,
-                    "sellAmount": 51888
+                    "symbol": "SAIL",
+                    "name": "Shreenagar Agritech  Industries Ltd.",
+                    "iconUrl": "sharehub/images/2025/07/30/073118-sharenagar-agritech-logo.png",
+                    "totalAmount": 13056729.8,
+                    "buyAmount": 10251600.4,
+                    "sellAmount": 2805129.4
                 }
             }
         },
@@ -307,9 +249,67 @@
                 "averageShareTransferDays": 1.67,
                 "averageCashDepositDays": 2.67
             },
-            "thirtyDaysTurnover": 6791487957.12,
-            "latestTurnover": 150303748.89,
-            "todayStats": null
+            "thirtyDaysTurnover": 6857453958.52,
+            "latestTurnover": 223741526.5,
+            "todayStats": {
+                "totalAmount": 223741526.5,
+                "buyAmount": 121521783.9,
+                "buyQuantity": 319945,
+                "buyTransactions": 1151,
+                "buyQuantityPercentage": 2.79,
+                "sellAmount": 102219742.6,
+                "sellQuantity": 278367,
+                "sellTransactions": 907,
+                "sellQuantityPercentage": 2.43,
+                "matchingAmount": 10723660.6,
+                "matchingQuantity": 29547,
+                "matchingTransactions": 36,
+                "averageBuyRate": 379.82,
+                "averageSellRate": 367.21,
+                "topStock": {
+                    "symbol": "ADBL",
+                    "name": "Agricultural Development Bank Limited",
+                    "iconUrl": "sharehub/icons/2024/01/12/090143-adbld83.png",
+                    "totalAmount": 27005545.7,
+                    "buyAmount": 26908245.7,
+                    "sellAmount": 97300
+                }
+            }
+        },
+        "48": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012455-broker-48-trishakti-securities-public-limited.png",
+            "rating": {
+                "averageRating": 3.33,
+                "totalRatings": 12,
+                "averageShareTransferDays": 3.83,
+                "averageCashDepositDays": 4.17
+            },
+            "thirtyDaysTurnover": 6843249032.4,
+            "latestTurnover": 237411894.7,
+            "todayStats": {
+                "totalAmount": 237411894.7,
+                "buyAmount": 123270877,
+                "buyQuantity": 264667,
+                "buyTransactions": 2883,
+                "buyQuantityPercentage": 2.31,
+                "sellAmount": 114141017.7,
+                "sellQuantity": 252383,
+                "sellTransactions": 1469,
+                "sellQuantityPercentage": 2.2,
+                "matchingAmount": 2497209.7,
+                "matchingQuantity": 5369,
+                "matchingTransactions": 53,
+                "averageBuyRate": 465.76,
+                "averageSellRate": 452.25,
+                "topStock": {
+                    "symbol": "MBL",
+                    "name": "Machhapuchhre Bank Limited",
+                    "iconUrl": "sharehub/icons/2024/05/31/035739-machhapuchchhre-bank-limited-removebg-preview.png",
+                    "totalAmount": 17168244.7,
+                    "buyAmount": 16674303.7,
+                    "sellAmount": 493941
+                }
+            }
         },
         "6": {
             "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012449-broker-6-agrawal-securities-pvt-ltd.png",
@@ -319,8 +319,8 @@
                 "averageShareTransferDays": 1.77,
                 "averageCashDepositDays": 2.82
             },
-            "thirtyDaysTurnover": 6622425269.29,
-            "latestTurnover": 79305340.95,
+            "thirtyDaysTurnover": 6692442661.59,
+            "latestTurnover": 171943421.2,
             "todayStats": null
         },
         "28": {
@@ -331,8 +331,8 @@
                 "averageShareTransferDays": 6.67,
                 "averageCashDepositDays": 7
             },
-            "thirtyDaysTurnover": 5920697479.15,
-            "latestTurnover": 70080032.6,
+            "thirtyDaysTurnover": 5953008062.28,
+            "latestTurnover": 139164745.87,
             "todayStats": null
         },
         "57": {
@@ -343,9 +343,32 @@
                 "averageShareTransferDays": 3.75,
                 "averageCashDepositDays": 7.17
             },
-            "thirtyDaysTurnover": 5562847658.39,
-            "latestTurnover": 141758515.4,
-            "todayStats": null
+            "thirtyDaysTurnover": 5560227192.39,
+            "latestTurnover": 191028999.8,
+            "todayStats": {
+                "totalAmount": 191028999.8,
+                "buyAmount": 86968215.7,
+                "buyQuantity": 200670,
+                "buyTransactions": 1929,
+                "buyQuantityPercentage": 1.75,
+                "sellAmount": 104060784.1,
+                "sellQuantity": 212233,
+                "sellTransactions": 1894,
+                "sellQuantityPercentage": 1.85,
+                "matchingAmount": 4247515.5,
+                "matchingQuantity": 9793,
+                "matchingTransactions": 63,
+                "averageBuyRate": 433.39,
+                "averageSellRate": 490.31,
+                "topStock": {
+                    "symbol": "RSML",
+                    "name": "Reliance Spinning Mills Limited",
+                    "iconUrl": "sharehub/images/2025/04/04/051045-reliance-spinning-mills-logo.png",
+                    "totalAmount": 16127517,
+                    "buyAmount": 9898763,
+                    "sellAmount": 6228754
+                }
+            }
         },
         "96": {
             "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012508-broker-96-himalayan-securities-limited.png",
@@ -355,44 +378,9 @@
                 "averageShareTransferDays": 2,
                 "averageCashDepositDays": 2
             },
-            "thirtyDaysTurnover": 5281487124.09,
-            "latestTurnover": 56378235.7,
+            "thirtyDaysTurnover": 5276191682.99,
+            "latestTurnover": 40025491.099999994,
             "todayStats": null
-        },
-        "32": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012452-broker-32-premier-securities-company-ltd.png",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 7,
-                "averageShareTransferDays": 2.43,
-                "averageCashDepositDays": 3
-            },
-            "thirtyDaysTurnover": 5137532122.95,
-            "latestTurnover": 175864881.26,
-            "todayStats": {
-                "totalAmount": 175864881.26,
-                "buyAmount": 86804232.7,
-                "buyQuantity": 165550,
-                "buyTransactions": 936,
-                "buyQuantityPercentage": 1.87,
-                "sellAmount": 89060648.56,
-                "sellQuantity": 198880,
-                "sellTransactions": 892,
-                "sellQuantityPercentage": 2.25,
-                "matchingAmount": 778226.4,
-                "matchingQuantity": 1561,
-                "matchingTransactions": 26,
-                "averageBuyRate": 524.34,
-                "averageSellRate": 447.81,
-                "topStock": {
-                    "symbol": "CFCL",
-                    "name": "Central Finance Co. Ltd.",
-                    "iconUrl": "sharehub/images/2024/09/02/025918-cfcl-logo.png",
-                    "totalAmount": 28858549,
-                    "buyAmount": 28658069,
-                    "sellAmount": 200480
-                }
-            }
         },
         "38": {
             "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012453-broker-38-dipshikha-dhitopatra-karobar-co-pvt-ltd.png",
@@ -402,8 +390,8 @@
                 "averageShareTransferDays": 2.63,
                 "averageCashDepositDays": 6
             },
-            "thirtyDaysTurnover": 5102600006.37,
-            "latestTurnover": 144055159.3,
+            "thirtyDaysTurnover": 5128375853.93,
+            "latestTurnover": 183692429.4,
             "todayStats": null
         },
         "17": {
@@ -414,8 +402,43 @@
                 "averageShareTransferDays": 5.71,
                 "averageCashDepositDays": 5.86
             },
-            "thirtyDaysTurnover": 5082619809.94,
-            "latestTurnover": 110228559.9,
+            "thirtyDaysTurnover": 5126338301.13,
+            "latestTurnover": 208385054.8,
+            "todayStats": {
+                "totalAmount": 208385054.8,
+                "buyAmount": 82054555.1,
+                "buyQuantity": 177478,
+                "buyTransactions": 949,
+                "buyQuantityPercentage": 1.55,
+                "sellAmount": 126330499.7,
+                "sellQuantity": 350950,
+                "sellTransactions": 1246,
+                "sellQuantityPercentage": 3.07,
+                "matchingAmount": 2780592.6,
+                "matchingQuantity": 6211,
+                "matchingTransactions": 21,
+                "averageBuyRate": 462.34,
+                "averageSellRate": 359.97,
+                "topStock": {
+                    "symbol": "SBL",
+                    "name": "Siddhartha Bank Limited",
+                    "iconUrl": "sharehub/images/2025/01/08/070230-siddharth-bank-logo.png",
+                    "totalAmount": 12393883.8,
+                    "buyAmount": 11507783.8,
+                    "sellAmount": 886100
+                }
+            }
+        },
+        "32": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012452-broker-32-premier-securities-company-ltd.png",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 7,
+                "averageShareTransferDays": 2.43,
+                "averageCashDepositDays": 3
+            },
+            "thirtyDaysTurnover": 5090752037.52,
+            "latestTurnover": 121984889.57,
             "todayStats": null
         },
         "52": {
@@ -426,8 +449,8 @@
                 "averageShareTransferDays": 2.64,
                 "averageCashDepositDays": 4
             },
-            "thirtyDaysTurnover": 4914841471.08,
-            "latestTurnover": 120469996.15,
+            "thirtyDaysTurnover": 4875170748.93,
+            "latestTurnover": 122613303.45,
             "todayStats": null
         },
         "97": {
@@ -438,20 +461,8 @@
                 "averageShareTransferDays": 1.5,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 4866593887.41,
-            "latestTurnover": 12698047.4,
-            "todayStats": null
-        },
-        "41": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012454-broker-41-linch-stock-market-ltd.png",
-            "rating": {
-                "averageRating": 4.35,
-                "totalRatings": 17,
-                "averageShareTransferDays": 2.94,
-                "averageCashDepositDays": 2.88
-            },
-            "thirtyDaysTurnover": 4801330588.64,
-            "latestTurnover": 145317129.60000002,
+            "thirtyDaysTurnover": 4838781299.91,
+            "latestTurnover": 13594965,
             "todayStats": null
         },
         "74": {
@@ -462,8 +473,8 @@
                 "averageShareTransferDays": 2.75,
                 "averageCashDepositDays": 4.25
             },
-            "thirtyDaysTurnover": 4775757702.72,
-            "latestTurnover": 96669489.19,
+            "thirtyDaysTurnover": 4805578055.32,
+            "latestTurnover": 120667852.3,
             "todayStats": null
         },
         "62": {
@@ -474,8 +485,8 @@
                 "averageShareTransferDays": 22.5,
                 "averageCashDepositDays": 21.25
             },
-            "thirtyDaysTurnover": 4761567566.69,
-            "latestTurnover": 169576661.5,
+            "thirtyDaysTurnover": 4761966999.49,
+            "latestTurnover": 170130756.8,
             "todayStats": null
         },
         "35": {
@@ -486,32 +497,9 @@
                 "averageShareTransferDays": 2.76,
                 "averageCashDepositDays": 3.82
             },
-            "thirtyDaysTurnover": 4679748203.69,
-            "latestTurnover": 191854653.3,
-            "todayStats": {
-                "totalAmount": 191854653.3,
-                "buyAmount": 98374371.4,
-                "buyQuantity": 233353,
-                "buyTransactions": 1261,
-                "buyQuantityPercentage": 2.64,
-                "sellAmount": 93480281.9,
-                "sellQuantity": 273236,
-                "sellTransactions": 1055,
-                "sellQuantityPercentage": 3.09,
-                "matchingAmount": 4185068.2,
-                "matchingQuantity": 15068,
-                "matchingTransactions": 37,
-                "averageBuyRate": 421.57,
-                "averageSellRate": 342.12,
-                "topStock": {
-                    "symbol": "SAPDBL",
-                    "name": "Saptakoshi Development Bank Ltd",
-                    "iconUrl": "sharehub/images/2024/09/04/032641-sapdbl-logo.png",
-                    "totalAmount": 5587043.2,
-                    "buyAmount": 5301277.7,
-                    "sellAmount": 285765.5
-                }
-            }
+            "thirtyDaysTurnover": 4733517400.39,
+            "latestTurnover": 188248269.7,
+            "todayStats": null
         },
         "14": {
             "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012450-broker-14-nepal-stock-house-pvt-ltd.png",
@@ -521,8 +509,20 @@
                 "averageShareTransferDays": 2,
                 "averageCashDepositDays": 2
             },
-            "thirtyDaysTurnover": 4614041449.59,
-            "latestTurnover": 129036809.7,
+            "thirtyDaysTurnover": 4654766658.51,
+            "latestTurnover": 187889117.01999998,
+            "todayStats": null
+        },
+        "41": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012454-broker-41-linch-stock-market-ltd.png",
+            "rating": {
+                "averageRating": 4.35,
+                "totalRatings": 17,
+                "averageShareTransferDays": 2.94,
+                "averageCashDepositDays": 2.88
+            },
+            "thirtyDaysTurnover": 4640971680.95,
+            "latestTurnover": 106887108.19999999,
             "todayStats": null
         },
         "56": {
@@ -533,8 +533,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 4.73
             },
-            "thirtyDaysTurnover": 4467577685.59,
-            "latestTurnover": 106402803.6,
+            "thirtyDaysTurnover": 4470446300.29,
+            "latestTurnover": 130789784.7,
             "todayStats": null
         },
         "39": {
@@ -545,20 +545,8 @@
                 "averageShareTransferDays": 2.25,
                 "averageCashDepositDays": 3.75
             },
-            "thirtyDaysTurnover": 4315175694.28,
-            "latestTurnover": 141492502.10000002,
-            "todayStats": null
-        },
-        "33": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012452-broker-33-dakshinkali-investment-securities-pvt-ltd.png",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 8,
-                "averageShareTransferDays": 2.25,
-                "averageCashDepositDays": 12502.38
-            },
-            "thirtyDaysTurnover": 4077628173.75,
-            "latestTurnover": 63319627,
+            "thirtyDaysTurnover": 4376786005.08,
+            "latestTurnover": 183060686.8,
             "todayStats": null
         },
         "63": {
@@ -569,8 +557,20 @@
                 "averageShareTransferDays": 9,
                 "averageCashDepositDays": 9
             },
-            "thirtyDaysTurnover": 3849699506,
-            "latestTurnover": 117920279.5,
+            "thirtyDaysTurnover": 3852888961.7,
+            "latestTurnover": 98761285.5,
+            "todayStats": null
+        },
+        "33": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012452-broker-33-dakshinkali-investment-securities-pvt-ltd.png",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 8,
+                "averageShareTransferDays": 2.25,
+                "averageCashDepositDays": 12502.38
+            },
+            "thirtyDaysTurnover": 3703296130.64,
+            "latestTurnover": 87164846.69,
             "todayStats": null
         },
         "101": {
@@ -581,8 +581,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 3773321845.5,
-            "latestTurnover": 57913455.5,
+            "thirtyDaysTurnover": 3442982871,
+            "latestTurnover": 96689808.19999999,
             "todayStats": null
         },
         "26": {
@@ -593,20 +593,8 @@
                 "averageShareTransferDays": 3.4,
                 "averageCashDepositDays": 4.4
             },
-            "thirtyDaysTurnover": 3028979318.35,
-            "latestTurnover": 101532368.2,
-            "todayStats": null
-        },
-        "36": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012453-broker-36-secured-securities-ltd.png",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 4,
-                "averageShareTransferDays": 3.5,
-                "averageCashDepositDays": 3.75
-            },
-            "thirtyDaysTurnover": 2991355711.74,
-            "latestTurnover": 96625946.53999999,
+            "thirtyDaysTurnover": 3063878510.44,
+            "latestTurnover": 111734290.19,
             "todayStats": null
         },
         "64": {
@@ -617,8 +605,20 @@
                 "averageShareTransferDays": 1.95,
                 "averageCashDepositDays": 2.68
             },
-            "thirtyDaysTurnover": 2969232810.05,
-            "latestTurnover": 99653970.19999999,
+            "thirtyDaysTurnover": 2990075398.55,
+            "latestTurnover": 98117989.1,
+            "todayStats": null
+        },
+        "36": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012453-broker-36-secured-securities-ltd.png",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 4,
+                "averageShareTransferDays": 3.5,
+                "averageCashDepositDays": 3.75
+            },
+            "thirtyDaysTurnover": 2980737237.14,
+            "latestTurnover": 87111556.7,
             "todayStats": null
         },
         "59": {
@@ -629,8 +629,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 2.67
             },
-            "thirtyDaysTurnover": 2725178472.58,
-            "latestTurnover": 57730360.2,
+            "thirtyDaysTurnover": 2753571811.38,
+            "latestTurnover": 86856186.9,
             "todayStats": null
         },
         "16": {
@@ -641,32 +641,8 @@
                 "averageShareTransferDays": 2.5,
                 "averageCashDepositDays": 3.33
             },
-            "thirtyDaysTurnover": 2543615204.75,
-            "latestTurnover": 81894092.2,
-            "todayStats": null
-        },
-        "43": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012454-broker-43-south-asian-bulls-pvt-ltd.png",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 6,
-                "averageShareTransferDays": 3,
-                "averageCashDepositDays": 3.33
-            },
-            "thirtyDaysTurnover": 2500335357.59,
-            "latestTurnover": 45666588.2,
-            "todayStats": null
-        },
-        "75": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012503-broker-75-mega-stock-markets-limited.png",
-            "rating": {
-                "averageRating": 3.83,
-                "totalRatings": 6,
-                "averageShareTransferDays": 2.5,
-                "averageCashDepositDays": 3.67
-            },
-            "thirtyDaysTurnover": 2490335221.65,
-            "latestTurnover": 36997813.9,
+            "thirtyDaysTurnover": 2587615287.63,
+            "latestTurnover": 116795689.5,
             "todayStats": null
         },
         "50": {
@@ -677,8 +653,20 @@
                 "averageShareTransferDays": 3.2,
                 "averageCashDepositDays": 3.4
             },
-            "thirtyDaysTurnover": 2466229728.5,
-            "latestTurnover": 115897532,
+            "thirtyDaysTurnover": 2526305923.2,
+            "latestTurnover": 113320612.4,
+            "todayStats": null
+        },
+        "75": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012503-broker-75-mega-stock-markets-limited.png",
+            "rating": {
+                "averageRating": 3.83,
+                "totalRatings": 6,
+                "averageShareTransferDays": 2.5,
+                "averageCashDepositDays": 3.67
+            },
+            "thirtyDaysTurnover": 2519066457.71,
+            "latestTurnover": 77097892.9,
             "todayStats": null
         },
         "21": {
@@ -689,8 +677,32 @@
                 "averageShareTransferDays": 3.71,
                 "averageCashDepositDays": 16.14
             },
-            "thirtyDaysTurnover": 2464524722.67,
-            "latestTurnover": 84225163.16,
+            "thirtyDaysTurnover": 2512300002.34,
+            "latestTurnover": 142594470.57,
+            "todayStats": null
+        },
+        "43": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012454-broker-43-south-asian-bulls-pvt-ltd.png",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 6,
+                "averageShareTransferDays": 3,
+                "averageCashDepositDays": 3.33
+            },
+            "thirtyDaysTurnover": 2499563149.39,
+            "latestTurnover": 64828448.599999994,
+            "todayStats": null
+        },
+        "13": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012450-broker-13-thrive-brokerage-house-pvt-ltd.png",
+            "rating": {
+                "averageRating": 4,
+                "totalRatings": 7,
+                "averageShareTransferDays": 6.43,
+                "averageCashDepositDays": 3.43
+            },
+            "thirtyDaysTurnover": 2345728269.43,
+            "latestTurnover": 70804338.30000001,
             "todayStats": null
         },
         "25": {
@@ -701,20 +713,8 @@
                 "averageShareTransferDays": 2.8,
                 "averageCashDepositDays": 3.6
             },
-            "thirtyDaysTurnover": 2355509374.63,
-            "latestTurnover": 68199682.55,
-            "todayStats": null
-        },
-        "13": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012450-broker-13-thrive-brokerage-house-pvt-ltd.png",
-            "rating": {
-                "averageRating": 3.83,
-                "totalRatings": 6,
-                "averageShareTransferDays": 7.17,
-                "averageCashDepositDays": 3.5
-            },
-            "thirtyDaysTurnover": 2337256660.28,
-            "latestTurnover": 59158451.3,
+            "thirtyDaysTurnover": 2321145417.04,
+            "latestTurnover": 80140612.3,
             "todayStats": null
         },
         "22": {
@@ -725,8 +725,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3.5
             },
-            "thirtyDaysTurnover": 2264266730.33,
-            "latestTurnover": 51644957.75,
+            "thirtyDaysTurnover": 2286813473.93,
+            "latestTurnover": 95276636,
             "todayStats": null
         },
         "92": {
@@ -737,8 +737,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 2211482133.5,
-            "latestTurnover": 81877339.60000001,
+            "thirtyDaysTurnover": 2281939023.8,
+            "latestTurnover": 118289312.9,
             "todayStats": null
         },
         "65": {
@@ -749,8 +749,8 @@
                 "averageShareTransferDays": 3.33,
                 "averageCashDepositDays": 3.33
             },
-            "thirtyDaysTurnover": 2200042370.97,
-            "latestTurnover": 61512373.199999996,
+            "thirtyDaysTurnover": 2192651679.17,
+            "latestTurnover": 69508009.8,
             "todayStats": null
         },
         "1": {
@@ -761,8 +761,8 @@
                 "averageShareTransferDays": 1.8,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 2121189086.28,
-            "latestTurnover": 63058659.1,
+            "thirtyDaysTurnover": 2143852370.53,
+            "latestTurnover": 90929330.55,
             "todayStats": null
         },
         "89": {
@@ -773,8 +773,8 @@
                 "averageShareTransferDays": 2.25,
                 "averageCashDepositDays": 2.62
             },
-            "thirtyDaysTurnover": 2119526621.04,
-            "latestTurnover": 37832952.7,
+            "thirtyDaysTurnover": 2124972592.44,
+            "latestTurnover": 24406676.700000003,
             "todayStats": null
         },
         "29": {
@@ -785,8 +785,8 @@
                 "averageShareTransferDays": 2.77,
                 "averageCashDepositDays": 5.31
             },
-            "thirtyDaysTurnover": 2094111595.86,
-            "latestTurnover": 65191245.3,
+            "thirtyDaysTurnover": 2123174297.96,
+            "latestTurnover": 120773139.80000001,
             "todayStats": null
         },
         "94": {
@@ -797,8 +797,8 @@
                 "averageShareTransferDays": 3.5,
                 "averageCashDepositDays": 3.5
             },
-            "thirtyDaysTurnover": 2042100932.81,
-            "latestTurnover": 68664837.2,
+            "thirtyDaysTurnover": 2040963259.61,
+            "latestTurnover": 38311613.9,
             "todayStats": null
         },
         "81": {
@@ -809,8 +809,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 4
             },
-            "thirtyDaysTurnover": 1983398603,
-            "latestTurnover": 64337140.5,
+            "thirtyDaysTurnover": 1976212796.9,
+            "latestTurnover": 55007954.5,
             "todayStats": null
         },
         "71": {
@@ -821,8 +821,8 @@
                 "averageShareTransferDays": 2,
                 "averageCashDepositDays": 4
             },
-            "thirtyDaysTurnover": 1921934253.14,
-            "latestTurnover": 54565587.900000006,
+            "thirtyDaysTurnover": 1945408561.74,
+            "latestTurnover": 74396768.8,
             "todayStats": null
         },
         "8": {
@@ -833,8 +833,8 @@
                 "averageShareTransferDays": 6.5,
                 "averageCashDepositDays": 8
             },
-            "thirtyDaysTurnover": 1915480076.49,
-            "latestTurnover": 75263638.7,
+            "thirtyDaysTurnover": 1911934322.67,
+            "latestTurnover": 65674407.379999995,
             "todayStats": null
         },
         "69": {
@@ -845,8 +845,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 1857944510.74,
-            "latestTurnover": 24463625.4,
+            "thirtyDaysTurnover": 1902581653.46,
+            "latestTurnover": 90415192.5,
             "todayStats": null
         },
         "47": {
@@ -857,20 +857,8 @@
                 "averageShareTransferDays": 4.14,
                 "averageCashDepositDays": 6.57
             },
-            "thirtyDaysTurnover": 1835393925.97,
-            "latestTurnover": 46782895.1,
-            "todayStats": null
-        },
-        "100": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012509-broker-100-sunrise-securities-limited.jpg",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 0,
-                "averageShareTransferDays": 3,
-                "averageCashDepositDays": 3
-            },
-            "thirtyDaysTurnover": 1818717331.6,
-            "latestTurnover": 35431824.2,
+            "thirtyDaysTurnover": 1822731601.67,
+            "latestTurnover": 50283773.5,
             "todayStats": null
         },
         "7": {
@@ -881,8 +869,8 @@
                 "averageShareTransferDays": 2.5,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 1805342065.22,
-            "latestTurnover": 83046026.5,
+            "thirtyDaysTurnover": 1817330882.82,
+            "latestTurnover": 83668293.4,
             "todayStats": null
         },
         "46": {
@@ -893,8 +881,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 5
             },
-            "thirtyDaysTurnover": 1788545907.36,
-            "latestTurnover": 39483905.7,
+            "thirtyDaysTurnover": 1789950105.33,
+            "latestTurnover": 57357920.57,
             "todayStats": null
         },
         "51": {
@@ -905,8 +893,20 @@
                 "averageShareTransferDays": 2.5,
                 "averageCashDepositDays": 4.25
             },
-            "thirtyDaysTurnover": 1680034191.32,
-            "latestTurnover": 43092008.6,
+            "thirtyDaysTurnover": 1697047068.02,
+            "latestTurnover": 59092839,
+            "todayStats": null
+        },
+        "19": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012507-broker-19-nepal-investment-securities-trading-pvt-ltd.png",
+            "rating": {
+                "averageRating": 4.25,
+                "totalRatings": 4,
+                "averageShareTransferDays": 2.75,
+                "averageCashDepositDays": 4.25
+            },
+            "thirtyDaysTurnover": 1670264272.54,
+            "latestTurnover": 64909162.1,
             "todayStats": null
         },
         "20": {
@@ -917,20 +917,20 @@
                 "averageShareTransferDays": 3.5,
                 "averageCashDepositDays": 16.5
             },
-            "thirtyDaysTurnover": 1657311205.01,
-            "latestTurnover": 36337183.7,
+            "thirtyDaysTurnover": 1662638115.31,
+            "latestTurnover": 41459028.9,
             "todayStats": null
         },
-        "19": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012507-broker-19-nepal-investment-securities-trading-pvt-ltd.png",
+        "100": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012509-broker-100-sunrise-securities-limited.jpg",
             "rating": {
-                "averageRating": 4,
-                "totalRatings": 3,
-                "averageShareTransferDays": 2.67,
-                "averageCashDepositDays": 4.33
+                "averageRating": 5,
+                "totalRatings": 0,
+                "averageShareTransferDays": 3,
+                "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 1646721126.34,
-            "latestTurnover": 53942970.6,
+            "thirtyDaysTurnover": 1638902436.4,
+            "latestTurnover": 31332861,
             "todayStats": null
         },
         "40": {
@@ -941,8 +941,8 @@
                 "averageShareTransferDays": 5,
                 "averageCashDepositDays": 5.5
             },
-            "thirtyDaysTurnover": 1550407565.77,
-            "latestTurnover": 34880236.9,
+            "thirtyDaysTurnover": 1546671244.57,
+            "latestTurnover": 31908054.3,
             "todayStats": null
         },
         "67": {
@@ -953,32 +953,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 1538298901.29,
-            "latestTurnover": 48844411.3,
-            "todayStats": null
-        },
-        "3": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012510-broker-3-arun-securities-pvt-ltd.png",
-            "rating": {
-                "averageRating": 4.75,
-                "totalRatings": 4,
-                "averageShareTransferDays": 1.75,
-                "averageCashDepositDays": 2
-            },
-            "thirtyDaysTurnover": 1501545502.29,
-            "latestTurnover": 54077931.8,
-            "todayStats": null
-        },
-        "88": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012506-broker-88-blue-chip-securities-ltd.jpg",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 0,
-                "averageShareTransferDays": 3,
-                "averageCashDepositDays": 3
-            },
-            "thirtyDaysTurnover": 1439028821,
-            "latestTurnover": 25068749.700000003,
+            "thirtyDaysTurnover": 1536477315.73,
+            "latestTurnover": 46863371.04,
             "todayStats": null
         },
         "91": {
@@ -989,8 +965,32 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 1427538219,
-            "latestTurnover": 42500754.2,
+            "thirtyDaysTurnover": 1513568497.7,
+            "latestTurnover": 109911752.6,
+            "todayStats": null
+        },
+        "3": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012510-broker-3-arun-securities-pvt-ltd.png",
+            "rating": {
+                "averageRating": 4.75,
+                "totalRatings": 4,
+                "averageShareTransferDays": 1.75,
+                "averageCashDepositDays": 2
+            },
+            "thirtyDaysTurnover": 1509409854.59,
+            "latestTurnover": 53002662.7,
+            "todayStats": null
+        },
+        "88": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012506-broker-88-blue-chip-securities-ltd.jpg",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 0,
+                "averageShareTransferDays": 3,
+                "averageCashDepositDays": 3
+            },
+            "thirtyDaysTurnover": 1423518777.8,
+            "latestTurnover": 48416426.6,
             "todayStats": null
         },
         "66": {
@@ -1001,20 +1001,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 1353495934.02,
-            "latestTurnover": 25415441.299999997,
-            "todayStats": null
-        },
-        "85": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012505-broker-85-capital-hub-p-ltd.png",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 1,
-                "averageShareTransferDays": 2,
-                "averageCashDepositDays": 2
-            },
-            "thirtyDaysTurnover": 1315058983.92,
-            "latestTurnover": 17022585.8,
+            "thirtyDaysTurnover": 1352904963.42,
+            "latestTurnover": 44523181.5,
             "todayStats": null
         },
         "80": {
@@ -1025,8 +1013,20 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 1308143634.12,
-            "latestTurnover": 39289262.8,
+            "thirtyDaysTurnover": 1320438388.22,
+            "latestTurnover": 59060700,
+            "todayStats": null
+        },
+        "85": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012505-broker-85-capital-hub-p-ltd.png",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 1,
+                "averageShareTransferDays": 2,
+                "averageCashDepositDays": 2
+            },
+            "thirtyDaysTurnover": 1318308723.02,
+            "latestTurnover": 16040779.1,
             "todayStats": null
         },
         "82": {
@@ -1037,8 +1037,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 1280660796.2,
-            "latestTurnover": 71986036,
+            "thirtyDaysTurnover": 1317312188.1,
+            "latestTurnover": 66487098.8,
             "todayStats": null
         },
         "53": {
@@ -1049,8 +1049,8 @@
                 "averageShareTransferDays": 2.25,
                 "averageCashDepositDays": 3.5
             },
-            "thirtyDaysTurnover": 1277965093.74,
-            "latestTurnover": 33459772.3,
+            "thirtyDaysTurnover": 1290767642.44,
+            "latestTurnover": 53032402,
             "todayStats": null
         },
         "84": {
@@ -1061,92 +1061,8 @@
                 "averageShareTransferDays": 11,
                 "averageCashDepositDays": 4
             },
-            "thirtyDaysTurnover": 1191371737.64,
-            "latestTurnover": 21921590.3,
-            "todayStats": null
-        },
-        "95": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012508-broker-95-magnet-securities-and-investment-company-private-limited.jpeg",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 0,
-                "averageShareTransferDays": 3,
-                "averageCashDepositDays": 3
-            },
-            "thirtyDaysTurnover": 1132276971.5,
-            "latestTurnover": 44562838.5,
-            "todayStats": null
-        },
-        "72": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012502-broker-72-hatemalo-financial-services-private-limited.jpeg",
-            "rating": {
-                "averageRating": 2.33,
-                "totalRatings": 3,
-                "averageShareTransferDays": 4,
-                "averageCashDepositDays": 8.67
-            },
-            "thirtyDaysTurnover": 1110318074.5,
-            "latestTurnover": 21606467.6,
-            "todayStats": null
-        },
-        "70": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012501-broker-70-infinity-securities-limited.png",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 0,
-                "averageShareTransferDays": 3,
-                "averageCashDepositDays": 3
-            },
-            "thirtyDaysTurnover": 1105308860.3,
-            "latestTurnover": 79767006.9,
-            "todayStats": null
-        },
-        "5": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012448-broker-5-market-securities-exchange-pvt-ltd.png",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 0,
-                "averageShareTransferDays": 3,
-                "averageCashDepositDays": 3
-            },
-            "thirtyDaysTurnover": 1079498090.6,
-            "latestTurnover": 31048716.1,
-            "todayStats": null
-        },
-        "76": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012504-broker-76-machhapuchchhre-securities-limited.jpeg",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 0,
-                "averageShareTransferDays": 3,
-                "averageCashDepositDays": 3
-            },
-            "thirtyDaysTurnover": 1078139804.9,
-            "latestTurnover": 14448178,
-            "todayStats": null
-        },
-        "61": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012458-broker-61-bhole-ganesh-securities-ltd.jpeg",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 1,
-                "averageShareTransferDays": 3,
-                "averageCashDepositDays": 3
-            },
-            "thirtyDaysTurnover": 1073540282.5,
-            "latestTurnover": 25619031.8,
-            "todayStats": null
-        },
-        "83": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2024/08/08/125226-shpc.png",
-            "rating": {
-                "averageRating": 5,
-                "totalRatings": 0,
-                "averageShareTransferDays": 3,
-                "averageCashDepositDays": 3
-            },
-            "thirtyDaysTurnover": 1059216909.25,
-            "latestTurnover": 47128526,
+            "thirtyDaysTurnover": 1187802643.34,
+            "latestTurnover": 35951621.1,
             "todayStats": null
         },
         "87": {
@@ -1157,20 +1073,92 @@
                 "averageShareTransferDays": 2,
                 "averageCashDepositDays": 2.5
             },
-            "thirtyDaysTurnover": 1010902366.68,
-            "latestTurnover": 65663876.7,
+            "thirtyDaysTurnover": 1147204194.58,
+            "latestTurnover": 154965061.8,
             "todayStats": null
         },
-        "99": {
-            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012508-broker-99-prabhu-stock-market-limited.png",
+        "72": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012502-broker-72-hatemalo-financial-services-private-limited.jpeg",
             "rating": {
-                "averageRating": 3,
-                "totalRatings": 2,
-                "averageShareTransferDays": 3.5,
-                "averageCashDepositDays": 4
+                "averageRating": 2.33,
+                "totalRatings": 3,
+                "averageShareTransferDays": 4,
+                "averageCashDepositDays": 8.67
             },
-            "thirtyDaysTurnover": 953751497.29,
-            "latestTurnover": 16976797.8,
+            "thirtyDaysTurnover": 1128724171.7,
+            "latestTurnover": 37553904,
+            "todayStats": null
+        },
+        "70": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012501-broker-70-infinity-securities-limited.png",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 0,
+                "averageShareTransferDays": 3,
+                "averageCashDepositDays": 3
+            },
+            "thirtyDaysTurnover": 1121939417.2,
+            "latestTurnover": 56304126.400000006,
+            "todayStats": null
+        },
+        "95": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012508-broker-95-magnet-securities-and-investment-company-private-limited.jpeg",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 0,
+                "averageShareTransferDays": 3,
+                "averageCashDepositDays": 3
+            },
+            "thirtyDaysTurnover": 1116140193.3,
+            "latestTurnover": 36726217.4,
+            "todayStats": null
+        },
+        "76": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012504-broker-76-machhapuchchhre-securities-limited.jpeg",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 0,
+                "averageShareTransferDays": 3,
+                "averageCashDepositDays": 3
+            },
+            "thirtyDaysTurnover": 1101695886.44,
+            "latestTurnover": 45476849,
+            "todayStats": null
+        },
+        "5": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012448-broker-5-market-securities-exchange-pvt-ltd.png",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 0,
+                "averageShareTransferDays": 3,
+                "averageCashDepositDays": 3
+            },
+            "thirtyDaysTurnover": 1074605574.12,
+            "latestTurnover": 30625570.119999997,
+            "todayStats": null
+        },
+        "61": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012458-broker-61-bhole-ganesh-securities-ltd.jpeg",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 1,
+                "averageShareTransferDays": 3,
+                "averageCashDepositDays": 3
+            },
+            "thirtyDaysTurnover": 1072011302.5,
+            "latestTurnover": 7876239.7,
+            "todayStats": null
+        },
+        "83": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2024/08/08/125226-shpc.png",
+            "rating": {
+                "averageRating": 5,
+                "totalRatings": 0,
+                "averageShareTransferDays": 3,
+                "averageCashDepositDays": 3
+            },
+            "thirtyDaysTurnover": 1060149339.85,
+            "latestTurnover": 27966234.799999997,
             "todayStats": null
         },
         "54": {
@@ -1181,8 +1169,20 @@
                 "averageShareTransferDays": 29.89,
                 "averageCashDepositDays": 22224.78
             },
-            "thirtyDaysTurnover": 937214175.3,
-            "latestTurnover": 17691261.8,
+            "thirtyDaysTurnover": 925052446.2,
+            "latestTurnover": 24360941.5,
+            "todayStats": null
+        },
+        "99": {
+            "imageUrl": "https://cdn.arthakendra.com/sharehub/images/2025/05/27/012508-broker-99-prabhu-stock-market-limited.png",
+            "rating": {
+                "averageRating": 3,
+                "totalRatings": 2,
+                "averageShareTransferDays": 3.5,
+                "averageCashDepositDays": 4
+            },
+            "thirtyDaysTurnover": 902135377.59,
+            "latestTurnover": 42895590.599999994,
             "todayStats": null
         },
         "11": {
@@ -1193,8 +1193,8 @@
                 "averageShareTransferDays": 2.58,
                 "averageCashDepositDays": 3.42
             },
-            "thirtyDaysTurnover": 890018261.82,
-            "latestTurnover": 24943279.9,
+            "thirtyDaysTurnover": 887852243.92,
+            "latestTurnover": 28747388.5,
             "todayStats": null
         },
         "10": {
@@ -1205,8 +1205,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 838299111.97,
-            "latestTurnover": 25044124.5,
+            "thirtyDaysTurnover": 826923848.07,
+            "latestTurnover": 21330488.3,
             "todayStats": null
         },
         "86": {
@@ -1217,8 +1217,8 @@
                 "averageShareTransferDays": 9,
                 "averageCashDepositDays": 9
             },
-            "thirtyDaysTurnover": 761754205.66,
-            "latestTurnover": 49432659.5,
+            "thirtyDaysTurnover": 779714489.56,
+            "latestTurnover": 30281054.3,
             "todayStats": null
         },
         "37": {
@@ -1229,8 +1229,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 669637805.51,
-            "latestTurnover": 12522983.1,
+            "thirtyDaysTurnover": 670485694.01,
+            "latestTurnover": 23160468.1,
             "todayStats": null
         },
         "68": {
@@ -1241,8 +1241,8 @@
                 "averageShareTransferDays": 2,
                 "averageCashDepositDays": 4
             },
-            "thirtyDaysTurnover": 624621373.1,
-            "latestTurnover": 9656049.8,
+            "thirtyDaysTurnover": 609985341,
+            "latestTurnover": 14125310.3,
             "todayStats": null
         },
         "18": {
@@ -1253,8 +1253,8 @@
                 "averageShareTransferDays": 501,
                 "averageCashDepositDays": 350000
             },
-            "thirtyDaysTurnover": 556931973.2,
-            "latestTurnover": 20091456.799999997,
+            "thirtyDaysTurnover": 556975312.4,
+            "latestTurnover": 20948221.9,
             "todayStats": null
         },
         "90": {
@@ -1265,8 +1265,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 11
             },
-            "thirtyDaysTurnover": 395470303,
-            "latestTurnover": 11902734.2,
+            "thirtyDaysTurnover": 400764293.7,
+            "latestTurnover": 16034195.4,
             "todayStats": null
         },
         "78": {
@@ -1277,8 +1277,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 325549094.55,
-            "latestTurnover": 4335215.7,
+            "thirtyDaysTurnover": 311775117.85,
+            "latestTurnover": 2589629.5,
             "todayStats": null
         },
         "98": {
@@ -1289,8 +1289,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 238262321.43,
-            "latestTurnover": 1268152,
+            "thirtyDaysTurnover": 264438883.33,
+            "latestTurnover": 32796886,
             "todayStats": null
         },
         "93": {
@@ -1301,8 +1301,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 149268391.7,
-            "latestTurnover": 18325699.6,
+            "thirtyDaysTurnover": 201953937.3,
+            "latestTurnover": 53376195,
             "todayStats": null
         },
         "79": {
@@ -1313,8 +1313,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 46720060.6,
-            "latestTurnover": 465968,
+            "thirtyDaysTurnover": 39748206.7,
+            "latestTurnover": 2835649.2,
             "todayStats": null
         },
         "73": {
@@ -1325,8 +1325,8 @@
                 "averageShareTransferDays": 3,
                 "averageCashDepositDays": 3
             },
-            "thirtyDaysTurnover": 549756,
-            "latestTurnover": 28713,
+            "thirtyDaysTurnover": 523546,
+            "latestTurnover": 5080,
             "todayStats": null
         },
         "55": {
