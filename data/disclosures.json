@@ -1,5 +1,35 @@
 [
     {
+        "id": 46741,
+        "symbol": "MBLEF",
+        "title": "Book Close of MBLEF",
+        "body": "Book Close of MBLEF\nBook Close Date : 8/18/2026\nCash Dividend: 8%",
+        "source": "BOD",
+        "publishedAt": "2026-08-06T16:02:25.443",
+        "documents": [
+            {
+                "id": 32011,
+                "submittedDate": "2026-08-06",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nabaraj_listing/2026-08-06/MBLEF%20book%20Closure%20notice_1786011432722.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46740,
+        "symbol": "MBLEF",
+        "title": "Dividend Declaration of MBLEF",
+        "body": "Dividend Declaration of MBLEF\nFiscal Year: 2082-2083\nCash Dividend: 8%",
+        "source": "BOD",
+        "publishedAt": "2026-08-06T15:59:19.227",
+        "documents": [
+            {
+                "id": 32010,
+                "submittedDate": "2026-08-06",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nabaraj_listing/2026-08-06/MBLEF%20dividend%20declaration_1786011240710.pdf"
+            }
+        ]
+    },
+    {
         "id": 46724,
         "symbol": "MPFL",
         "title": "DECISION REGARDING DIVIDEND",
