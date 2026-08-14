@@ -1,5 +1,102 @@
 [
     {
+        "id": 46995,
+        "symbol": "MLBS",
+        "title": "Special AGM",
+        "body": "Annual General Meeting of MLBS\nFiscal Year: 2083-2084\nAGM Type: SGM\nAGM Date: 8/30/2026\nAGM No: 4\nBook Close Date: 8/21/2026",
+        "source": "Nepal Samachar Patra",
+        "publishedAt": "2026-08-14T10:44:10.897",
+        "documents": [
+            {
+                "id": 32324,
+                "submittedDate": "2026-08-14",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Manushi_Laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-08-14/Letter%20%282%29_1786683242810.PDF"
+            },
+            {
+                "id": 32323,
+                "submittedDate": "2026-08-14",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Manushi_Laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-08-14/SGM%20notice%20Manushi%20Laghubitta_1786683263191.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46994,
+        "symbol": "JBLB",
+        "title": "Book Closer letter (letter ko book close date mistake vako le change gari pathako chh)",
+        "body": "Book Close of JBLB\nBook Close Date : 8/21/2026",
+        "source": "Letter",
+        "publishedAt": "2026-08-14T10:43:21.347",
+        "documents": [
+            {
+                "id": 32322,
+                "submittedDate": "2026-08-14",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Jeevan_Bikas_Laghubitta_Bittyia_Sanstha_Limited/Company%20News/2026-08-14/Book%20Close%20Letter_1786683472068.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46977,
+        "symbol": "SAGAR",
+        "title": "Information about change in Audit Committee",
+        "source": "Board Decision",
+        "publishedAt": "2026-08-14T10:17:05.453",
+        "documents": [
+            {
+                "id": 32302,
+                "submittedDate": "2026-08-14",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Sagar_Distillery_Limited/Company%20News/2026-08-14/Application_Nepse_Audit%20Committee_1786681907228.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46972,
+        "symbol": "BHL",
+        "title": "Temporary Relocation of Office",
+        "source": "Information ",
+        "publishedAt": "2026-08-14T10:10:32.547",
+        "documents": [
+            {
+                "id": 32296,
+                "submittedDate": "2026-08-14",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Balephi_Hydropower_Limited/Company%20News/2026-08-14/temporray%20relocation%20of%20office_1786681474369.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46941,
+        "symbol": "JBLB",
+        "title": "Special AGM & Book Close information",
+        "body": "Book Close of JBLB\nBook Close Date : 8/21/2026",
+        "source": "Board Minute",
+        "publishedAt": "2026-08-13T17:49:55.283",
+        "documents": [
+            {
+                "id": 32253,
+                "submittedDate": "2026-08-13",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Jeevan_Bikas_Laghubitta_Bittyia_Sanstha_Limited/Company%20News/2026-08-13/152%20Board%20-%20Special%20General%20Meeting%202083-2nd_1786622655027.pdf"
+            },
+            {
+                "id": 32254,
+                "submittedDate": "2026-08-13",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Jeevan_Bikas_Laghubitta_Bittyia_Sanstha_Limited/Company%20News/2026-08-13/Book%20Close%20Letter_1786622674831.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46929,
+        "symbol": "MSLB",
+        "title": "Resignation of Director",
+        "source": "Resignation of Director",
+        "publishedAt": "2026-08-13T15:50:22.783",
+        "documents": [
+            {
+                "id": 32240,
+                "submittedDate": "2026-08-13",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=mslb_user/2026-08-13/Resignation%20Approval%20Latter_1786615496234.pdf"
+            }
+        ]
+    },
+    {
         "id": 46915,
         "symbol": "UPPER",
         "title": "BoD Change of UPPER",
@@ -10105,6 +10202,65 @@
                 "id": 32168,
                 "submittedDate": "2026-08-12",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Mandu_Hydropower_Limited/Company%20News/2026-08-12/Nepal%20Stock%20Exchange%20Letter_1786537874993.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46996,
+        "symbol": "NLIC",
+        "title": "Assumption of Charge as CEO",
+        "body": "Mr. Pravin Raman Parajuli has assumed office as the Chief Executive Officer (CEO) with effect from 29 Shrawan 2083.",
+        "source": "Assumption of Charge as CEO",
+        "publishedAt": "2026-08-14T10:45:39.39",
+        "documents": [
+            {
+                "id": 32325,
+                "submittedDate": "2026-08-14",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nlic_user/2026-08-14/NLIC_Assumption%20of%20Charge%20as%20CEO_1786683595565.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46976,
+        "symbol": "NRM",
+        "title": "Appointment of CEO",
+        "source": "Appointment of CEO",
+        "publishedAt": "2026-08-14T10:17:05.22",
+        "documents": [
+            {
+                "id": 32301,
+                "submittedDate": "2026-08-14",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Republic_Media_Limited/Company%20News/2026-08-14/Letter%20to%20NEPSE_CEO%20Appointment_1786681900614.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46942,
+        "symbol": "EDBL",
+        "title": "Announcement of 20th AGM and Notice of Book Closure",
+        "body": "Annual General Meeting of EDBL\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 9/9/2026\nAGM No: 20\nBook Close Date: 8/25/2026",
+        "source": "EDBL",
+        "publishedAt": "2026-08-13T17:54:41.2",
+        "documents": [
+            {
+                "id": 32255,
+                "submittedDate": "2026-08-13",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=edbl_user/2026-08-13/20th%20AGM%20and%20Book%20Close%20to%20NEPSE%20-_1786622889829.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46933,
+        "symbol": "DLBS",
+        "title": "Information about Appointment DCEO of Dhaulagiri Laghubitta",
+        "body": "Information about Appointment DCEO of Dhaulagiri Laghubitta",
+        "source": "Information about Appointment DCEO of Dhaulagiri Laghubitta ",
+        "publishedAt": "2026-08-13T16:37:21.24",
+        "documents": [
+            {
+                "id": 32244,
+                "submittedDate": "2026-08-13",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Dhaulagiri_laghubitta_Sanstha_Limited/Company%20News/2026-08-13/dceo%20_1786618317752.jpg"
             }
         ]
     }
