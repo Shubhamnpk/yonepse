@@ -1,5 +1,65 @@
 [
     {
+        "id": 47128,
+        "symbol": "SIGS3",
+        "title": "Dividend Declaration of SIGS3",
+        "body": "Dividend Declaration of SIGS3\nFiscal Year: 2082-2083\nCash Dividend: 10%",
+        "source": "BOD",
+        "publishedAt": "2026-08-18T09:14:27.173",
+        "documents": [
+            {
+                "id": 32491,
+                "submittedDate": "2026-08-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=rita_listing/2026-08-18/Dividend%20declaration_1787023762975.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47127,
+        "symbol": "SIGS2",
+        "title": "Dividend Declaration of SIGS2",
+        "body": "Dividend Declaration of SIGS2\nFiscal Year: 2082-2083\nCash Dividend: 8%",
+        "source": "BOD",
+        "publishedAt": "2026-08-18T09:13:09.743",
+        "documents": [
+            {
+                "id": 32490,
+                "submittedDate": "2026-08-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=rita_listing/2026-08-18/Dividend%20declaration_1787023675460.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47126,
+        "symbol": "SADBL",
+        "title": "SADBL Dividend Declaration FY 2082.83",
+        "body": "Dividend Declaration of SADBL\nFiscal Year: 2082-2083\nCash Dividend: 6.5263%\nBonus Shares: 4%",
+        "source": "BOD Meeting",
+        "publishedAt": "2026-08-17T18:06:12.687",
+        "documents": [
+            {
+                "id": 32489,
+                "submittedDate": "2026-08-17",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sadbl_user/2026-08-17/SADBL%20Dividend%202082083%20letter_NEPSE_1786969260617.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47121,
+        "symbol": "AKJCL",
+        "title": "RTS appointment",
+        "body": "Prabhu Capital is appointed as RTS of AKJCL.",
+        "source": "Company",
+        "publishedAt": "2026-08-17T16:29:48.697",
+        "documents": [
+            {
+                "id": 32484,
+                "submittedDate": "2026-08-17",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Ankhu_Khola_Jalvidhyut_Company_Limited/Company%20News/2026-08-17/RTS%20appointment_1786963454729.pdf"
+            }
+        ]
+    },
+    {
         "id": 47094,
         "symbol": "NMBHF2",
         "title": "Book Close of NMBHF2",
@@ -10445,6 +10505,20 @@
                 "id": 32470,
                 "submittedDate": "2026-08-17",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Gurans_Laghubitta_Bittiya_Sanstha_Ltd/Company%20News/2026-08-17/Regarding%20completion%20of%20the%20tenure%20of%20the%20Independent%20director_1786946598573.PDF"
+            }
+        ]
+    },
+    {
+        "id": 47130,
+        "symbol": "CYCL",
+        "title": "Resign Letter Chairman",
+        "source": "cycl",
+        "publishedAt": "2026-08-18T09:56:26.74",
+        "documents": [
+            {
+                "id": 32493,
+                "submittedDate": "2026-08-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=CYC_Nepal_laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-08-18/Resign%20Letter%20%20of%20Padhama%20%20Nath%20Sharma_1787026258934.pdf"
             }
         ]
     }
