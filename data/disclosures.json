@@ -1,5 +1,54 @@
 [
     {
+        "id": 47156,
+        "symbol": "SKBBL",
+        "title": "Board of Directors Appointment",
+        "source": "SKBBL",
+        "publishedAt": "2026-08-20T10:32:36.853",
+        "documents": [
+            {
+                "id": 32521,
+                "submittedDate": "2026-08-20",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=skbbl_user/2026-08-20/BoD%20appointment_1787201210209.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47155,
+        "symbol": "GBBL",
+        "title": "GBBL-Information Regarding Relocation Of Head Office",
+        "body": "GBBL-Information Regarding Relocation Of Head Office",
+        "source": "GBBL",
+        "publishedAt": "2026-08-19T16:40:05.993",
+        "documents": [
+            {
+                "id": 32520,
+                "submittedDate": "2026-08-19",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbbl_user/2026-08-19/GBBL-Information%20Regarding%20Relocation%20Of%20Head%20Office_1787136873043.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47153,
+        "symbol": "SWASTIK",
+        "title": "7th AGM date fixed by Swastik Microfinnce",
+        "body": "Annual General Meeting of SWASTIK\nFiscal Year: 2081-2082\nAGM Type: AGM\nAGM Date: 9/12/2026\nAGM No: 7\nBook Close Date: 8/27/2026",
+        "source": "BOD Minute",
+        "publishedAt": "2026-08-19T16:23:43.117",
+        "documents": [
+            {
+                "id": 32517,
+                "submittedDate": "2026-08-19",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Swastik_Laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-08-19/AGM%20letter_1787135909807.pdf"
+            },
+            {
+                "id": 32518,
+                "submittedDate": "2026-08-19",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Swastik_Laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-08-19/7th%20AGM%20Notice_1787135892346.pdf"
+            }
+        ]
+    },
+    {
         "id": 47140,
         "title": "Notice of Redemption [NICD83/84]",
         "body": "NIC ASIA Debenture 2083/84 being matured on 26th August 2026",
@@ -10577,6 +10626,21 @@
                 "id": 32493,
                 "submittedDate": "2026-08-18",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=CYC_Nepal_laghubitta_Bittiya_Sanstha_Limited/Company%20News/2026-08-18/Resign%20Letter%20%20of%20Padhama%20%20Nath%20Sharma_1787026258934.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47150,
+        "symbol": "HBLD83",
+        "title": "HBL Bond 2083 Delisting (HBLD83)",
+        "body": "HBL Bond 2083 Delisting (HBLD83)",
+        "source": "HBL",
+        "publishedAt": "2026-08-19T16:03:01.38",
+        "documents": [
+            {
+                "id": 32515,
+                "submittedDate": "2026-08-19",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=hbl_user/2026-08-19/HBL%20Bond%20delisting_1787134674626.pdf"
             }
         ]
     }
