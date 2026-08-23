@@ -307,19 +307,14 @@ if __name__ == "__main__":
     history_list.sort(key=lambda x: x.get('scraped_at', ''), reverse=True)
 
     # 4. Save results
-    # Intentionally preserve the previous ipo/upcoming.json snapshot when
-    # final_data is empty, so the last known upcoming IPO list remains available.
-    if final_data:
-        # Sort by scraped_at descending so newest are first
-        final_data.sort(key=lambda x: x.get('scraped_at', ''), reverse=True)
-        
-        with open(output_file, "w", encoding='utf-8') as f:
-            json.dump(final_data, f, indent=4, ensure_ascii=False)
-        if write_legacy:
-            shutil.copyfile(output_file, legacy_output_file)
-        print(f"Successfully processed {len(final_data)} upcoming items (New: {len(new_data) if new_data else 0}). Saved to {output_file}")
-    else:
-        print("No data to save.")
+    # Sort by scraped_at descending so newest are first
+    final_data.sort(key=lambda x: x.get('scraped_at', ''), reverse=True)
+
+    with open(output_file, "w", encoding='utf-8') as f:
+        json.dump(final_data, f, indent=4, ensure_ascii=False)
+    if write_legacy:
+        shutil.copyfile(output_file, legacy_output_file)
+    print(f"Successfully processed {len(final_data)} upcoming items (New: {len(new_data) if new_data else 0}). Saved to {output_file}")
 
     with open(history_file, "w", encoding='utf-8') as f:
         json.dump(history_list, f, indent=4, ensure_ascii=False)
