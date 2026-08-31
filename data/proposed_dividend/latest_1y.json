@@ -1,5 +1,38 @@
 [
   {
+    "id": 1365,
+    "symbol": "MNMF1",
+    "bonus_share": "",
+    "cash_dividend": "2.2",
+    "total_dividend": "2.2",
+    "announcement_date": "2026-08-31",
+    "bookclose_date": "2026-09-09",
+    "fiscal_year": "2082/2083",
+    "scraped_at": "2026-08-31T18:06:19.042109"
+  },
+  {
+    "id": 896,
+    "symbol": "NIFRA",
+    "bonus_share": "",
+    "cash_dividend": "5.2632",
+    "total_dividend": "5.2632",
+    "announcement_date": "2026-08-31",
+    "bookclose_date": "",
+    "fiscal_year": "2082/2083",
+    "scraped_at": "2026-08-31T18:06:19.042204"
+  },
+  {
+    "id": 166,
+    "symbol": "SANIMA",
+    "bonus_share": "",
+    "cash_dividend": "10.00",
+    "total_dividend": "10.00",
+    "announcement_date": "2026-08-30",
+    "bookclose_date": "",
+    "fiscal_year": "2082/2083",
+    "scraped_at": "2026-08-31T18:06:19.042013"
+  },
+  {
     "id": 1627,
     "symbol": "HSLTD",
     "bonus_share": "13.00",
@@ -8,7 +41,7 @@
     "announcement_date": "2026-08-27",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.679451"
+    "scraped_at": "2026-08-31T18:06:19.041830"
   },
   {
     "id": 10,
@@ -19,7 +52,7 @@
     "announcement_date": "2026-08-27",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.679392"
+    "scraped_at": "2026-08-31T18:06:19.041734"
   },
   {
     "id": 1194,
@@ -30,7 +63,7 @@
     "announcement_date": "2026-08-25",
     "bookclose_date": "2026-09-08",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.679335"
+    "scraped_at": "2026-08-31T18:06:19.041631"
   },
   {
     "id": 1612,
@@ -41,7 +74,7 @@
     "announcement_date": "2026-08-24",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.679280"
+    "scraped_at": "2026-08-31T18:06:19.041529"
   },
   {
     "id": 1326,
@@ -52,7 +85,7 @@
     "announcement_date": "2026-08-24",
     "bookclose_date": "2026-09-04",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.679223"
+    "scraped_at": "2026-08-31T18:06:19.041426"
   },
   {
     "id": 1122,
@@ -63,7 +96,7 @@
     "announcement_date": "2026-08-24",
     "bookclose_date": "2026-09-03",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.679045"
+    "scraped_at": "2026-08-31T18:06:19.041203"
   },
   {
     "id": 1118,
@@ -74,7 +107,7 @@
     "announcement_date": "2026-08-24",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678989"
+    "scraped_at": "2026-08-31T18:06:19.041106"
   },
   {
     "id": 1112,
@@ -85,7 +118,7 @@
     "announcement_date": "2026-08-24",
     "bookclose_date": "2026-09-03",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.679165"
+    "scraped_at": "2026-08-31T18:06:19.041309"
   },
   {
     "id": 1076,
@@ -96,7 +129,7 @@
     "announcement_date": "2026-08-24",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678929"
+    "scraped_at": "2026-08-31T18:06:19.041012"
   },
   {
     "id": 1363,
@@ -107,7 +140,7 @@
     "announcement_date": "2026-08-22",
     "bookclose_date": "2026-09-04",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678811"
+    "scraped_at": "2026-08-31T18:06:19.040816"
   },
   {
     "id": 1342,
@@ -118,7 +151,7 @@
     "announcement_date": "2026-08-22",
     "bookclose_date": "2026-09-04",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678871"
+    "scraped_at": "2026-08-31T18:06:19.040916"
   },
   {
     "id": 1111,
@@ -129,7 +162,7 @@
     "announcement_date": "2026-08-18",
     "bookclose_date": "2026-08-31",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678743"
+    "scraped_at": "2026-08-31T18:06:19.040721"
   },
   {
     "id": 889,
@@ -140,7 +173,7 @@
     "announcement_date": "2026-08-18",
     "bookclose_date": "2026-08-31",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678687"
+    "scraped_at": "2026-08-31T18:06:19.040626"
   },
   {
     "id": 298,
@@ -151,7 +184,7 @@
     "announcement_date": "2026-08-18",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678627"
+    "scraped_at": "2026-08-31T18:06:19.040530"
   },
   {
     "id": 1178,
@@ -162,7 +195,7 @@
     "announcement_date": "2026-08-17",
     "bookclose_date": "2026-08-24",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678570"
+    "scraped_at": "2026-08-31T18:06:19.040428"
   },
   {
     "id": 1113,
@@ -173,7 +206,7 @@
     "announcement_date": "2026-08-17",
     "bookclose_date": "2026-08-24",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678514"
+    "scraped_at": "2026-08-31T18:06:19.040315"
   },
   {
     "id": 1031,
@@ -184,7 +217,7 @@
     "announcement_date": "2026-08-17",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678402"
+    "scraped_at": "2026-08-31T18:06:19.040124"
   },
   {
     "id": 901,
@@ -195,7 +228,7 @@
     "announcement_date": "2026-08-17",
     "bookclose_date": "2026-08-24",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678458"
+    "scraped_at": "2026-08-31T18:06:19.040219"
   },
   {
     "id": 1556,
@@ -206,7 +239,7 @@
     "announcement_date": "2026-08-13",
     "bookclose_date": "2026-08-26",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678345"
+    "scraped_at": "2026-08-31T18:06:19.040028"
   },
   {
     "id": 1243,
@@ -217,7 +250,7 @@
     "announcement_date": "2026-08-13",
     "bookclose_date": "2026-08-21",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678290"
+    "scraped_at": "2026-08-31T18:06:19.039933"
   },
   {
     "id": 689,
@@ -228,7 +261,7 @@
     "announcement_date": "2026-08-12",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678234"
+    "scraped_at": "2026-08-31T18:06:19.039839"
   },
   {
     "id": 1283,
@@ -239,7 +272,7 @@
     "announcement_date": "2026-08-08",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678176"
+    "scraped_at": "2026-08-31T18:06:19.039743"
   },
   {
     "id": 1225,
@@ -250,7 +283,7 @@
     "announcement_date": "2026-08-07",
     "bookclose_date": "2026-08-20",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.677820"
+    "scraped_at": "2026-08-31T18:06:19.039135"
   },
   {
     "id": 1124,
@@ -261,7 +294,7 @@
     "announcement_date": "2026-08-07",
     "bookclose_date": "2026-08-06",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.677879"
+    "scraped_at": "2026-08-31T18:06:19.039230"
   },
   {
     "id": 1103,
@@ -272,7 +305,7 @@
     "announcement_date": "2026-08-07",
     "bookclose_date": "2026-08-20",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.677752"
+    "scraped_at": "2026-08-31T18:06:19.039040"
   },
   {
     "id": 1082,
@@ -283,7 +316,7 @@
     "announcement_date": "2026-08-07",
     "bookclose_date": "2026-08-06",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.677938"
+    "scraped_at": "2026-08-31T18:06:19.039326"
   },
   {
     "id": 1059,
@@ -294,7 +327,7 @@
     "announcement_date": "2026-08-07",
     "bookclose_date": "2026-08-20",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.677997"
+    "scraped_at": "2026-08-31T18:06:19.039452"
   },
   {
     "id": 657,
@@ -305,7 +338,7 @@
     "announcement_date": "2026-08-07",
     "bookclose_date": "2026-09-03",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678116"
+    "scraped_at": "2026-08-31T18:06:19.039648"
   },
   {
     "id": 1613,
@@ -316,7 +349,7 @@
     "announcement_date": "2026-08-06",
     "bookclose_date": "2026-08-16",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.678057"
+    "scraped_at": "2026-08-31T18:06:19.039552"
   },
   {
     "id": 1541,
@@ -327,7 +360,7 @@
     "announcement_date": "2026-08-06",
     "bookclose_date": "2026-08-18",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.677642"
+    "scraped_at": "2026-08-31T18:06:19.038848"
   },
   {
     "id": 1560,
@@ -338,7 +371,7 @@
     "announcement_date": "2026-08-03",
     "bookclose_date": "",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.677697"
+    "scraped_at": "2026-08-31T18:06:19.038945"
   },
   {
     "id": 1061,
@@ -347,9 +380,9 @@
     "cash_dividend": "3.00",
     "total_dividend": "3.00",
     "announcement_date": "2026-07-26",
-    "bookclose_date": "",
+    "bookclose_date": "2026-07-24",
     "fiscal_year": "2082/2083",
-    "scraped_at": "2026-08-28T21:27:20.677587"
+    "scraped_at": "2026-08-31T18:06:19.038751"
   },
   {
     "id": 1372,
@@ -360,7 +393,7 @@
     "announcement_date": "2026-06-19",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677476"
+    "scraped_at": "2026-08-31T18:06:19.038558"
   },
   {
     "id": 1281,
@@ -371,7 +404,7 @@
     "announcement_date": "2026-06-19",
     "bookclose_date": "2026-07-03",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677532"
+    "scraped_at": "2026-08-31T18:06:19.038655"
   },
   {
     "id": 997,
@@ -382,7 +415,7 @@
     "announcement_date": "2026-03-26",
     "bookclose_date": "2026-04-09",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677420"
+    "scraped_at": "2026-08-31T18:06:19.038458"
   },
   {
     "id": 1676,
@@ -393,7 +426,7 @@
     "announcement_date": "2026-03-22",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677365"
+    "scraped_at": "2026-08-31T18:06:19.038341"
   },
   {
     "id": 1675,
@@ -404,7 +437,7 @@
     "announcement_date": "2026-03-19",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677256"
+    "scraped_at": "2026-08-31T18:06:19.038053"
   },
   {
     "id": 1674,
@@ -415,7 +448,7 @@
     "announcement_date": "2026-03-19",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677310"
+    "scraped_at": "2026-08-31T18:06:19.038244"
   },
   {
     "id": 1226,
@@ -427,7 +460,7 @@
     "bookclose_date": "2026-05-06",
     "bonus_listing_date": "2026-08-20",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677200"
+    "scraped_at": "2026-08-31T18:06:19.037954"
   },
   {
     "id": 556,
@@ -439,7 +472,7 @@
     "bookclose_date": "2026-04-09",
     "bonus_listing_date": "2026-08-27",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677144"
+    "scraped_at": "2026-08-31T18:06:19.037850"
   },
   {
     "id": 585,
@@ -450,7 +483,7 @@
     "announcement_date": "2026-02-22",
     "bookclose_date": "2026-04-17",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677089"
+    "scraped_at": "2026-08-31T18:06:19.037748"
   },
   {
     "id": 122,
@@ -462,7 +495,7 @@
     "bookclose_date": "2026-05-27",
     "bonus_listing_date": "2026-08-19",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.677033"
+    "scraped_at": "2026-08-31T18:06:19.037645"
   },
   {
     "id": 1046,
@@ -474,7 +507,7 @@
     "bookclose_date": "2026-02-25",
     "bonus_listing_date": "2026-06-29",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676975"
+    "scraped_at": "2026-08-31T18:06:19.037549"
   },
   {
     "id": 1657,
@@ -485,7 +518,7 @@
     "announcement_date": "2026-01-30",
     "bookclose_date": "2026-02-05",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676852"
+    "scraped_at": "2026-08-31T18:06:19.037447"
   },
   {
     "id": 1656,
@@ -496,7 +529,7 @@
     "announcement_date": "2026-01-21",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676783"
+    "scraped_at": "2026-08-31T18:06:19.037323"
   },
   {
     "id": 133,
@@ -508,7 +541,7 @@
     "bookclose_date": "2026-02-08",
     "bonus_listing_date": "2026-06-29",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676726"
+    "scraped_at": "2026-08-31T18:06:19.037229"
   },
   {
     "id": 143,
@@ -520,7 +553,7 @@
     "bookclose_date": "2026-02-12",
     "bonus_listing_date": "2026-06-24",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676667"
+    "scraped_at": "2026-08-31T18:06:19.037132"
   },
   {
     "id": 1176,
@@ -531,7 +564,7 @@
     "announcement_date": "2025-12-28",
     "bookclose_date": "2026-01-05",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676607"
+    "scraped_at": "2026-08-31T18:06:19.037036"
   },
   {
     "id": 120,
@@ -543,7 +576,7 @@
     "bookclose_date": "2026-01-01",
     "bonus_listing_date": "2026-08-27",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676438"
+    "scraped_at": "2026-08-31T18:06:19.036746"
   },
   {
     "id": 117,
@@ -554,7 +587,7 @@
     "announcement_date": "2025-12-24",
     "bookclose_date": "2026-01-04",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676494"
+    "scraped_at": "2026-08-31T18:06:19.036842"
   },
   {
     "id": 961,
@@ -566,7 +599,7 @@
     "bookclose_date": "2026-01-01",
     "bonus_listing_date": "2026-03-26",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676328"
+    "scraped_at": "2026-08-31T18:06:19.036554"
   },
   {
     "id": 779,
@@ -577,7 +610,7 @@
     "announcement_date": "2025-12-23",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676551"
+    "scraped_at": "2026-08-31T18:06:19.036939"
   },
   {
     "id": 766,
@@ -589,7 +622,7 @@
     "bookclose_date": "2026-01-06",
     "bonus_listing_date": "2026-03-30",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676271"
+    "scraped_at": "2026-08-31T18:06:19.036455"
   },
   {
     "id": 527,
@@ -601,7 +634,7 @@
     "bookclose_date": "2026-01-02",
     "bonus_listing_date": "2026-03-01",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676160"
+    "scraped_at": "2026-08-31T18:06:19.036242"
   },
   {
     "id": 478,
@@ -613,7 +646,7 @@
     "bookclose_date": "2026-01-02",
     "bonus_listing_date": "2026-03-25",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676383"
+    "scraped_at": "2026-08-31T18:06:19.036650"
   },
   {
     "id": 364,
@@ -625,7 +658,7 @@
     "bookclose_date": "2026-01-06",
     "bonus_listing_date": "2026-03-30",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676216"
+    "scraped_at": "2026-08-31T18:06:19.036340"
   },
   {
     "id": 701,
@@ -636,7 +669,7 @@
     "announcement_date": "2025-12-22",
     "bookclose_date": "2026-01-02",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676103"
+    "scraped_at": "2026-08-31T18:06:19.036141"
   },
   {
     "id": 33,
@@ -648,7 +681,7 @@
     "bookclose_date": "2026-01-05",
     "bonus_listing_date": "2026-05-06",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.676047"
+    "scraped_at": "2026-08-31T18:06:19.036046"
   },
   {
     "id": 1240,
@@ -659,7 +692,7 @@
     "announcement_date": "2025-12-21",
     "bookclose_date": "2026-01-02",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675469"
+    "scraped_at": "2026-08-31T18:06:19.035050"
   },
   {
     "id": 1025,
@@ -670,7 +703,7 @@
     "announcement_date": "2025-12-21",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675413"
+    "scraped_at": "2026-08-31T18:06:19.034954"
   },
   {
     "id": 737,
@@ -681,7 +714,7 @@
     "announcement_date": "2025-12-21",
     "bookclose_date": "2026-01-05",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675526"
+    "scraped_at": "2026-08-31T18:06:19.035148"
   },
   {
     "id": 617,
@@ -692,7 +725,7 @@
     "announcement_date": "2025-12-21",
     "bookclose_date": "2025-12-29",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675581"
+    "scraped_at": "2026-08-31T18:06:19.035244"
   },
   {
     "id": 607,
@@ -704,7 +737,7 @@
     "bookclose_date": "2025-12-31",
     "bonus_listing_date": "2026-05-06",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675990"
+    "scraped_at": "2026-08-31T18:06:19.035948"
   },
   {
     "id": 591,
@@ -716,7 +749,7 @@
     "bookclose_date": "2026-01-01",
     "bonus_listing_date": "2026-03-31",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675695"
+    "scraped_at": "2026-08-31T18:06:19.035456"
   },
   {
     "id": 480,
@@ -728,7 +761,7 @@
     "bookclose_date": "2026-01-02",
     "bonus_listing_date": "2026-04-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675820"
+    "scraped_at": "2026-08-31T18:06:19.035651"
   },
   {
     "id": 424,
@@ -740,7 +773,7 @@
     "bookclose_date": "2025-12-31",
     "bonus_listing_date": "2026-04-20",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675638"
+    "scraped_at": "2026-08-31T18:06:19.035340"
   },
   {
     "id": 422,
@@ -752,7 +785,7 @@
     "bookclose_date": "2026-01-05",
     "bonus_listing_date": "2026-04-10",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675877"
+    "scraped_at": "2026-08-31T18:06:19.035746"
   },
   {
     "id": 420,
@@ -764,7 +797,7 @@
     "bookclose_date": "2026-01-02",
     "bonus_listing_date": "2026-03-13",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675750"
+    "scraped_at": "2026-08-31T18:06:19.035556"
   },
   {
     "id": 138,
@@ -775,7 +808,7 @@
     "announcement_date": "2025-12-21",
     "bookclose_date": "2026-01-01",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675934"
+    "scraped_at": "2026-08-31T18:06:19.035852"
   },
   {
     "id": 1258,
@@ -786,7 +819,7 @@
     "announcement_date": "2025-12-19",
     "bookclose_date": "2026-01-04",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675188"
+    "scraped_at": "2026-08-31T18:06:19.034567"
   },
   {
     "id": 1013,
@@ -797,7 +830,7 @@
     "announcement_date": "2025-12-19",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675245"
+    "scraped_at": "2026-08-31T18:06:19.034665"
   },
   {
     "id": 742,
@@ -809,7 +842,7 @@
     "bookclose_date": "2025-12-28",
     "bonus_listing_date": "2026-04-09",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675358"
+    "scraped_at": "2026-08-31T18:06:19.034858"
   },
   {
     "id": 460,
@@ -820,7 +853,7 @@
     "announcement_date": "2025-12-19",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675300"
+    "scraped_at": "2026-08-31T18:06:19.034762"
   },
   {
     "id": 119,
@@ -831,7 +864,7 @@
     "announcement_date": "2025-12-19",
     "bookclose_date": "2025-12-30",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675074"
+    "scraped_at": "2026-08-31T18:06:19.033569"
   },
   {
     "id": 22,
@@ -843,7 +876,7 @@
     "bookclose_date": "2026-01-05",
     "bonus_listing_date": "2026-03-31",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675132"
+    "scraped_at": "2026-08-31T18:06:19.034461"
   },
   {
     "id": 1296,
@@ -855,7 +888,7 @@
     "bookclose_date": "2026-01-05",
     "bonus_listing_date": "2026-03-30",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.675015"
+    "scraped_at": "2026-08-31T18:06:19.033465"
   },
   {
     "id": 760,
@@ -867,7 +900,7 @@
     "bookclose_date": "2025-12-29",
     "bonus_listing_date": "2026-03-13",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.674835"
+    "scraped_at": "2026-08-31T18:06:19.033136"
   },
   {
     "id": 158,
@@ -879,7 +912,7 @@
     "bookclose_date": "2026-01-01",
     "bonus_listing_date": "2026-03-25",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.674897"
+    "scraped_at": "2026-08-31T18:06:19.033234"
   },
   {
     "id": 128,
@@ -891,7 +924,7 @@
     "bookclose_date": "2026-01-01",
     "bonus_listing_date": "2026-03-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.674740"
+    "scraped_at": "2026-08-31T18:06:19.033032"
   },
   {
     "id": 126,
@@ -902,7 +935,7 @@
     "announcement_date": "2025-12-18",
     "bookclose_date": "2025-12-29",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.674956"
+    "scraped_at": "2026-08-31T18:06:19.033337"
   },
   {
     "id": 1313,
@@ -914,7 +947,7 @@
     "bookclose_date": "2026-01-06",
     "bonus_listing_date": "2026-03-25",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673753"
+    "scraped_at": "2026-08-31T18:06:19.032723"
   },
   {
     "id": 141,
@@ -926,7 +959,7 @@
     "bookclose_date": "2025-12-29",
     "bonus_listing_date": "2026-04-10",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673820"
+    "scraped_at": "2026-08-31T18:06:19.032820"
   },
   {
     "id": 1266,
@@ -937,7 +970,7 @@
     "announcement_date": "2025-12-16",
     "bookclose_date": "2025-12-26",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673694"
+    "scraped_at": "2026-08-31T18:06:19.032625"
   },
   {
     "id": 872,
@@ -949,7 +982,7 @@
     "bookclose_date": "2025-12-26",
     "bonus_listing_date": "2026-03-26",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673638"
+    "scraped_at": "2026-08-31T18:06:19.032526"
   },
   {
     "id": 159,
@@ -961,7 +994,7 @@
     "bookclose_date": "2025-12-31",
     "bonus_listing_date": "2026-03-13",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673578"
+    "scraped_at": "2026-08-31T18:06:19.032419"
   },
   {
     "id": 956,
@@ -973,7 +1006,7 @@
     "bookclose_date": "2026-01-02",
     "bonus_listing_date": "2026-03-16",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673520"
+    "scraped_at": "2026-08-31T18:06:19.032308"
   },
   {
     "id": 883,
@@ -984,7 +1017,7 @@
     "announcement_date": "2025-12-15",
     "bookclose_date": "2026-01-01",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673463"
+    "scraped_at": "2026-08-31T18:06:19.032212"
   },
   {
     "id": 934,
@@ -996,7 +1029,7 @@
     "bookclose_date": "2026-01-05",
     "bonus_listing_date": "2026-03-20",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673348"
+    "scraped_at": "2026-08-31T18:06:19.032021"
   },
   {
     "id": 539,
@@ -1008,7 +1041,7 @@
     "bookclose_date": "2026-01-02",
     "bonus_listing_date": "2026-03-31",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673405"
+    "scraped_at": "2026-08-31T18:06:19.032115"
   },
   {
     "id": 513,
@@ -1020,7 +1053,7 @@
     "bookclose_date": "2025-12-23",
     "bonus_listing_date": "2026-03-17",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673884"
+    "scraped_at": "2026-08-31T18:06:19.032916"
   },
   {
     "id": 1279,
@@ -1032,7 +1065,7 @@
     "bookclose_date": "2025-12-29",
     "bonus_listing_date": "2026-07-02",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673227"
+    "scraped_at": "2026-08-31T18:06:19.031830"
   },
   {
     "id": 1256,
@@ -1043,7 +1076,7 @@
     "announcement_date": "2025-12-12",
     "bookclose_date": "2026-01-02",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673284"
+    "scraped_at": "2026-08-31T18:06:19.031925"
   },
   {
     "id": 735,
@@ -1054,7 +1087,7 @@
     "announcement_date": "2025-12-12",
     "bookclose_date": "2025-12-26",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673171"
+    "scraped_at": "2026-08-31T18:06:19.031735"
   },
   {
     "id": 1264,
@@ -1065,7 +1098,7 @@
     "announcement_date": "2025-12-11",
     "bookclose_date": "2025-12-31",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672943"
+    "scraped_at": "2026-08-31T18:06:19.031325"
   },
   {
     "id": 1242,
@@ -1076,7 +1109,7 @@
     "announcement_date": "2025-12-11",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673114"
+    "scraped_at": "2026-08-31T18:06:19.031639"
   },
   {
     "id": 392,
@@ -1087,7 +1120,7 @@
     "announcement_date": "2025-12-11",
     "bookclose_date": "2026-01-01",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673001"
+    "scraped_at": "2026-08-31T18:06:19.031441"
   },
   {
     "id": 162,
@@ -1099,7 +1132,7 @@
     "bookclose_date": "2025-12-31",
     "bonus_listing_date": "2026-03-20",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.673057"
+    "scraped_at": "2026-08-31T18:06:19.031543"
   },
   {
     "id": 137,
@@ -1111,7 +1144,7 @@
     "bookclose_date": "2025-12-22",
     "bonus_listing_date": "2026-08-04",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672887"
+    "scraped_at": "2026-08-31T18:06:19.031227"
   },
   {
     "id": 765,
@@ -1122,7 +1155,7 @@
     "announcement_date": "2025-12-10",
     "bookclose_date": "2025-12-23",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672829"
+    "scraped_at": "2026-08-31T18:06:19.031131"
   },
   {
     "id": 96,
@@ -1133,7 +1166,7 @@
     "announcement_date": "2025-12-09",
     "bookclose_date": "2025-12-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672762"
+    "scraped_at": "2026-08-31T18:06:19.031036"
   },
   {
     "id": 16,
@@ -1144,7 +1177,7 @@
     "announcement_date": "2025-12-07",
     "bookclose_date": "2025-12-31",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672705"
+    "scraped_at": "2026-08-31T18:06:19.030942"
   },
   {
     "id": 1408,
@@ -1155,7 +1188,7 @@
     "announcement_date": "2025-12-01",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672650"
+    "scraped_at": "2026-08-31T18:06:19.030847"
   },
   {
     "id": 1199,
@@ -1167,7 +1200,7 @@
     "bookclose_date": "2025-12-12",
     "bonus_listing_date": "2026-03-03",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672594"
+    "scraped_at": "2026-08-31T18:06:19.030751"
   },
   {
     "id": 670,
@@ -1179,7 +1212,7 @@
     "bookclose_date": "2025-12-08",
     "bonus_listing_date": "2026-02-17",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672483"
+    "scraped_at": "2026-08-31T18:06:19.030558"
   },
   {
     "id": 427,
@@ -1191,7 +1224,7 @@
     "bookclose_date": "2026-01-02",
     "bonus_listing_date": "2026-03-03",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672537"
+    "scraped_at": "2026-08-31T18:06:19.030655"
   },
   {
     "id": 1143,
@@ -1203,7 +1236,7 @@
     "bookclose_date": "2025-12-16",
     "bonus_listing_date": "2026-03-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672320"
+    "scraped_at": "2026-08-31T18:06:19.030243"
   },
   {
     "id": 842,
@@ -1214,7 +1247,7 @@
     "announcement_date": "2025-11-27",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672429"
+    "scraped_at": "2026-08-31T18:06:19.030458"
   },
   {
     "id": 487,
@@ -1226,7 +1259,7 @@
     "bookclose_date": "2026-01-01",
     "bonus_listing_date": "2026-04-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672375"
+    "scraped_at": "2026-08-31T18:06:19.030338"
   },
   {
     "id": 53,
@@ -1237,7 +1270,7 @@
     "announcement_date": "2025-11-25",
     "bookclose_date": "2026-01-02",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672264"
+    "scraped_at": "2026-08-31T18:06:19.030146"
   },
   {
     "id": 12,
@@ -1249,7 +1282,7 @@
     "bookclose_date": "2025-12-19",
     "bonus_listing_date": "2026-03-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672209"
+    "scraped_at": "2026-08-31T18:06:19.030050"
   },
   {
     "id": 1,
@@ -1261,7 +1294,7 @@
     "bookclose_date": "2025-12-24",
     "bonus_listing_date": "2026-06-29",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672155"
+    "scraped_at": "2026-08-31T18:06:19.029951"
   },
   {
     "id": 493,
@@ -1273,7 +1306,7 @@
     "bookclose_date": "2025-11-30",
     "bonus_listing_date": "2026-02-27",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672099"
+    "scraped_at": "2026-08-31T18:06:19.029767"
   },
   {
     "id": 176,
@@ -1285,7 +1318,7 @@
     "bookclose_date": "2025-12-28",
     "bonus_listing_date": "2026-03-13",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.672035"
+    "scraped_at": "2026-08-31T18:06:19.029671"
   },
   {
     "id": 1071,
@@ -1297,7 +1330,7 @@
     "bookclose_date": "2025-11-28",
     "bonus_listing_date": "2026-03-13",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671979"
+    "scraped_at": "2026-08-31T18:06:19.029563"
   },
   {
     "id": 570,
@@ -1309,7 +1342,7 @@
     "bookclose_date": "2025-11-30",
     "bonus_listing_date": "2026-03-17",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671924"
+    "scraped_at": "2026-08-31T18:06:19.029454"
   },
   {
     "id": 1280,
@@ -1321,7 +1354,7 @@
     "bookclose_date": "2025-12-16",
     "bonus_listing_date": "2026-03-20",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671869"
+    "scraped_at": "2026-08-31T18:06:19.029329"
   },
   {
     "id": 750,
@@ -1333,7 +1366,7 @@
     "bookclose_date": "2025-11-27",
     "bonus_listing_date": "2026-02-17",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671809"
+    "scraped_at": "2026-08-31T18:06:19.029225"
   },
   {
     "id": 612,
@@ -1345,7 +1378,7 @@
     "bookclose_date": "2025-12-22",
     "bonus_listing_date": "2026-07-02",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671682"
+    "scraped_at": "2026-08-31T18:06:19.029125"
   },
   {
     "id": 972,
@@ -1357,7 +1390,7 @@
     "bookclose_date": "2025-11-27",
     "bonus_listing_date": "2026-03-16",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671566"
+    "scraped_at": "2026-08-31T18:06:19.028896"
   },
   {
     "id": 419,
@@ -1369,7 +1402,7 @@
     "bookclose_date": "2025-12-24",
     "bonus_listing_date": "2026-03-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671626"
+    "scraped_at": "2026-08-31T18:06:19.029001"
   },
   {
     "id": 656,
@@ -1381,7 +1414,7 @@
     "bookclose_date": "2025-11-21",
     "bonus_listing_date": "2026-02-09",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671512"
+    "scraped_at": "2026-08-31T18:06:19.028794"
   },
   {
     "id": 440,
@@ -1393,7 +1426,7 @@
     "bookclose_date": "2025-11-28",
     "bonus_listing_date": "2026-03-16",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671398"
+    "scraped_at": "2026-08-31T18:06:19.028592"
   },
   {
     "id": 77,
@@ -1404,7 +1437,7 @@
     "announcement_date": "2025-11-09",
     "bookclose_date": "2025-12-05",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671454"
+    "scraped_at": "2026-08-31T18:06:19.028697"
   },
   {
     "id": 844,
@@ -1416,7 +1449,7 @@
     "bookclose_date": "2025-12-03",
     "bonus_listing_date": "2026-03-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671339"
+    "scraped_at": "2026-08-31T18:06:19.028484"
   },
   {
     "id": 24,
@@ -1428,7 +1461,7 @@
     "bookclose_date": "2025-11-30",
     "bonus_listing_date": "2026-02-17",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671283"
+    "scraped_at": "2026-08-31T18:06:19.028363"
   },
   {
     "id": 832,
@@ -1440,7 +1473,7 @@
     "bookclose_date": "2025-12-22",
     "bonus_listing_date": "2026-03-25",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671190"
+    "scraped_at": "2026-08-31T18:06:19.028261"
   },
   {
     "id": 637,
@@ -1452,7 +1485,7 @@
     "bookclose_date": "2025-12-22",
     "bonus_listing_date": "2026-03-31",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671132"
+    "scraped_at": "2026-08-31T18:06:19.028159"
   },
   {
     "id": 1162,
@@ -1463,7 +1496,7 @@
     "announcement_date": "2025-11-02",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671076"
+    "scraped_at": "2026-08-31T18:06:19.028064"
   },
   {
     "id": 95,
@@ -1475,7 +1508,7 @@
     "bookclose_date": "2025-11-21",
     "bonus_listing_date": "2026-03-01",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.671018"
+    "scraped_at": "2026-08-31T18:06:19.027970"
   },
   {
     "id": 526,
@@ -1486,7 +1519,7 @@
     "announcement_date": "2025-10-28",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670960"
+    "scraped_at": "2026-08-31T18:06:19.027875"
   },
   {
     "id": 1406,
@@ -1497,7 +1530,7 @@
     "announcement_date": "2025-10-26",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670904"
+    "scraped_at": "2026-08-31T18:06:19.027773"
   },
   {
     "id": 115,
@@ -1509,7 +1542,7 @@
     "bookclose_date": "2025-11-06",
     "bonus_listing_date": "2026-01-01",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670774"
+    "scraped_at": "2026-08-31T18:06:19.027568"
   },
   {
     "id": 14,
@@ -1520,7 +1553,7 @@
     "announcement_date": "2025-10-17",
     "bookclose_date": "2025-12-02",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670845"
+    "scraped_at": "2026-08-31T18:06:19.027670"
   },
   {
     "id": 1251,
@@ -1531,7 +1564,7 @@
     "announcement_date": "2025-10-16",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670718"
+    "scraped_at": "2026-08-31T18:06:19.027466"
   },
   {
     "id": 149,
@@ -1542,7 +1575,7 @@
     "announcement_date": "2025-10-16",
     "bookclose_date": "2025-11-09",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670662"
+    "scraped_at": "2026-08-31T18:06:19.027347"
   },
   {
     "id": 150,
@@ -1554,7 +1587,7 @@
     "bookclose_date": "2025-11-04",
     "bonus_listing_date": "2026-02-04",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670606"
+    "scraped_at": "2026-08-31T18:06:19.027251"
   },
   {
     "id": 1152,
@@ -1566,7 +1599,7 @@
     "bookclose_date": "2025-10-31",
     "bonus_listing_date": "2025-12-29",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670552"
+    "scraped_at": "2026-08-31T18:06:19.027155"
   },
   {
     "id": 404,
@@ -1577,7 +1610,7 @@
     "announcement_date": "2025-10-12",
     "bookclose_date": "2025-11-02",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670496"
+    "scraped_at": "2026-08-31T18:06:19.027059"
   },
   {
     "id": 1388,
@@ -1588,7 +1621,7 @@
     "announcement_date": "2025-10-09",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670438"
+    "scraped_at": "2026-08-31T18:06:19.026961"
   },
   {
     "id": 2,
@@ -1600,7 +1633,7 @@
     "bookclose_date": "2025-11-03",
     "bonus_listing_date": "2026-03-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670382"
+    "scraped_at": "2026-08-31T18:06:19.026863"
   },
   {
     "id": 1138,
@@ -1612,7 +1645,7 @@
     "bookclose_date": "2025-10-07",
     "bonus_listing_date": "2026-03-01",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670326"
+    "scraped_at": "2026-08-31T18:06:19.026768"
   },
   {
     "id": 490,
@@ -1623,7 +1656,7 @@
     "announcement_date": "2025-09-28",
     "bookclose_date": "2025-11-11",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670271"
+    "scraped_at": "2026-08-31T18:06:19.026673"
   },
   {
     "id": 718,
@@ -1634,7 +1667,7 @@
     "announcement_date": "2025-09-26",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670217"
+    "scraped_at": "2026-08-31T18:06:19.026576"
   },
   {
     "id": 18,
@@ -1646,7 +1679,7 @@
     "bookclose_date": "2025-11-03",
     "bonus_listing_date": "2026-02-25",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670162"
+    "scraped_at": "2026-08-31T18:06:19.026476"
   },
   {
     "id": 1477,
@@ -1657,7 +1690,7 @@
     "announcement_date": "2025-09-25",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669998"
+    "scraped_at": "2026-08-31T18:06:19.026150"
   },
   {
     "id": 1371,
@@ -1668,7 +1701,7 @@
     "announcement_date": "2025-09-25",
     "bookclose_date": "2025-10-05",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670053"
+    "scraped_at": "2026-08-31T18:06:19.026253"
   },
   {
     "id": 719,
@@ -1680,7 +1713,7 @@
     "bookclose_date": "2025-10-31",
     "bonus_listing_date": "2026-02-24",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669944"
+    "scraped_at": "2026-08-31T18:06:19.026047"
   },
   {
     "id": 638,
@@ -1691,7 +1724,7 @@
     "announcement_date": "2025-09-25",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.670107"
+    "scraped_at": "2026-08-31T18:06:19.026354"
   },
   {
     "id": 1528,
@@ -1702,7 +1735,7 @@
     "announcement_date": "2025-09-23",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669831"
+    "scraped_at": "2026-08-31T18:06:19.025786"
   },
   {
     "id": 690,
@@ -1713,7 +1746,7 @@
     "announcement_date": "2025-09-23",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669888"
+    "scraped_at": "2026-08-31T18:06:19.025891"
   },
   {
     "id": 337,
@@ -1724,7 +1757,7 @@
     "announcement_date": "2025-09-23",
     "bookclose_date": "2025-10-08",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669763"
+    "scraped_at": "2026-08-31T18:06:19.025680"
   },
   {
     "id": 109,
@@ -1735,18 +1768,7 @@
     "announcement_date": "2025-09-23",
     "bookclose_date": "2025-10-28",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669708"
-  },
-  {
-    "id": 166,
-    "symbol": "SANIMA",
-    "bonus_share": "0.00",
-    "cash_dividend": "7.3685",
-    "total_dividend": "7.3685",
-    "announcement_date": "2025-09-21",
-    "bookclose_date": "2025-10-13",
-    "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669652"
+    "scraped_at": "2026-08-31T18:06:19.025582"
   },
   {
     "id": 431,
@@ -1757,7 +1779,7 @@
     "announcement_date": "2025-09-18",
     "bookclose_date": "2025-09-28",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669592"
+    "scraped_at": "2026-08-31T18:06:19.025477"
   },
   {
     "id": 306,
@@ -1769,7 +1791,7 @@
     "bookclose_date": "2025-10-17",
     "bonus_listing_date": "2025-12-22",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669378"
+    "scraped_at": "2026-08-31T18:06:19.025144"
   },
   {
     "id": 121,
@@ -1781,7 +1803,7 @@
     "bookclose_date": "2026-01-02",
     "bonus_listing_date": "2026-03-31",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669434"
+    "scraped_at": "2026-08-31T18:06:19.025248"
   },
   {
     "id": 99,
@@ -1792,7 +1814,7 @@
     "announcement_date": "2025-09-18",
     "bookclose_date": "2025-09-28",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669493"
+    "scraped_at": "2026-08-31T18:06:19.025347"
   },
   {
     "id": 610,
@@ -1804,7 +1826,7 @@
     "bookclose_date": "2025-09-24",
     "bonus_listing_date": "2026-03-30",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669323"
+    "scraped_at": "2026-08-31T18:06:19.025038"
   },
   {
     "id": 847,
@@ -1815,7 +1837,7 @@
     "announcement_date": "2025-09-07",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669267"
+    "scraped_at": "2026-08-31T18:06:19.024929"
   },
   {
     "id": 1290,
@@ -1826,18 +1848,7 @@
     "announcement_date": "2025-09-05",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669094"
-  },
-  {
-    "id": 896,
-    "symbol": "NIFRA",
-    "bonus_share": "",
-    "cash_dividend": "6.3158",
-    "total_dividend": "6.3158",
-    "announcement_date": "2025-09-05",
-    "bookclose_date": "2025-11-28",
-    "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669033"
+    "scraped_at": "2026-08-31T18:06:19.024613"
   },
   {
     "id": 381,
@@ -1848,7 +1859,7 @@
     "announcement_date": "2025-09-05",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669209"
+    "scraped_at": "2026-08-31T18:06:19.024815"
   },
   {
     "id": 357,
@@ -1859,7 +1870,7 @@
     "announcement_date": "2025-09-05",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.669148"
+    "scraped_at": "2026-08-31T18:06:19.024714"
   },
   {
     "id": 1121,
@@ -1870,7 +1881,7 @@
     "announcement_date": "2025-09-04",
     "bookclose_date": "2025-09-12",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668859"
+    "scraped_at": "2026-08-31T18:06:19.024271"
   },
   {
     "id": 1100,
@@ -1881,7 +1892,7 @@
     "announcement_date": "2025-09-04",
     "bookclose_date": "2025-09-12",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668916"
+    "scraped_at": "2026-08-31T18:06:19.024372"
   },
   {
     "id": 1073,
@@ -1892,7 +1903,7 @@
     "announcement_date": "2025-09-04",
     "bookclose_date": "2025-09-12",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668974"
+    "scraped_at": "2026-08-31T18:06:19.024504"
   },
   {
     "id": 433,
@@ -1903,7 +1914,7 @@
     "announcement_date": "2025-09-04",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668783"
+    "scraped_at": "2026-08-31T18:06:19.024166"
   },
   {
     "id": 1306,
@@ -1914,53 +1925,7 @@
     "announcement_date": "2025-08-31",
     "bookclose_date": "2025-09-12",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668664"
-  },
-  {
-    "id": 1117,
-    "symbol": "NBF3",
-    "bonus_share": "",
-    "cash_dividend": "13.00",
-    "total_dividend": "13.00",
-    "announcement_date": "2025-08-29",
-    "bookclose_date": "2025-09-07",
-    "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668534"
-  },
-  {
-    "id": 891,
-    "symbol": "NBF2",
-    "bonus_share": "",
-    "cash_dividend": "13.00",
-    "total_dividend": "13.00",
-    "announcement_date": "2025-08-29",
-    "bookclose_date": "2025-09-07",
-    "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668467"
-  },
-  {
-    "id": 7,
-    "symbol": "MBL",
-    "bonus_share": "4.00",
-    "cash_dividend": "4.00",
-    "total_dividend": "8.00",
-    "announcement_date": "2025-08-29",
-    "bookclose_date": "2025-09-12",
-    "bonus_listing_date": "2025-12-02",
-    "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668602"
-  },
-  {
-    "id": 1170,
-    "symbol": "MSHL",
-    "bonus_share": "15.00",
-    "cash_dividend": "0.789",
-    "total_dividend": "15.789",
-    "announcement_date": "2025-08-28",
-    "bookclose_date": "2025-12-28",
-    "bonus_listing_date": "2026-05-15",
-    "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668365"
+    "scraped_at": "2026-08-31T18:06:19.023908"
   },
   {
     "id": 976,
@@ -1971,6 +1936,6 @@
     "announcement_date": "2025-08-15",
     "bookclose_date": "",
     "fiscal_year": "2081/2082",
-    "scraped_at": "2026-08-28T21:27:20.668724"
+    "scraped_at": "2026-08-31T18:06:19.024055"
   }
 ]
