@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "latestDate": "2026-09-01",
+    "availableDates": [
+        "2026-09-01"
+    ],
+    "retention": "no-limit",
+    "columns": [
+        "contractId",
+        "stockId",
+        "buyer",
+        "seller",
+        "qty",
+        "rate",
+        "amount",
+        "time"
+    ]
+}

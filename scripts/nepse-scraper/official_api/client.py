@@ -600,3 +600,84 @@ class NepseScraper:
         endpoint = self.endpoints['info_officer_api']
         response = self.session.get(endpoint['api'])
         return response.json()
+
+    def get_floor_sheet(self, page: int = 0, size: int = 500) -> Dict[str, Any]:
+        """
+        Retrieves the floor sheet data (all transactions) from NEPSE.
+
+        Args:
+            page (int): Page number for pagination. Defaults to 0.
+            size (int): Number of records per page. Defaults to 500.
+
+        Returns:
+            Dict[str, Any]: A dictionary containing floor sheet data with transactions.
+        """
+        logger.info(f"Fetching floor sheet data, page: {page}, size: {size}")
+        endpoint = self.endpoints['floor_sheet_api']
+        params = {'page': str(page), 'size': str(size), 'sort': 'contractId,desc'}
+        response = self.session.post(endpoint['api'], params=params, which_payload='floor-sheet')
+        return response.json()
+
+    def get_all_floor_sheet_data(self, page_size: int = 500) -> List[Dict[str, Any]]:
+        """
+        Retrieves all floor sheet data by paginating through all pages.
+
+        Args:
+            page_size (int): Number of records per page. Defaults to 500.
+
+        Returns:
+            List[Dict[str, Any]]: A list of all floor sheet transactions.
+        """
+        all_data = []
+        page = 0
+        
+        while True:
+            logger.info(f"Fetching floor sheet page {page}...")
+            result = self.get_floor_sheet(page=page, size=page_size)
+            
+            # Response structure: {"floorsheets": {"content": [...], "totalPages": N}}
+            if not isinstance(result, dict):
+                logger.warning(f"Unexpected response type: {type(result)}")
+                break
+                
+            floorsheets = result.get('floorsheets', {})
+            content = floorsheets.get('content', [])
+            
+            if not content:
+                break
+            
+            all_data.extend(content)
+            
+            # Check if there are more pages
+            total_pages = floorsheets.get('totalPages', 1)
+            if page >= total_pages - 1:
+                break
+            
+            page += 1
+        
+        logger.info(f"Fetched total {len(all_data)} floor sheet records.")
+        return all_data
+
+    def get_company_floor_sheet(self, company_id: int, business_date: str = None, page: int = 0, size: int = 500) -> Dict[str, Any]:
+        """
+        Retrieves floor sheet data for a specific company.
+
+        Args:
+            company_id (int): The company/security ID.
+            business_date (str, optional): Date in YYYY-MM-DD format. Defaults to today.
+            page (int): Page number. Defaults to 0.
+            size (int): Records per page. Defaults to 500.
+
+        Returns:
+            Dict[str, Any]: Floor sheet data for the company.
+        """
+        logger.info(f"Fetching floor sheet for company {company_id}, page: {page}")
+        endpoint = self.endpoints['company_floorsheet_api']
+        path = f"{endpoint['api']}{company_id}"
+        params = {'size': str(size), 'sort': 'contractid,desc'}
+        if business_date:
+            params['businessDate'] = business_date
+        if page > 0:
+            params['page'] = str(page)
+        response = self.session.post(path, params=params, which_payload='floor-sheet')
+        return response.json()

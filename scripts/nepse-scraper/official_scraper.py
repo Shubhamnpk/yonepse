@@ -74,6 +74,88 @@ def load_json_object(filepath):
 def today_npt_string():
     return datetime.now(NPT).date().isoformat()
 
+
+def convert_floor_sheet_to_optimized(raw_data: list, date_str: str) -> dict:
+    """
+    Convert raw floor sheet data to optimized format.
+    
+    Optimized format uses:
+    - Array of arrays instead of array of objects
+    - Only essential fields (no redundant names)
+    - Compact representation
+    
+    Columns: [contractId, stockId, buyer, seller, qty, rate, amount, time]
+    """
+    # Extract time from tradeTime (e.g., "2026-08-31T14:59:59.994473" -> "14:59:59")
+    def extract_time(trade_time: str) -> str:
+        if 'T' in trade_time:
+            return trade_time.split('T')[1][:8]  # HH:MM:SS
+        return trade_time
+    
+    # Calculate totals
+    total_amount = sum(r.get('contractAmount', 0) for r in raw_data)
+    total_qty = sum(r.get('contractQuantity', 0) for r in raw_data)
+    
+    # Convert to compact array format
+    transactions = []
+    for record in raw_data:
+        buyer_id = record.get('buyerMemberId')
+        seller_id = record.get('sellerMemberId')
+        tx = [
+            record.get('contractId'),
+            record.get('stockId'),
+            int(buyer_id) if buyer_id else 0,
+            int(seller_id) if seller_id else 0,
+            record.get('contractQuantity'),
+            record.get('contractRate'),
+            record.get('contractAmount'),
+            extract_time(record.get('tradeTime', ''))
+        ]
+        transactions.append(tx)
+    
+    return {
+        "date": date_str,
+        "totalAmount": total_amount,
+        "totalQty": total_qty,
+        "totalTrades": len(raw_data),
+        "columns": ["contractId", "stockId", "buyer", "seller", "qty", "rate", "amount", "time"],
+        "transactions": transactions
+    }
+
+
+def reconstruct_floor_sheet_record(tx_array: list, stocks_lookup: dict, brokers_lookup: dict) -> dict:
+    """
+    Reconstruct a full floor sheet record from optimized array format.
+    
+    Args:
+        tx_array: [contractId, stockId, buyer, seller, qty, rate, amount, time]
+        stocks_lookup: {stockId: {symbol, name}}
+        brokers_lookup: {memberId: name}
+    
+    Returns:
+        Full record with all fields
+    """
+    contract_id, stock_id, buyer_id, seller_id, qty, rate, amount, time = tx_array
+    
+    stock_info = stocks_lookup.get(str(stock_id), {})
+    buyer_name = brokers_lookup.get(str(buyer_id), f"Broker {buyer_id}")
+    seller_name = brokers_lookup.get(str(seller_id), f"Broker {seller_id}")
+    
+    return {
+        "contractId": contract_id,
+        "stockId": stock_id,
+        "stockSymbol": stock_info.get('symbol', ''),
+        "securityName": stock_info.get('name', ''),
+        "buyerMemberId": str(buyer_id),
+        "sellerMemberId": str(seller_id),
+        "buyerBrokerName": buyer_name,
+        "sellerBrokerName": seller_name,
+        "contractQuantity": qty,
+        "contractRate": rate,
+        "contractAmount": amount,
+        "tradeTime": time
+    }
+
 def update_company_run_metadata(company_dir, key):
     metadata_path = os.path.join(company_dir, 'run_metadata.json')
     metadata = load_json_object(metadata_path)
@@ -1097,7 +1179,8 @@ def scrape_all_official_data(
     force_profiles=False,
     ltp_history_mode='live-close',
     include_market=True,
-    include_notifications=True
+    include_notifications=True,
+    include_floor_sheet=False
 ):
     print(f"Starting Comprehensive Official NEPSE Scraper at {datetime.now().isoformat()}...")
     
@@ -1538,6 +1621,75 @@ def scrape_all_official_data(
         else:
             print("Skipping supply and demand refresh.")
 
+        # 11. Floor Sheet Data (daily partitioned, optimized format)
+        # Only fetch after market close (after 15:00 NPT) to ensure broker IDs are populated
+        now_npt = datetime.now(NPT)
+        floor_sheet_hour = now_npt.hour
+        
+        if include_floor_sheet and floor_sheet_hour >= 15:
+            print("Fetching floor sheet data (market closed, broker IDs available)...")
+            try:
+                floor_sheet_data = scraper.get_all_floor_sheet_data(page_size=500)
+                if floor_sheet_data:
+                    floor_sheet_dir = os.path.join(data_dir, 'floor_sheet')
+                    floor_sheet_daily_dir = os.path.join(floor_sheet_dir, 'daily')
+                    os.makedirs(floor_sheet_daily_dir, exist_ok=True)
+                    
+                    today = today_npt_string()
+                    daily_path = os.path.join(floor_sheet_daily_dir, f'{today}.json')
+                    
+                    # Check if we already have today's data with broker IDs
+                    existing_data = None
+                    if os.path.exists(daily_path):
+                        try:
+                            with open(daily_path, 'r', encoding='utf-8') as f:
+                                existing_data = json.load(f)
+                        except:
+                            pass
+                    
+                    # Only overwrite if new data has broker IDs or existing doesn't
+                    has_broker_ids = any(tx[2] != 0 for tx in convert_floor_sheet_to_optimized(floor_sheet_data, today)['transactions'][:10])
+                    existing_has_brokers = False
+                    if existing_data and 'transactions' in existing_data:
+                        existing_has_brokers = any(tx[2] != 0 for tx in existing_data['transactions'][:10])
+                    
+                    if has_broker_ids or not existing_has_brokers:
+                        # Convert to optimized format
+                        optimized = convert_floor_sheet_to_optimized(floor_sheet_data, today)
+                        
+                        # Write compact JSON (no indentation) to save space
+                        with open(daily_path, 'w', encoding='utf-8') as f:
+                            json.dump(optimized, f, separators=(',', ':'), ensure_ascii=False)
+                        
+                        # Update manifest
+                        manifest_path = os.path.join(floor_sheet_dir, 'manifest.json')
+                        existing_manifest = load_json_object(manifest_path) or {}
+                        available_dates = existing_manifest.get('availableDates', [])
+                        if today not in available_dates:
+                            available_dates.append(today)
+                            available_dates.sort()
+                        
+                        manifest = {
+                            "version": 2,
+                            "latestDate": today,
+                            "availableDates": available_dates,
+                            "retention": "no-limit",
+                            "columns": ["contractId", "stockId", "buyer", "seller", "qty", "rate", "amount", "time"]
+                        }
+                        write_json(manifest_path, manifest)
+                        
+                        print(f"Updated floor sheet for {today} with {len(floor_sheet_data)} transactions.")
+                    else:
+                        print(f"Existing floor sheet for {today} already has broker IDs. Keeping cached version.")
+                else:
+                    print("No floor sheet data found. Keeping existing file unchanged.")
+            except Exception as exc:
+                print(f"Failed to fetch floor sheet data ({exc}). Keeping existing floor_sheet.json unchanged.")
+        elif include_floor_sheet:
+            print(f"Skipping floor sheet refresh (market still open, hour={floor_sheet_hour}). Run after 15:00 NPT.")
+        else:
+            print("Skipping floor sheet refresh (use --floor-sheet to fetch).")
+
         print(f"Successfully completed comprehensive official scraping.")
         return True
 
@@ -1581,6 +1733,11 @@ if __name__ == "__main__":
         action='store_true',
         help='Skip market price, index, summary, OMF, top-stock, LTP, and supply/demand refreshes.'
     )
+    parser.add_argument(
+        '--floor-sheet',
+        action='store_true',
+        help='Fetch floor sheet data (all transactions).'
+    )
     args = parser.parse_args()
     
     # Use absolute path of this file to find the data directory
@@ -1616,7 +1773,8 @@ if __name__ == "__main__":
         force_financials=args.force_financials,
         force_profiles=args.force_profiles,
         ltp_history_mode=args.ltp_history,
-        include_market=not args.skip_market
+        include_market=not args.skip_market,
+        include_floor_sheet=args.floor_sheet
     )
 
     sys.exit(0 if success else 1)

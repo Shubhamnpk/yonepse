@@ -107,6 +107,9 @@ class PayloadParser:
 
         if which == 'sector-live':
             index_value: int = 3 if payload_id % 10 < 5 else 1
+        elif which == 'floor-sheet':
+            # Floor sheet uses different threshold (4 instead of 5)
+            index_value = 1 if payload_id % 10 < 4 else 3
         else:
             index_value = 1 if payload_id % 10 < 5 else 3
 

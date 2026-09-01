@@ -33,4 +33,6 @@ api_dict = {
     "top_trade_qty_api": {"api": "/api/nots/top-ten/trade-qty", "method": "GET"},
     "notice_api": {"api": "/api/web/notice/", "method": "GET"},
     "info_officer_api": {"api": "/api/web/info-officer", "method": "GET"},
+    "floor_sheet_api": {"api": "/api/nots/nepse-data/floorsheet", "method": "POST"},
+    "company_floorsheet_api": {"api": "/api/nots/security/floorsheet/", "method": "POST"},
 }

@@ -109,16 +109,25 @@ class NepseAPISession:
             which=which_payload
         )
 
-    def get(self, path: str, params: Optional[Dict] = None) -> requests.Response:
+    def get(self, path: str, params: Optional[Dict] = None, retry_on_auth_error: bool = True) -> requests.Response:
         self._get_access_token()
         url = ROOT_URL + path
         headers = {'Authorization': f'Salter {self.access_token}'}
         logger.debug(f"Making GET request to: {url} with params: {params}")
         resp = self.session.get(url, params=params, headers=headers)
+        
+        # Handle 401 Unauthorized by refreshing token and retrying once
+        if resp.status_code == 401 and retry_on_auth_error:
+            logger.warning("Received 401 Unauthorized. Refreshing token and retrying...")
+            self.access_token = None  # Force token refresh
+            self._get_access_token()
+            headers = {'Authorization': f'Salter {self.access_token}'}
+            resp = self.session.get(url, params=params, headers=headers)
+        
         resp.raise_for_status()
         return resp
 
-    def post(self, path: str, payload: Optional[Dict] = None, params: Optional[Dict] = None, which_payload: Optional[str] = None) -> requests.Response:
+    def post(self, path: str, payload: Optional[Dict] = None, params: Optional[Dict] = None, which_payload: Optional[str] = None, retry_on_auth_error: bool = True) -> requests.Response:
         self._get_access_token()
         url = ROOT_URL + path
         headers = {'Authorization': f'Salter {self.access_token}'}
@@ -130,5 +139,14 @@ class NepseAPISession:
 
         logger.debug(f"Making POST request to: {url} with payload: {final_payload} and params: {params}")
         resp = self.session.post(url, json=final_payload, params=params, headers=headers)
+        
+        # Handle 401 Unauthorized by refreshing token and retrying once
+        if resp.status_code == 401 and retry_on_auth_error:
+            logger.warning("Received 401 Unauthorized. Refreshing token and retrying...")
+            self.access_token = None  # Force token refresh
+            self._get_access_token()
+            headers = {'Authorization': f'Salter {self.access_token}'}
+            resp = self.session.post(url, json=final_payload, params=params, headers=headers)
+        
         resp.raise_for_status()
         return resp
