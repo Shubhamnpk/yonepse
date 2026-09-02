@@ -1,5 +1,64 @@
 [
     {
+        "id": 47287,
+        "symbol": "EHPL",
+        "title": "Right Share Pre-approval Amendment",
+        "source": "Primary Source",
+        "publishedAt": "2026-09-02T15:02:16.267",
+        "documents": [
+            {
+                "id": 32648,
+                "submittedDate": "2026-09-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Eastern_Hydropower_Limited/Company%20News/2026-09-02/Right%20share%20preapproval%20Amendment_1788340624138.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47286,
+        "symbol": "HIDCL",
+        "title": "Change in Board Member",
+        "body": "Change in Board Member",
+        "source": "HIDCL",
+        "publishedAt": "2026-09-02T10:32:57.127",
+        "documents": [
+            {
+                "id": 32647,
+                "submittedDate": "2026-09-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=hidcl_user/2026-09-02/112C_1788324460301.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47282,
+        "symbol": "CBBL",
+        "title": "Completion of the Tenure of the Independent Director",
+        "body": "Completion of the Tenure of the Independent Director",
+        "source": "CBBL",
+        "publishedAt": "2026-09-02T09:11:10.923",
+        "documents": [
+            {
+                "id": 32643,
+                "submittedDate": "2026-09-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=cbbl_user/2026-09-02/Completion%20of%20the%20Tenure%20of%20the%20Independent%20Director_1788319535896.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47281,
+        "symbol": "NBL",
+        "title": "Appointment and Oath of Chairman",
+        "body": "Appointment and Oath of Chairman of Nepal Bank Limited.",
+        "source": "NBL Board Meeting",
+        "publishedAt": "2026-09-01T18:00:17.537",
+        "documents": [
+            {
+                "id": 32642,
+                "submittedDate": "2026-09-01",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nbl_user/2026-09-01/Appointment%20and%20Oath%20of%20Chairman_1788264898329.PDF"
+            }
+        ]
+    },
+    {
         "id": 47280,
         "symbol": "TVCL",
         "title": "Information of damage caused by Floods",
@@ -471,6 +530,21 @@
                 "id": 31871,
                 "submittedDate": "2026-07-29",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Super_Khudi_Hydropower_Limited/Company%20News/2026-07-29/Mutual%20fund%20Lock%20In%20End%20Notice_1785296682794.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47285,
+        "symbol": "GBIME",
+        "title": "Dividend Declaration of GBIME",
+        "body": "Dividend Declaration of GBIME\nFiscal Year: 2082-2083\nCash Dividend: 6%\nBonus Shares: 4%",
+        "source": "NEPSE",
+        "publishedAt": "2026-09-02T09:39:15.13",
+        "documents": [
+            {
+                "id": 32646,
+                "submittedDate": "2026-09-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbime_user/2026-09-02/Information%20regarding%20dividend%20Declaration_1788321231856.pdf"
             }
         ]
     }
