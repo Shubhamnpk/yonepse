@@ -1,5 +1,78 @@
 [
     {
+        "id": 47301,
+        "symbol": "NLICL",
+        "title": "Director's Resignation",
+        "source": "Director's Resignation",
+        "publishedAt": "2026-09-03T15:26:19.307",
+        "documents": [
+            {
+                "id": 32663,
+                "submittedDate": "2026-09-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nlicl_user/2026-09-03/Letter%201_1788428470979.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47299,
+        "symbol": "NLICL",
+        "title": "Director's Resignation Letter",
+        "source": "Director's Resignation Letter",
+        "publishedAt": "2026-09-03T14:52:40.307",
+        "documents": [
+            {
+                "id": 32661,
+                "submittedDate": "2026-09-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nlicl_user/2026-09-03/Letter_1788426428566.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47298,
+        "symbol": "H8020",
+        "title": "Return of Equity of HBL 80-20",
+        "body": "Return of Equity of HBL 80-20.",
+        "source": "BOD",
+        "publishedAt": "2026-09-03T09:58:11.207",
+        "documents": [
+            {
+                "id": 32660,
+                "submittedDate": "2026-09-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=hbl_user/2026-09-03/IMG_20260903_0001_1788408786867.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47297,
+        "symbol": "NESDO",
+        "title": "Information letter related to Auditor",
+        "body": "Good Morning, Information letter related to Auditor",
+        "source": "BOD",
+        "publishedAt": "2026-09-03T09:08:57.873",
+        "documents": [
+            {
+                "id": 32659,
+                "submittedDate": "2026-09-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=NESDO_Sambridha_Laghubitta_Bittiye_Sanstha_Limited/Company%20News/2026-09-03/Letter%20related%20to%20auditor%20_1788405829173.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47296,
+        "symbol": "H8020",
+        "title": "Dividend Declaration of H8020",
+        "body": "Dividend Declaration of H8020\nFiscal Year: 2082-2083\nCash Dividend: 15%",
+        "source": "BOD",
+        "publishedAt": "2026-09-03T09:07:23.577",
+        "documents": [
+            {
+                "id": 32658,
+                "submittedDate": "2026-09-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=rita_listing/2026-09-03/H8020%20Dividend%20declaration%20FY%202082_83_1788405738014.pdf"
+            }
+        ]
+    },
+    {
         "id": 47293,
         "symbol": "MKHC",
         "title": "Pre Approval from ERC for Right Share Issue",
@@ -579,6 +652,20 @@
                 "id": 32646,
                 "submittedDate": "2026-09-02",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbime_user/2026-09-02/Information%20regarding%20dividend%20Declaration_1788321231856.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47294,
+        "symbol": "HRL",
+        "title": "\u0938\u0902\u091a\u093e\u0932\u0915 \u0938\u092e\u093f\u0924\u093f\u0915\u094b \u0905\u0927\u094d\u092f\u0915\u094d\u0937/\u0938\u0902\u091a\u093e\u0932\u0915\u0915\u094b \u0930\u093e\u091c\u0940\u0928\u093e\u092e\u093e \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e",
+        "source": "Company Secretary",
+        "publishedAt": "2026-09-02T17:25:35.97",
+        "documents": [
+            {
+                "id": 32656,
+                "submittedDate": "2026-09-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Himalayan_Reinsurance_Limited/Company%20News/2026-09-02/Chairman%20resignation_Intimation_1788349116661.pdf"
             }
         ]
     }
