@@ -64,6 +64,16 @@ All data is available as static JSON endpoints for developers. See the [JSON Doc
 - Public static API spec: [published OpenAPI](https://shubhamnpk.github.io/yonepse/api/openapi.yaml) / [`api/openapi.yaml`](api/openapi.yaml)
 - Legacy NEPSE upstream endpoint spec: [`api/openapi_legacy_nepse.yaml`](api/openapi_legacy_nepse.yaml)
 
+### Historical Floor Sheets
+
+Historical daily floor sheets can be downloaded from the MIT-licensed [NEPSE Open Data archive](https://github.com/socrateai-official/nepse-open-data) with the repository downloader. Downloads use bounded parallel workers and can be resumed safely:
+
+```powershell
+python scripts/download_floor_sheet_archive.py --sync --workers 16
+```
+
+The source CSVs are preserved in `data/floor_sheet/archive/`; compact app-ready JSON is written to `data/floor_sheet/daily/`. Existing JSON dates are skipped, and interrupted runs can be resumed with the same command. Use `--remove-csv` only when source CSV deletion is explicitly desired.
+
 ---
 
 ## 🖼️ Live Demo
@@ -248,6 +258,12 @@ python ltp_history/build_ltp_intraday.py
 - **Data**: Upcoming IPO announcements + proposed dividend refresh
 - **Files**: `data/ipo/upcoming.json`, `data/ipo/old.json`, `data/proposed_dividend/latest_1y.json`, `data/proposed_dividend/history_all_years.json`, `data/proposed_dividend/meta.json`
 - **Features**: Auto-archives IPOs older than 10 days and updates proposed dividend datasets
+
+### Floor-Sheet Capture ([`.github/workflows/scrape_floor_sheet.yml`](.github/workflows/scrape_floor_sheet.yml))
+- **Schedule**: Weekdays at 3:15 PM NPT (9:30 AM UTC), after the market closes
+- **Data**: One official all-market floor-sheet snapshot per trading day
+- **Files**: `data/floor_sheet/daily/YYYY-MM-DD.json` and `data/floor_sheet/manifest.json`
+- **Behavior**: Runs separately from intraday market scraping and skips the floor-sheet request before the 3:00 PM NPT close gate
 
 ---
 
