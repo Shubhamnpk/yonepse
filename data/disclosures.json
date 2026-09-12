@@ -17,7 +17,7 @@
     {
         "id": 47390,
         "symbol": "EDBL",
-        "title": "Auditor Appointment (EDBL)",
+        "title": "Auditor Appointment",
         "body": "Auditor Appointment (EDBL)",
         "source": "EDBL",
         "publishedAt": "2026-09-11T15:21:25.737",
@@ -40,6 +40,35 @@
                 "id": 32748,
                 "submittedDate": "2026-09-11",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=pmhpl_user/2026-09-11/Nepse%20Letter_plant_shutdown_1789114161103.jpg"
+            }
+        ]
+    },
+    {
+        "id": 47387,
+        "symbol": "ENL",
+        "title": "Intention for sale of share",
+        "body": "Intention for sale of share",
+        "source": "Intention for sale of share",
+        "publishedAt": "2026-09-11T10:30:55.72",
+        "documents": [
+            {
+                "id": 32746,
+                "submittedDate": "2026-09-11",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Emerging_nepal_limited/Company%20News/2026-09-11/Intention%20%28Sale%20of%20Share%29%203_1789101944138.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47386,
+        "symbol": "MEL",
+        "title": "Intention for sale of share",
+        "source": "Shareholder",
+        "publishedAt": "2026-09-10T18:55:03.32",
+        "documents": [
+            {
+                "id": 32745,
+                "submittedDate": "2026-09-10",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Modi_Energy_Limited/Company%20News/2026-09-10/NEPSE-%20Intention%20for%20sale%20of%20share_1789045793463.PDF"
             }
         ]
     },
@@ -266,6 +295,20 @@
         ]
     },
     {
+        "id": 47360,
+        "symbol": "IHL",
+        "title": "Operation of Plant Unit 2 after Maintenance",
+        "source": "IHL Plant Unit 2 Start",
+        "publishedAt": "2026-09-09T10:52:39.25",
+        "documents": [
+            {
+                "id": 32721,
+                "submittedDate": "2026-09-09",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Ingwa_Hydropower_Limited/Company%20News/2026-09-09/Plant%20unit%202%20start_1788930455291.pdf"
+            }
+        ]
+    },
+    {
         "id": 47359,
         "symbol": "H8020",
         "title": "Book Close of H8020",
@@ -388,6 +431,41 @@
         ]
     },
     {
+        "id": 47340,
+        "symbol": "GBLBS",
+        "title": "Board Director  Sapath",
+        "body": "Board Director  Sapath",
+        "source": "BOD Decision ",
+        "publishedAt": "2026-09-07T11:29:06.65",
+        "documents": [
+            {
+                "id": 32705,
+                "submittedDate": "2026-09-07",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gblbs_user/2026-09-07/Board%20of%20director%20%20Sapath%20%20of%20GBLBs_1788759837295.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47339,
+        "symbol": "ENL",
+        "title": "Notice for Uniform ISIN",
+        "body": "Uniform ISIN",
+        "source": "Uniform ISIN",
+        "publishedAt": "2026-09-07T10:57:33.79",
+        "documents": [
+            {
+                "id": 32703,
+                "submittedDate": "2026-09-07",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Emerging_nepal_limited/Company%20News/2026-09-07/Uniform%20ISIN%20%28Nepse%29_1788757881431.pdf"
+            },
+            {
+                "id": 32704,
+                "submittedDate": "2026-09-07",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Emerging_nepal_limited/Company%20News/2026-09-07/ENL_ISIN%20Notice_1788757899169.pdf"
+            }
+        ]
+    },
+    {
         "id": 47338,
         "symbol": "SONA",
         "title": "Cessation of Lock-in period of shares after 23rd Ashwin, 2083",
@@ -419,6 +497,21 @@
                 "id": 32700,
                 "submittedDate": "2026-09-07",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbime_user/2026-09-07/Global%20IME%20Mutual%20Fud%20-%20DividendFY%202082-83_1788756675455.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47336,
+        "symbol": "NULL",
+        "title": "Dividend Declaration of Global IME Balance Fund I",
+        "body": "Dividend Declaration of Global IME Balance Fund I\nFiscal Year: 2082-2083\nCash Dividend: 12%",
+        "source": "NEPSE",
+        "publishedAt": "2026-09-07T10:34:12.52",
+        "documents": [
+            {
+                "id": 32699,
+                "submittedDate": "2026-09-07",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbime_user/2026-09-07/Global%20IME%20Mutual%20Fud%20-%20DividendFY%202082-83_1788756501688.pdf"
             }
         ]
     },
@@ -484,6 +577,21 @@
                 "id": 32694,
                 "submittedDate": "2026-09-07",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=icfc_user/2026-09-07/23rd%20AGM%20Letter%20to%20Nepses_1788750786127.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47331,
+        "symbol": "SINDU",
+        "title": "Freezing of shares",
+        "body": "Request for freezing of shares of basic shareholder of the Bank.",
+        "source": "BOD meeting",
+        "publishedAt": "2026-09-06T16:43:08.06",
+        "documents": [
+            {
+                "id": 32693,
+                "submittedDate": "2026-09-06",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sindu_user/2026-09-06/Request%20NEPSE_1788692115523.pdf"
             }
         ]
     },
@@ -650,6 +758,21 @@
         ]
     },
     {
+        "id": 47319,
+        "symbol": "SANIMA",
+        "title": "Book Close and Annual General Meeting.",
+        "body": "Annual General Meeting of SANIMA\nFiscal Year: 2082-2083\nAGM Type: AGM\nAGM Date: 9/28/2026\nAGM No: 22\nBook Close Date: 9/17/2026\nCash Dividend: 10%",
+        "source": "Board Meeting",
+        "publishedAt": "2026-09-04T14:11:34.08",
+        "documents": [
+            {
+                "id": 32679,
+                "submittedDate": "2026-09-04",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sanima_user/2026-09-04/Covering%20letter%20NEPSE_1788510351199.pdf"
+            }
+        ]
+    },
+    {
         "id": 47318,
         "symbol": "SADBL",
         "title": "Appointment of CEO",
@@ -660,6 +783,21 @@
                 "id": 32678,
                 "submittedDate": "2026-09-04",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sadbl_user/2026-09-04/CEOappointment_1788509288708.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47317,
+        "symbol": "GBBL",
+        "title": "GBBL-  20% Dividend Declaration",
+        "body": "Dividend Declaration of GBBL\nFiscal Year: 2082-2083\nCash Dividend: 10%\nBonus Shares: 10%",
+        "source": "GBBL, Dividend Declaration",
+        "publishedAt": "2026-09-03T19:34:33.35",
+        "documents": [
+            {
+                "id": 32677,
+                "submittedDate": "2026-09-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbbl_user/2026-09-03/GBBL%20Dividend%20Declaration%20Information%20Letter_1788443241379.pdf"
             }
         ]
     },
@@ -694,6 +832,36 @@
         ]
     },
     {
+        "id": 47314,
+        "symbol": "NBF2",
+        "title": "Declaration of Return on NBF2 and Information of Book Close Date",
+        "body": "Book Close of NBF2\nBook Close Date : 23/09/2026\nCash Dividend: 3.5%",
+        "source": "Letter",
+        "publishedAt": "2026-09-03T17:42:56.29",
+        "documents": [
+            {
+                "id": 32674,
+                "submittedDate": "2026-09-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nabil_user/2026-09-03/Dividend%20Nepse%20MF%202082-83_1788436638099.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47312,
+        "symbol": "SBI",
+        "title": "Change of Director and Appointment of Independent Director of Nepal SBI Bank Ltd.",
+        "body": "Change of Director and Appointment of Independent Director of Nepal SBI Bank Ltd.",
+        "source": "Nepal SBI Bank Ltd.",
+        "publishedAt": "2026-09-03T17:20:57.74",
+        "documents": [
+            {
+                "id": 32672,
+                "submittedDate": "2026-09-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sbi_user/2026-09-03/NEPSE-Change%20of%20Director%20and%20Appointment%20of%20Independent%20Director%20of%20Nepal%20SBI%20Bank%20Ltd_1788435288028.pdf"
+            }
+        ]
+    },
+    {
         "id": 47311,
         "symbol": "LEC",
         "title": "Appointment of Independent Director",
@@ -720,6 +888,21 @@
                 "id": 32670,
                 "submittedDate": "2026-09-03",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sbl_user/2026-09-03/Letter%20to%20NEPSE_1788433224969.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47309,
+        "symbol": "PFL",
+        "title": "Regarding the transfer of central /Corporate office",
+        "body": "Regarding the transfer of central /Corporate office",
+        "source": "Regarding the transfer of central /Corporate office ",
+        "publishedAt": "2026-09-03T16:37:12.67",
+        "documents": [
+            {
+                "id": 32669,
+                "submittedDate": "2026-09-03",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=pfl_user/2026-09-03/107%20Regarding%20the%20transfer%20of%20central%20corporate%20office_1788432687014.pdf"
             }
         ]
     },
@@ -825,6 +1008,20 @@
         ]
     },
     {
+        "id": 47294,
+        "symbol": "HRL",
+        "title": "\u0938\u0902\u091a\u093e\u0932\u0915 \u0938\u092e\u093f\u0924\u093f\u0915\u094b \u0905\u0927\u094d\u092f\u0915\u094d\u0937/\u0938\u0902\u091a\u093e\u0932\u0915\u0915\u094b \u0930\u093e\u091c\u0940\u0928\u093e\u092e\u093e \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e",
+        "source": "Company Secretary",
+        "publishedAt": "2026-09-02T17:25:35.97",
+        "documents": [
+            {
+                "id": 32656,
+                "submittedDate": "2026-09-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Himalayan_Reinsurance_Limited/Company%20News/2026-09-02/Chairman%20resignation_Intimation_1788349116661.pdf"
+            }
+        ]
+    },
+    {
         "id": 47293,
         "symbol": "MKHC",
         "title": "Pre Approval from ERC for Right Share Issue",
@@ -888,6 +1085,21 @@
         ]
     },
     {
+        "id": 47285,
+        "symbol": "GBIME",
+        "title": "Dividend Declaration of GBIME",
+        "body": "Dividend Declaration of GBIME\nFiscal Year: 2082-2083\nCash Dividend: 6%\nBonus Shares: 4%",
+        "source": "NEPSE",
+        "publishedAt": "2026-09-02T09:39:15.13",
+        "documents": [
+            {
+                "id": 32646,
+                "submittedDate": "2026-09-02",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbime_user/2026-09-02/Information%20regarding%20dividend%20Declaration_1788321231856.pdf"
+            }
+        ]
+    },
+    {
         "id": 47282,
         "symbol": "CBBL",
         "title": "Completion of the Tenure of the Independent Director",
@@ -928,6 +1140,20 @@
                 "id": 32641,
                 "submittedDate": "2026-09-01",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Trishuli_Jal_Vidhyut_Company_Limited/Company%20News/2026-09-01/Information%20on%20damage%20caused%20by%20flooding_1788245180068.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47276,
+        "symbol": "NBL",
+        "title": "Change in BODs",
+        "source": " NBL Board Meeting",
+        "publishedAt": "2026-09-01T10:34:20.02",
+        "documents": [
+            {
+                "id": 32638,
+                "submittedDate": "2026-09-01",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nbl_user/2026-09-01/Change%20in%20BODs_1788238147342.PDF"
             }
         ]
     },
@@ -977,6 +1203,20 @@
         ]
     },
     {
+        "id": 47272,
+        "symbol": "UHEWA",
+        "title": "\u0936\u0947\u092f\u0930 \u092c\u093f\u0915\u094d\u0930\u0940 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u0917\u0930\u093e\u0907\u090f\u0915\u094b \u092c\u093e\u0930\u0947",
+        "source": "Shareholder",
+        "publishedAt": "2026-08-31T18:02:34.56",
+        "documents": [
+            {
+                "id": 32634,
+                "submittedDate": "2026-08-31",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Upper_Hewakhola_Hydropower_company_Limited/Company%20News/2026-08-31/2083%2005%2015%20Jaankari_1788178546892.pdf"
+            }
+        ]
+    },
+    {
         "id": 47271,
         "symbol": "MEL",
         "title": "Appointment of Independent Director-MEL",
@@ -1015,6 +1255,21 @@
                 "id": 32630,
                 "submittedDate": "2026-08-31",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Shikhar_Power_Development_Limited/Company%20News/2026-08-31/Lock-In%20Letter_1788174873663.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47267,
+        "symbol": "PSF",
+        "title": "Book Closure notice of Prabhu Select Fund (PSF) & Prabhu Smart Fund",
+        "body": "Book Close of PSF\nBook Close Date : 9/1/2026\nCash Dividend: 12%",
+        "source": "Prabhu Select Fund (PSF) & Prabhu Smart Fund (PRSF)",
+        "publishedAt": "2026-08-31T16:57:39.35",
+        "documents": [
+            {
+                "id": 32629,
+                "submittedDate": "2026-08-31",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nabaraj_listing/2026-08-31/Prabhu%20Mutual%20Fund%20-%20Book%20Close_1788174734213.pdf"
             }
         ]
     },
@@ -1067,6 +1322,20 @@
         ]
     },
     {
+        "id": 47261,
+        "symbol": "SKHEL",
+        "title": "Power Plant Shutdown",
+        "source": "Notice Regarding Plant Shut Down",
+        "publishedAt": "2026-08-31T10:39:49.52",
+        "documents": [
+            {
+                "id": 32622,
+                "submittedDate": "2026-08-31",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Suryakunda_Hydro_Electric_Limited/Company%20News/2026-08-31/Plant%20Shut%20Down_1788152059090.pdf"
+            }
+        ]
+    },
+    {
         "id": 47260,
         "symbol": "MNMF1",
         "title": "083/083 Cash Dividend Declaration and Book Close Information.",
@@ -1083,190 +1352,6 @@
                 "id": 32621,
                 "submittedDate": "2026-08-31",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=mnbbl_user/2026-08-31/Notice%20%282%29_1788149427179.jpg"
-            }
-        ]
-    },
-    {
-        "id": 47252,
-        "symbol": "NIFRA",
-        "title": "Dividend Declaration of NIFRA for FY 2082-83",
-        "body": "Dividend Declaration of NIFRA\nFiscal Year: 2082-2083\nCash Dividend: 5.2632%",
-        "source": "NIFRA",
-        "publishedAt": "2026-08-30T11:58:30.157",
-        "documents": [
-            {
-                "id": 32612,
-                "submittedDate": "2026-08-30",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Infrastructure_Bank_Limited/Company%20News/2026-08-30/NIFRA_Dividend%20Declaration%20for%20FY%202082-83_1788070143878.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47251,
-        "symbol": "DHEL",
-        "title": "AGM Postponed",
-        "source": "Rajdhani Dailly News",
-        "publishedAt": "2026-08-28T19:33:21.837",
-        "documents": [
-            {
-                "id": 32611,
-                "submittedDate": "2026-08-28",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Daramkhola_Hydro_Energy_Limited/Company%20News/2026-08-28/AGM%20%20Postpond%20information%20Letter%20_1787924855049.pdf"
-            },
-            {
-                "id": 32610,
-                "submittedDate": "2026-08-28",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Daramkhola_Hydro_Energy_Limited/Company%20News/2026-08-28/AGM%20%20Postpond%20notice%203x8_1787924888968.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47250,
-        "symbol": "AHPC",
-        "title": "Appointment of Independent Director",
-        "source": "Appointment of Independent Director",
-        "publishedAt": "2026-08-28T12:16:36.747",
-        "documents": [
-            {
-                "id": 32609,
-                "submittedDate": "2026-08-28",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=ahpc_user/2026-08-28/Independent%20Director_1787898673466.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47249,
-        "symbol": "NICL",
-        "title": "NICL BOD Member Nomination",
-        "body": "NICL BOD Member Nomination Letter",
-        "source": "NICL",
-        "publishedAt": "2026-08-27T18:53:51.973",
-        "documents": [
-            {
-                "id": 32608,
-                "submittedDate": "2026-08-27",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nicl_user/2026-08-27/BOD%20Member%20Nomination%20Letter_1787836112179.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47248,
-        "symbol": "ENL",
-        "title": "Appointment of Director",
-        "body": "Appointment of Director",
-        "source": "Board Meeting",
-        "publishedAt": "2026-08-27T18:24:14.017",
-        "documents": [
-            {
-                "id": 32607,
-                "submittedDate": "2026-08-27",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Emerging_nepal_limited/Company%20News/2026-08-27/Director%20Change%20%28Janak%20Raj%20Sharma%29_1787834286882.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47137,
-        "symbol": "MSHL",
-        "title": "Lock In Period Expiry Notice",
-        "source": "Lock In Period Expiry Notice",
-        "publishedAt": "2026-08-18T16:46:05.433",
-        "documents": [
-            {
-                "id": 32503,
-                "submittedDate": "2026-08-18",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Mid_Solu_Hydropower_Limited/Company%20News/2026-08-18/Notice%20Regarding%20Lock%20in%20Period_1787050682131.pdf"
-            }
-        ]
-    },
-    {
-        "id": 46843,
-        "symbol": "CLI",
-        "title": "Lock In Period Notice",
-        "body": "Lock In Period Notice",
-        "source": "Citizen Life Insurance Company Limited ",
-        "publishedAt": "2026-08-12T09:48:08.493",
-        "documents": [
-            {
-                "id": 32137,
-                "submittedDate": "2026-08-12",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Citizen_Life_Insurance_Company_Limited/Company%20News/2026-08-12/Nepal%20Samachar%20Patra%2027%20Shrawan%202083_1786507365364.pdf"
-            },
-            {
-                "id": 32138,
-                "submittedDate": "2026-08-12",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Citizen_Life_Insurance_Company_Limited/Company%20News/2026-08-12/Lock%20In%20Period%20NEPSE%20Letter_1786507355488.pdf"
-            }
-        ]
-    },
-    {
-        "id": 46630,
-        "symbol": "BGWT",
-        "title": "Expiration of Lock-in-Period",
-        "body": "Lock-in-Period of shares of Promoters, Project Affected Locals and Staffs shareholders is expiring after Bhadra 17, 2083 B.S.",
-        "source": "Bhagawati Hydropower Development Co. Ltd.",
-        "publishedAt": "2026-07-29T15:53:34.663",
-        "documents": [
-            {
-                "id": 31880,
-                "submittedDate": "2026-07-29",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Bhagawati_Hydropower_Development_Company_Limited/Company%20News/2026-07-29/Notice%20to%20NEPSE%2083-4-13_1785319682690.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47276,
-        "symbol": "NBL",
-        "title": "Change in BODs",
-        "source": " NBL Board Meeting",
-        "publishedAt": "2026-09-01T10:34:20.02",
-        "documents": [
-            {
-                "id": 32638,
-                "submittedDate": "2026-09-01",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nbl_user/2026-09-01/Change%20in%20BODs_1788238147342.PDF"
-            }
-        ]
-    },
-    {
-        "id": 47272,
-        "symbol": "UHEWA",
-        "title": "\u0936\u0947\u092f\u0930 \u092c\u093f\u0915\u094d\u0930\u0940 \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u0940 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u0917\u0930\u093e\u0907\u090f\u0915\u094b \u092c\u093e\u0930\u0947",
-        "source": "Shareholder",
-        "publishedAt": "2026-08-31T18:02:34.56",
-        "documents": [
-            {
-                "id": 32634,
-                "submittedDate": "2026-08-31",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Upper_Hewakhola_Hydropower_company_Limited/Company%20News/2026-08-31/2083%2005%2015%20Jaankari_1788178546892.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47267,
-        "symbol": "PSF",
-        "title": "Book Closure notice of Prabhu Select Fund (PSF) & Prabhu Smart Fund",
-        "body": "Book Close of PSF\nBook Close Date : 9/1/2026\nCash Dividend: 12%",
-        "source": "Prabhu Select Fund (PSF) & Prabhu Smart Fund (PRSF)",
-        "publishedAt": "2026-08-31T16:57:39.35",
-        "documents": [
-            {
-                "id": 32629,
-                "submittedDate": "2026-08-31",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nabaraj_listing/2026-08-31/Prabhu%20Mutual%20Fund%20-%20Book%20Close_1788174734213.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47261,
-        "symbol": "SKHEL",
-        "title": "Power Plant Shutdown",
-        "source": "Notice Regarding Plant Shut Down",
-        "publishedAt": "2026-08-31T10:39:49.52",
-        "documents": [
-            {
-                "id": 32622,
-                "submittedDate": "2026-08-31",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Suryakunda_Hydro_Electric_Limited/Company%20News/2026-08-31/Plant%20Shut%20Down_1788152059090.pdf"
             }
         ]
     },
@@ -1350,6 +1435,84 @@
         ]
     },
     {
+        "id": 47252,
+        "symbol": "NIFRA",
+        "title": "Dividend Declaration of NIFRA for FY 2082-83",
+        "body": "Dividend Declaration of NIFRA\nFiscal Year: 2082-2083\nCash Dividend: 5.2632%",
+        "source": "NIFRA",
+        "publishedAt": "2026-08-30T11:58:30.157",
+        "documents": [
+            {
+                "id": 32612,
+                "submittedDate": "2026-08-30",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Nepal_Infrastructure_Bank_Limited/Company%20News/2026-08-30/NIFRA_Dividend%20Declaration%20for%20FY%202082-83_1788070143878.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47251,
+        "symbol": "DHEL",
+        "title": "AGM Postponed",
+        "source": "Rajdhani Dailly News",
+        "publishedAt": "2026-08-28T19:33:21.837",
+        "documents": [
+            {
+                "id": 32611,
+                "submittedDate": "2026-08-28",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Daramkhola_Hydro_Energy_Limited/Company%20News/2026-08-28/AGM%20%20Postpond%20information%20Letter%20_1787924855049.pdf"
+            },
+            {
+                "id": 32610,
+                "submittedDate": "2026-08-28",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Daramkhola_Hydro_Energy_Limited/Company%20News/2026-08-28/AGM%20%20Postpond%20notice%203x8_1787924888968.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47250,
+        "symbol": "AHPC",
+        "title": "Appointment of Independent Director",
+        "source": "Appointment of Independent Director",
+        "publishedAt": "2026-08-28T12:16:36.747",
+        "documents": [
+            {
+                "id": 32609,
+                "submittedDate": "2026-08-28",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=ahpc_user/2026-08-28/Independent%20Director_1787898673466.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47249,
+        "symbol": "NICL",
+        "title": "NICL BOD Member Nomination",
+        "body": "NICL BOD Member Nomination Letter",
+        "source": "NICL",
+        "publishedAt": "2026-08-27T18:53:51.973",
+        "documents": [
+            {
+                "id": 32608,
+                "submittedDate": "2026-08-27",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nicl_user/2026-08-27/BOD%20Member%20Nomination%20Letter_1787836112179.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47248,
+        "symbol": "ENL",
+        "title": "Appointment of Director",
+        "body": "Appointment of Director",
+        "source": "Board Meeting",
+        "publishedAt": "2026-08-27T18:24:14.017",
+        "documents": [
+            {
+                "id": 32607,
+                "submittedDate": "2026-08-27",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Emerging_nepal_limited/Company%20News/2026-08-27/Director%20Change%20%28Janak%20Raj%20Sharma%29_1787834286882.pdf"
+            }
+        ]
+    },
+    {
         "id": 47247,
         "symbol": "MMKJL",
         "title": "\u092c\u093f\u0936\u0947\u0937 \u092a\u0930\u093f\u0938\u094d\u0925\u093f\u0924\u093f \u0930\u0939\u0947\u0915\u094b \u091c\u093e\u0928\u0915\u093e\u0930\u0940\u0915\u093e \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e",
@@ -1379,6 +1542,55 @@
         ]
     },
     {
+        "id": 47137,
+        "symbol": "MSHL",
+        "title": "Lock In Period Expiry Notice",
+        "source": "Lock In Period Expiry Notice",
+        "publishedAt": "2026-08-18T16:46:05.433",
+        "documents": [
+            {
+                "id": 32503,
+                "submittedDate": "2026-08-18",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Mid_Solu_Hydropower_Limited/Company%20News/2026-08-18/Notice%20Regarding%20Lock%20in%20Period_1787050682131.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46843,
+        "symbol": "CLI",
+        "title": "Lock In Period Notice",
+        "body": "Lock In Period Notice",
+        "source": "Citizen Life Insurance Company Limited ",
+        "publishedAt": "2026-08-12T09:48:08.493",
+        "documents": [
+            {
+                "id": 32137,
+                "submittedDate": "2026-08-12",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Citizen_Life_Insurance_Company_Limited/Company%20News/2026-08-12/Nepal%20Samachar%20Patra%2027%20Shrawan%202083_1786507365364.pdf"
+            },
+            {
+                "id": 32138,
+                "submittedDate": "2026-08-12",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Citizen_Life_Insurance_Company_Limited/Company%20News/2026-08-12/Lock%20In%20Period%20NEPSE%20Letter_1786507355488.pdf"
+            }
+        ]
+    },
+    {
+        "id": 46630,
+        "symbol": "BGWT",
+        "title": "Expiration of Lock-in-Period",
+        "body": "Lock-in-Period of shares of Promoters, Project Affected Locals and Staffs shareholders is expiring after Bhadra 17, 2083 B.S.",
+        "source": "Bhagawati Hydropower Development Co. Ltd.",
+        "publishedAt": "2026-07-29T15:53:34.663",
+        "documents": [
+            {
+                "id": 31880,
+                "submittedDate": "2026-07-29",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Bhagawati_Hydropower_Development_Company_Limited/Company%20News/2026-07-29/Notice%20to%20NEPSE%2083-4-13_1785319682690.pdf"
+            }
+        ]
+    },
+    {
         "id": 46624,
         "symbol": "SKHL",
         "title": "Mutual Fund Lock-In End Notice",
@@ -1389,218 +1601,6 @@
                 "id": 31871,
                 "submittedDate": "2026-07-29",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Super_Khudi_Hydropower_Limited/Company%20News/2026-07-29/Mutual%20fund%20Lock%20In%20End%20Notice_1785296682794.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47285,
-        "symbol": "GBIME",
-        "title": "Dividend Declaration of GBIME",
-        "body": "Dividend Declaration of GBIME\nFiscal Year: 2082-2083\nCash Dividend: 6%\nBonus Shares: 4%",
-        "source": "NEPSE",
-        "publishedAt": "2026-09-02T09:39:15.13",
-        "documents": [
-            {
-                "id": 32646,
-                "submittedDate": "2026-09-02",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbime_user/2026-09-02/Information%20regarding%20dividend%20Declaration_1788321231856.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47294,
-        "symbol": "HRL",
-        "title": "\u0938\u0902\u091a\u093e\u0932\u0915 \u0938\u092e\u093f\u0924\u093f\u0915\u094b \u0905\u0927\u094d\u092f\u0915\u094d\u0937/\u0938\u0902\u091a\u093e\u0932\u0915\u0915\u094b \u0930\u093e\u091c\u0940\u0928\u093e\u092e\u093e \u0938\u092e\u094d\u092c\u0928\u094d\u0927\u092e\u093e",
-        "source": "Company Secretary",
-        "publishedAt": "2026-09-02T17:25:35.97",
-        "documents": [
-            {
-                "id": 32656,
-                "submittedDate": "2026-09-02",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Himalayan_Reinsurance_Limited/Company%20News/2026-09-02/Chairman%20resignation_Intimation_1788349116661.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47309,
-        "symbol": "PFL",
-        "title": "Regarding the transfer of central /Corporate office",
-        "body": "Regarding the transfer of central /Corporate office",
-        "source": "Regarding the transfer of central /Corporate office ",
-        "publishedAt": "2026-09-03T16:37:12.67",
-        "documents": [
-            {
-                "id": 32669,
-                "submittedDate": "2026-09-03",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=pfl_user/2026-09-03/107%20Regarding%20the%20transfer%20of%20central%20corporate%20office_1788432687014.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47340,
-        "symbol": "GBLBS",
-        "title": "Board Director  Sapath",
-        "body": "Board Director  Sapath",
-        "source": "BOD Decision ",
-        "publishedAt": "2026-09-07T11:29:06.65",
-        "documents": [
-            {
-                "id": 32705,
-                "submittedDate": "2026-09-07",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gblbs_user/2026-09-07/Board%20of%20director%20%20Sapath%20%20of%20GBLBs_1788759837295.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47339,
-        "symbol": "ENL",
-        "title": "Notice for Uniform ISIN",
-        "body": "Uniform ISIN",
-        "source": "Uniform ISIN",
-        "publishedAt": "2026-09-07T10:57:33.79",
-        "documents": [
-            {
-                "id": 32703,
-                "submittedDate": "2026-09-07",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Emerging_nepal_limited/Company%20News/2026-09-07/Uniform%20ISIN%20%28Nepse%29_1788757881431.pdf"
-            },
-            {
-                "id": 32704,
-                "submittedDate": "2026-09-07",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Emerging_nepal_limited/Company%20News/2026-09-07/ENL_ISIN%20Notice_1788757899169.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47336,
-        "symbol": "NULL",
-        "title": "Dividend Declaration of Global IME Balance Fund I",
-        "body": "Dividend Declaration of Global IME Balance Fund I\nFiscal Year: 2082-2083\nCash Dividend: 12%",
-        "source": "NEPSE",
-        "publishedAt": "2026-09-07T10:34:12.52",
-        "documents": [
-            {
-                "id": 32699,
-                "submittedDate": "2026-09-07",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbime_user/2026-09-07/Global%20IME%20Mutual%20Fud%20-%20DividendFY%202082-83_1788756501688.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47312,
-        "symbol": "SBI",
-        "title": "Change of Director and Appointment of Independent Director of Nepal SBI Bank Ltd.",
-        "body": "Change of Director and Appointment of Independent Director of Nepal SBI Bank Ltd.",
-        "source": "Nepal SBI Bank Ltd.",
-        "publishedAt": "2026-09-03T17:20:57.74",
-        "documents": [
-            {
-                "id": 32672,
-                "submittedDate": "2026-09-03",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sbi_user/2026-09-03/NEPSE-Change%20of%20Director%20and%20Appointment%20of%20Independent%20Director%20of%20Nepal%20SBI%20Bank%20Ltd_1788435288028.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47314,
-        "symbol": "NBF2",
-        "title": "Declaration of Return on NBF2 and Information of Book Close Date",
-        "body": "Book Close of NBF2\nBook Close Date : 23/09/2026\nCash Dividend: 3.5%",
-        "source": "Letter",
-        "publishedAt": "2026-09-03T17:42:56.29",
-        "documents": [
-            {
-                "id": 32674,
-                "submittedDate": "2026-09-03",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nabil_user/2026-09-03/Dividend%20Nepse%20MF%202082-83_1788436638099.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47317,
-        "symbol": "GBBL",
-        "title": "GBBL-  20% Dividend Declaration",
-        "body": "Dividend Declaration of GBBL\nFiscal Year: 2082-2083\nCash Dividend: 10%\nBonus Shares: 10%",
-        "source": "GBBL, Dividend Declaration",
-        "publishedAt": "2026-09-03T19:34:33.35",
-        "documents": [
-            {
-                "id": 32677,
-                "submittedDate": "2026-09-03",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbbl_user/2026-09-03/GBBL%20Dividend%20Declaration%20Information%20Letter_1788443241379.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47319,
-        "symbol": "SANIMA",
-        "title": "Book Close and Annual General Meeting.",
-        "body": "Annual General Meeting of SANIMA\nFiscal Year: 2082-2083\nAGM Type: AGM\nAGM Date: 9/28/2026\nAGM No: 22\nBook Close Date: 9/17/2026\nCash Dividend: 10%",
-        "source": "Board Meeting",
-        "publishedAt": "2026-09-04T14:11:34.08",
-        "documents": [
-            {
-                "id": 32679,
-                "submittedDate": "2026-09-04",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sanima_user/2026-09-04/Covering%20letter%20NEPSE_1788510351199.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47331,
-        "symbol": "SINDU",
-        "title": "Freezing of shares",
-        "body": "Request for freezing of shares of basic shareholder of the Bank.",
-        "source": "BOD meeting",
-        "publishedAt": "2026-09-06T16:43:08.06",
-        "documents": [
-            {
-                "id": 32693,
-                "submittedDate": "2026-09-06",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=sindu_user/2026-09-06/Request%20NEPSE_1788692115523.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47360,
-        "symbol": "IHL",
-        "title": "Operation of Plant Unit 2 after Maintenance",
-        "source": "IHL Plant Unit 2 Start",
-        "publishedAt": "2026-09-09T10:52:39.25",
-        "documents": [
-            {
-                "id": 32721,
-                "submittedDate": "2026-09-09",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Ingwa_Hydropower_Limited/Company%20News/2026-09-09/Plant%20unit%202%20start_1788930455291.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47387,
-        "symbol": "ENL",
-        "title": "Intention for sale of share",
-        "body": "Intention for sale of share",
-        "source": "Intention for sale of share",
-        "publishedAt": "2026-09-11T10:30:55.72",
-        "documents": [
-            {
-                "id": 32746,
-                "submittedDate": "2026-09-11",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Emerging_nepal_limited/Company%20News/2026-09-11/Intention%20%28Sale%20of%20Share%29%203_1789101944138.pdf"
-            }
-        ]
-    },
-    {
-        "id": 47386,
-        "symbol": "MEL",
-        "title": "Intention for sale of share",
-        "source": "Shareholder",
-        "publishedAt": "2026-09-10T18:55:03.32",
-        "documents": [
-            {
-                "id": 32745,
-                "submittedDate": "2026-09-10",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Modi_Energy_Limited/Company%20News/2026-09-10/NEPSE-%20Intention%20for%20sale%20of%20share_1789045793463.PDF"
             }
         ]
     }
