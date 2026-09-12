@@ -1371,7 +1371,7 @@ def scrape_all_official_data(
 
         # 7. Notices & News (Restored Disclosures)
         print("Fetching company disclosures...")
-        disclosure_data = scraper.get_company_disclosures()
+        disclosure_data = {} if not include_notifications else scraper.get_company_disclosures()
         company_disclosures = disclosure_data.get('companyNews', [])
         exchange_messages = disclosure_data.get('exchangeMessages', [])
 
@@ -1429,11 +1429,12 @@ def scrape_all_official_data(
                 date_keys=('publishedAt', 'addedDate', 'modifiedDate', 'approvedDate', 'expiresAt', 'expiryDate')
             )
             
-            write_json(disclosures_path, merged_company_disclosures)
-            write_json(exchange_messages_path, merged_exchange_messages)
-            if write_legacy:
-                write_json(legacy_disclosures_path, merged_company_disclosures)
-                write_json(legacy_exchange_messages_path, merged_exchange_messages)
+            if include_notifications:
+                write_json(disclosures_path, merged_company_disclosures)
+                write_json(exchange_messages_path, merged_exchange_messages)
+                if write_legacy:
+                    write_json(legacy_disclosures_path, merged_company_disclosures)
+                    write_json(legacy_exchange_messages_path, merged_exchange_messages)
 
             print(
                 "New disclosures found: "
@@ -1453,7 +1454,7 @@ def scrape_all_official_data(
             )
             disclosures_changed = merged_company_disclosures != existing_company_disclosures
             exchange_messages_changed = merged_exchange_messages != existing_exchange_messages
-            if disclosures_changed or exchange_messages_changed:
+            if include_notifications and (disclosures_changed or exchange_messages_changed):
                 if disclosures_changed:
                     write_json(disclosures_path, merged_company_disclosures)
                     if write_legacy:
@@ -1467,7 +1468,7 @@ def scrape_all_official_data(
                 print("No new disclosures found. Keeping existing disclosure files unchanged.")
 
         print("Fetching notices...")
-        general_notices = scraper.get_notices()
+        general_notices = [] if not include_notifications else scraper.get_notices()
         filtered_general_notices = filter_general_notices(general_notices, merged_exchange_messages)
         notices_path = os.path.join(notify_dir, 'notices.json')
 
@@ -1501,9 +1502,10 @@ def scrape_all_official_data(
                 "last_updated": datetime.now().isoformat()
             }
             # Keep notices file dedicated to general notices only.
-            write_json(notices_path, notices_payload)
-            if write_legacy:
-                write_json(os.path.join(data_dir, 'notices.json'), notices_payload)
+            if include_notifications:
+                write_json(notices_path, notices_payload)
+                if write_legacy:
+                    write_json(os.path.join(data_dir, 'notices.json'), notices_payload)
             print(f"New notices found: {len(new_general_notices)}.")
         else:
             merged_general_notices = compact_notice_records(
@@ -1514,7 +1516,7 @@ def scrape_all_official_data(
                 "general": merged_general_notices,
                 "last_updated": existing_notices.get('last_updated') or datetime.now().isoformat()
             }
-            if notices_payload != existing_notices:
+            if include_notifications and notices_payload != existing_notices:
                 write_json(notices_path, notices_payload)
                 if write_legacy:
                     write_json(os.path.join(data_dir, 'notices.json'), notices_payload)
@@ -1734,6 +1736,11 @@ if __name__ == "__main__":
         help='Skip market price, index, summary, OMF, top-stock, LTP, and supply/demand refreshes.'
     )
     parser.add_argument(
+        '--skip-notifications',
+        action='store_true',
+        help='Skip notify disclosures, exchange messages, and general notices refreshes.'
+    )
+    parser.add_argument(
         '--floor-sheet',
         action='store_true',
         help='Fetch floor sheet data (all transactions).'
@@ -1774,6 +1781,7 @@ if __name__ == "__main__":
         force_profiles=args.force_profiles,
         ltp_history_mode=args.ltp_history,
         include_market=not args.skip_market,
+        include_notifications=not args.skip_notifications,
         include_floor_sheet=args.floor_sheet
     )
 
