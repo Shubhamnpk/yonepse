@@ -55,7 +55,10 @@ jobs:
       run: |
         git config --global user.name "YONEPSE Data Bot"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add data/nepse_data.json data/market data/ltp data/OMF.json data/notify data/all_securities.json data/disclosures.json data/exchange_messages.json data/indices.json data/market_status.json data/market_summary.json data/market_summary_history.json data/supply_demand.json data/top_stocks.json
+        git stash push --include-untracked -m "scraper-autostash" || true
         git pull --rebase --autostash
+        git stash pop || true
         git add data/nepse_data.json data/market data/ltp data/OMF.json data/notify data/all_securities.json data/disclosures.json data/exchange_messages.json data/indices.json data/market_status.json data/market_summary.json data/market_summary_history.json data/supply_demand.json data/top_stocks.json
         git commit -m "Update Official Market Data: $(date)" || echo "No changes to commit"
         git push || (git pull --rebase --autostash && git push)
