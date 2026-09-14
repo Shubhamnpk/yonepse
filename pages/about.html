@@ -526,9 +526,9 @@
     <div class="page">
         <nav class="nav">
             <a href="../index.html">Market Dashboard</a>
-            <a href="data.html">Brokers & Datasets</a>
             <a href="broker-leaderboard.html">Broker Leaderboard</a>
             <a class="active" href="about.html">About</a>
+            <a href="sources.html">Sources</a>
         </nav>
 
         <header class="hero">
@@ -570,12 +570,6 @@
         </header>
 
         <main class="shell">
-            <div class="alert">
-                <h2><i class="fa-solid fa-triangle-exclamation"></i> Endpoint Migration</h2>
-                <p>YONEPSE v2 uses folder-based JSON endpoints. Old flat paths expire after <strong>Nov 18, 2026</strong>.</p>
-                <a href="migration.html"><i class="fa-solid fa-right-left"></i> Migration Guide</a>
-            </div>
-
             <div class="bio-split">
                 <div class="bio-card">
                     <h3><i class="fa-solid fa-users"></i> Who We Are</h3>
@@ -619,7 +613,7 @@
                 </div>
                 <p>
                     YONEPSE v2 is the current version — folder-based endpoints, compact broker records,
-                    daily and intraday LTP shards, organized page assets, and automated data integrity
+                    daily LTP shards, organized page assets, and automated data integrity
                     checks before any update hits production.
                 </p>
             </div>
@@ -630,7 +624,6 @@
                     <ul>
                         <li><i class="fa-solid fa-check"></i><span>Canonical files grouped by domain</span></li>
                         <li><i class="fa-solid fa-check"></i><span>Compact public fields over raw upstream payloads</span></li>
-                        <li><i class="fa-solid fa-check"></i><span>Legacy compatibility during migrations</span></li>
                     </ul>
                 </div>
                 <div class="pill-card">
@@ -647,6 +640,11 @@
                 <div class="resource-head"><i class="fa-solid fa-handshake-angle"></i> Use, Learn, Contribute</div>
                 <p>Use the published data freely for dashboards, research, or tools. Contributions, bug reports, and suggestions are always welcome.</p>
                 <div class="resource-grid">
+                    <a class="resource-card" href="data.html">
+                        <span class="title"><i class="fa-solid fa-building-columns"></i> Brokers & Datasets</span>
+                        <span class="desc">Browse broker rankings, leaderboards, and market datasets.</span>
+                        <span class="hint"><i class="fa-solid fa-arrow-right"></i></span>
+                    </a>
                     <a class="resource-card" href="docs.html">
                         <span class="title"><i class="fa-solid fa-book-open"></i> JSON API Docs</span>
                         <span class="desc">Every public endpoint with sample responses.</span>
@@ -657,9 +655,9 @@
                         <span class="desc">Machine-readable schema for clients and automation.</span>
                         <span class="hint"><i class="fa-solid fa-arrow-right"></i></span>
                     </a>
-                    <a class="resource-card" href="migration.html">
-                        <span class="title"><i class="fa-solid fa-right-left"></i> Migration Guide</span>
-                        <span class="desc">Old-to-new endpoint mappings before legacy paths expire.</span>
+                    <a class="resource-card" href="sources.html">
+                        <span class="title"><i class="fa-solid fa-handshake-angle"></i> Sources & Credits</span>
+                        <span class="desc">Every dataset and the open sources behind it.</span>
                         <span class="hint"><i class="fa-solid fa-arrow-right"></i></span>
                     </a>
                     <a class="resource-card" href="https://github.com/Shubhamnpk/yonepse" target="_blank" rel="noopener noreferrer">

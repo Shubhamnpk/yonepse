@@ -222,23 +222,11 @@ def scrape_upcoming_ipo():
 if __name__ == "__main__":
     from datetime import timedelta
     import os
-    import shutil
 
-    legacy_support_end = datetime(2026, 11, 18).date()
-    write_legacy = datetime.now().date() <= legacy_support_end
     new_data = scrape_upcoming_ipo()
     output_file = "data/ipo/upcoming.json"
     history_file = "data/ipo/old.json"
-    legacy_output_file = "data/upcoming_ipo.json"
-    legacy_history_file = "data/oldipo.json"
     os.makedirs("data/ipo", exist_ok=True)
-    if not write_legacy:
-        for legacy_file in (legacy_output_file, legacy_history_file):
-            try:
-                if os.path.exists(legacy_file):
-                    os.remove(legacy_file)
-            except OSError:
-                pass
 
     # 1. Load existing data
     existing_items = {}
@@ -312,12 +300,8 @@ if __name__ == "__main__":
 
     with open(output_file, "w", encoding='utf-8') as f:
         json.dump(final_data, f, indent=4, ensure_ascii=False)
-    if write_legacy:
-        shutil.copyfile(output_file, legacy_output_file)
     print(f"Successfully processed {len(final_data)} upcoming items (New: {len(new_data) if new_data else 0}). Saved to {output_file}")
 
     with open(history_file, "w", encoding='utf-8') as f:
         json.dump(history_list, f, indent=4, ensure_ascii=False)
-    if write_legacy:
-        shutil.copyfile(history_file, legacy_history_file)
     print(f"Archived IPO history count: {len(history_list)}. Saved to {history_file}")

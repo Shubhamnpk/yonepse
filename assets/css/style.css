@@ -2171,6 +2171,23 @@ body.filter-active #ipo-section {
     cursor: not-allowed;
 }
 
+.modal-footer-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-terminal-btn {
+    border-color: rgba(34, 197, 94, 0.6) !important;
+    background: rgba(34, 197, 94, 0.15) !important;
+}
+
+.modal-terminal-btn:hover {
+    background: rgba(34, 197, 94, 0.3) !important;
+    border-color: rgba(34, 197, 94, 0.9) !important;
+}
+
 .modal-dividend-status {
     margin: 0.35rem 0;
 }

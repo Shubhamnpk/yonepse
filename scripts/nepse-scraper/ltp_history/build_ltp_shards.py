@@ -397,7 +397,6 @@ def upsert_month(month_data, date, snapshot_series, updated_at):
 
 def build_manifest(output_dir, latest_date, latest_status=None):
     monthly_dir = os.path.join(output_dir, "monthly")
-    daily_dir = os.path.join(output_dir, "daily")
     existing_manifest = load_json(os.path.join(output_dir, "manifest.json"), {})
     months = []
     if os.path.isdir(monthly_dir):
@@ -406,19 +405,11 @@ def build_manifest(output_dir, latest_date, latest_status=None):
             for name in os.listdir(monthly_dir)
             if name.endswith(".json")
         ]
-    days = []
-    if os.path.isdir(daily_dir):
-        days = [
-            os.path.splitext(name)[0]
-            for name in os.listdir(daily_dir)
-            if name.endswith(".json")
-        ]
 
     manifest = {
         "version": VERSION,
         "latestDate": latest_date,
         "availableMonths": sorted(set(months)),
-        "availableDays": sorted(set(days)),
         "retention": "no-limit",
     }
     if latest_status:
@@ -527,7 +518,7 @@ def main():
     parser.add_argument(
         "--latest-status",
         choices=("provisional", "final"),
-        help="Mark the latest manifest date as provisional intraday data or final after-close data.",
+        help="Mark the latest manifest date as provisional while-open data or final after-close data.",
     )
     args = parser.parse_args()
 

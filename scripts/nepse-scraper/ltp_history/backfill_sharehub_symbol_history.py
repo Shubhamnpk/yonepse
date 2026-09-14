@@ -31,7 +31,7 @@ from ltp_history.build_ltp_shards import (
 
 
 DEFAULT_PAGE_SIZE = 500
-DEFAULT_SYMBOLS_PATH = os.path.join("data", "nepse_sector_wise_codes.json")
+DEFAULT_SYMBOLS_PATH = os.path.join("data", "other", "sector_codes.json")
 USER_AGENT = "YoNepseDataBackfill/1.0 (+https://github.com/shubhamnpk/yonepse)"
 
 
@@ -229,8 +229,6 @@ def update_manifest(output_dir, written_months, latest_status="final", compact=F
                 latest_date = max(latest_date, month_latest) if latest_date else month_latest
 
     manifest = build_manifest(output_dir, latest_date, latest_status=latest_status)
-    if isinstance(existing, dict) and existing.get("availableDays"):
-        manifest["availableDays"] = sorted(set(manifest["availableDays"]) | set(existing["availableDays"]))
     if latest_status == "final" and latest_date:
         manifest["finalizedThrough"] = latest_date
 

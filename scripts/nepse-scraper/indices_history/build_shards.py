@@ -1,6 +1,15 @@
+"""Build monthly NEPSE index history shards from the official history API.
+
+Same compact envelope as data/ltp/monthly/*.json:
+  {"version","market","currency","month","updatedAt","dates",
+   "columns":["dateIndex","close","open","high","low","turnover","volume","trades"],
+   "series":{INDEXCODE:[[dateIndex,...values]]}}
+Series keys are indexCode values (NEPSE, SENSIND, ...) so names never repeat.
+"""
 import argparse
 import json
 import os
+import sys
 import tempfile
 from datetime import datetime, timedelta, timezone
 
@@ -10,10 +19,14 @@ MARKET = "NEPSE"
 CURRENCY = "NPR"
 NPT = timezone(timedelta(hours=5, minutes=45))
 DEFAULT_MIN_INDICES = 3
-# close=currentValue, then OHLC context. Change/perChange are derived client-side.
-METRIC_FIELDS = ("high", "low", "prevClose")
+# closingIndex/openIndex/highIndex/lowIndex/turnoverValue/turnoverVolume/totalTransaction.
+# absChange/percentageChange are derived client-side, like LTP change fields.
+METRIC_FIELDS = ("open", "high", "low", "turnover", "volume", "trades")
 VALUE_COLUMNS = ("close",) + METRIC_FIELDS
 COLUMNS = ("dateIndex",) + VALUE_COLUMNS
+
+# All index IDs served by /api/nots/index/history/{id} (client.py validates 51-67).
+ALL_INDEX_IDS = list(range(51, 68))
 
 # Fallback when sector_indices.json is unavailable. id -> indexCode.
 FALLBACK_CODE_BY_ID = {
@@ -98,21 +111,11 @@ def format_pretty_json(data):
     return text + "\n"
 
 
-def parse_datetime(value):
-    if not value:
-        return None
-    text = str(value).strip()
-    if not text:
-        return None
+def parse_date(value):
     try:
-        if text.endswith("Z"):
-            text = text[:-1] + "+00:00"
-        parsed = datetime.fromisoformat(text)
-        if parsed.tzinfo is None:
-            return parsed.replace(tzinfo=NPT)
-        return parsed.astimezone(NPT)
-    except ValueError:
-        return None
+        return datetime.strptime(str(value).strip(), "%Y-%m-%d").date()
+    except ValueError as exc:
+        raise ValueError("date must use YYYY-MM-DD format") from exc
 
 
 def npt_now():
@@ -156,66 +159,22 @@ def normalize_number(value):
     return int(number) if number.is_integer() else number
 
 
-def infer_snapshot_datetime(rows):
-    parsed_dates = []
-    for row in rows:
-        if not isinstance(row, dict):
-            continue
-        parsed = parse_datetime(row.get("generatedTime"))
-        if parsed:
-            parsed_dates.append(parsed)
-    return max(parsed_dates) if parsed_dates else npt_now()
-
-
-def extract_index_snapshot(rows, code_by_id=None):
-    series = {}
-    skipped = 0
-    code_by_id = code_by_id or {}
-
-    for row in rows:
-        if not isinstance(row, dict):
-            skipped += 1
-            continue
-        try:
-            idx = int(row.get("id")) if row.get("id") is not None else None
-        except (TypeError, ValueError):
-            idx = None
-        code = normalize_code(code_by_id.get(idx) if idx is not None else None)
-        if not code:
-            # Fallback: derive from display name e.g. "NEPSE Index" -> "NEPSE".
-            name = str(row.get("index") or row.get("indexName") or "")
-            token = name.strip().upper().replace(" INDEX", "").replace(" ", "_")
-            code = normalize_code(token)
-        close = normalize_number(
-            row.get("currentValue") if row.get("currentValue") is not None else row.get("close")
-        )
-        if not code or close is None:
-            skipped += 1
-            continue
-        values = [close]
-        source = {
-            "high": row.get("high"),
-            "low": row.get("low"),
-            "prevClose": row.get("previousClose"),
-        }
-        for field in METRIC_FIELDS:
-            values.append(normalize_number(source.get(field)))
-        series[code] = values
-
-    return dict(sorted(series.items())), skipped
-
-
-def validate_snapshot_date(snapshot_date, allow_future=False):
-    try:
-        parsed = datetime.strptime(snapshot_date, "%Y-%m-%d").date()
-    except ValueError as exc:
-        raise ValueError("snapshot date must use YYYY-MM-DD format") from exc
-
-    tomorrow_npt = npt_now().date() + timedelta(days=1)
-    if not allow_future and parsed > tomorrow_npt:
-        raise ValueError(f"snapshot date {snapshot_date} is too far in the future")
-
-    return parsed
+def history_row_values(row):
+    """Map one /index/history record to VALUE_COLUMNS. None if no close."""
+    if not isinstance(row, dict):
+        return None
+    close = normalize_number(row.get("closingIndex"))
+    if close is None:
+        return None
+    return [
+        close,
+        normalize_number(row.get("openIndex")),
+        normalize_number(row.get("highIndex")),
+        normalize_number(row.get("lowIndex")),
+        normalize_number(row.get("turnoverValue")),
+        normalize_number(row.get("turnoverVolume")),
+        normalize_number(row.get("totalTransaction")),
+    ]
 
 
 def sparse_row_date_index(row):
@@ -258,7 +217,6 @@ def normalize_existing_series(month_data, dates):
             if date_index is not None:
                 if date_index < len(dates) and len(row) > 1:
                     compact_rows.append(row)
-                continue
         if compact_rows:
             normalized[code] = sorted(compact_rows, key=lambda item: item[0])
     return normalized
@@ -331,8 +289,11 @@ def validate_month_data(month_data):
                 raise ValueError(f"Series row for {code} has an invalid date index.")
             if date_index <= previous_index:
                 raise ValueError(f"Series rows for {code} must be sorted and unique by date index.")
-            if any(value is None for value in row):
-                raise ValueError(f"Series row for {code} must omit missing values, not use null.")
+            # Interior nulls allowed: sources differ per era (official has full
+            # OHLCV, socrateai lacks turnover/trades, 1997-2002 CSV lacks volume).
+            # Only the close (values[0]) is mandatory; trailing nulls are trimmed.
+            if row[1] is None:
+                raise ValueError(f"Series row for {code} must have a close value.")
             previous_index = date_index
 
 
@@ -397,89 +358,130 @@ def build_manifest(output_dir, latest_date, latest_status=None):
     return manifest
 
 
-def build_shards(
-    source_path,
-    output_dir,
-    data_dir=None,
-    date=None,
-    compact=False,
-    dry_run=False,
-    min_indices=DEFAULT_MIN_INDICES,
-    allow_future=False,
-    latest_status=None,
-):
-    rows = load_json(source_path, [])
-    if not isinstance(rows, list):
-        raise ValueError(f"Expected {source_path} to contain a JSON array.")
+def fetch_index_history(scraper, index_id, start, end, page_size=500):
+    """Fetch every page of /index/history/{id} for a date range, newest first."""
+    endpoint = scraper.endpoints["head_indices_api"]
+    path = f"{endpoint['api']}/{index_id}"
+    rows = []
+    page = 0
+    while True:
+        resp = scraper.session.get(
+            path,
+            params={"startDate": start, "endDate": end, "page": page, "size": page_size},
+        )
+        payload = resp.json()
+        if isinstance(payload, dict):
+            rows.extend(payload.get("content") or [])
+            if payload.get("last", True):
+                break
+        elif isinstance(payload, list):
+            rows.extend(payload)
+            break
+        else:
+            break
+        page += 1
+    return rows
 
-    snapshot_dt = infer_snapshot_datetime(rows)
-    snapshot_date = date or snapshot_dt.date().isoformat()
-    validate_snapshot_date(snapshot_date, allow_future=allow_future)
-    month = snapshot_date[:7]
-    updated_at = npt_now().isoformat(timespec="seconds")
 
-    base_dir = data_dir
-    if base_dir is None:
-        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        base_dir = os.path.join(base_dir, "..", "..")
-        base_dir = os.path.normpath(os.path.join(os.path.dirname(source_path), ".."))
-    code_by_id = load_code_by_id(base_dir)
-    snapshot_series, skipped = extract_index_snapshot(rows, code_by_id)
+def backfill(output_dir, start, end, index_ids=None, data_dir=None,
+             dry_run=False, compact=False, min_indices=DEFAULT_MIN_INDICES,
+             latest_status=None):
+    """Fetch history for every index id and upsert into monthly shards."""
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+    from official_api import NepseScraper
 
-    if not snapshot_series:
-        raise ValueError("No valid index rows found in source snapshot.")
-    if len(snapshot_series) < min_indices:
+    index_ids = list(index_ids) if index_ids else list(ALL_INDEX_IDS)
+    if data_dir is None:
+        data_dir = os.path.normpath(os.path.join(os.path.dirname(output_dir), ".."))
+        if os.path.basename(data_dir).lower() != "data":
+            data_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "data")
+            data_dir = os.path.normpath(data_dir)
+    code_by_id = load_code_by_id(data_dir)
+
+    scraper = NepseScraper(verify_ssl=False)
+    per_date = {}
+    fetched_codes = set()
+    for index_id in index_ids:
+        rows = fetch_index_history(scraper, int(index_id), start, end)
+        code = normalize_code(code_by_id.get(int(index_id), ""))
+        if not code:
+            print(f"Skipping unknown index id {index_id}.")
+            continue
+        count = 0
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            date = str(row.get("businessDate") or "").strip()
+            if not date:
+                continue
+            values = history_row_values(row)
+            if values is None:
+                continue
+            per_date.setdefault(date, {})[code] = values
+            count += 1
+        if count:
+            fetched_codes.add(code)
+        print(f"{code} ({index_id}): {count} rows")
+
+    if len(fetched_codes) < min_indices:
         raise ValueError(
-            f"Only {len(snapshot_series)} valid indices found; refusing to update shards "
+            f"Only {len(fetched_codes)} valid indices found; refusing to update shards "
             f"below the minimum of {min_indices}."
         )
 
-    month_path = os.path.join(output_dir, "monthly", f"{month}.json")
+    updated_at = npt_now().isoformat(timespec="seconds")
+    files = []
+    for month in sorted({d[:7] for d in per_date}):
+        month_path = os.path.join(output_dir, "monthly", f"{month}.json")
+        month_data = ensure_month_shape(load_json(month_path, {}), month)
+        for date in sorted(d for d in per_date if d.startswith(month)):
+            month_data = upsert_month(month_data, date, per_date[date], updated_at)
+        if not dry_run:
+            write_json(month_path, month_data, compact=compact)
+        files.append(month_path)
+
+    latest_date = max(per_date)
     manifest_path = os.path.join(output_dir, "manifest.json")
-
-    month_data = ensure_month_shape(load_json(month_path, {}), month)
-    month_data = upsert_month(month_data, snapshot_date, snapshot_series, updated_at)
-
     if not dry_run:
-        write_json(month_path, month_data, compact=compact)
-        manifest_data = build_manifest(output_dir, snapshot_date, latest_status=latest_status)
-        if month not in manifest_data["availableMonths"]:
-            manifest_data["availableMonths"].append(month)
-            manifest_data["availableMonths"].sort()
+        manifest_data = build_manifest(output_dir, latest_date, latest_status=latest_status)
+        for month in {os.path.splitext(os.path.basename(p))[0] for p in files}:
+            if month not in manifest_data["availableMonths"]:
+                manifest_data["availableMonths"].append(month)
+        manifest_data["availableMonths"].sort()
         write_json(manifest_path, manifest_data, compact=compact)
+        files.append(manifest_path)
 
     return {
-        "source": source_path,
         "output": output_dir,
-        "date": snapshot_date,
-        "month": month,
-        "index_count": len(snapshot_series),
-        "skipped_rows": skipped,
+        "start": start,
+        "end": end,
+        "index_count": len(fetched_codes),
+        "date_count": len(per_date),
         "dry_run": dry_run,
-        "files": [manifest_path, month_path],
+        "files": files,
     }
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Build monthly NEPSE index history shards from data/market/indices.json."
-    )
-    parser.add_argument(
-        "--source",
-        default=os.path.join("data", "market", "indices.json"),
-        help="Source snapshot JSON file. Defaults to data/market/indices.json.",
+        description="Backfill monthly NEPSE index history shards from the official history API."
     )
     parser.add_argument(
         "--output",
         default=os.path.join("data", "indices"),
         help="Output directory for manifest/monthly shards.",
     )
-    parser.add_argument("--date", help="Override snapshot date as YYYY-MM-DD.")
+    parser.add_argument("--start", default="2020-01-01", help="Range start as YYYY-MM-DD.")
+    parser.add_argument("--end", help="Range end as YYYY-MM-DD (defaults to today NPT).")
+    parser.add_argument(
+        "--index-ids",
+        help="Comma-separated index ids (51-67). Defaults to all.",
+    )
     parser.add_argument(
         "--compact", action="store_true", help="Write compact JSON instead of pretty-printed JSON."
     )
     parser.add_argument(
-        "--dry-run", action="store_true", help="Validate and print the planned output without writing files."
+        "--dry-run", action="store_true", help="Fetch and validate without writing files."
     )
     parser.add_argument(
         "--min-indices",
@@ -488,36 +490,35 @@ def main():
         help=f"Minimum valid indices required before writing. Defaults to {DEFAULT_MIN_INDICES}.",
     )
     parser.add_argument(
-        "--allow-future", action="store_true", help="Allow future snapshot dates. Intended only for tests."
-    )
-    parser.add_argument(
         "--latest-status",
         choices=("provisional", "final"),
-        help="Mark the latest manifest date as provisional intraday data or final after-close data.",
+        help="Mark the latest manifest date as provisional while-open data or final after-close data.",
     )
     args = parser.parse_args()
 
-    if args.date:
-        try:
-            datetime.strptime(args.date, "%Y-%m-%d")
-        except ValueError as exc:
-            raise SystemExit("--date must use YYYY-MM-DD format.") from exc
+    start = parse_date(args.start).isoformat()
+    end = parse_date(args.end).isoformat() if args.end else npt_now().date().isoformat()
+    index_ids = (
+        [int(item) for item in args.index_ids.split(",") if item.strip()]
+        if args.index_ids
+        else list(ALL_INDEX_IDS)
+    )
 
-    result = build_shards(
-        source_path=args.source,
+    result = backfill(
         output_dir=args.output,
-        date=args.date,
-        compact=args.compact,
+        start=start,
+        end=end,
+        index_ids=index_ids,
         dry_run=args.dry_run,
+        compact=args.compact,
         min_indices=args.min_indices,
-        allow_future=args.allow_future,
         latest_status=args.latest_status,
     )
 
     print(
         "Built NEPSE index shards"
-        f" for {result['date']} ({result['index_count']} indices,"
-        f" {result['skipped_rows']} skipped rows)."
+        f" for {result['start']}..{result['end']} ({result['index_count']} indices,"
+        f" {result['date_count']} dates)."
     )
     for path in result["files"]:
         print(f"- {path}")

@@ -13,15 +13,16 @@ REQUIRED_PATHS = [
     "index.html",
     "pages/data.html",
     "pages/docs.html",
-    "pages/migration.html",
     "pages/about.html",
+    "pages/sources.html",
+    "pages/terminal.html",
+    "assets/js/terminal.js",
     "assets/css/style.css",
     "assets/js/script.js",
     "assets/js/data.js",
     "assets/img/favicon.svg",
     "assets/img/favicon.png",
     "api/openapi.yaml",
-    "api/openapi_legacy_nepse.yaml",
     "data/nepse_data.json",
     "data/market/status.json",
     "data/market/live.json",
@@ -35,14 +36,12 @@ REQUIRED_PATHS = [
 ROOT_FILES_THAT_SHOULD_STAY_MOVED = [
     "data.html",
     "docs.html",
-    "migration.html",
     "style.css",
     "script.js",
     "data.js",
     "favicon.svg",
     "favicon.png",
     "openapi.yaml",
-    "openapi_legacy_nepse.yaml",
 ]
 
 
@@ -90,7 +89,7 @@ def assert_yaml_valid():
         fail(f"PyYAML is required for OpenAPI validation: {exc}")
         return
 
-    for rel_path in ("api/openapi.yaml", "api/openapi_legacy_nepse.yaml"):
+    for rel_path in ("api/openapi.yaml",):
         path = ROOT / rel_path
         try:
             with path.open("r", encoding="utf-8") as handle:
@@ -113,8 +112,9 @@ def assert_html_links_resolve():
         ROOT / "index.html",
         ROOT / "pages" / "data.html",
         ROOT / "pages" / "docs.html",
-        ROOT / "pages" / "migration.html",
         ROOT / "pages" / "about.html",
+        ROOT / "pages" / "sources.html",
+        ROOT / "pages" / "terminal.html",
     ]
     attr_pattern = re.compile(r"""(?:href|src)=["']([^"']+)["']""")
     ignored_schemes = {"http", "https", "mailto", "tel"}

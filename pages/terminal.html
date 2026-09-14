@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YONEPSE | NEPSE Terminal</title>
+    <meta name="description" content="NEPSE terminal — unified search for indices and scrips with charts, volume, and interval aggregation from YONEPSE open data.">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="../assets/img/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .terminal-page {
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 1.5rem 1.5rem 3rem;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        /* ── Header ───────────────────────────── */
+        .term-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin: 1.2rem 0 0.8rem;
+        }
+        .term-head h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #fff;
+        }
+        .term-head h1 .cursor {
+            color: #22c55e;
+            animation: blink 1.1s steps(1) infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+        #status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: #71717a;
+            letter-spacing: 0.3px;
+        }
+
+        /* ── Tape ─────────────────────────────── */
+        .tape {
+            display: flex;
+            gap: 0.4rem;
+            overflow-x: auto;
+            padding: 0.5rem 0.15rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.12) transparent;
+        }
+        .tape-item {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: baseline;
+            gap: 0.45rem;
+            background: rgba(255,255,255,0.015);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 8px;
+            padding: 0.35rem 0.6rem;
+            color: inherit;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .tape-item:hover {
+            border-color: rgba(129,140,248,0.35);
+            background: rgba(129,140,248,0.04);
+        }
+        .tape-item.active {
+            border-color: rgba(34,197,94,0.55);
+            background: rgba(34,197,94,0.06);
+        }
+        .tape-code { color: #d4d4d8; font-weight: 600; }
+        .tape-last { color: #a1a1aa; }
+        .tape-chg { font-size: 0.65rem; }
+        .tape-empty { color: #71717a; font-size: 0.75rem; }
+        .up { color: #22c55e !important; }
+        .down { color: #ef4444 !important; }
+
+        /* ── Controls ─────────────────────────── */
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.7rem;
+            padding: 0.5rem 0.65rem;
+            background: rgba(255,255,255,0.015);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px;
+        }
+        .toolbar-left, .toolbar-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            align-items: center;
+        }
+        .ctrl-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        .ctrl-sep {
+            width: 1px;
+            height: 18px;
+            background: rgba(255,255,255,0.08);
+            margin: 0 0.15rem;
+        }
+        .ctrl-btn {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #71717a;
+            border-radius: 6px;
+            padding: 0.32rem 0.55rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            transition: all 0.12s ease;
+            white-space: nowrap;
+        }
+        .ctrl-btn:hover { color: #d4d4d8; border-color: rgba(129,140,248,0.4); }
+        .ctrl-btn.active {
+            color: #fff;
+            border-color: rgba(34,197,94,0.6);
+            background: rgba(34,197,94,0.1);
+        }
+        .ctrl-btn.vol-toggle {
+            color: #a1a1aa;
+            border-style: dashed;
+        }
+        .ctrl-btn.vol-toggle.active {
+            color: #22c55e;
+            border-color: rgba(34,197,94,0.5);
+            border-style: solid;
+            background: rgba(34,197,94,0.08);
+        }
+        .ctrl-select {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #d4d4d8;
+            border-radius: 6px;
+            padding: 0.32rem 2rem 0.32rem 0.55rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.3px;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2371717a'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+            transition: all 0.12s ease;
+        }
+        .ctrl-select:hover { border-color: rgba(129,140,248,0.4); }
+        .ctrl-select:focus { border-color: rgba(129,140,248,0.5); }
+        .ctrl-select option {
+            background: #18181b;
+            color: #d4d4d8;
+            padding: 0.3rem 0.5rem;
+        }
+
+        /* ── Search box ──────────────────────── */
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px;
+            padding: 0.3rem 0.55rem;
+            min-width: 180px;
+            transition: border-color 0.12s;
+        }
+        .search-box:focus-within { border-color: rgba(129,140,248,0.45); }
+        .search-box i { color: #71717a; font-size: 0.7rem; }
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            width: 100%;
+            outline: none;
+        }
+        .search-box input::placeholder { color: #52525b; }
+
+        /* ── Tick row ─────────────────────────── */
+        .tick-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            align-items: center;
+        }
+        .tick-label {
+            color: #818cf8;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        .tick-row input[type="date"] {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #d4d4d8;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 0.3rem 0.45rem;
+            border-radius: 5px;
+        }
+        .tick-row input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.6); }
+
+        /* ── Stat grid ────────────────────────── */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.45rem;
+            margin: 0.8rem 0 0.7rem;
+        }
+        .stat-cell {
+            background: rgba(255,255,255,0.015);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 0.55rem 0.7rem;
+        }
+        .stat-cell .lbl {
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            color: #71717a;
+            margin-bottom: 0.15rem;
+        }
+        .stat-cell .val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e4e4e7;
+        }
+        .stat-cell .val.small { font-size: 0.7rem; font-weight: 500; color: #a1a1aa; }
+
+        /* ── Chart ────────────────────────────── */
+        .chart-wrap {
+            position: relative;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 0.6rem;
+        }
+        #chart {
+            width: 100%;
+            height: 420px;
+            display: block;
+            cursor: crosshair;
+        }
+        #tooltip {
+            position: absolute;
+            width: 210px;
+            background: rgba(6,6,10,0.95);
+            border: 1px solid rgba(129,140,248,0.3);
+            border-radius: 8px;
+            padding: 0.55rem 0.7rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            pointer-events: none;
+            z-index: 5;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        #tooltip.is-hidden { display: none; }
+        #tooltip span { color: #71717a; display: block; margin-bottom: 0.1rem; font-size: 0.65rem; }
+        #tooltip strong { color: #fff; font-size: 0.88rem; display: block; margin-bottom: 0.1rem; }
+        #tooltip small { color: #a1a1aa; display: block; margin-top: 0.1rem; font-size: 0.65rem; }
+
+        /* ── Details panel ─────────────────────── */
+        .details-panel {
+            margin-top: 0.6rem;
+            background: rgba(255,255,255,0.015);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 10px;
+            padding: 0.65rem 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .details-panel[style*="display: none"] { display: none !important; }
+        .detail-head {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .detail-code {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .detail-name {
+            font-size: 0.7rem;
+            color: #a1a1aa;
+            flex: 1;
+        }
+        .detail-type {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #818cf8;
+            background: rgba(129,140,248,0.1);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+        }
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 0.35rem;
+        }
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+        }
+        .detail-item .lbl {
+            font-size: 0.58rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #52525b;
+        }
+        .detail-item .val {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #d4d4d8;
+        }
+        .detail-item .val.small { font-size: 0.62rem; font-weight: 400; color: #71717a; }
+        .detail-full { grid-column: 1 / -1; }
+        .detail-empty {
+            color: #52525b;
+            font-size: 0.7rem;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        /* ── Footer ───────────────────────────── */
+        .term-foot {
+            margin-top: 0.8rem;
+            color: #52525b;
+            font-size: 0.72rem;
+            line-height: 1.65;
+        }
+        .term-foot a { color: #818cf8; text-decoration: none; }
+        .term-foot a:hover { color: #c7d2fe; }
+        .term-foot code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.66rem;
+            color: #a1a1aa;
+            background: rgba(255,255,255,0.04);
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+        }
+
+        /* ── Responsive ───────────────────────── */
+        @media (max-width: 768px) {
+            .terminal-page { padding: 1rem 1rem 2rem; }
+            #chart { height: 320px; }
+            .stat-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+        }
+        @media (max-width: 480px) {
+            #chart { height: 260px; }
+            .stat-grid { grid-template-columns: repeat(3, 1fr); gap: 0.35rem; }
+            .stat-cell { padding: 0.4rem 0.5rem; }
+            .stat-cell .val { font-size: 0.82rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="terminal-page">
+        <nav class="top-nav" aria-label="Primary">
+            <a class="nav-link" href="../index.html">Market Dashboard</a>
+            <a class="nav-link" href="broker-leaderboard.html">Broker Leaderboard</a>
+            <a class="nav-link" href="docs.html">JSON Docs</a>
+            <a class="nav-link active" href="terminal.html">Terminal</a>
+            <a class="nav-link" href="about.html">About</a>
+        </nav>
+
+        <div class="term-head">
+            <h1>NEPSE_TERMINAL<span class="cursor">_</span></h1>
+            <span id="status">Booting…</span>
+        </div>
+
+        <div class="tape" id="tape" aria-label="Index tape"></div>
+
+        <!-- Toolbar: left (search·interval) | right (vol·range) -->
+        <div class="toolbar">
+            <div class="toolbar-left">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input id="searchInput" list="symlist" type="text"
+                           placeholder="Search index or scrip…" autocomplete="off" spellcheck="false"
+                           value="NEPSE">
+                    <datalist id="symlist"></datalist>
+                </div>
+                <div class="ctrl-sep"></div>
+                <div id="intervals" aria-label="Interval"></div>
+            </div>
+            <div class="toolbar-right">
+                <button id="volBtn" class="ctrl-btn vol-toggle active" title="Toggle volume bars">VOL ON</button>
+                <div class="ctrl-sep"></div>
+                <div id="ranges" aria-label="Range"></div>
+            </div>
+        </div>
+
+        <!-- Intraday tick controls (shown when a tick date is active) -->
+        <div class="ctrl-row" id="tickbox" style="display:none">
+            <div class="tick-row">
+                <span class="tick-label"><i class="fa-solid fa-bolt"></i> PER-TICK</span>
+                <input id="tickdate" type="date" min="2012-01-01">
+                <button id="tickbtn" class="ctrl-btn">LOAD</button>
+                <button id="tickback" class="ctrl-btn">← BACK</button>
+            </div>
+        </div>
+
+        <div class="stat-grid">
+            <div class="stat-cell"><div class="lbl">Last</div><div class="val" id="stat-last">-</div></div>
+            <div class="stat-cell"><div class="lbl">Change</div><div class="val" id="stat-chg">-</div></div>
+            <div class="stat-cell"><div class="lbl">Chg %</div><div class="val" id="stat-chgpct">-</div></div>
+            <div class="stat-cell"><div class="lbl">High</div><div class="val" id="stat-high">-</div></div>
+            <div class="stat-cell"><div class="lbl">Low</div><div class="val" id="stat-low">-</div></div>
+            <div class="stat-cell"><div class="lbl">Volume</div><div class="val" id="stat-vol">-</div></div>
+            <div class="stat-cell"><div class="lbl">Coverage</div><div class="val small" id="stat-count">-</div></div>
+        </div>
+
+        <div class="chart-wrap">
+            <canvas id="chart" aria-label="Price and volume chart"></canvas>
+            <div id="tooltip" class="is-hidden"></div>
+        </div>
+
+        <!-- Stock details panel -->
+        <div id="details" class="details-panel"></div>
+
+        <p class="term-foot">
+            Unified search covers all 17 NEPSE indices (1997→, OHLCV since 2025-09)
+            and every traded scrip (2007→). Type a symbol to search, pick from suggestions, or press Enter.
+            Interval aggregation: <code>1D</code> / <code>1W</code> / <code>1M</code> / <code>1Y</code>.
+            Per-tick intraday via <code>data/ltp/daily</code>.
+            <a href="sources.html">Sources &amp; Credits</a>.
+        </p>
+    </div>
+    <script src="../assets/js/terminal.js" defer></script>
+</body>
+</html>

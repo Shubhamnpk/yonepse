@@ -2065,6 +2065,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalNewsOpenBtn) {
         modalNewsOpenBtn.addEventListener('click', loadNewsForCurrentSymbol);
     }
+    const modalTerminalOpenBtn = document.getElementById('modal-terminal-open');
+    if (modalTerminalOpenBtn) {
+        modalTerminalOpenBtn.addEventListener('click', () => {
+            if (currentModalSymbol) {
+                window.location.href = `terminal.html?symbol=${encodeURIComponent(currentModalSymbol)}`;
+            }
+        });
+    }
     if (modalNewsBackBtn) {
         modalNewsBackBtn.addEventListener('click', () => setModalFocusMode(null));
     }

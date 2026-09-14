@@ -4,8 +4,8 @@
 
 **Current app version:** YONEPSE v2
 
-> [!IMPORTANT]
-> **Endpoint paths are changing.** New folder-based JSON endpoints are canonical now. Please update integrations before **November 18, 2026**; legacy paths remain available only during this transition window. See the [Migration Guide](pages/migration.html) for mappings and examples.
+> [!NOTE]
+> **Folder-based JSON endpoints are canonical.** Legacy flat paths (`data/*.json`) were removed — use `data/market/`, `data/notify/`, `data/ltp/`, `data/indices/`, and the other folder endpoints documented in the [JSON Docs](pages/docs.html).
 
 ![YONEPSE](https://img.shields.io/badge/Status-Active-success)
 ![License](https://img.shields.io/badge/License-MIT-blue)
@@ -21,6 +21,8 @@ A modern dashboard and static JSON API for tracking Nepal Stock Exchange (NEPSE)
 | [JSON Docs](https://shubhamnpk.github.io/yonepse/pages/docs.html) | Human-readable API documentation |
 | [Migration Guide](https://shubhamnpk.github.io/yonepse/pages/migration.html) | Endpoint migration details and old-to-new mappings |
 | [About](https://shubhamnpk.github.io/yonepse/pages/about.html) | Project version, philosophy, and system notes |
+| [Index Terminal](https://shubhamnpk.github.io/yonepse/pages/terminal.html) | NEPSE + sub-index charts from open index history |
+| [Sources & Credits](https://shubhamnpk.github.io/yonepse/pages/sources.html) | Every dataset and the open sources behind it |
 | [OpenAPI Spec](https://shubhamnpk.github.io/yonepse/api/openapi.yaml) | Machine-readable API schema |
 | [GitHub Repository](https://github.com/Shubhamnpk/yonepse) | Source code and project history |
 | [Issues](https://github.com/Shubhamnpk/yonepse/issues) | Bug reports and feature requests |
@@ -54,15 +56,13 @@ A modern dashboard and static JSON API for tracking Nepal Stock Exchange (NEPSE)
 - **District/Province Filters**: Geographic broker search
 - **TMS Links**: Direct access to broker trading platforms
 - **Market History**: Historical market summary data
-- **LTP History**: Monthly daily-history shards plus day-level intraday LTP snapshots
+- **LTP History**: Monthly daily-history shards
 - **Open-Ended Mutual Funds**: Daily/weekly/monthly NAV snapshots in dedicated dataset
 
 ### JSON API
 All data is available as static JSON endpoints for developers. See the [JSON Docs](https://shubhamnpk.github.io/yonepse/pages/docs.html) for the published API reference, or [`pages/docs.html`](pages/docs.html) locally.
 
-- **Endpoint migration notice**: New folder-based endpoints are now canonical. Legacy endpoint paths will continue to be supported for six months, until **November 18, 2026**, and will be removed after that date. See the [Migration Guide](pages/migration.html) for old-to-new mappings and code examples.
 - Public static API spec: [published OpenAPI](https://shubhamnpk.github.io/yonepse/api/openapi.yaml) / [`api/openapi.yaml`](api/openapi.yaml)
-- Legacy NEPSE upstream endpoint spec: [`api/openapi_legacy_nepse.yaml`](api/openapi_legacy_nepse.yaml)
 
 ### Historical Floor Sheets
 
@@ -107,10 +107,10 @@ nepse-scraper/
 |   |-- docs.html                 # JSON API documentation
 |   |-- migration.html            # Endpoint migration guide
 |   |-- about.html                # Project/version overview
+|   |-- sources.html              # Data sources & credits
 |-- start_server.bat              # Windows local server starter
 |-- api/                          # Machine-readable API specs
 |   |-- openapi.yaml              # Published YONEPSE API schema
-|   |-- openapi_legacy_nepse.yaml # Legacy upstream NEPSE reference
 |-- assets/                       # Static frontend assets
 |   |-- css/
 |   |   |-- style.css             # Shared styling
@@ -135,7 +135,6 @@ nepse-scraper/
 |   |-- ltp/                # LTP history shards
 |   |   |-- manifest.json         # Available months + latest date
 |   |   |-- monthly/              # Monthly sparse symbol history
-|   |   |-- daily/                # Daily intraday sparse symbol snapshots
 |   |-- notify/            # Notices, disclosures, and exchange messages
 |   |   |-- notices.json          # Exchange notices
 |   |   |-- disclosures.json      # Company disclosures
@@ -236,9 +235,6 @@ python proposed_dividend_scraper.py --mode backfill
 
 # Rebuild LTP monthly history shards from the current market data
 python ltp_history/build_ltp_shards.py --latest-status final
-
-# Add/update today's intraday LTP shard from the current market data
-python ltp_history/build_ltp_intraday.py
 ```
 
 ---
@@ -251,7 +247,7 @@ python ltp_history/build_ltp_intraday.py
 - **Data**: Stock prices, indices, market summary, top stocks, notices, disclosures, exchange messages, supply/demand, and open-ended mutual fund NAVs
 - **Files**: Updates market JSON files in `data/` and LTP history shards in `data/ltp/`
 - **OMF Integration**: Refreshes `data/OMF.json` and merges open-ended mutual funds into `data/nepse_data.json` in the same run
-- **LTP History**: Appends intraday slots under `data/ltp/daily/` and refreshes today's monthly shard row while the market is open, then marks the row final after the close-time scan
+- **LTP History**: Refreshes today's monthly shard row while the market is open, then marks the row final after the close-time scan
 
 ### IPO Scraper ([`.github/workflows/scrape_ipo.yml`](.github/workflows/scrape_ipo.yml))
 - **Schedule**: Daily at 4:00 AM UTC (9:45 AM NPT)
@@ -271,8 +267,6 @@ python ltp_history/build_ltp_intraday.py
 
 All data is accessible as static JSON endpoints:
 
-Migration notice: use the new endpoints listed below for all new integrations. Legacy paths such as `/data/indices.json`, `/data/market_status.json`, `/data/upcoming_ipo.json`, `/data/oldipo.json`, `/data/brokers.json`, `/data/all_securities.json`, `/data/nepse_sector_wise_codes.json`, and `/data/notices.json` are supported only until **November 18, 2026**.
-
 | Endpoint | Type | Description |
 |----------|------|-------------|
 | `/data/nepse_data.json` | Array | Market prices + mapped open-ended mutual fund rows (`asset_type: open_ended_mutual_fund`) |
@@ -283,9 +277,8 @@ Migration notice: use the new endpoints listed below for all new integrations. L
 | `/data/market/summary.json` | Object | Current day market summary |
 | `/data/market/history.json` | Array | Historical market data |
 | `/data/market/live.json` | Array | Same current market rows as `/data/nepse_data.json` |
-| `/data/ltp/manifest.json` | Object | LTP history manifest with available months, available intraday days, and latest row status (`provisional` intraday, `final` after close) |
+| `/data/ltp/manifest.json` | Object | LTP history manifest with available months and latest row status (`provisional` while open, `final` after close) |
 | `/data/ltp/monthly/YYYY-MM.json` | Object | Monthly sparse daily LTP, volume, turnover, and trades history |
-| `/data/ltp/daily/YYYY-MM-DD.json` | Object | Day-level intraday sparse LTP, volume, turnover, and trades snapshots |
 | `/data/market/status.json` | Object | Market open/closed status |
 | `/data/notify/disclosures.json` | Array | Company disclosures |
 | `/data/notify/exchange_messages.json` | Array | Exchange announcements |
@@ -333,14 +326,10 @@ curl -s https://shubhamnpk.github.io/yonepse/data/ltp/manifest.json
 
 # Monthly LTP history shard
 curl -s https://shubhamnpk.github.io/yonepse/data/ltp/monthly/2026-05.json
-
-# Daily intraday LTP shard
-curl -s https://shubhamnpk.github.io/yonepse/data/ltp/daily/2026-05-20.json
 ```
 
 OpenAPI spec:
 - [`api/openapi.yaml`](api/openapi.yaml)
-- [`api/openapi_legacy_nepse.yaml`](api/openapi_legacy_nepse.yaml) (legacy NEPSE upstream reference)
 
 ---
 
@@ -380,7 +369,6 @@ OpenAPI spec:
 - [`upcoming_ipo_scraper.py`](scripts/nepse-scraper/upcoming_ipo_scraper.py) - IPO data from Merolagani
 - [`proposed_dividend_scraper.py`](scripts/nepse-scraper/proposed_dividend_scraper.py) - Proposed dividend data from ShareSansar
 - [`ltp_history/build_ltp_shards.py`](scripts/nepse-scraper/ltp_history/build_ltp_shards.py) - Builds sparse monthly LTP history shards
-- [`ltp_history/build_ltp_intraday.py`](scripts/nepse-scraper/ltp_history/build_ltp_intraday.py) - Builds sparse daily intraday LTP history shards
 - [`ltp_history/generate_ltp_shard_demo.py`](scripts/nepse-scraper/ltp_history/generate_ltp_shard_demo.py) - Generates demo LTP shard data for testing
 - [`official_api/`](scripts/nepse-scraper/official_api/) - NEPSE API Python client with WASM auth
 
@@ -388,19 +376,21 @@ OpenAPI spec:
 
 ## 📱 Data Sources
 
-- **NEPSE Official API**: Primary source for market data
+- **NEPSE Official API**: Primary source for market data — live prices, index snapshots, disclosures, floor sheets, and index history (2025-09 → now)
 - **Merolagani**: IPO announcements and company news
 - **ShareSansar**: Open-ended mutual fund NAVs and proposed dividend data
+- **[socrateai-official/nepse-open-data](https://github.com/socrateai-official/nepse-open-data)**: Open index OHLC archive powering `data/indices/` history for 2003 → 2025 (all sub-indices)
+- **[Nepse-Data-Analysis-From-1997--2022](https://github.com/sssss0008/Nepse-Data-Analysis-From-1997--2022)**: Community NEPSE main-index archive powering `data/indices/` history for 1997 → 2003
 
-Data is scraped for educational purposes. All data credits belong to the respective owners.
+Data is scraped for educational purposes. All data credits belong to the respective owners. Full attribution with era coverage lives on the [Sources & Credits page](pages/sources.html).
 
 ---
 
 ## 🤝 Credits
 
 - **Developers**: My Wallet Team & Yoguru Team & [@Shubhamnpk](https://github.com/Shubhamnpk)
-- **Data Sources**: Nepal Stock Exchange (NEPSE), Merolagani, ShareSansar
-- **Not affiliated with**: NEPSE, Merolagani, or ShareSansar
+- **Data Sources**: Nepal Stock Exchange (NEPSE), Merolagani, ShareSansar, [socrateai-official/nepse-open-data](https://github.com/socrateai-official/nepse-open-data), [Nepse-Data-Analysis-From-1997--2022](https://github.com/sssss0008/Nepse-Data-Analysis-From-1997--2022)
+- **Not affiliated with**: NEPSE, Merolagani, ShareSansar, or any archive maintainer
 
 ---
 

@@ -40,8 +40,8 @@
 
         <nav class="top-nav" aria-label="Primary">
             <a class="nav-link active" href="index.html">Market Dashboard</a>
-            <a class="nav-link" href="pages/data.html">Brokers & Datasets</a>
             <a class="nav-link" href="pages/broker-leaderboard.html">Broker Leaderboard</a>
+            <a class="nav-link" href="pages/terminal.html">Terminal</a>
             <a class="nav-link" href="pages/about.html">About</a>
         </nav>
 
@@ -295,10 +295,13 @@
                     </div>
                 </section>
                 <div class="modal-footer-info">
-                    <button id="modal-ltp-history-open" class="modal-dividend-btn" type="button">View Price History</button>
-                    <button id="modal-financial-open" class="modal-dividend-btn" type="button">View Financial Reports</button>
-                    <button id="modal-dividend-open" class="modal-dividend-btn" type="button">View Dividend History</button>
-                    <button id="modal-news-open" class="modal-dividend-btn" type="button">View News</button>
+                    <div class="modal-footer-actions">
+                        <button id="modal-terminal-open" class="modal-dividend-btn modal-terminal-btn" type="button"><i class="fa-solid fa-terminal"></i> Open in Terminal</button>
+                        <button id="modal-ltp-history-open" class="modal-dividend-btn" type="button">View Price History</button>
+                        <button id="modal-financial-open" class="modal-dividend-btn" type="button">View Financial Reports</button>
+                        <button id="modal-dividend-open" class="modal-dividend-btn" type="button">View Dividend History</button>
+                        <button id="modal-news-open" class="modal-dividend-btn" type="button">View News</button>
+                    </div>
                     <p><i class="fa-solid fa-clock"></i> Last updated: <span id="modal-last-updated">-</span></p>
                     <div id="modal-ltp-history-block" class="modal-dividend-block is-hidden">
                         <div class="modal-dividend-header">

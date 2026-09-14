@@ -19,7 +19,7 @@ flowchart TD
     MarketData --> LiveFiles["Live prices<br/>data/nepse_data.json<br/>data/market/live.json"]
     MarketData --> IndexFiles["Indices + summary<br/>data/market/indices.json<br/>data/market/summary.json<br/>data/market/status.json"]
     MarketData --> NotifyFiles["Notices + disclosures<br/>data/notify/notices.json<br/>data/notify/disclosures.json<br/>data/notify/exchange_messages.json"]
-    MarketData --> LtpFiles["LTP history<br/>data/ltp/monthly/*<br/>data/ltp/daily/*"]
+    MarketData --> LtpFiles["LTP history<br/>data/ltp/monthly/*"]
     MarketData --> OtherFiles["Reference data<br/>data/other/securities.json<br/>brokers only when due"]
 
     LiveFiles --> MarketValidate
@@ -41,7 +41,7 @@ flowchart TD
     CompanyMeta --> IpoRun
     Profiles --> IpoRun
     IpoRun["Run IPO + dividend + sector scripts"]
-    IpoRun --> IpoFiles["IPO archive<br/>data/ipo/upcoming.json<br/>data/ipo/old.json<br/>legacy IPO aliases"]
+    IpoRun --> IpoFiles["IPO archive<br/>data/ipo/upcoming.json<br/>data/ipo/old.json"]
     IpoRun --> DividendFiles["Proposed dividends<br/>data/proposed_dividend/latest_1y.json<br/>data/proposed_dividend/history_all_years.json<br/>data/proposed_dividend/meta.json"]
     IpoRun --> SectorFiles["Sector aliases<br/>data/nepse_sector_wise_codes.json"]
 
