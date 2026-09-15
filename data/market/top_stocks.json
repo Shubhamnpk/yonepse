@@ -3,7 +3,7 @@
         {
             "symbol": "DLBS",
             "ltp": 1119.0,
-            "cp": null,
+            "cp": 1119.0,
             "pointChange": 145.6,
             "percentageChange": 14.96,
             "securityName": "Dhaulagiri Laghubitta Bittiya Sanstha Limited",
@@ -12,7 +12,7 @@
         {
             "symbol": "SINDU",
             "ltp": 450.0,
-            "cp": null,
+            "cp": 450.0,
             "pointChange": 44.7,
             "percentageChange": 11.03,
             "securityName": "Sindhu Bikash Bank Ltd",
@@ -21,7 +21,7 @@
         {
             "symbol": "MPFL",
             "ltp": 620.0,
-            "cp": null,
+            "cp": 620.0,
             "pointChange": 55.0,
             "percentageChange": 9.73,
             "securityName": "Multipurpose Finance Company  Limited",
@@ -30,7 +30,7 @@
         {
             "symbol": "JFL",
             "ltp": 295.0,
-            "cp": null,
+            "cp": 295.0,
             "pointChange": 22.0,
             "percentageChange": 8.06,
             "securityName": "Janaki Finance Company Limited",
@@ -39,7 +39,7 @@
         {
             "symbol": "MSHL",
             "ltp": 560.0,
-            "cp": null,
+            "cp": 560.0,
             "pointChange": 35.0,
             "percentageChange": 6.67,
             "securityName": "Mid Solu Hydropower Limited",
@@ -48,7 +48,7 @@
         {
             "symbol": "JOSHI",
             "ltp": 271.8,
-            "cp": null,
+            "cp": 271.8,
             "pointChange": 15.7,
             "percentageChange": 6.13,
             "securityName": "Joshi Hydropower Development Company Ltd",
@@ -57,7 +57,7 @@
         {
             "symbol": "TVCL",
             "ltp": 317.6,
-            "cp": null,
+            "cp": 317.6,
             "pointChange": 17.6,
             "percentageChange": 5.87,
             "securityName": "Trishuli Jal Vidhyut Company Limited ",
@@ -66,7 +66,7 @@
         {
             "symbol": "SPIL",
             "ltp": 639.0,
-            "cp": null,
+            "cp": 639.0,
             "pointChange": 35.0,
             "percentageChange": 5.79,
             "securityName": "Siddhartha Premier Insurance Limited",
@@ -75,7 +75,7 @@
         {
             "symbol": "NICBF",
             "ltp": 8.95,
-            "cp": null,
+            "cp": 8.95,
             "pointChange": 0.48,
             "percentageChange": 5.67,
             "securityName": "NIC Asia Balanced Fund",
@@ -84,7 +84,7 @@
         {
             "symbol": "BFC",
             "ltp": 470.1,
-            "cp": null,
+            "cp": 470.1,
             "pointChange": 24.1,
             "percentageChange": 5.4,
             "securityName": "Best Finance Company Ltd.",
@@ -93,7 +93,7 @@
         {
             "symbol": "IHL",
             "ltp": 326.5,
-            "cp": null,
+            "cp": 326.5,
             "pointChange": 16.5,
             "percentageChange": 5.32,
             "securityName": "Ingwa Hydropower Limited",
@@ -102,7 +102,7 @@
         {
             "symbol": "AHL",
             "ltp": 376.1,
-            "cp": null,
+            "cp": 376.1,
             "pointChange": 18.1,
             "percentageChange": 5.06,
             "securityName": "Asian Hydropower Limited",
@@ -111,7 +111,7 @@
         {
             "symbol": "NICA",
             "ltp": 329.9,
-            "cp": null,
+            "cp": 329.9,
             "pointChange": 15.9,
             "percentageChange": 5.06,
             "securityName": "NIC Asia Bank Ltd.",
@@ -120,7 +120,7 @@
         {
             "symbol": "SPDL",
             "ltp": 370.0,
-            "cp": null,
+            "cp": 370.0,
             "pointChange": 17.5,
             "percentageChange": 4.96,
             "securityName": "Synergy Power Development Ltd.",
@@ -129,7 +129,7 @@
         {
             "symbol": "MEHL",
             "ltp": 255.0,
-            "cp": null,
+            "cp": 255.0,
             "pointChange": 12.0,
             "percentageChange": 4.94,
             "securityName": "Manakamana Engineering Hydropower Limited",
@@ -138,7 +138,7 @@
         {
             "symbol": "SKHEL",
             "ltp": 871.0,
-            "cp": null,
+            "cp": 871.0,
             "pointChange": 40.5,
             "percentageChange": 4.88,
             "securityName": "Suryakunda Hydro Electric Limited",
@@ -147,7 +147,7 @@
         {
             "symbol": "NMIC",
             "ltp": 865.2,
-            "cp": null,
+            "cp": 865.2,
             "pointChange": 40.2,
             "percentageChange": 4.87,
             "securityName": "Nepal Micro Insurance Company Limited",
@@ -156,7 +156,7 @@
         {
             "symbol": "RLEL",
             "ltp": 828.0,
-            "cp": null,
+            "cp": 828.0,
             "pointChange": 38.1,
             "percentageChange": 4.82,
             "securityName": "Ridge Line Energy Limited",
@@ -165,7 +165,7 @@
         {
             "symbol": "NADEP",
             "ltp": 718.0,
-            "cp": null,
+            "cp": 718.0,
             "pointChange": 33.0,
             "percentageChange": 4.82,
             "securityName": "Nadep Laghubittiya bittya Sanstha Ltd.",
@@ -174,16 +174,25 @@
         {
             "symbol": "SMJC",
             "ltp": 432.0,
-            "cp": null,
+            "cp": 432.0,
             "pointChange": 19.7,
             "percentageChange": 4.78,
             "securityName": "Sagarmatha Jalabidhyut Company Limited",
             "securityId": 9159
         },
         {
+            "symbol": "MEPDL",
+            "ltp": 673.5,
+            "cp": 673.5,
+            "pointChange": 30.0,
+            "percentageChange": 4.66,
+            "securityName": "Mount Everest Power Development Limited",
+            "securityId": 9352
+        },
+        {
             "symbol": "SAGAR",
             "ltp": 1622.0,
-            "cp": null,
+            "cp": 1622.0,
             "pointChange": 72.0,
             "percentageChange": 4.65,
             "securityName": "Sagar Distillery Limited",
@@ -192,7 +201,7 @@
         {
             "symbol": "MLBS",
             "ltp": 1066.0,
-            "cp": null,
+            "cp": 1066.0,
             "pointChange": 47.0,
             "percentageChange": 4.61,
             "securityName": "Manushi Laghubitta Bittiya Sanstha Limited",
@@ -201,7 +210,7 @@
         {
             "symbol": "HIDCL",
             "ltp": 257.6,
-            "cp": null,
+            "cp": 257.6,
             "pointChange": 11.1,
             "percentageChange": 4.5,
             "securityName": "Hydorelectricity Investment and Development Company Ltd",
@@ -210,7 +219,7 @@
         {
             "symbol": "SHLB",
             "ltp": 1400.0,
-            "cp": null,
+            "cp": 1400.0,
             "pointChange": 60.0,
             "percentageChange": 4.48,
             "securityName": "Shrijanshil Laghubitta Bittiya Sanstha Limited",
@@ -219,25 +228,16 @@
         {
             "symbol": "MHCL",
             "ltp": 297.7,
-            "cp": null,
+            "cp": 297.7,
             "pointChange": 12.7,
             "percentageChange": 4.46,
             "securityName": "Molung Hydropower Company Limited",
             "securityId": 9158
         },
         {
-            "symbol": "MEPDL",
-            "ltp": 672.0,
-            "cp": null,
-            "pointChange": 28.5,
-            "percentageChange": 4.43,
-            "securityName": "Mount Everest Power Development Limited",
-            "securityId": 9352
-        },
-        {
             "symbol": "HURJA",
             "ltp": 263.0,
-            "cp": null,
+            "cp": 263.0,
             "pointChange": 11.0,
             "percentageChange": 4.37,
             "securityName": "Himalaya Urja Bikas Company Limited",
@@ -246,7 +246,7 @@
         {
             "symbol": "NWCL",
             "ltp": 620.9,
-            "cp": null,
+            "cp": 620.9,
             "pointChange": 25.9,
             "percentageChange": 4.35,
             "securityName": "Nepal Warehousing Company Limited ",
@@ -255,7 +255,7 @@
         {
             "symbol": "AVYAN",
             "ltp": 1078.0,
-            "cp": null,
+            "cp": 1078.0,
             "pointChange": 44.0,
             "percentageChange": 4.26,
             "securityName": "Aviyan Laghubitta Bittiya Sanstha Limited",
@@ -264,7 +264,7 @@
         {
             "symbol": "SLBSL",
             "ltp": 917.0,
-            "cp": null,
+            "cp": 917.0,
             "pointChange": 37.0,
             "percentageChange": 4.2,
             "securityName": "Samudayik Laghubitta Bittiya Sanstha Limited",
@@ -273,7 +273,7 @@
         {
             "symbol": "BARUN",
             "ltp": 332.0,
-            "cp": null,
+            "cp": 332.0,
             "pointChange": 12.8,
             "percentageChange": 4.01,
             "securityName": "Barun Hydropower Co. Ltd.",
@@ -282,7 +282,7 @@
         {
             "symbol": "NGPL",
             "ltp": 417.0,
-            "cp": null,
+            "cp": 417.0,
             "pointChange": 16.0,
             "percentageChange": 3.99,
             "securityName": "Ngadi Group Power Ltd.",
@@ -291,7 +291,7 @@
         {
             "symbol": "NMB",
             "ltp": 252.6,
-            "cp": null,
+            "cp": 252.6,
             "pointChange": 9.6,
             "percentageChange": 3.95,
             "securityName": "NMB Bank Limited",
@@ -300,7 +300,7 @@
         {
             "symbol": "USLB",
             "ltp": 1049.0,
-            "cp": null,
+            "cp": 1049.0,
             "pointChange": 39.0,
             "percentageChange": 3.86,
             "securityName": "Unnati Sahakarya Laghubitta Bittiya Sanstha Limited",
@@ -309,7 +309,7 @@
         {
             "symbol": "TPC",
             "ltp": 374.9,
-            "cp": null,
+            "cp": 374.9,
             "pointChange": 13.9,
             "percentageChange": 3.85,
             "securityName": "Terhathum Power Company Limited",
@@ -318,7 +318,7 @@
         {
             "symbol": "CREST",
             "ltp": 1099.9,
-            "cp": null,
+            "cp": 1099.9,
             "pointChange": 39.7,
             "percentageChange": 3.74,
             "securityName": "Crest Micro Life Insurance Limited",
@@ -327,7 +327,7 @@
         {
             "symbol": "GRDBL",
             "ltp": 975.0,
-            "cp": null,
+            "cp": 975.0,
             "pointChange": 35.0,
             "percentageChange": 3.72,
             "securityName": "Green Development Bank Ltd.",
@@ -336,7 +336,7 @@
         {
             "symbol": "HLI",
             "ltp": 315.1,
-            "cp": null,
+            "cp": 315.1,
             "pointChange": 11.1,
             "percentageChange": 3.65,
             "securityName": "Himalayan Life Insurance Limited",
@@ -345,7 +345,7 @@
         {
             "symbol": "KBSH",
             "ltp": 866.0,
-            "cp": null,
+            "cp": 866.0,
             "pointChange": 30.0,
             "percentageChange": 3.59,
             "securityName": "Kutheli Bukhari Small Hydropower Limited",
@@ -354,7 +354,7 @@
         {
             "symbol": "SICL",
             "ltp": 580.0,
-            "cp": null,
+            "cp": 580.0,
             "pointChange": 20.0,
             "percentageChange": 3.57,
             "securityName": "Shikhar Insurance Co. Ltd.",
@@ -363,7 +363,7 @@
         {
             "symbol": "HEI",
             "ltp": 488.7,
-            "cp": null,
+            "cp": 488.7,
             "pointChange": 16.8,
             "percentageChange": 3.56,
             "securityName": "Himalayan Everest Insurance Limited",
@@ -372,16 +372,25 @@
         {
             "symbol": "UPCL",
             "ltp": 350.0,
-            "cp": null,
+            "cp": 350.0,
             "pointChange": 12.0,
             "percentageChange": 3.55,
             "securityName": "UNIVERSAL POWER COMPANY LTD",
             "securityId": 2810
         },
         {
+            "symbol": "NBLD82",
+            "ltp": 1054.6,
+            "cp": 1054.6,
+            "pointChange": 36.1,
+            "percentageChange": 3.54,
+            "securityName": "10% Nabil Debenture 2082",
+            "securityId": 2892
+        },
+        {
             "symbol": "JHAPA",
             "ltp": 1095.0,
-            "cp": null,
+            "cp": 1095.0,
             "pointChange": 37.0,
             "percentageChange": 3.5,
             "securityName": "Jhapa Energy Limited",
@@ -390,7 +399,7 @@
         {
             "symbol": "PURE",
             "ltp": 799.9,
-            "cp": null,
+            "cp": 799.9,
             "pointChange": 26.9,
             "percentageChange": 3.48,
             "securityName": "Pure Energy Limited",
@@ -399,7 +408,7 @@
         {
             "symbol": "GUFL",
             "ltp": 521.0,
-            "cp": null,
+            "cp": 521.0,
             "pointChange": 17.5,
             "percentageChange": 3.48,
             "securityName": "Gurkhas Finance Ltd.",
@@ -408,7 +417,7 @@
         {
             "symbol": "ALICL",
             "ltp": 418.0,
-            "cp": null,
+            "cp": 418.0,
             "pointChange": 14.0,
             "percentageChange": 3.47,
             "securityName": "Asian Life Insurance Co. Limited",
@@ -417,7 +426,7 @@
         {
             "symbol": "CZBIL",
             "ltp": 208.9,
-            "cp": null,
+            "cp": 208.9,
             "pointChange": 6.9,
             "percentageChange": 3.42,
             "securityName": "Citizens Bank International Limited",
@@ -426,7 +435,7 @@
         {
             "symbol": "PROFL",
             "ltp": 394.0,
-            "cp": null,
+            "cp": 394.0,
             "pointChange": 13.0,
             "percentageChange": 3.41,
             "securityName": "Progressive Finance Limited",
@@ -435,7 +444,7 @@
         {
             "symbol": "PMLI",
             "ltp": 428.0,
-            "cp": null,
+            "cp": 428.0,
             "pointChange": 14.0,
             "percentageChange": 3.38,
             "securityName": "Prabhu Mahalaxmi Life Insurance Limited",
@@ -444,7 +453,7 @@
         {
             "symbol": "MKCL",
             "ltp": 920.0,
-            "cp": null,
+            "cp": 920.0,
             "pointChange": 30.0,
             "percentageChange": 3.37,
             "securityName": "Muktinath Krishi Company Limited",
@@ -453,7 +462,7 @@
         {
             "symbol": "RSDC",
             "ltp": 642.9,
-            "cp": null,
+            "cp": 642.9,
             "pointChange": 20.9,
             "percentageChange": 3.36,
             "securityName": "RSDC Laghubitta Bittiya Sanstha Ltd.",
@@ -462,7 +471,7 @@
         {
             "symbol": "MCHL",
             "ltp": 272.8,
-            "cp": null,
+            "cp": 272.8,
             "pointChange": 8.8,
             "percentageChange": 3.33,
             "securityName": "Menchhiyam Hydropower Limited",
@@ -471,7 +480,7 @@
         {
             "symbol": "SFEF",
             "ltp": 9.4,
-            "cp": null,
+            "cp": 9.4,
             "pointChange": 0.3,
             "percentageChange": 3.3,
             "securityName": "Sunrise Focused Equity Fund",
@@ -480,7 +489,7 @@
         {
             "symbol": "SMATA",
             "ltp": 724.0,
-            "cp": null,
+            "cp": 724.0,
             "pointChange": 23.0,
             "percentageChange": 3.28,
             "securityName": "Samata Gharelu Laghubitta Bittiya Sanstha Limited",
@@ -489,7 +498,7 @@
         {
             "symbol": "NIFRA",
             "ltp": 255.0,
-            "cp": null,
+            "cp": 255.0,
             "pointChange": 8.1,
             "percentageChange": 3.28,
             "securityName": "Nepal Infrastructure Bank Limited",
@@ -498,7 +507,7 @@
         {
             "symbol": "NRIC",
             "ltp": 844.5,
-            "cp": null,
+            "cp": 844.5,
             "pointChange": 26.5,
             "percentageChange": 3.24,
             "securityName": "Nepal Reinsurance Company Limited",
@@ -507,7 +516,7 @@
         {
             "symbol": "SGHC",
             "ltp": 309.6,
-            "cp": null,
+            "cp": 309.6,
             "pointChange": 9.6,
             "percentageChange": 3.2,
             "securityName": "Swet-Ganga Hydropower & Construction Limited ",
@@ -516,7 +525,7 @@
         {
             "symbol": "HIMSTAR",
             "ltp": 676.0,
-            "cp": null,
+            "cp": 676.0,
             "pointChange": 20.9,
             "percentageChange": 3.19,
             "securityName": "Him Star Urja Company Limited",
@@ -525,7 +534,7 @@
         {
             "symbol": "PMHPL",
             "ltp": 319.9,
-            "cp": null,
+            "cp": 319.9,
             "pointChange": 9.9,
             "percentageChange": 3.19,
             "securityName": "Panchakanya Mai Hydropower Ltd",
@@ -534,7 +543,7 @@
         {
             "symbol": "MBJC",
             "ltp": 295.0,
-            "cp": null,
+            "cp": 295.0,
             "pointChange": 9.1,
             "percentageChange": 3.18,
             "securityName": "Madhya Bhotekoshi Jalavidyut Company Limited",
@@ -543,7 +552,7 @@
         {
             "symbol": "RHPL",
             "ltp": 172.1,
-            "cp": null,
+            "cp": 172.1,
             "pointChange": 5.3,
             "percentageChange": 3.18,
             "securityName": "RASUWAGADHI HYDROPOWER COMPANY LIMITED",
@@ -552,7 +561,7 @@
         {
             "symbol": "UNHPL",
             "ltp": 367.8,
-            "cp": null,
+            "cp": 367.8,
             "pointChange": 11.2,
             "percentageChange": 3.14,
             "securityName": "Union Hydropower Limited",
@@ -561,7 +570,7 @@
         {
             "symbol": "UPPER",
             "ltp": 199.0,
-            "cp": null,
+            "cp": 199.0,
             "pointChange": 6.0,
             "percentageChange": 3.11,
             "securityName": "Upper Tamakoshi Hydropower Ltd",
@@ -570,7 +579,7 @@
         {
             "symbol": "BPCL",
             "ltp": 673.9,
-            "cp": null,
+            "cp": 673.9,
             "pointChange": 20.0,
             "percentageChange": 3.06,
             "securityName": "Butwal Power Company Limited",
@@ -579,7 +588,7 @@
         {
             "symbol": "GMFIL",
             "ltp": 433.7,
-            "cp": null,
+            "cp": 433.7,
             "pointChange": 12.7,
             "percentageChange": 3.02,
             "securityName": "Guheshowori Merchant Bank & Finance Co. Ltd.",
@@ -588,7 +597,7 @@
         {
             "symbol": "NFS",
             "ltp": 516.0,
-            "cp": null,
+            "cp": 516.0,
             "pointChange": 15.1,
             "percentageChange": 3.01,
             "securityName": "Nepal Finance Ltd.",
@@ -597,7 +606,7 @@
         {
             "symbol": "LSL",
             "ltp": 236.3,
-            "cp": null,
+            "cp": 236.3,
             "pointChange": 6.9,
             "percentageChange": 3.01,
             "securityName": "Laxmi Sunrise Bank Limited",
@@ -606,7 +615,7 @@
         {
             "symbol": "NLIC",
             "ltp": 730.0,
-            "cp": null,
+            "cp": 730.0,
             "pointChange": 21.0,
             "percentageChange": 2.96,
             "securityName": "Nepal Life Insurance Co. Ltd.",
@@ -615,7 +624,7 @@
         {
             "symbol": "NSY",
             "ltp": 9.4,
-            "cp": null,
+            "cp": 9.4,
             "pointChange": 0.27,
             "percentageChange": 2.96,
             "securityName": "Nepal Life Samriddhi Lagani Yojana",
@@ -624,7 +633,7 @@
         {
             "symbol": "PSF",
             "ltp": 11.16,
-            "cp": null,
+            "cp": 11.16,
             "pointChange": 0.32,
             "percentageChange": 2.95,
             "securityName": "Prabhu Select Fund",
@@ -633,7 +642,7 @@
         {
             "symbol": "KKHC",
             "ltp": 280.0,
-            "cp": null,
+            "cp": 280.0,
             "pointChange": 8.0,
             "percentageChange": 2.94,
             "securityName": "Khanikhola Hydropower Co. Ltd.",
@@ -642,7 +651,7 @@
         {
             "symbol": "RBBF40",
             "ltp": 9.11,
-            "cp": null,
+            "cp": 9.11,
             "pointChange": 0.26,
             "percentageChange": 2.94,
             "securityName": "RBB Focus 40",
@@ -651,7 +660,7 @@
         {
             "symbol": "NMBHF2",
             "ltp": 9.18,
-            "cp": null,
+            "cp": 9.18,
             "pointChange": 0.26,
             "percentageChange": 2.91,
             "securityName": "NMB Hybrid Fund L- II",
@@ -660,7 +669,7 @@
         {
             "symbol": "NICLBSL",
             "ltp": 532.0,
-            "cp": null,
+            "cp": 532.0,
             "pointChange": 15.0,
             "percentageChange": 2.9,
             "securityName": "NIC ASIA Laghubitta Bittiya Sanstha Limited",
@@ -669,7 +678,7 @@
         {
             "symbol": "NMBMF",
             "ltp": 605.0,
-            "cp": null,
+            "cp": 605.0,
             "pointChange": 17.0,
             "percentageChange": 2.89,
             "securityName": "NMB  Microfinance Bittiya Sanstha Ltd.",
@@ -678,7 +687,7 @@
         {
             "symbol": "PHCL",
             "ltp": 313.6,
-            "cp": null,
+            "cp": 313.6,
             "pointChange": 8.8,
             "percentageChange": 2.89,
             "securityName": "Peoples Hydropower Company Limited",
@@ -687,7 +696,7 @@
         {
             "symbol": "MKHC",
             "ltp": 267.0,
-            "cp": null,
+            "cp": 267.0,
             "pointChange": 7.5,
             "percentageChange": 2.89,
             "securityName": "Maya Khola Hydropower Company Limited",
@@ -696,7 +705,7 @@
         {
             "symbol": "SRLI",
             "ltp": 371.5,
-            "cp": null,
+            "cp": 371.5,
             "pointChange": 10.4,
             "percentageChange": 2.88,
             "securityName": "Sanima Reliance Life Insurance Limited",
@@ -705,7 +714,7 @@
         {
             "symbol": "BUNGAL",
             "ltp": 538.0,
-            "cp": null,
+            "cp": 538.0,
             "pointChange": 15.0,
             "percentageChange": 2.87,
             "securityName": "Bungal Hydro Limited",
@@ -714,7 +723,7 @@
         {
             "symbol": "SMFBS",
             "ltp": 1441.0,
-            "cp": null,
+            "cp": 1441.0,
             "pointChange": 40.0,
             "percentageChange": 2.86,
             "securityName": "Swabhimaan Laghubitta Bittiya Sanstha Limited",
@@ -723,7 +732,7 @@
         {
             "symbol": "SNORL",
             "ltp": 894.9,
-            "cp": null,
+            "cp": 894.9,
             "pointChange": 24.9,
             "percentageChange": 2.86,
             "securityName": "Snow Rivers Limited",
@@ -732,7 +741,7 @@
         {
             "symbol": "HATHY",
             "ltp": 612.0,
-            "cp": null,
+            "cp": 612.0,
             "pointChange": 17.0,
             "percentageChange": 2.86,
             "securityName": "Hathway Investment Nepal Limited",
@@ -741,7 +750,7 @@
         {
             "symbol": "BNT",
             "ltp": 11838.0,
-            "cp": null,
+            "cp": 11838.0,
             "pointChange": 327.9,
             "percentageChange": 2.85,
             "securityName": "Bottlers Nepal (Terai) Limited",
@@ -750,7 +759,7 @@
         {
             "symbol": "HFIN",
             "ltp": 649.0,
-            "cp": null,
+            "cp": 649.0,
             "pointChange": 18.0,
             "percentageChange": 2.85,
             "securityName": "Hotel Forest Inn Limited",
@@ -759,7 +768,7 @@
         {
             "symbol": "MLBSL",
             "ltp": 1119.0,
-            "cp": null,
+            "cp": 1119.0,
             "pointChange": 30.9,
             "percentageChange": 2.84,
             "securityName": "Mahila Lagubitta Bittiya Sanstha Limited ",
@@ -768,7 +777,7 @@
         {
             "symbol": "CHDC",
             "ltp": 2318.0,
-            "cp": null,
+            "cp": 2318.0,
             "pointChange": 63.0,
             "percentageChange": 2.79,
             "securityName": "CEDB Holdings Limited",
@@ -777,7 +786,7 @@
         {
             "symbol": "MBL",
             "ltp": 257.7,
-            "cp": null,
+            "cp": 257.7,
             "pointChange": 7.0,
             "percentageChange": 2.79,
             "securityName": "Machhapuchhre Bank Limited",
@@ -786,7 +795,7 @@
         {
             "symbol": "SJCL",
             "ltp": 246.7,
-            "cp": null,
+            "cp": 246.7,
             "pointChange": 6.7,
             "percentageChange": 2.79,
             "securityName": "SANJEN JALAVIDHYUT COMPANY LIMITED",
@@ -795,7 +804,7 @@
         {
             "symbol": "RSY2",
             "ltp": 9.2,
-            "cp": null,
+            "cp": 9.2,
             "pointChange": 0.25,
             "percentageChange": 2.79,
             "securityName": "Reliable Samriddhi Yojana -2",
@@ -804,7 +813,7 @@
         {
             "symbol": "PCIL",
             "ltp": 632.1,
-            "cp": null,
+            "cp": 632.1,
             "pointChange": 17.1,
             "percentageChange": 2.78,
             "securityName": "Palpa Cement Industries Limited",
@@ -813,7 +822,7 @@
         {
             "symbol": "SALICO",
             "ltp": 550.0,
-            "cp": null,
+            "cp": 550.0,
             "pointChange": 14.9,
             "percentageChange": 2.78,
             "securityName": "Sagarmatha Lumbini Insurance Co. Limited",
@@ -822,7 +831,7 @@
         {
             "symbol": "NMFBS",
             "ltp": 1150.9,
-            "cp": null,
+            "cp": 1150.9,
             "pointChange": 30.9,
             "percentageChange": 2.76,
             "securityName": "National Laghubitta Bittiya Sanstha Limited",
@@ -831,16 +840,25 @@
         {
             "symbol": "OMPL",
             "ltp": 906.0,
-            "cp": null,
+            "cp": 906.0,
             "pointChange": 24.0,
             "percentageChange": 2.72,
             "securityName": "Om Megashree Pharmaceuticals Limited",
             "securityId": 9256
         },
         {
+            "symbol": "LEC",
+            "ltp": 256.8,
+            "cp": 256.8,
+            "pointChange": 6.8,
+            "percentageChange": 2.72,
+            "securityName": "Liberty Energy Company Limited",
+            "securityId": 2903
+        },
+        {
             "symbol": "CLI",
             "ltp": 436.5,
-            "cp": null,
+            "cp": 436.5,
             "pointChange": 11.5,
             "percentageChange": 2.71,
             "securityName": "Citizen Life Insurance Company Limited",
@@ -849,7 +867,7 @@
         {
             "symbol": "MHL",
             "ltp": 473.4,
-            "cp": null,
+            "cp": 473.4,
             "pointChange": 12.4,
             "percentageChange": 2.69,
             "securityName": "Mandakini Hydropower Limited",
@@ -858,7 +876,7 @@
         {
             "symbol": "PPCL",
             "ltp": 348.0,
-            "cp": null,
+            "cp": 348.0,
             "pointChange": 9.1,
             "percentageChange": 2.69,
             "securityName": "Panchthar Power Compant Limited",
@@ -867,7 +885,7 @@
         {
             "symbol": "HBL",
             "ltp": 195.1,
-            "cp": null,
+            "cp": 195.1,
             "pointChange": 5.1,
             "percentageChange": 2.68,
             "securityName": "Himalayan Bank Limited",
@@ -876,7 +894,7 @@
         {
             "symbol": "AKJCL",
             "ltp": 353.0,
-            "cp": null,
+            "cp": 353.0,
             "pointChange": 9.1,
             "percentageChange": 2.65,
             "securityName": "Ankhu Khola Jalvidhyut Company Ltd",
@@ -885,7 +903,7 @@
         {
             "symbol": "NLG",
             "ltp": 549.0,
-            "cp": null,
+            "cp": 549.0,
             "pointChange": 14.1,
             "percentageChange": 2.64,
             "securityName": "NLG Insurance Company Ltd.",
@@ -894,7 +912,7 @@
         {
             "symbol": "LVF2",
             "ltp": 9.34,
-            "cp": null,
+            "cp": 9.34,
             "pointChange": 0.24,
             "percentageChange": 2.64,
             "securityName": "Laxmi Value Fund 2",
@@ -903,7 +921,7 @@
         {
             "symbol": "ICFC",
             "ltp": 602.0,
-            "cp": null,
+            "cp": 602.0,
             "pointChange": 15.4,
             "percentageChange": 2.63,
             "securityName": "ICFC Finance Limited",
@@ -912,7 +930,7 @@
         {
             "symbol": "AHPC",
             "ltp": 273.0,
-            "cp": null,
+            "cp": 273.0,
             "pointChange": 7.0,
             "percentageChange": 2.63,
             "securityName": "Arun Valley Hydropower Development Co. Ltd.",
@@ -921,7 +939,7 @@
         {
             "symbol": "APHL",
             "ltp": 715.0,
-            "cp": null,
+            "cp": 715.0,
             "pointChange": 18.0,
             "percentageChange": 2.58,
             "securityName": "Appolo Hydropower Limited",
@@ -930,7 +948,7 @@
         {
             "symbol": "CORBL",
             "ltp": 838.9,
-            "cp": null,
+            "cp": 838.9,
             "pointChange": 21.0,
             "percentageChange": 2.57,
             "securityName": "Corporate Development Bank Limited",
@@ -939,7 +957,7 @@
         {
             "symbol": "SNLI",
             "ltp": 407.0,
-            "cp": null,
+            "cp": 407.0,
             "pointChange": 10.2,
             "percentageChange": 2.57,
             "securityName": "Sun Nepal Life Insurance Company Limited",
@@ -948,7 +966,7 @@
         {
             "symbol": "SHEL",
             "ltp": 308.0,
-            "cp": null,
+            "cp": 308.0,
             "pointChange": 7.7,
             "percentageChange": 2.56,
             "securityName": "Singati Hydro Energy Limited",
@@ -957,7 +975,7 @@
         {
             "symbol": "CKHL",
             "ltp": 605.0,
-            "cp": null,
+            "cp": 605.0,
             "pointChange": 15.0,
             "percentageChange": 2.54,
             "securityName": "Chirkhwa Hydropower Limited ",
@@ -966,7 +984,7 @@
         {
             "symbol": "SJLIC",
             "ltp": 419.9,
-            "cp": null,
+            "cp": 419.9,
             "pointChange": 10.4,
             "percentageChange": 2.54,
             "securityName": "SuryaJyoti Life Insurance Company Limited",
@@ -975,7 +993,7 @@
         {
             "symbol": "HRL",
             "ltp": 530.0,
-            "cp": null,
+            "cp": 530.0,
             "pointChange": 13.1,
             "percentageChange": 2.53,
             "securityName": "Himalayan Reinsurance Limited",
@@ -984,7 +1002,7 @@
         {
             "symbol": "UAIL",
             "ltp": 387.0,
-            "cp": null,
+            "cp": 387.0,
             "pointChange": 9.5,
             "percentageChange": 2.52,
             "securityName": "United Ajod Insurance Limited",
@@ -993,7 +1011,7 @@
         {
             "symbol": "ACLBSL",
             "ltp": 900.0,
-            "cp": null,
+            "cp": 900.0,
             "pointChange": 22.0,
             "percentageChange": 2.51,
             "securityName": "Aarambha Chautari Laghubitta Bittiya Sanstha Limited",
@@ -1002,7 +1020,7 @@
         {
             "symbol": "JBBL",
             "ltp": 348.5,
-            "cp": null,
+            "cp": 348.5,
             "pointChange": 8.5,
             "percentageChange": 2.5,
             "securityName": "Jyoti Bikas Bank Limited",
@@ -1011,7 +1029,7 @@
         {
             "symbol": "SKHL",
             "ltp": 764.5,
-            "cp": null,
+            "cp": 764.5,
             "pointChange": 18.4,
             "percentageChange": 2.47,
             "securityName": "Super Khudi Hydropower Limited",
@@ -1020,7 +1038,7 @@
         {
             "symbol": "NLICL",
             "ltp": 578.9,
-            "cp": null,
+            "cp": 578.9,
             "pointChange": 13.9,
             "percentageChange": 2.46,
             "securityName": "National Life Insurance Co. Ltd.",
@@ -1029,7 +1047,7 @@
         {
             "symbol": "NICL",
             "ltp": 457.9,
-            "cp": null,
+            "cp": 457.9,
             "pointChange": 11.0,
             "percentageChange": 2.46,
             "securityName": "Nepal Insurance Co. Ltd.",
@@ -1038,25 +1056,16 @@
         {
             "symbol": "NRM",
             "ltp": 297.1,
-            "cp": null,
+            "cp": 297.1,
             "pointChange": 7.1,
             "percentageChange": 2.45,
             "securityName": "Nepal Republic Media Limited",
             "securityId": 9183
         },
         {
-            "symbol": "RADHI",
-            "ltp": 717.0,
-            "cp": null,
-            "pointChange": 17.0,
-            "percentageChange": 2.43,
-            "securityName": "Radhi Bidyut Company Ltd",
-            "securityId": 2776
-        },
-        {
             "symbol": "GCIL",
             "ltp": 384.0,
-            "cp": null,
+            "cp": 384.0,
             "pointChange": 9.1,
             "percentageChange": 2.43,
             "securityName": "Ghorahi Cement Industry Limited",
@@ -1065,25 +1074,16 @@
         {
             "symbol": "OHL",
             "ltp": 640.0,
-            "cp": null,
+            "cp": 640.0,
             "pointChange": 15.0,
             "percentageChange": 2.4,
             "securityName": "Oriental Hotels Limited",
             "securityId": 149
         },
         {
-            "symbol": "LEC",
-            "ltp": 256.0,
-            "cp": null,
-            "pointChange": 6.0,
-            "percentageChange": 2.4,
-            "securityName": "Liberty Energy Company Limited",
-            "securityId": 2903
-        },
-        {
             "symbol": "NBF2",
             "ltp": 9.83,
-            "cp": null,
+            "cp": 9.83,
             "pointChange": 0.23,
             "percentageChange": 2.4,
             "securityName": "NABIL BALANCED FUND-2",
@@ -1092,7 +1092,7 @@
         {
             "symbol": "ILBS",
             "ltp": 948.0,
-            "cp": null,
+            "cp": 948.0,
             "pointChange": 22.1,
             "percentageChange": 2.39,
             "securityName": "Infinity Laghubitta Bittiya Sanstha Limited",
@@ -1101,7 +1101,7 @@
         {
             "symbol": "DORDI",
             "ltp": 257.0,
-            "cp": null,
+            "cp": 257.0,
             "pointChange": 6.0,
             "percentageChange": 2.39,
             "securityName": "Dordi Khola Jal Bidyut Company Limited",
@@ -1110,7 +1110,7 @@
         {
             "symbol": "BHL",
             "ltp": 216.0,
-            "cp": null,
+            "cp": 216.0,
             "pointChange": 5.0,
             "percentageChange": 2.37,
             "securityName": "Balephi Hydropower Limited",
@@ -1119,7 +1119,7 @@
         {
             "symbol": "LUK",
             "ltp": 9.5,
-            "cp": null,
+            "cp": 9.5,
             "pointChange": 0.22,
             "percentageChange": 2.37,
             "securityName": "Laxmi Unnati Kosh",
@@ -1128,7 +1128,7 @@
         {
             "symbol": "FOWAD",
             "ltp": 910.0,
-            "cp": null,
+            "cp": 910.0,
             "pointChange": 21.0,
             "percentageChange": 2.36,
             "securityName": "Forward Microfinance Laghubitta Bittiya Sanstha Limited",
@@ -1137,7 +1137,7 @@
         {
             "symbol": "HDHPC",
             "ltp": 216.5,
-            "cp": null,
+            "cp": 216.5,
             "pointChange": 5.0,
             "percentageChange": 2.36,
             "securityName": "Himal Dolakha Hydropower Company Limited",
@@ -1146,7 +1146,7 @@
         {
             "symbol": "GBLBS",
             "ltp": 657.0,
-            "cp": null,
+            "cp": 657.0,
             "pointChange": 15.1,
             "percentageChange": 2.35,
             "securityName": "Grameen Bikas Laghubitta Bittiya Sanstha Ltd.",
@@ -1155,7 +1155,7 @@
         {
             "symbol": "PRVU",
             "ltp": 189.6,
-            "cp": null,
+            "cp": 189.6,
             "pointChange": 4.3,
             "percentageChange": 2.32,
             "securityName": "Prabhu  Bank Limited",
@@ -1164,7 +1164,7 @@
         {
             "symbol": "TTL",
             "ltp": 710.0,
-            "cp": null,
+            "cp": 710.0,
             "pointChange": 16.0,
             "percentageChange": 2.31,
             "securityName": "Trade Tower Limited",
@@ -1173,7 +1173,7 @@
         {
             "symbol": "SEF",
             "ltp": 9.78,
-            "cp": null,
+            "cp": 9.78,
             "pointChange": 0.22,
             "percentageChange": 2.3,
             "securityName": "Siddhartha Equity Fund",
@@ -1182,7 +1182,7 @@
         {
             "symbol": "SAIL",
             "ltp": 1012.7,
-            "cp": null,
+            "cp": 1012.7,
             "pointChange": 22.7,
             "percentageChange": 2.29,
             "securityName": "Shreenagar Agritech Industries Limited",
@@ -1191,7 +1191,7 @@
         {
             "symbol": "BJHL",
             "ltp": 664.9,
-            "cp": null,
+            "cp": 664.9,
             "pointChange": 14.9,
             "percentageChange": 2.29,
             "securityName": "Bhujung Hydropower Limited",
@@ -1200,7 +1200,7 @@
         {
             "symbol": "IGI",
             "ltp": 404.0,
-            "cp": null,
+            "cp": 404.0,
             "pointChange": 9.0,
             "percentageChange": 2.28,
             "securityName": "IGI Prudential insurance Limited",
@@ -1209,7 +1209,7 @@
         {
             "symbol": "GLH",
             "ltp": 263.0,
-            "cp": null,
+            "cp": 263.0,
             "pointChange": 5.8,
             "percentageChange": 2.26,
             "securityName": "GreenLife Hydropower Limited",
@@ -1218,7 +1218,7 @@
         {
             "symbol": "TSHL",
             "ltp": 365.0,
-            "cp": null,
+            "cp": 365.0,
             "pointChange": 8.0,
             "percentageChange": 2.24,
             "securityName": "Three Star Hydropower Limited",
@@ -1227,7 +1227,7 @@
         {
             "symbol": "BHPL",
             "ltp": 470.0,
-            "cp": null,
+            "cp": 470.0,
             "pointChange": 10.1,
             "percentageChange": 2.2,
             "securityName": "Barahi Hydropower Public Limited",
@@ -1236,7 +1236,7 @@
         {
             "symbol": "KBL",
             "ltp": 221.6,
-            "cp": null,
+            "cp": 221.6,
             "pointChange": 4.7,
             "percentageChange": 2.17,
             "securityName": "Kumari Bank Limited",
@@ -1245,7 +1245,7 @@
         {
             "symbol": "SWASTIK",
             "ltp": 1854.0,
-            "cp": null,
+            "cp": 1854.0,
             "pointChange": 39.0,
             "percentageChange": 2.15,
             "securityName": "Swastik Laghubitta Bittiya Sanstha Limited",
@@ -1254,7 +1254,7 @@
         {
             "symbol": "KPCL",
             "ltp": 475.0,
-            "cp": null,
+            "cp": 475.0,
             "pointChange": 10.0,
             "percentageChange": 2.15,
             "securityName": "Kalika power Company Ltd",
@@ -1263,7 +1263,7 @@
         {
             "symbol": "KEF",
             "ltp": 9.5,
-            "cp": null,
+            "cp": 9.5,
             "pointChange": 0.2,
             "percentageChange": 2.15,
             "securityName": "Kumari Equity Fund",
@@ -1272,7 +1272,7 @@
         {
             "symbol": "SONA",
             "ltp": 405.5,
-            "cp": null,
+            "cp": 405.5,
             "pointChange": 8.5,
             "percentageChange": 2.14,
             "securityName": "Sonapur Minerals And Oil Limited",
@@ -1281,7 +1281,7 @@
         {
             "symbol": "CHL",
             "ltp": 266.0,
-            "cp": null,
+            "cp": 266.0,
             "pointChange": 5.5,
             "percentageChange": 2.11,
             "securityName": "Chhyangdi Hydropower Ltd.",
@@ -1290,7 +1290,7 @@
         {
             "symbol": "MLBBL",
             "ltp": 975.0,
-            "cp": null,
+            "cp": 975.0,
             "pointChange": 20.0,
             "percentageChange": 2.09,
             "securityName": "Mithila LaghuBitta Bittiya Sanstha Limited",
@@ -1299,7 +1299,7 @@
         {
             "symbol": "BHDC",
             "ltp": 433.7,
-            "cp": null,
+            "cp": 433.7,
             "pointChange": 8.8,
             "percentageChange": 2.07,
             "securityName": "Bindhyabasini Hydropower Development Company Limited",
@@ -1308,7 +1308,7 @@
         {
             "symbol": "NIMB",
             "ltp": 192.0,
-            "cp": null,
+            "cp": 192.0,
             "pointChange": 3.9,
             "percentageChange": 2.07,
             "securityName": "Nepal Investment Mega Bank Limited",
@@ -1317,7 +1317,7 @@
         {
             "symbol": "CITY",
             "ltp": 352.0,
-            "cp": null,
+            "cp": 352.0,
             "pointChange": 7.1,
             "percentageChange": 2.06,
             "securityName": "City Hotel Limited",
@@ -1326,7 +1326,7 @@
         {
             "symbol": "SIGS3",
             "ltp": 10.38,
-            "cp": null,
+            "cp": 10.38,
             "pointChange": 0.21,
             "percentageChange": 2.06,
             "securityName": "Siddhartha Investment Growth Scheme 3",
@@ -1335,7 +1335,7 @@
         {
             "symbol": "MAKAR",
             "ltp": 418.4,
-            "cp": null,
+            "cp": 418.4,
             "pointChange": 8.4,
             "percentageChange": 2.05,
             "securityName": "Makar Jitumaya Suri Hydropower Limited",
@@ -1344,7 +1344,7 @@
         {
             "symbol": "RBCL",
             "ltp": 13601.0,
-            "cp": null,
+            "cp": 13601.0,
             "pointChange": 271.0,
             "percentageChange": 2.03,
             "securityName": "Rastriya Beema Company Limited",
@@ -1353,7 +1353,7 @@
         {
             "symbol": "GBBL",
             "ltp": 455.0,
-            "cp": null,
+            "cp": 455.0,
             "pointChange": 9.0,
             "percentageChange": 2.02,
             "securityName": "Garima Bikas Bank Limited",
@@ -1362,7 +1362,7 @@
         {
             "symbol": "DDBL",
             "ltp": 861.0,
-            "cp": null,
+            "cp": 861.0,
             "pointChange": 16.9,
             "percentageChange": 2.0,
             "securityName": "Deprosc Laghubitta Bittiya Sanstha Limited",
@@ -1371,7 +1371,7 @@
         {
             "symbol": "ADBL",
             "ltp": 308.0,
-            "cp": null,
+            "cp": 308.0,
             "pointChange": 6.0,
             "percentageChange": 1.99,
             "securityName": "Agricultural Development Bank Limited",
@@ -1380,7 +1380,7 @@
         {
             "symbol": "MLBL",
             "ltp": 364.0,
-            "cp": null,
+            "cp": 364.0,
             "pointChange": 7.0,
             "percentageChange": 1.96,
             "securityName": "Mahalaxmi Bikas Bank Ltd.",
@@ -1389,7 +1389,7 @@
         {
             "symbol": "TAMOR",
             "ltp": 527.0,
-            "cp": null,
+            "cp": 527.0,
             "pointChange": 10.1,
             "percentageChange": 1.95,
             "securityName": "Sanima Middle Tamor Hydropower Limited",
@@ -1398,7 +1398,7 @@
         {
             "symbol": "NBL",
             "ltp": 288.0,
-            "cp": null,
+            "cp": 288.0,
             "pointChange": 5.5,
             "percentageChange": 1.95,
             "securityName": "Nepal Bank Limited",
@@ -1407,7 +1407,7 @@
         {
             "symbol": "SKBBL",
             "ltp": 773.0,
-            "cp": null,
+            "cp": 773.0,
             "pointChange": 14.7,
             "percentageChange": 1.94,
             "securityName": "Sana Kisan Bikas Laghubitta Bittiya Sanstha Limited",
@@ -1416,7 +1416,7 @@
         {
             "symbol": "BEDC",
             "ltp": 309.9,
-            "cp": null,
+            "cp": 309.9,
             "pointChange": 5.9,
             "percentageChange": 1.94,
             "securityName": "Bhugol Energy Development Company Limited",
@@ -1425,7 +1425,7 @@
         {
             "symbol": "LSH12",
             "ltp": 9.0,
-            "cp": null,
+            "cp": 9.0,
             "pointChange": 0.17,
             "percentageChange": 1.93,
             "securityName": "LS Horizon 12",
@@ -1434,7 +1434,7 @@
         {
             "symbol": "NIL",
             "ltp": 534.0,
-            "cp": null,
+            "cp": 534.0,
             "pointChange": 10.0,
             "percentageChange": 1.91,
             "securityName": "Neco Insurance Limited",
@@ -1443,7 +1443,7 @@
         {
             "symbol": "NMLBBL",
             "ltp": 512.0,
-            "cp": null,
+            "cp": 512.0,
             "pointChange": 9.6,
             "percentageChange": 1.91,
             "securityName": "Nerude Mirmire Laghubitta Bittiya Sanstha Limited",
@@ -1452,7 +1452,7 @@
         {
             "symbol": "SABBL",
             "ltp": 912.0,
-            "cp": null,
+            "cp": 912.0,
             "pointChange": 17.0,
             "percentageChange": 1.9,
             "securityName": "Salapa Bikas Bank Limited",
@@ -1461,7 +1461,7 @@
         {
             "symbol": "SAPDBL",
             "ltp": 642.0,
-            "cp": null,
+            "cp": 642.0,
             "pointChange": 12.0,
             "percentageChange": 1.9,
             "securityName": "Saptakoshi Development Bank Ltd",
@@ -1470,7 +1470,7 @@
         {
             "symbol": "NIBSF2",
             "ltp": 8.66,
-            "cp": null,
+            "cp": 8.66,
             "pointChange": 0.16,
             "percentageChange": 1.88,
             "securityName": "NIBL Samriddhi Fund -2",
@@ -1479,7 +1479,7 @@
         {
             "symbol": "NESDO",
             "ltp": 1370.0,
-            "cp": null,
+            "cp": 1370.0,
             "pointChange": 25.1,
             "percentageChange": 1.87,
             "securityName": "NESDO Sambridha Laghubitta Bittiya Sanstha Limited",
@@ -1488,7 +1488,7 @@
         {
             "symbol": "UNLB",
             "ltp": 1244.9,
-            "cp": null,
+            "cp": 1244.9,
             "pointChange": 22.9,
             "percentageChange": 1.87,
             "securityName": "Unique Nepal Laghubitta Bittiya Sanstha Limited",
@@ -1497,7 +1497,7 @@
         {
             "symbol": "SWMF",
             "ltp": 604.0,
-            "cp": null,
+            "cp": 604.0,
             "pointChange": 11.1,
             "percentageChange": 1.87,
             "securityName": "Suryodaya Womi Laghubitta Bittiya Sanstha Limited",
@@ -1506,16 +1506,25 @@
         {
             "symbol": "ILI",
             "ltp": 425.8,
-            "cp": null,
+            "cp": 425.8,
             "pointChange": 7.8,
             "percentageChange": 1.87,
             "securityName": "IME Life Insurance Company Limited",
             "securityId": 9184
         },
         {
+            "symbol": "RADHI",
+            "ltp": 713.0,
+            "cp": 713.0,
+            "pointChange": 13.0,
+            "percentageChange": 1.86,
+            "securityName": "Radhi Bidyut Company Ltd",
+            "securityId": 2776
+        },
+        {
             "symbol": "PPL",
             "ltp": 328.0,
-            "cp": null,
+            "cp": 328.0,
             "pointChange": 6.0,
             "percentageChange": 1.86,
             "securityName": "People's Power Limited",
@@ -1524,7 +1533,7 @@
         {
             "symbol": "KHPL",
             "ltp": 768.7,
-            "cp": null,
+            "cp": 768.7,
             "pointChange": 13.7,
             "percentageChange": 1.81,
             "securityName": "Kalinchock Hydropower Limited",
@@ -1533,7 +1542,7 @@
         {
             "symbol": "SGIC",
             "ltp": 396.0,
-            "cp": null,
+            "cp": 396.0,
             "pointChange": 7.0,
             "percentageChange": 1.8,
             "securityName": "Sanima GIC Insurance Limited",
@@ -1542,7 +1551,7 @@
         {
             "symbol": "GBBD85",
             "ltp": 1055.1,
-            "cp": null,
+            "cp": 1055.1,
             "pointChange": 18.6,
             "percentageChange": 1.79,
             "securityName": "Garima Debenture, 2085",
@@ -1551,7 +1560,7 @@
         {
             "symbol": "KSBBL",
             "ltp": 457.0,
-            "cp": null,
+            "cp": 457.0,
             "pointChange": 8.0,
             "percentageChange": 1.78,
             "securityName": "Kamana Sewa Bikas Bank Limited",
@@ -1560,7 +1569,7 @@
         {
             "symbol": "SBL",
             "ltp": 429.5,
-            "cp": null,
+            "cp": 429.5,
             "pointChange": 7.5,
             "percentageChange": 1.78,
             "securityName": "Siddhartha Bank Limited",
@@ -1569,7 +1578,7 @@
         {
             "symbol": "SOPL",
             "ltp": 768.0,
-            "cp": null,
+            "cp": 768.0,
             "pointChange": 13.1,
             "percentageChange": 1.74,
             "securityName": "Sopan Pharmaceuticals Limited",
@@ -1578,7 +1587,7 @@
         {
             "symbol": "MATRI",
             "ltp": 758.0,
-            "cp": null,
+            "cp": 758.0,
             "pointChange": 13.0,
             "percentageChange": 1.74,
             "securityName": "Matribhumi Lagubitta Bittiya Sanstha Limited",
@@ -1587,7 +1596,7 @@
         {
             "symbol": "SHPC",
             "ltp": 531.0,
-            "cp": null,
+            "cp": 531.0,
             "pointChange": 9.0,
             "percentageChange": 1.72,
             "securityName": "Sanima Mai Hydropower Ltd.",
@@ -1596,7 +1605,7 @@
         {
             "symbol": "EHPL",
             "ltp": 331.6,
-            "cp": null,
+            "cp": 331.6,
             "pointChange": 5.6,
             "percentageChange": 1.72,
             "securityName": "Eastern Hydropower Limited",
@@ -1605,7 +1614,7 @@
         {
             "symbol": "NHPC",
             "ltp": 267.5,
-            "cp": null,
+            "cp": 267.5,
             "pointChange": 4.5,
             "percentageChange": 1.71,
             "securityName": "National Hydro Power Company Limited",
@@ -1614,7 +1623,7 @@
         {
             "symbol": "SMB",
             "ltp": 1830.0,
-            "cp": null,
+            "cp": 1830.0,
             "pointChange": 30.0,
             "percentageChange": 1.67,
             "securityName": "Support Microfinance Bittiya Sanstha Ltd.",
@@ -1623,7 +1632,7 @@
         {
             "symbol": "SYPNL",
             "ltp": 1337.0,
-            "cp": null,
+            "cp": 1337.0,
             "pointChange": 22.0,
             "percentageChange": 1.67,
             "securityName": "SY Panel Nepal Limited",
@@ -1632,7 +1641,7 @@
         {
             "symbol": "SHIVM",
             "ltp": 681.0,
-            "cp": null,
+            "cp": 681.0,
             "pointChange": 11.0,
             "percentageChange": 1.64,
             "securityName": "SHIVAM CEMENTS LTD",
@@ -1641,7 +1650,7 @@
         {
             "symbol": "GMLI",
             "ltp": 1020.1,
-            "cp": null,
+            "cp": 1020.1,
             "pointChange": 16.4,
             "percentageChange": 1.63,
             "securityName": "Guardian Micro Life Insurance Limited ",
@@ -1650,7 +1659,7 @@
         {
             "symbol": "SADBL",
             "ltp": 418.7,
-            "cp": null,
+            "cp": 418.7,
             "pointChange": 6.7,
             "percentageChange": 1.63,
             "securityName": "Shangrila Development Bank Ltd.",
@@ -1659,7 +1668,7 @@
         {
             "symbol": "RLFL",
             "ltp": 439.0,
-            "cp": null,
+            "cp": 439.0,
             "pointChange": 7.0,
             "percentageChange": 1.62,
             "securityName": "Reliance Finance Ltd.",
@@ -1668,7 +1677,7 @@
         {
             "symbol": "GBIME",
             "ltp": 257.1,
-            "cp": null,
+            "cp": 257.1,
             "pointChange": 4.1,
             "percentageChange": 1.62,
             "securityName": "Global IME Bank Limited",
@@ -1677,7 +1686,7 @@
         {
             "symbol": "SWBBL",
             "ltp": 700.0,
-            "cp": null,
+            "cp": 700.0,
             "pointChange": 11.1,
             "percentageChange": 1.61,
             "securityName": "Swabalamban Laghubitta Bittiya Sanstha Limited",
@@ -1686,7 +1695,7 @@
         {
             "symbol": "BGWT",
             "ltp": 505.0,
-            "cp": null,
+            "cp": 505.0,
             "pointChange": 8.0,
             "percentageChange": 1.61,
             "securityName": "Bhagawati Hydropower Development Company Limited",
@@ -1695,7 +1704,7 @@
         {
             "symbol": "GMFBS",
             "ltp": 1136.9,
-            "cp": null,
+            "cp": 1136.9,
             "pointChange": 17.9,
             "percentageChange": 1.6,
             "securityName": "Ganapati Laghubitta Bittiya Sanstha Limited",
@@ -1704,7 +1713,7 @@
         {
             "symbol": "DOLTI",
             "ltp": 311.9,
-            "cp": null,
+            "cp": 311.9,
             "pointChange": 4.9,
             "percentageChange": 1.6,
             "securityName": "Dolti Power Company Limited",
@@ -1713,7 +1722,7 @@
         {
             "symbol": "RFPL",
             "ltp": 343.0,
-            "cp": null,
+            "cp": 343.0,
             "pointChange": 5.3,
             "percentageChange": 1.57,
             "securityName": "River Falls Power Limited",
@@ -1722,7 +1731,7 @@
         {
             "symbol": "GSY",
             "ltp": 9.15,
-            "cp": null,
+            "cp": 9.15,
             "pointChange": 0.14,
             "percentageChange": 1.55,
             "securityName": "Garima Samriddhi Yojana",
@@ -1731,7 +1740,7 @@
         {
             "symbol": "CGH",
             "ltp": 798.0,
-            "cp": null,
+            "cp": 798.0,
             "pointChange": 12.0,
             "percentageChange": 1.53,
             "securityName": "Chandragiri Hills Limited",
@@ -1740,7 +1749,7 @@
         {
             "symbol": "PRSF",
             "ltp": 11.94,
-            "cp": null,
+            "cp": 11.94,
             "pointChange": 0.18,
             "percentageChange": 1.53,
             "securityName": "Prabhu Smart Fund",
@@ -1749,7 +1758,7 @@
         {
             "symbol": "SARBTM",
             "ltp": 807.0,
-            "cp": null,
+            "cp": 807.0,
             "pointChange": 12.0,
             "percentageChange": 1.51,
             "securityName": "Sarbottam Cement Limited",
@@ -1758,7 +1767,7 @@
         {
             "symbol": "RNLI",
             "ltp": 436.3,
-            "cp": null,
+            "cp": 436.3,
             "pointChange": 6.5,
             "percentageChange": 1.51,
             "securityName": "Reliable Nepal Life Insurance Limited",
@@ -1767,7 +1776,7 @@
         {
             "symbol": "ALBSL",
             "ltp": 1210.0,
-            "cp": null,
+            "cp": 1210.0,
             "pointChange": 17.9,
             "percentageChange": 1.5,
             "securityName": "Asha Laghubitta Bittiya Sanstha Ltd",
@@ -1776,7 +1785,7 @@
         {
             "symbol": "TRH",
             "ltp": 811.0,
-            "cp": null,
+            "cp": 811.0,
             "pointChange": 12.0,
             "percentageChange": 1.5,
             "securityName": "Taragaon Regency Hotel Limited",
@@ -1785,7 +1794,7 @@
         {
             "symbol": "KDL",
             "ltp": 625.0,
-            "cp": null,
+            "cp": 625.0,
             "pointChange": 9.0,
             "percentageChange": 1.46,
             "securityName": "Kalinchowk Darshan Limited",
@@ -1794,7 +1803,7 @@
         {
             "symbol": "SGHL",
             "ltp": 508.3,
-            "cp": null,
+            "cp": 508.3,
             "pointChange": 7.3,
             "percentageChange": 1.46,
             "securityName": "Sanigad Hydro Limited",
@@ -1803,7 +1812,7 @@
         {
             "symbol": "MNBBL",
             "ltp": 340.0,
-            "cp": null,
+            "cp": 340.0,
             "pointChange": 4.9,
             "percentageChange": 1.46,
             "securityName": "Muktinath Bikas Bank Ltd.",
@@ -1812,7 +1821,7 @@
         {
             "symbol": "RAWA",
             "ltp": 420.0,
-            "cp": null,
+            "cp": 420.0,
             "pointChange": 6.0,
             "percentageChange": 1.45,
             "securityName": "Rawa Energy Development Limited",
@@ -1821,7 +1830,7 @@
         {
             "symbol": "RIDI",
             "ltp": 355.0,
-            "cp": null,
+            "cp": 355.0,
             "pointChange": 5.0,
             "percentageChange": 1.43,
             "securityName": "Ridi Power Company Limited",
@@ -1830,7 +1839,7 @@
         {
             "symbol": "JBLB",
             "ltp": 1285.0,
-            "cp": null,
+            "cp": 1285.0,
             "pointChange": 18.0,
             "percentageChange": 1.42,
             "securityName": "Jeevan Bikas Laghubitta  Bittya Sanstha Ltd",
@@ -1839,7 +1848,7 @@
         {
             "symbol": "HDL",
             "ltp": 1217.9,
-            "cp": null,
+            "cp": 1217.9,
             "pointChange": 16.9,
             "percentageChange": 1.41,
             "securityName": "Himalayan Distillery Limited",
@@ -1848,7 +1857,7 @@
         {
             "symbol": "MDB",
             "ltp": 572.9,
-            "cp": null,
+            "cp": 572.9,
             "pointChange": 7.9,
             "percentageChange": 1.4,
             "securityName": "Miteri Development Bank Limited",
@@ -1857,7 +1866,7 @@
         {
             "symbol": "UMRH",
             "ltp": 518.3,
-            "cp": null,
+            "cp": 518.3,
             "pointChange": 7.1,
             "percentageChange": 1.39,
             "securityName": "United IDI Mardi RB Hydropower Limited.",
@@ -1866,7 +1875,7 @@
         {
             "symbol": "KDBY",
             "ltp": 10.19,
-            "cp": null,
+            "cp": 10.19,
             "pointChange": 0.14,
             "percentageChange": 1.39,
             "securityName": "Kumari Dhanabriddhi Yojana",
@@ -1875,7 +1884,7 @@
         {
             "symbol": "NRN",
             "ltp": 1468.0,
-            "cp": null,
+            "cp": 1468.0,
             "pointChange": 20.0,
             "percentageChange": 1.38,
             "securityName": "NRN Infrastructure and Development Limited",
@@ -1884,7 +1893,7 @@
         {
             "symbol": "SHINE",
             "ltp": 432.0,
-            "cp": null,
+            "cp": 432.0,
             "pointChange": 5.9,
             "percentageChange": 1.38,
             "securityName": "Shine Resunga Development Bank Ltd.",
@@ -1893,7 +1902,7 @@
         {
             "symbol": "PRIN",
             "ltp": 610.2,
-            "cp": null,
+            "cp": 610.2,
             "pointChange": 8.2,
             "percentageChange": 1.36,
             "securityName": "Prabhu Insurance Ltd.",
@@ -1902,7 +1911,7 @@
         {
             "symbol": "MSLB",
             "ltp": 1200.0,
-            "cp": null,
+            "cp": 1200.0,
             "pointChange": 16.0,
             "percentageChange": 1.35,
             "securityName": "Mahuli Laghubitta Bittiya Sanstha Limited",
@@ -1911,7 +1920,7 @@
         {
             "symbol": "CIT",
             "ltp": 1740.0,
-            "cp": null,
+            "cp": 1740.0,
             "pointChange": 22.9,
             "percentageChange": 1.33,
             "securityName": "Citizen Investment Trust",
@@ -1920,7 +1929,7 @@
         {
             "symbol": "UMHL",
             "ltp": 557.3,
-            "cp": null,
+            "cp": 557.3,
             "pointChange": 7.3,
             "percentageChange": 1.33,
             "securityName": "United Modi Hydropower Ltd.",
@@ -1929,7 +1938,7 @@
         {
             "symbol": "GFCL",
             "ltp": 577.1,
-            "cp": null,
+            "cp": 577.1,
             "pointChange": 7.5,
             "percentageChange": 1.32,
             "securityName": "Goodwill Finance Limited",
@@ -1938,7 +1947,7 @@
         {
             "symbol": "LICN",
             "ltp": 774.0,
-            "cp": null,
+            "cp": 774.0,
             "pointChange": 10.0,
             "percentageChange": 1.31,
             "securityName": "Life Insurance Corporation (Nepal) Limited",
@@ -1947,7 +1956,7 @@
         {
             "symbol": "SMH",
             "ltp": 529.9,
-            "cp": null,
+            "cp": 529.9,
             "pointChange": 6.8,
             "percentageChange": 1.3,
             "securityName": "Super Mai Hydropower Limited",
@@ -1956,7 +1965,7 @@
         {
             "symbol": "VLUCL",
             "ltp": 390.0,
-            "cp": null,
+            "cp": 390.0,
             "pointChange": 5.0,
             "percentageChange": 1.3,
             "securityName": "Vision Lumbini Urja Company Limited ",
@@ -1965,7 +1974,7 @@
         {
             "symbol": "RHGCL",
             "ltp": 275.0,
-            "cp": null,
+            "cp": 275.0,
             "pointChange": 3.5,
             "percentageChange": 1.29,
             "securityName": "Rapti Hydro And General Construction Limited",
@@ -1974,7 +1983,7 @@
         {
             "symbol": "AKPL",
             "ltp": 260.0,
-            "cp": null,
+            "cp": 260.0,
             "pointChange": 3.3,
             "percentageChange": 1.29,
             "securityName": "Arun Kabeli Power Ltd.",
@@ -1983,7 +1992,7 @@
         {
             "symbol": "NICFC",
             "ltp": 8.71,
-            "cp": null,
+            "cp": 8.71,
             "pointChange": 0.11,
             "percentageChange": 1.28,
             "securityName": "NIC Asia Flexi CAP Fund",
@@ -1992,7 +2001,7 @@
         {
             "symbol": "KAHL",
             "ltp": 506.0,
-            "cp": null,
+            "cp": 506.0,
             "pointChange": 6.3,
             "percentageChange": 1.26,
             "securityName": "Kalanga Hydro Limited",
@@ -2001,7 +2010,7 @@
         {
             "symbol": "NABILD87",
             "ltp": 1101.0,
-            "cp": null,
+            "cp": 1101.0,
             "pointChange": 13.5,
             "percentageChange": 1.24,
             "securityName": "9% Nabil Debenture 2087",
@@ -2010,7 +2019,7 @@
         {
             "symbol": "BHCL",
             "ltp": 530.0,
-            "cp": null,
+            "cp": 530.0,
             "pointChange": 6.5,
             "percentageChange": 1.24,
             "securityName": "Bikash Hydropower Company Limited",
@@ -2019,7 +2028,7 @@
         {
             "symbol": "PCBL",
             "ltp": 245.0,
-            "cp": null,
+            "cp": 245.0,
             "pointChange": 3.0,
             "percentageChange": 1.24,
             "securityName": "Prime Commercial Bank Ltd.",
@@ -2028,7 +2037,7 @@
         {
             "symbol": "SBI",
             "ltp": 409.9,
-            "cp": null,
+            "cp": 409.9,
             "pointChange": 5.0,
             "percentageChange": 1.23,
             "securityName": "Nepal SBI Bank Limited",
@@ -2037,7 +2046,7 @@
         {
             "symbol": "GLBSL",
             "ltp": 1660.0,
-            "cp": null,
+            "cp": 1660.0,
             "pointChange": 20.0,
             "percentageChange": 1.22,
             "securityName": "Gurans Laghubitta Bittiya Sanstha Limited",
@@ -2046,7 +2055,7 @@
         {
             "symbol": "C30MF",
             "ltp": 10.15,
-            "cp": null,
+            "cp": 10.15,
             "pointChange": 0.12,
             "percentageChange": 1.2,
             "securityName": "Citizens Super 30 Mutual Fund",
@@ -2055,7 +2064,7 @@
         {
             "symbol": "MKHL",
             "ltp": 511.0,
-            "cp": null,
+            "cp": 511.0,
             "pointChange": 6.0,
             "percentageChange": 1.19,
             "securityName": "Mai Khola Hydropower Limited",
@@ -2064,7 +2073,7 @@
         {
             "symbol": "UHEWA",
             "ltp": 600.0,
-            "cp": null,
+            "cp": 600.0,
             "pointChange": 7.0,
             "percentageChange": 1.18,
             "securityName": "Upper Hewakhola Hydropower Company Limited",
@@ -2073,7 +2082,7 @@
         {
             "symbol": "GHL",
             "ltp": 247.8,
-            "cp": null,
+            "cp": 247.8,
             "pointChange": 2.9,
             "percentageChange": 1.18,
             "securityName": "Ghalemdi Hydro Limited",
@@ -2082,7 +2091,7 @@
         {
             "symbol": "NIBLGF",
             "ltp": 8.6,
-            "cp": null,
+            "cp": 8.6,
             "pointChange": 0.1,
             "percentageChange": 1.18,
             "securityName": "NIBL Growth Fund",
@@ -2091,7 +2100,7 @@
         {
             "symbol": "MHNL",
             "ltp": 260.0,
-            "cp": null,
+            "cp": 260.0,
             "pointChange": 3.0,
             "percentageChange": 1.17,
             "securityName": "Mountain Hydro Nepal Limited",
@@ -2100,7 +2109,7 @@
         {
             "symbol": "HPPL",
             "ltp": 383.9,
-            "cp": null,
+            "cp": 383.9,
             "pointChange": 4.4,
             "percentageChange": 1.16,
             "securityName": "Himalayan Power Partner Ltd.",
@@ -2109,7 +2118,7 @@
         {
             "symbol": "SIFC",
             "ltp": 485.0,
-            "cp": null,
+            "cp": 485.0,
             "pointChange": 5.5,
             "percentageChange": 1.15,
             "securityName": "Shree Investment Finance Co. Ltd.",
@@ -2118,7 +2127,7 @@
         {
             "symbol": "API",
             "ltp": 343.9,
-            "cp": null,
+            "cp": 343.9,
             "pointChange": 3.9,
             "percentageChange": 1.15,
             "securityName": "Api Power Company Ltd.",
@@ -2127,7 +2136,7 @@
         {
             "symbol": "MKJC",
             "ltp": 290.0,
-            "cp": null,
+            "cp": 290.0,
             "pointChange": 3.3,
             "percentageChange": 1.15,
             "securityName": "Mailung Khola Jal Vidhyut Company Limited",
@@ -2136,7 +2145,7 @@
         {
             "symbol": "EDBL",
             "ltp": 579.0,
-            "cp": null,
+            "cp": 579.0,
             "pointChange": 6.5,
             "percentageChange": 1.14,
             "securityName": "Excel Development Bank Ltd.",
@@ -2145,7 +2154,7 @@
         {
             "symbol": "NYADI",
             "ltp": 372.0,
-            "cp": null,
+            "cp": 372.0,
             "pointChange": 4.2,
             "percentageChange": 1.14,
             "securityName": "Nyadi Hydropower Limited",
@@ -2154,7 +2163,7 @@
         {
             "symbol": "GBIMESY2",
             "ltp": 8.85,
-            "cp": null,
+            "cp": 8.85,
             "pointChange": 0.1,
             "percentageChange": 1.14,
             "securityName": "Global IME Sammunat Yojana -2",
@@ -2163,7 +2172,7 @@
         {
             "symbol": "DHPL",
             "ltp": 278.1,
-            "cp": null,
+            "cp": 278.1,
             "pointChange": 3.1,
             "percentageChange": 1.13,
             "securityName": "Dibyashwori Hydropower Ltd.",
@@ -2172,7 +2181,7 @@
         {
             "symbol": "SLBBL",
             "ltp": 810.0,
-            "cp": null,
+            "cp": 810.0,
             "pointChange": 9.0,
             "percentageChange": 1.12,
             "securityName": "Swarojgar Laghubitta Bittiya Sanstha Ltd.",
@@ -2181,7 +2190,7 @@
         {
             "symbol": "SEF2",
             "ltp": 9.1,
-            "cp": null,
+            "cp": 9.1,
             "pointChange": 0.1,
             "percentageChange": 1.11,
             "securityName": "Siddhartha Equity Fund 2",
@@ -2190,7 +2199,7 @@
         {
             "symbol": "EBL",
             "ltp": 732.0,
-            "cp": null,
+            "cp": 732.0,
             "pointChange": 8.0,
             "percentageChange": 1.1,
             "securityName": "Everest Bank Limited",
@@ -2199,7 +2208,7 @@
         {
             "symbol": "BANDIPUR",
             "ltp": 651.9,
-            "cp": null,
+            "cp": 651.9,
             "pointChange": 7.1,
             "percentageChange": 1.1,
             "securityName": "Bandipur Cablecar and Tourism Limited",
@@ -2208,7 +2217,7 @@
         {
             "symbol": "SMHL",
             "ltp": 465.0,
-            "cp": null,
+            "cp": 465.0,
             "pointChange": 5.0,
             "percentageChange": 1.09,
             "securityName": "Super Madi Hydropower Limited",
@@ -2217,7 +2226,7 @@
         {
             "symbol": "BNHC",
             "ltp": 279.0,
-            "cp": null,
+            "cp": 279.0,
             "pointChange": 3.0,
             "percentageChange": 1.09,
             "securityName": "Buddha Bhumi Nepal Hydropower Company Limited",
@@ -2226,7 +2235,7 @@
         {
             "symbol": "RSY",
             "ltp": 9.3,
-            "cp": null,
+            "cp": 9.3,
             "pointChange": 0.1,
             "percentageChange": 1.09,
             "securityName": "Reliable Samriddhi Yojana",
@@ -2235,7 +2244,7 @@
         {
             "symbol": "SMPDA",
             "ltp": 750.0,
-            "cp": null,
+            "cp": 750.0,
             "pointChange": 8.0,
             "percentageChange": 1.08,
             "securityName": "Sampada Laghubitta Bittiya Sanstha Limited",
@@ -2244,7 +2253,7 @@
         {
             "symbol": "NABIL",
             "ltp": 560.0,
-            "cp": null,
+            "cp": 560.0,
             "pointChange": 6.0,
             "percentageChange": 1.08,
             "securityName": "Nabil Bank Limited",
@@ -2253,7 +2262,7 @@
         {
             "symbol": "MBLEF",
             "ltp": 9.32,
-            "cp": null,
+            "cp": 9.32,
             "pointChange": 0.1,
             "percentageChange": 1.08,
             "securityName": "MBL Equity Fund",
@@ -2262,7 +2271,7 @@
         {
             "symbol": "KMCDB",
             "ltp": 818.5,
-            "cp": null,
+            "cp": 818.5,
             "pointChange": 8.5,
             "percentageChange": 1.05,
             "securityName": "Kalika Laghubitta Bittiya Sanstha Ltd",
@@ -2271,7 +2280,7 @@
         {
             "symbol": "NTC",
             "ltp": 895.0,
-            "cp": null,
+            "cp": 895.0,
             "pointChange": 9.0,
             "percentageChange": 1.02,
             "securityName": "Nepal Doorsanchar Company Limited",
@@ -2280,7 +2289,7 @@
         {
             "symbol": "HLBSL",
             "ltp": 879.9,
-            "cp": null,
+            "cp": 879.9,
             "pointChange": 8.9,
             "percentageChange": 1.02,
             "securityName": "Himalayan Laghubitta Bittiya Sanstha Limited",
@@ -2289,7 +2298,7 @@
         {
             "symbol": "USHEC",
             "ltp": 503.0,
-            "cp": null,
+            "cp": 503.0,
             "pointChange": 5.0,
             "percentageChange": 1.0,
             "securityName": "Upper Solu Hydro Electric Company Limited",
@@ -2298,7 +2307,7 @@
         {
             "symbol": "GILB",
             "ltp": 1129.0,
-            "cp": null,
+            "cp": 1129.0,
             "pointChange": 11.0,
             "percentageChange": 0.98,
             "securityName": "Global IME Laghubitta Bittiya Sanstha Ltd.",
@@ -2307,7 +2316,7 @@
         {
             "symbol": "VLBS",
             "ltp": 626.1,
-            "cp": null,
+            "cp": 626.1,
             "pointChange": 6.1,
             "percentageChange": 0.98,
             "securityName": "Vijaya laghubitta Bittiya Sanstha Ltd.",
@@ -2316,7 +2325,7 @@
         {
             "symbol": "SHL",
             "ltp": 509.9,
-            "cp": null,
+            "cp": 509.9,
             "pointChange": 4.9,
             "percentageChange": 0.97,
             "securityName": "Soaltee Hotel Limited",
@@ -2325,7 +2334,7 @@
         {
             "symbol": "USHL",
             "ltp": 525.0,
-            "cp": null,
+            "cp": 525.0,
             "pointChange": 5.0,
             "percentageChange": 0.96,
             "securityName": "Upper Syange Hydropower Limited",
@@ -2334,7 +2343,7 @@
         {
             "symbol": "ULBSL",
             "ltp": 2560.0,
-            "cp": null,
+            "cp": 2560.0,
             "pointChange": 24.0,
             "percentageChange": 0.95,
             "securityName": "Upakar Laghubitta Bittiya Sanstha Limited",
@@ -2343,7 +2352,7 @@
         {
             "symbol": "RBBD2088",
             "ltp": 1070.0,
-            "cp": null,
+            "cp": 1070.0,
             "pointChange": 10.0,
             "percentageChange": 0.94,
             "securityName": "7% RBBL Debenture 2088",
@@ -2352,16 +2361,25 @@
         {
             "symbol": "ULHC",
             "ltp": 334.0,
-            "cp": null,
+            "cp": 334.0,
             "pointChange": 3.1,
             "percentageChange": 0.94,
             "securityName": "Upper Lohore Khola Hydropower Company Limited",
             "securityId": 9208
         },
         {
+            "symbol": "NICGF2",
+            "ltp": 8.55,
+            "cp": 8.55,
+            "pointChange": 0.08,
+            "percentageChange": 0.94,
+            "securityName": "NIC ASIA Growth Fund-2",
+            "securityId": 9236
+        },
+        {
             "symbol": "BBC",
             "ltp": 4136.0,
-            "cp": null,
+            "cp": 4136.0,
             "pointChange": 38.0,
             "percentageChange": 0.93,
             "securityName": "Bishal Bazar Company Limited",
@@ -2370,7 +2388,7 @@
         {
             "symbol": "CBBL",
             "ltp": 959.8,
-            "cp": null,
+            "cp": 959.8,
             "pointChange": 8.8,
             "percentageChange": 0.93,
             "securityName": "Chhimek Laghubitta Bittiya Sanstha Limited",
@@ -2379,7 +2397,7 @@
         {
             "symbol": "STC",
             "ltp": 5500.0,
-            "cp": null,
+            "cp": 5500.0,
             "pointChange": 50.0,
             "percentageChange": 0.92,
             "securityName": "Salt Trading Corporation",
@@ -2388,7 +2406,7 @@
         {
             "symbol": "ANLB",
             "ltp": 5020.0,
-            "cp": null,
+            "cp": 5020.0,
             "pointChange": 45.0,
             "percentageChange": 0.9,
             "securityName": "Aatmanirbhar Laghubitta Bittiya Sanstha Limited",
@@ -2397,7 +2415,7 @@
         {
             "symbol": "DHEL",
             "ltp": 575.0,
-            "cp": null,
+            "cp": 575.0,
             "pointChange": 5.0,
             "percentageChange": 0.88,
             "securityName": "Daramkhola Hydro Energy Limited",
@@ -2406,7 +2424,7 @@
         {
             "symbol": "NHDL",
             "ltp": 635.5,
-            "cp": null,
+            "cp": 635.5,
             "pointChange": 5.5,
             "percentageChange": 0.87,
             "securityName": "Nepal Hydro Developers Ltd.",
@@ -2415,7 +2433,7 @@
         {
             "symbol": "SSHL",
             "ltp": 208.8,
-            "cp": null,
+            "cp": 208.8,
             "pointChange": 1.8,
             "percentageChange": 0.87,
             "securityName": "Shiva Shree Hydropower Ltd",
@@ -2424,7 +2442,7 @@
         {
             "symbol": "MMKJL",
             "ltp": 358.0,
-            "cp": null,
+            "cp": 358.0,
             "pointChange": 3.0,
             "percentageChange": 0.85,
             "securityName": "Mathillo Mailun Khola Jalvidhyut Limited",
@@ -2433,7 +2451,7 @@
         {
             "symbol": "GVL",
             "ltp": 498.0,
-            "cp": null,
+            "cp": 498.0,
             "pointChange": 4.0,
             "percentageChange": 0.81,
             "securityName": "Green Ventures Limited",
@@ -2442,7 +2460,7 @@
         {
             "symbol": "ECL",
             "ltp": 1384.0,
-            "cp": null,
+            "cp": 1384.0,
             "pointChange": 11.0,
             "percentageChange": 0.8,
             "securityName": "Everest Colour Limited",
@@ -2451,7 +2469,7 @@
         {
             "symbol": "TPKHL",
             "ltp": 512.0,
-            "cp": null,
+            "cp": 512.0,
             "pointChange": 4.0,
             "percentageChange": 0.79,
             "securityName": "Taksar Pikhuwa Khola Hydropower Limited",
@@ -2460,25 +2478,16 @@
         {
             "symbol": "SANVI",
             "ltp": 589.0,
-            "cp": null,
+            "cp": 589.0,
             "pointChange": 4.2,
             "percentageChange": 0.72,
             "securityName": "Sanvi Energy Limited",
             "securityId": 9263
         },
         {
-            "symbol": "NICGF2",
-            "ltp": 8.53,
-            "cp": null,
-            "pointChange": 0.06,
-            "percentageChange": 0.71,
-            "securityName": "NIC ASIA Growth Fund-2",
-            "securityId": 9236
-        },
-        {
             "symbol": "SIKLES",
             "ltp": 575.2,
-            "cp": null,
+            "cp": 575.2,
             "pointChange": 3.8,
             "percentageChange": 0.67,
             "securityName": "Sikles Hydropower Limited",
@@ -2487,7 +2496,7 @@
         {
             "symbol": "MEN",
             "ltp": 651.0,
-            "cp": null,
+            "cp": 651.0,
             "pointChange": 4.1,
             "percentageChange": 0.63,
             "securityName": "Mountain Energy Nepal Limited",
@@ -2496,7 +2505,7 @@
         {
             "symbol": "MERO",
             "ltp": 616.8,
-            "cp": null,
+            "cp": 616.8,
             "pointChange": 3.8,
             "percentageChange": 0.62,
             "securityName": "Mero Microfinance Bittiya Sanstha Ltd.",
@@ -2505,7 +2514,7 @@
         {
             "symbol": "LBBL",
             "ltp": 487.0,
-            "cp": null,
+            "cp": 487.0,
             "pointChange": 3.0,
             "percentageChange": 0.62,
             "securityName": "Lumbini Bikas Bank Ltd.",
@@ -2514,7 +2523,7 @@
         {
             "symbol": "HHL",
             "ltp": 338.0,
-            "cp": null,
+            "cp": 338.0,
             "pointChange": 2.0,
             "percentageChange": 0.6,
             "securityName": "Himalayan Hydropower Limited",
@@ -2523,7 +2532,7 @@
         {
             "symbol": "SPC",
             "ltp": 400.0,
-            "cp": null,
+            "cp": 400.0,
             "pointChange": 2.3,
             "percentageChange": 0.58,
             "securityName": "Samling Power Company Limited",
@@ -2532,7 +2541,7 @@
         {
             "symbol": "SAEF2",
             "ltp": 9.05,
-            "cp": null,
+            "cp": 9.05,
             "pointChange": 0.05,
             "percentageChange": 0.56,
             "securityName": "Sanima Equity Fund-2",
@@ -2541,7 +2550,7 @@
         {
             "symbol": "FMDBL",
             "ltp": 748.0,
-            "cp": null,
+            "cp": 748.0,
             "pointChange": 4.0,
             "percentageChange": 0.54,
             "securityName": "First Micro Finance Laghubitta Bittiya Sanstha Limited",
@@ -2550,7 +2559,7 @@
         {
             "symbol": "RURU",
             "ltp": 600.0,
-            "cp": null,
+            "cp": 600.0,
             "pointChange": 3.2,
             "percentageChange": 0.54,
             "securityName": "Ru Ru Jalbidhyut Pariyojana Limited",
@@ -2559,25 +2568,16 @@
         {
             "symbol": "SANIMA",
             "ltp": 375.0,
-            "cp": null,
+            "cp": 375.0,
             "pointChange": 2.0,
             "percentageChange": 0.54,
             "securityName": "Sanima Bank Limited",
             "securityId": 171
         },
         {
-            "symbol": "NBLD82",
-            "ltp": 1023.9,
-            "cp": null,
-            "pointChange": 5.4,
-            "percentageChange": 0.53,
-            "securityName": "10% Nabil Debenture 2082",
-            "securityId": 2892
-        },
-        {
             "symbol": "ENL",
             "ltp": 574.0,
-            "cp": null,
+            "cp": 574.0,
             "pointChange": 3.0,
             "percentageChange": 0.53,
             "securityName": "Emerging Nepal Limited",
@@ -2586,7 +2586,7 @@
         {
             "symbol": "YMHL",
             "ltp": 565.0,
-            "cp": null,
+            "cp": 565.0,
             "pointChange": 3.0,
             "percentageChange": 0.53,
             "securityName": "Yambaling Hydropower Limited",
@@ -2595,7 +2595,7 @@
         {
             "symbol": "RMF1",
             "ltp": 9.45,
-            "cp": null,
+            "cp": 9.45,
             "pointChange": 0.05,
             "percentageChange": 0.53,
             "securityName": "RBB Mutual Fund 1",
@@ -2604,7 +2604,7 @@
         {
             "symbol": "NUBL",
             "ltp": 580.0,
-            "cp": null,
+            "cp": 580.0,
             "pointChange": 3.0,
             "percentageChange": 0.52,
             "securityName": "Nirdhan Utthan Laghubitta Bittiya Sanstha Limited",
@@ -2613,7 +2613,7 @@
         {
             "symbol": "MABEL",
             "ltp": 613.0,
-            "cp": null,
+            "cp": 613.0,
             "pointChange": 3.0,
             "percentageChange": 0.49,
             "securityName": "Mabilung Energy Limited",
@@ -2622,7 +2622,7 @@
         {
             "symbol": "SCB",
             "ltp": 653.0,
-            "cp": null,
+            "cp": 653.0,
             "pointChange": 3.0,
             "percentageChange": 0.46,
             "securityName": "Standard Chartered Bank Limited",
@@ -2631,7 +2631,7 @@
         {
             "symbol": "EBLD85",
             "ltp": 1105.1,
-            "cp": null,
+            "cp": 1105.1,
             "pointChange": 4.9,
             "percentageChange": 0.45,
             "securityName": "10.50% Everest Bank Limited Debenture 2085",
@@ -2640,7 +2640,7 @@
         {
             "symbol": "CHCL",
             "ltp": 360.1,
-            "cp": null,
+            "cp": 360.1,
             "pointChange": 1.4,
             "percentageChange": 0.39,
             "securityName": "Chilime Hydropower Company Limited",
@@ -2649,7 +2649,7 @@
         {
             "symbol": "SPHL",
             "ltp": 526.9,
-            "cp": null,
+            "cp": 526.9,
             "pointChange": 2.0,
             "percentageChange": 0.38,
             "securityName": "Sayapatri Hydropower Limited",
@@ -2658,7 +2658,7 @@
         {
             "symbol": "HLICF",
             "ltp": 8.26,
-            "cp": null,
+            "cp": 8.26,
             "pointChange": 0.02,
             "percentageChange": 0.24,
             "securityName": "HLI Large Cap Fund",
@@ -2667,7 +2667,7 @@
         {
             "symbol": "PBD93",
             "ltp": 1040.0,
-            "cp": null,
+            "cp": 1040.0,
             "pointChange": 2.0,
             "percentageChange": 0.19,
             "securityName": "6.25% Prime Bank Debenture, 2093",
@@ -2676,7 +2676,7 @@
         {
             "symbol": "SAHAS",
             "ltp": 697.1,
-            "cp": null,
+            "cp": 697.1,
             "pointChange": 1.1,
             "percentageChange": 0.16,
             "securityName": "Sahas Urja Limited",
@@ -2685,7 +2685,7 @@
         {
             "symbol": "MFIL",
             "ltp": 756.0,
-            "cp": null,
+            "cp": 756.0,
             "pointChange": 1.0,
             "percentageChange": 0.13,
             "securityName": "Manjushree Finance Ltd.",
@@ -2694,7 +2694,7 @@
         {
             "symbol": "KSY",
             "ltp": 8.85,
-            "cp": null,
+            "cp": 8.85,
             "pointChange": 0.01,
             "percentageChange": 0.11,
             "securityName": "Kumari Sabal Yojana",
@@ -2703,7 +2703,7 @@
         {
             "symbol": "MMF1",
             "ltp": 8.89,
-            "cp": null,
+            "cp": 8.89,
             "pointChange": 0.01,
             "percentageChange": 0.11,
             "securityName": "Mega Mutual Fund -1",
@@ -2712,7 +2712,7 @@
         {
             "symbol": "RMF2",
             "ltp": 9.76,
-            "cp": null,
+            "cp": 9.76,
             "pointChange": 0.01,
             "percentageChange": 0.1,
             "securityName": "RBB Mutual Fund 2",
@@ -2721,7 +2721,7 @@
         {
             "symbol": "GIBF1",
             "ltp": 11.6,
-            "cp": null,
+            "cp": 11.6,
             "pointChange": 0.01,
             "percentageChange": 0.09,
             "securityName": "Global IME Balanced Fund-1",
@@ -2730,7 +2730,7 @@
         {
             "symbol": "NABBC",
             "ltp": 700.4,
-            "cp": null,
+            "cp": 700.4,
             "pointChange": 0.4,
             "percentageChange": 0.06,
             "securityName": "Narayani Development Bank Limited",
@@ -2739,7 +2739,7 @@
         {
             "symbol": "NIFRAGED",
             "ltp": 1025.2,
-            "cp": null,
+            "cp": 1025.2,
             "pointChange": 0.1,
             "percentageChange": 0.01,
             "securityName": "Nifra Green Energy Debenture 6% - 2088/89",
@@ -2750,7 +2750,7 @@
         {
             "symbol": "EBLD86",
             "ltp": 1090.0,
-            "cp": null,
+            "cp": 1090.0,
             "pointChange": -64.0,
             "percentageChange": -5.55,
             "securityName": "Everest Bank Limited",
@@ -2759,7 +2759,7 @@
         {
             "symbol": "KBLD90",
             "ltp": 1301.6,
-            "cp": null,
+            "cp": 1301.6,
             "pointChange": -40.2,
             "percentageChange": -3.0,
             "securityName": "10% KBL Debenture 2090",
@@ -2768,7 +2768,7 @@
         {
             "symbol": "BNL",
             "ltp": 13515.0,
-            "cp": null,
+            "cp": 13515.0,
             "pointChange": -414.2,
             "percentageChange": -2.97,
             "securityName": "Bottlers Nepal (Balaju) Limited",
@@ -2777,25 +2777,16 @@
         {
             "symbol": "SBID83",
             "ltp": 1030.1,
-            "cp": null,
+            "cp": 1030.1,
             "pointChange": -29.9,
             "percentageChange": -2.82,
             "securityName": "10.25% Nepal SBI Bank Debenture 2083",
             "securityId": 8110
         },
         {
-            "symbol": "GWFD83",
-            "ltp": 1025.1,
-            "cp": null,
-            "pointChange": -24.5,
-            "percentageChange": -2.33,
-            "securityName": "12 % Goodwill Finance Limited Debenture 2083",
-            "securityId": 2883
-        },
-        {
             "symbol": "RSML",
             "ltp": 2879.0,
-            "cp": null,
+            "cp": 2879.0,
             "pointChange": -57.0,
             "percentageChange": -1.94,
             "securityName": "Reliance Spinning Mills Limited",
@@ -2804,7 +2795,7 @@
         {
             "symbol": "EBLD91",
             "ltp": 1090.0,
-            "cp": null,
+            "cp": 1090.0,
             "pointChange": -20.0,
             "percentageChange": -1.8,
             "securityName": "Everest Bank Limited Debenture 2091",
@@ -2813,7 +2804,7 @@
         {
             "symbol": "PBD88",
             "ltp": 1180.0,
-            "cp": null,
+            "cp": 1180.0,
             "pointChange": -20.0,
             "percentageChange": -1.67,
             "securityName": "10% Prime Debenture 2088",
@@ -2822,7 +2813,7 @@
         {
             "symbol": "SAPIL",
             "ltp": 1420.0,
-            "cp": null,
+            "cp": 1420.0,
             "pointChange": -24.0,
             "percentageChange": -1.66,
             "securityName": "Sarvottam Paints Industries Limited",
@@ -2831,7 +2822,7 @@
         {
             "symbol": "NIBLSTF",
             "ltp": 8.36,
-            "cp": null,
+            "cp": 8.36,
             "pointChange": -0.14,
             "percentageChange": -1.65,
             "securityName": "NIBL Stable Fund",
@@ -2840,7 +2831,7 @@
         {
             "symbol": "NBF3",
             "ltp": 9.23,
-            "cp": null,
+            "cp": 9.23,
             "pointChange": -0.13,
             "percentageChange": -1.39,
             "securityName": "Nabil Balanced Fund-3",
@@ -2849,7 +2840,7 @@
         {
             "symbol": "MND84/85",
             "ltp": 1037.7,
-            "cp": null,
+            "cp": 1037.7,
             "pointChange": -14.3,
             "percentageChange": -1.36,
             "securityName": "Muktinath Debenture 2084/85",
@@ -2858,7 +2849,7 @@
         {
             "symbol": "NSIF2",
             "ltp": 9.95,
-            "cp": null,
+            "cp": 9.95,
             "pointChange": -0.13,
             "percentageChange": -1.29,
             "securityName": "NMB Sulav Investment Fund - 2",
@@ -2867,7 +2858,7 @@
         {
             "symbol": "ADBLD83",
             "ltp": 1038.0,
-            "cp": null,
+            "cp": 1038.0,
             "pointChange": -12.9,
             "percentageChange": -1.23,
             "securityName": "10.35% Agricultural Bank Debenture 2083",
@@ -2876,7 +2867,7 @@
         {
             "symbol": "H8020",
             "ltp": 12.33,
-            "cp": null,
+            "cp": 12.33,
             "pointChange": -0.15,
             "percentageChange": -1.2,
             "securityName": "Himalayan 80-20",
@@ -2885,7 +2876,7 @@
         {
             "symbol": "CSY",
             "ltp": 8.35,
-            "cp": null,
+            "cp": 8.35,
             "pointChange": -0.1,
             "percentageChange": -1.18,
             "securityName": "Citizens Santulit Yojana",
@@ -2894,7 +2885,7 @@
         {
             "symbol": "NICSF",
             "ltp": 8.5,
-            "cp": null,
+            "cp": 8.5,
             "pointChange": -0.1,
             "percentageChange": -1.16,
             "securityName": "NIC Asia Select Fund 30",
@@ -2903,7 +2894,7 @@
         {
             "symbol": "SPL",
             "ltp": 624.2,
-            "cp": null,
+            "cp": 624.2,
             "pointChange": -7.1,
             "percentageChange": -1.12,
             "securityName": "Shuvam Power Limited",
@@ -2912,7 +2903,7 @@
         {
             "symbol": "MFLD85",
             "ltp": 1096.0,
-            "cp": null,
+            "cp": 1096.0,
             "pointChange": -9.0,
             "percentageChange": -0.81,
             "securityName": "9.5% Manjushree Finance Limited Debenture 2085",
@@ -2921,7 +2912,7 @@
         {
             "symbol": "CYCL",
             "ltp": 1490.0,
-            "cp": null,
+            "cp": 1490.0,
             "pointChange": -10.0,
             "percentageChange": -0.67,
             "securityName": "CYC Nepal Laghubitta Bittiya Sanstha Limited",
@@ -2930,7 +2921,7 @@
         {
             "symbol": "ICFCD88",
             "ltp": 1118.0,
-            "cp": null,
+            "cp": 1118.0,
             "pointChange": -7.0,
             "percentageChange": -0.62,
             "securityName": "9% ICFC Finance Limited Debenture 2088",
@@ -2939,7 +2930,7 @@
         {
             "symbol": "NBLD87",
             "ltp": 1060.0,
-            "cp": null,
+            "cp": 1060.0,
             "pointChange": -5.1,
             "percentageChange": -0.48,
             "securityName": "8.5% Nepal Bank Debenture 2087",
@@ -2948,16 +2939,25 @@
         {
             "symbol": "ICFCD89",
             "ltp": 1095.0,
-            "cp": null,
+            "cp": 1095.0,
             "pointChange": -4.9,
             "percentageChange": -0.45,
             "securityName": "8% ICFC Finance Limited Debenture 2089",
             "securityId": 9327
         },
         {
+            "symbol": "GWFD83",
+            "ltp": 1045.0,
+            "cp": 1045.0,
+            "pointChange": -4.6,
+            "percentageChange": -0.44,
+            "securityName": "12 % Goodwill Finance Limited Debenture 2083",
+            "securityId": 2883
+        },
+        {
             "symbol": "MNMF1",
             "ltp": 9.11,
-            "cp": null,
+            "cp": 9.11,
             "pointChange": -0.04,
             "percentageChange": -0.44,
             "securityName": "Muktinath Mutual Fund 1",
@@ -2966,7 +2966,7 @@
         {
             "symbol": "UNL",
             "ltp": 47000.0,
-            "cp": null,
+            "cp": 47000.0,
             "pointChange": -200.0,
             "percentageChange": -0.42,
             "securityName": "Unilever Nepal Limited",
@@ -2975,7 +2975,7 @@
         {
             "symbol": "MANDU",
             "ltp": 697.0,
-            "cp": null,
+            "cp": 697.0,
             "pointChange": -2.8,
             "percentageChange": -0.4,
             "securityName": "Mandu Hydropower Limited",
@@ -2984,7 +2984,7 @@
         {
             "symbol": "LLBS",
             "ltp": 860.0,
-            "cp": null,
+            "cp": 860.0,
             "pointChange": -3.0,
             "percentageChange": -0.35,
             "securityName": "Laxmi Laghubitta Bittiya Sanstha Ltd.",
@@ -2993,7 +2993,7 @@
         {
             "symbol": "JSLBB",
             "ltp": 969.9,
-            "cp": null,
+            "cp": 969.9,
             "pointChange": -2.1,
             "percentageChange": -0.22,
             "securityName": "Janautthan Samudayic Laghubitta Bittya Sanstha Limited",
@@ -3002,7 +3002,7 @@
         {
             "symbol": "SAGF",
             "ltp": 9.38,
-            "cp": null,
+            "cp": 9.38,
             "pointChange": -0.02,
             "percentageChange": -0.21,
             "securityName": "Sanima Growth Fund",
@@ -3011,7 +3011,7 @@
         {
             "symbol": "SIPD",
             "ltp": 608.0,
-            "cp": null,
+            "cp": 608.0,
             "pointChange": -1.0,
             "percentageChange": -0.16,
             "securityName": "Shikhar power Development Limited",
@@ -3020,7 +3020,7 @@
         {
             "symbol": "CFCL",
             "ltp": 573.0,
-            "cp": null,
+            "cp": 573.0,
             "pointChange": -0.9,
             "percentageChange": -0.16,
             "securityName": "Central Finance Co. Ltd.",
@@ -3029,7 +3029,7 @@
         {
             "symbol": "SOHL",
             "ltp": 654.0,
-            "cp": null,
+            "cp": 654.0,
             "pointChange": -1.0,
             "percentageChange": -0.15,
             "securityName": "Solu Hydropower Limited",
@@ -3038,7 +3038,7 @@
         {
             "symbol": "SIGS2",
             "ltp": 9.54,
-            "cp": null,
+            "cp": 9.54,
             "pointChange": -0.01,
             "percentageChange": -0.1,
             "securityName": "Siddhartha Investment Growth Scheme - 2",
@@ -3047,7 +3047,7 @@
         {
             "symbol": "GBILD84/85",
             "ltp": 1134.9,
-            "cp": null,
+            "cp": 1134.9,
             "pointChange": -0.1,
             "percentageChange": -0.01,
             "securityName": "Global IME Bank Debenture, 2084/85",
@@ -3086,7 +3086,7 @@
         {
             "symbol": "LEC",
             "turnover": 273332785.2,
-            "closingPrice": 256.0,
+            "closingPrice": 256.8,
             "securityName": "Liberty Energy Company Limited",
             "securityId": 2903
         },
@@ -3226,7 +3226,7 @@
         {
             "symbol": "RADHI",
             "turnover": 78611407.6,
-            "closingPrice": 717.0,
+            "closingPrice": 713.0,
             "securityName": "Radhi Bidyut Company Ltd",
             "securityId": 2776
         },
@@ -3618,7 +3618,7 @@
         {
             "symbol": "MEPDL",
             "turnover": 29750688.8,
-            "closingPrice": 672.0,
+            "closingPrice": 673.5,
             "securityName": "Mount Everest Power Development Limited",
             "securityId": 9352
         },
@@ -5046,7 +5046,7 @@
         {
             "symbol": "GWFD83",
             "turnover": 496097.8,
-            "closingPrice": 1025.1,
+            "closingPrice": 1045.0,
             "securityName": "12 % Goodwill Finance Limited Debenture 2083",
             "securityId": 2883
         },
@@ -5284,7 +5284,7 @@
         {
             "symbol": "NBLD82",
             "turnover": 52249.6,
-            "closingPrice": 1023.9,
+            "closingPrice": 1054.6,
             "securityName": "10% Nabil Debenture 2082",
             "securityId": 2892
         },
@@ -5459,7 +5459,7 @@
         {
             "symbol": "NICGF2",
             "turnover": 5547.5,
-            "closingPrice": 8.53,
+            "closingPrice": 8.55,
             "securityName": "NIC ASIA Growth Fund-2",
             "securityId": 9236
         },
@@ -5489,7 +5489,7 @@
         {
             "symbol": "LEC",
             "shareTraded": 1062567,
-            "closingPrice": 256.0,
+            "closingPrice": 256.8,
             "securityName": "Liberty Energy Company Limited",
             "securityId": 2903
         },
@@ -5839,7 +5839,7 @@
         {
             "symbol": "RADHI",
             "shareTraded": 110061,
-            "closingPrice": 717.0,
+            "closingPrice": 713.0,
             "securityName": "Radhi Bidyut Company Ltd",
             "securityId": 2776
         },
@@ -6182,7 +6182,7 @@
         {
             "symbol": "MEPDL",
             "shareTraded": 45155,
-            "closingPrice": 672.0,
+            "closingPrice": 673.5,
             "securityName": "Mount Everest Power Development Limited",
             "securityId": 9352
         },
@@ -7666,7 +7666,7 @@
         {
             "symbol": "NICGF2",
             "shareTraded": 650,
-            "closingPrice": 8.53,
+            "closingPrice": 8.55,
             "securityName": "NIC ASIA Growth Fund-2",
             "securityId": 9236
         },
@@ -7701,7 +7701,7 @@
         {
             "symbol": "GWFD83",
             "shareTraded": 482,
-            "closingPrice": 1025.1,
+            "closingPrice": 1045.0,
             "securityName": "12 % Goodwill Finance Limited Debenture 2083",
             "securityId": 2883
         },
@@ -7806,7 +7806,7 @@
         {
             "symbol": "NBLD82",
             "shareTraded": 51,
-            "closingPrice": 1023.9,
+            "closingPrice": 1054.6,
             "securityName": "10% Nabil Debenture 2082",
             "securityId": 2892
         },
@@ -7948,7 +7948,7 @@
         {
             "securityId": 2903,
             "totalTrades": 1303,
-            "lastTradedPrice": 256.0,
+            "lastTradedPrice": 256.8,
             "securityName": "Liberty Energy Company Limited",
             "symbol": "LEC"
         },
@@ -7962,7 +7962,7 @@
         {
             "securityId": 9352,
             "totalTrades": 1111,
-            "lastTradedPrice": 672.0,
+            "lastTradedPrice": 673.5,
             "securityName": "Mount Everest Power Development Limited",
             "symbol": "MEPDL"
         },
@@ -8529,7 +8529,7 @@
         {
             "securityId": 2776,
             "totalTrades": 311,
-            "lastTradedPrice": 717.0,
+            "lastTradedPrice": 713.0,
             "securityName": "Radhi Bidyut Company Ltd",
             "symbol": "RADHI"
         },
@@ -10139,7 +10139,7 @@
         {
             "securityId": 9236,
             "totalTrades": 6,
-            "lastTradedPrice": 8.53,
+            "lastTradedPrice": 8.55,
             "securityName": "NIC ASIA Growth Fund-2",
             "symbol": "NICGF2"
         },
@@ -10153,7 +10153,7 @@
         {
             "securityId": 2883,
             "totalTrades": 5,
-            "lastTradedPrice": 1025.1,
+            "lastTradedPrice": 1045.0,
             "securityName": "12 % Goodwill Finance Limited Debenture 2083",
             "symbol": "GWFD83"
         },
@@ -10272,7 +10272,7 @@
         {
             "securityId": 2892,
             "totalTrades": 2,
-            "lastTradedPrice": 1023.9,
+            "lastTradedPrice": 1054.6,
             "securityName": "10% Nabil Debenture 2082",
             "symbol": "NBLD82"
         },
