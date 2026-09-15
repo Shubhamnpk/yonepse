@@ -297,7 +297,7 @@ def _override_gsya_in_data(data_dir):
     if os.path.exists(omf_path):
         omf = load_json_list(omf_path)
         for row in omf:
-            if isinstance(row, dict) and row.get("symbol") == "GSYA":
+            if isinstance(row, dict) and row.get("symbol") == "GSYM":
                 row["daily_nav"] = val
                 row["daily_nav_date"] = date_str
                 row["ltp"] = val
@@ -312,9 +312,9 @@ def _override_gsya_in_data(data_dir):
         if os.path.exists(fpath):
             data = load_json_list(fpath)
             for row in data:
-                if isinstance(row, dict) and row.get("symbol") == "GSYA":
+                if isinstance(row, dict) and row.get("symbol") == "GSYM":
                     daily_nav_date = date_str
-                    pc = _prev_day_ltp_from_history(data_dir, "GSYA", daily_nav_date)
+                    pc = _prev_day_ltp_from_history(data_dir, "GSYM", daily_nav_date)
                     if pc is None:
                         pc = row.get("weekly_nav")
                     row["ltp"] = val

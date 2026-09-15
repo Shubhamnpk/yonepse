@@ -757,8 +757,11 @@
     }
 
     function searchUnified(query) {
-        const q = query.toUpperCase().trim();
+        let q = query.toUpperCase().trim();
         if (!q) return null;
+        // Legacy/feed aliases (Sharesansar variants -> official codes)
+        const ALIASES = { 'NMBSBF': 'NMBSBFE', 'GSYA': 'GSYM' };
+        if (ALIASES[q]) q = ALIASES[q];
         const list = state.unifiedList;
         const exact = list.find((item) => item.code === q);
         if (exact) return exact;

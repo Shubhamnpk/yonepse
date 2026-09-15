@@ -23,7 +23,7 @@ GARIMA_BASE = "https://www.garimacapital.com/nav/category-data"
 USER_AGENT = "nepse-scraper/1.0 (+https://github.com/shubhamnpk/yonepse)"
 
 CATEGORIES = {
-    10: "GSYA",
+    10: "GSYM",
 }
 
 

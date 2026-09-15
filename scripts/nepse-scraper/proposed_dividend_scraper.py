@@ -103,7 +103,15 @@ def clean_history_record(record: Dict) -> Dict:
 
 
 def normalize_record(row: Dict) -> Dict:
+    # Sharesansar uses variant codes for some open-end funds
+    # (NMBSBFE -> NMBSBF, GSYM -> GSYA). Normalize to official codes
+    # so dividend rows match live-data symbols.
+    SYMBOL_FIXES = {
+        "NMBSBF": "NMBSBFE",
+        "GSYA": "GSYM",
+    }
     symbol_text, _ = clean_html_anchor(row.get("symbol"))
+    symbol_text = SYMBOL_FIXES.get(symbol_text, symbol_text)
     return clean_record({
         "id": row.get("id"),
         "symbol": symbol_text,

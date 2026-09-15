@@ -152,9 +152,18 @@ def normalize_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     scraped_at = datetime.now().isoformat()
     normalized: List[Dict[str, Any]] = []
 
+    # Sharesansar truncates some AMC official codes (NMBSBFE -> NMBSBF)
+    # or uses its own variants (GSYM -> GSYA). Normalize to the official
+    # code so live data matches CDSC/AMC records and sector files.
+    SYMBOL_FIXES = {
+        "NMBSBF": "NMBSBFE",
+        "GSYA": "GSYM",
+    }
+
     for row in rows:
+        symbol = SYMBOL_FIXES.get(row.get("symbol"), row.get("symbol"))
         item = {
-            "symbol": row.get("symbol"),
+            "symbol": symbol,
             "fund_name": row.get("companyname"),
             "fund_size": to_int(row.get("fund_size")),
             "daily_nav": to_float(row.get("daily_nav_price")),
