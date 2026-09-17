@@ -245,7 +245,7 @@ python ltp_history/build_ltp_shards.py --latest-status final
 - **Time**: 9:45 AM - 4:15 PM NPT (Monday - Friday)
 - **Data**: Stock prices, indices, market summary, top stocks, notices, disclosures, exchange messages, supply/demand, and open-ended mutual fund NAVs
 - **Files**: Updates market JSON files in `data/` and LTP history shards in `data/ltp/`
-- **OMF Integration**: Refreshes `data/OMF.json` and merges open-ended mutual funds into `data/nepse_data.json` in the same run
+- **OMF Integration**: Refreshes `data/market/omf.json` and merges open-ended mutual funds into `data/nepse_data.json` in the same run
 - **LTP History**: Refreshes today's monthly shard row while the market is open, then marks the row final after the close-time scan
 
 ### IPO Scraper ([`.github/workflows/scrape_ipo.yml`](.github/workflows/scrape_ipo.yml))
@@ -269,7 +269,7 @@ All data is accessible as static JSON endpoints:
 | Endpoint | Type | Description |
 |----------|------|-------------|
 | `/data/nepse_data.json` | Array | Market prices + mapped open-ended mutual fund rows (`asset_type: open_ended_mutual_fund`) |
-| `/data/OMF.json` | Array | Open-ended mutual fund NAV dataset (daily/weekly/monthly NAV + fund metadata) |
+| `/data/market/omf.json` | Array | Open-ended mutual fund NAV dataset (daily/weekly/monthly NAV + fund metadata) |
 | `/data/market/indices.json` | Array | Main NEPSE indices |
 | `/data/market/sector_indices.json` | Array | Sector-wise indices |
 | `/data/market/top_stocks.json` | Object | Top gainers, losers, turnover |
@@ -317,7 +317,7 @@ curl -s https://shubhamnpk.github.io/yonepse/data/market/status.json
 curl -s https://shubhamnpk.github.io/yonepse/data/nepse_data.json
 
 # Full open-ended mutual fund NAV dataset
-curl -s https://shubhamnpk.github.io/yonepse/data/OMF.json
+curl -s https://shubhamnpk.github.io/yonepse/data/market/omf.json
 
 # LTP history manifest
 curl -s https://shubhamnpk.github.io/yonepse/data/ltp/manifest.json

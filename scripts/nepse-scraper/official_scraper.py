@@ -217,7 +217,7 @@ def build_omf_rows_for_nepse_data(data_dir, omf_items=None):
     Load open-ended mutual funds from OMF.json and map them into nepse_data schema.
     """
     if omf_items is None:
-        omf_path = os.path.join(data_dir, 'OMF.json')
+        omf_path = os.path.join(data_dir, 'market', 'omf.json')
         omf_items = load_omf_data(omf_path)
     if not omf_items:
         return []
@@ -271,7 +271,7 @@ def refresh_omf_data(data_dir):
     """
     Refresh OMF.json from Sharesansar. If refresh fails, keep existing OMF.json.
     """
-    omf_path = os.path.join(data_dir, 'OMF.json')
+    omf_path = os.path.join(data_dir, 'market', 'omf.json')
     try:
         rows = scrape_and_save_open_ended_navs(output_path=omf_path)
         print(f"Refreshed OMF.json with {len(rows)} open-ended mutual fund rows.")
@@ -305,7 +305,7 @@ def _override_gsya_in_data(data_dir):
     now_iso = datetime.now().isoformat()
 
     # 1. Update OMF.json
-    omf_path = os.path.join(data_dir, 'OMF.json')
+    omf_path = os.path.join(data_dir, 'market', 'omf.json')
     if os.path.exists(omf_path):
         omf = load_json_object(omf_path)
         if isinstance(omf, dict):

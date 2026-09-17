@@ -832,9 +832,9 @@ if __name__ == "__main__":
                                 <td>~105KB</td>
                             </tr>
                             <tr>
-                                <td><code>/data/proposed_dividend/history_all_years.json</code></td>
+                                <td><code>/data/dividend/history.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
-                                <td>Append-only proposed dividend history across all fiscal years</td>
+                                <td>Compact all-years proposed dividend history</td>
                                 <td>Daily</td>
                                 <td>~1.3MB</td>
                             </tr>
@@ -1316,41 +1316,10 @@ if __name__ == "__main__":
                     <article class="endpoint-card">
                         <div class="endpoint-head">
                             <span class="badge ok">GET</span>
-                            <code class="endpoint-path">/data/proposed_dividend/latest_1y.json</code>
+                            <code class="endpoint-path">/data/dividend/history.json</code>
                             <span class="badge">array&lt;dividend&gt;</span>
                         </div>
-                        <p class="endpoint-desc">Latest proposed dividend data (rolling 1 year). Refreshed in normal
-                            scraper runs.</p>
-                        <div class="code-wrap">
-                            <div class="code-head"><span>sample item</span><button class="copy-btn"
-                                    onclick="copyCode(this)">Copy</button></div>
-                            <pre><code>{
-  "id": 432,
-  "symbol": "CZBIL",
-  "company_name": "Citizen Bank International Limited",
-  "bonus_share": "8.00",
-  "cash_dividend": "4.00",
-  "total_dividend": "12.00",
-  "announcement_date": "2025-12-24",
-  "bookclose_date": "2026-01-01 [Closed]",
-  "distribution_date": null,
-  "bonus_listing_date": null,
-  "fiscal_year": "2081/2082",
-  "ltp": "193.30",
-  "price_as_of": "2026-03-01",
-  "scraped_at": "2026-03-02T05:12:00.000000"
-}</code></pre>
-                        </div>
-                    </article>
-
-                    <article class="endpoint-card">
-                        <div class="endpoint-head">
-                            <span class="badge ok">GET</span>
-                            <code class="endpoint-path">/data/proposed_dividend/history_all_years.json</code>
-                            <span class="badge">array&lt;dividend&gt;</span>
-                        </div>
-                        <p class="endpoint-desc">All-year proposed dividend history. Append-only timeline used for
-                            company-level dividend lookups.</p>
+                        <p class="endpoint-desc">Compact all-years proposed dividend history.</p>
                         <div class="code-wrap">
                             <div class="code-head"><span>shape</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
@@ -1368,7 +1337,26 @@ if __name__ == "__main__":
                     <article class="endpoint-card">
                         <div class="endpoint-head">
                             <span class="badge ok">GET</span>
-                            <code class="endpoint-path">/data/proposed_dividend/meta.json</code>
+                            <code class="endpoint-path">/data/dividend/history.json</code>
+                            <span class="badge">object</span>
+                        </div>
+                        <p class="endpoint-desc">Compact all-years proposed dividend history.</p>
+                        <div class="code-wrap">
+                            <div class="code-head"><span>shape</span><button class="copy-btn"
+                                    onclick="copyCode(this)">Copy</button></div>
+                            <pre><code>{
+  "scraped_at": "2026-03-02T05:12:00.000000",
+  "symbols": ["NABIL"],
+  "columns": ["symbol", "fiscal_year", "total_dividend", "announcement_date"],
+  "records": [["NABIL", "2081/2082", "20.00", "2025-09-15"]]
+}</code></pre>
+                        </div>
+                    </article>
+
+                    <article class="endpoint-card">
+                        <div class="endpoint-head">
+                            <span class="badge ok">GET</span>
+                            <code class="endpoint-path">/data/dividend/meta.json</code>
                             <span class="badge">object</span>
                         </div>
                         <p class="endpoint-desc">Operational metadata for proposed-dividend scraper runs.</p>
@@ -2426,9 +2414,8 @@ if __name__ == "__main__":
                 { path: '/data/market/supply_demand.json', method: 'GET', shape: 'array', purpose: 'Supply/demand orderbook snapshots.' },
                 { path: '/data/ipo/upcoming.json', method: 'GET', shape: 'array', purpose: 'Upcoming/open IPO records.' },
                 { path: '/data/ipo/old.json', method: 'GET', shape: 'array', purpose: 'Historical IPO archive.' },
-                { path: '/data/proposed_dividend/latest_1y.json', method: 'GET', shape: 'array', purpose: 'Latest 1-year proposed dividends.' },
-                { path: '/data/proposed_dividend/history_all_years.json', method: 'GET', shape: 'array', purpose: 'All-years proposed dividend history.' },
-                { path: '/data/proposed_dividend/meta.json', method: 'GET', shape: 'object', purpose: 'Operational metadata for dividend scraper runs.' },
+                { path: '/data/dividend/history.json', method: 'GET', shape: 'array', purpose: 'Compact all-years proposed dividend history.' },
+                { path: '/data/dividend/meta.json', method: 'GET', shape: 'object', purpose: 'Operational metadata for dividend scraper runs.' },
                 { path: '/data/other/sector_codes.json', method: 'GET', shape: 'object', purpose: 'Sector-to-symbol mapping for filtering.' }
             ],
             key_fields: {

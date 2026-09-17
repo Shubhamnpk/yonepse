@@ -11,7 +11,7 @@ info:
     Quick start:
     1. Fetch `/data/market/status.json` to understand market state.
     2. Fetch `/data/nepse_data.json` for the main ticker feed.
-    3. Optionally fetch `/data/OMF.json` for full open-ended mutual fund NAV detail.
+    3. Optionally fetch `/data/market/omf.json` for full open-ended mutual fund NAV detail.
     4. Fetch `/data/ltp/manifest.json` and monthly shards for daily LTP history.
     5. Use `/data/dividend/history.json` and `/data/ipo/upcoming.json`
        for corporate action style datasets.
@@ -66,7 +66,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/NepseDataRow'
 
-  /data/OMF.json:
+  /data/market/omf.json:
     get:
       tags: [Mutual Funds]
       summary: Open-ended mutual fund NAV dataset
