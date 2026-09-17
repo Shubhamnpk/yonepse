@@ -60,6 +60,6 @@ jobs:
         git config --global user.name "YONEPSE Ipo Bot"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git pull --rebase --autostash
-        git add data/company data/ipo data/proposed_dividend data/floor_sheet data/other/brokers.json data/other/sector_codes.json data/other/securities.json
+        git add data/company data/ipo data/dividend data/floor_sheet data/other/brokers.json data/other/sector_codes.json data/other/securities.json
         git commit -m "Update IPO, Dividends, and Floor Sheet: $(date)" || echo "No changes to commit"
         git push || (git pull --rebase --autostash && git push)

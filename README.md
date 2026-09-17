@@ -146,9 +146,8 @@ nepse-scraper/
 |   |-- ipo/                       # IPO datasets
 |   |   |-- upcoming.json          # Upcoming IPOs
 |   |   |-- old.json               # IPO archive
-|   |-- proposed_dividend/        # Proposed dividend datasets
-|   |   |-- latest_1y.json        # Latest proposed dividends (rolling 1 year)
-|   |   |-- history_all_years.json # Append-only all-years proposed dividend history
+|   |-- dividend/                 # Proposed dividend datasets
+|   |   |-- history.json          # Compact all-years proposed dividend history
 |   |   |-- meta.json             # Proposed dividend scraper metadata
 |-- scripts/nepse-scraper/
 |   |-- official_scraper.py       # Main NEPSE API scraper
@@ -252,7 +251,7 @@ python ltp_history/build_ltp_shards.py --latest-status final
 ### IPO Scraper ([`.github/workflows/scrape_ipo.yml`](.github/workflows/scrape_ipo.yml))
 - **Schedule**: Daily at 4:00 AM UTC (9:45 AM NPT)
 - **Data**: Upcoming IPO announcements + proposed dividend refresh
-- **Files**: `data/ipo/upcoming.json`, `data/ipo/old.json`, `data/proposed_dividend/latest_1y.json`, `data/proposed_dividend/history_all_years.json`, `data/proposed_dividend/meta.json`
+- **Files**: `data/ipo/upcoming.json`, `data/ipo/old.json`, `data/dividend/history.json`, `data/dividend/meta.json`
 - **Features**: Auto-archives IPOs older than 10 days and updates proposed dividend datasets
 
 ### Floor-Sheet Capture ([`.github/workflows/scrape_floor_sheet.yml`](.github/workflows/scrape_floor_sheet.yml))
@@ -292,9 +291,8 @@ All data is accessible as static JSON endpoints:
 | `/data/ipo/upcoming.json` | Array | Upcoming IPO listings |
 | `/data/ipo/old.json` | Array | Historical IPO archive |
 | `/data/notify/notices.json` | Object | Exchange & company notices |
-| `/data/proposed_dividend/latest_1y.json` | Array | Latest proposed dividends (rolling 1 year) |
-| `/data/proposed_dividend/history_all_years.json` | Array | Append-only all-years proposed dividend history |
-| `/data/proposed_dividend/meta.json` | Object | Proposed dividend scraper run metadata |
+| `/data/dividend/history.json` | Object | Compact all-years proposed dividend history |
+| `/data/dividend/meta.json` | Object | Proposed dividend scraper run metadata |
 | `/data/other/sector_codes.json` | Object | Sector mapping for stocks |
 
 See [`pages/docs.html`](pages/docs.html) for complete documentation.

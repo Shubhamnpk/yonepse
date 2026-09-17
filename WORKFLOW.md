@@ -42,7 +42,7 @@ flowchart TD
     Profiles --> IpoRun
     IpoRun["Run IPO + dividend + sector scripts"]
     IpoRun --> IpoFiles["IPO archive<br/>data/ipo/upcoming.json<br/>data/ipo/old.json"]
-    IpoRun --> DividendFiles["Proposed dividends<br/>data/proposed_dividend/latest_1y.json<br/>data/proposed_dividend/history_all_years.json<br/>data/proposed_dividend/meta.json"]
+    IpoRun --> DividendFiles["Proposed dividends<br/>data/dividend/history.json<br/>data/dividend/meta.json"]
     IpoRun --> SectorFiles["Sector aliases<br/>data/nepse_sector_wise_codes.json"]
 
     IpoFiles --> DailyValidate

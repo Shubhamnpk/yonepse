@@ -200,13 +200,25 @@ def _prev_day_ltp_from_history(data_dir, symbol, current_date):
     return None
 
 
+def load_omf_data(filepath):
+    """Load OMF.json handling both old (list) and new (object with records) formats."""
+    data = load_json_object(filepath)
+    if data is None:
+        return []
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict):
+        return data.get('records', [])
+    return []
+
+
 def build_omf_rows_for_nepse_data(data_dir, omf_items=None):
     """
     Load open-ended mutual funds from OMF.json and map them into nepse_data schema.
     """
     if omf_items is None:
         omf_path = os.path.join(data_dir, 'OMF.json')
-        omf_items = load_json_list(omf_path)
+        omf_items = load_omf_data(omf_path)
     if not omf_items:
         return []
 
@@ -266,7 +278,7 @@ def refresh_omf_data(data_dir):
         return rows
     except Exception as exc:
         print(f"OMF refresh failed, falling back to existing OMF.json: {exc}")
-        return load_json_list(omf_path)
+        return load_omf_data(omf_path)
 
 
 def _fetch_garima_gsya_latest():
@@ -295,16 +307,23 @@ def _override_gsya_in_data(data_dir):
     # 1. Update OMF.json
     omf_path = os.path.join(data_dir, 'OMF.json')
     if os.path.exists(omf_path):
-        omf = load_json_list(omf_path)
-        for row in omf:
+        omf = load_json_object(omf_path)
+        if isinstance(omf, dict):
+            records = omf.get('records', [])
+        else:
+            records = omf if isinstance(omf, list) else []
+        for row in records:
             if isinstance(row, dict) and row.get("symbol") == "GSYM":
                 row["daily_nav"] = val
                 row["daily_nav_date"] = date_str
                 row["ltp"] = val
-                row["scraped_at"] = now_iso
                 break
+        output = {
+            "scraped_at": datetime.now().isoformat(),
+            "records": records,
+        }
         with open(omf_path, 'w', encoding='utf-8') as f:
-            json.dump(omf, f, indent=2, ensure_ascii=False)
+            json.dump(output, f, indent=2, ensure_ascii=False)
 
     # 2. Update nepse_data.json and market/live.json
     for fname in ('nepse_data.json', 'live.json'):
@@ -1127,6 +1146,12 @@ def get_sector_wise_codes():
                         symbol_link = cols[0].find('a')
                         symbol = symbol_link.get_text(strip=True) if symbol_link else cols[0].get_text(strip=True)
 
+                        # Normalize symbols that MeroLagani uses wrong codes for
+                        SYMBOL_FIXES = {
+                            "GASY": "GSYM",
+                        }
+                        symbol = SYMBOL_FIXES.get(symbol, symbol)
+
                         name = cols[1].get_text(strip=True)
                         name = " ".join(name.split())
 
@@ -1207,7 +1232,7 @@ def scrape_all_official_data(
             # (nepse_data.json, LTP history) uses the correct price.
             try:
                 _override_gsya_in_data(data_dir)
-                omf_snapshot = load_json_list(os.path.join(data_dir, 'OMF.json'))
+                omf_snapshot = load_omf_data(os.path.join(data_dir, 'OMF.json'))
             except Exception as exc:
                 print(f"GSYA Garima override during data build failed: {exc}")
 

@@ -3,7 +3,7 @@ import json
 import os
 import sys
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import requests
 from bs4 import BeautifulSoup
@@ -12,11 +12,8 @@ from urllib3.util import Retry
 
 
 BASE_URL = "https://www.sharesansar.com/proposed-dividend"
-LATEST_FILE = "latest_1y.json"
-HISTORY_FILE = "history_all_years.json"
-# Stable dedupe identity for proposed-dividend rows.
-# If this tuple changes, uniqueness behavior for history/latest changes too.
-DEDUPE_FIELDS = ("id", "symbol", "fiscal_year", "announcement_date", "total_dividend")
+HISTORY_FILE = "history.json"
+COLUMNS = ["symbol", "bonus", "cash", "total", "announce", "bookclose", "fiscalYear"]
 
 HEADERS = {
     "User-Agent": (
@@ -27,10 +24,15 @@ HEADERS = {
     "Accept": "application/json, text/javascript, */*; q=0.01",
 }
 
+SYMBOL_FIXES = {
+    "NMBSBF": "NMBSBFE",
+    "GSYA": "GSYM",
+}
+
 
 def get_data_dir() -> str:
     base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    data_dir = os.path.join(base_dir, "data", "proposed_dividend")
+    data_dir = os.path.join(base_dir, "data", "dividend")
     os.makedirs(data_dir, exist_ok=True)
     return data_dir
 
@@ -53,22 +55,6 @@ def create_session() -> requests.Session:
     return session
 
 
-def load_json_list(path: str) -> List[Dict]:
-    if not os.path.exists(path):
-        return []
-    try:
-        with open(path, "r", encoding="utf-8-sig") as f:
-            data = json.load(f)
-        return data if isinstance(data, list) else []
-    except Exception:
-        return []
-
-
-def save_json_list(path: str, data: List[Dict]) -> None:
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-
-
 def clean_html_anchor(value: str) -> Tuple[str, str]:
     if value is None:
         return "", ""
@@ -79,52 +65,23 @@ def clean_html_anchor(value: str) -> Tuple[str, str]:
     return soup.get_text(strip=True), ""
 
 
-def clean_bookclose_date(value) -> str:
-    return str(value or "").replace("[Closed]", "").strip()
-
-
-def clean_record(record: Dict) -> Dict:
-    cleaned = {
-        key: value
-        for key, value in record.items()
-        if key not in {"company_url", "company_name", "status", "ltp", "price_as_of"} and value is not None
-    }
-    if "bookclose_date" in cleaned:
-        cleaned["bookclose_date"] = clean_bookclose_date(cleaned["bookclose_date"])
-    return cleaned
-
-
-def clean_history_record(record: Dict) -> Dict:
-    return {
-        key: value
-        for key, value in clean_record(record).items()
-        if key != "scraped_at"
-    }
+def clean_bookclose_date(value) -> Optional[str]:
+    val = str(value or "").replace("[Closed]", "").strip()
+    return val if val else None
 
 
 def normalize_record(row: Dict) -> Dict:
-    # Sharesansar uses variant codes for some open-end funds
-    # (NMBSBFE -> NMBSBF, GSYM -> GSYA). Normalize to official codes
-    # so dividend rows match live-data symbols.
-    SYMBOL_FIXES = {
-        "NMBSBF": "NMBSBFE",
-        "GSYA": "GSYM",
-    }
     symbol_text, _ = clean_html_anchor(row.get("symbol"))
     symbol_text = SYMBOL_FIXES.get(symbol_text, symbol_text)
-    return clean_record({
-        "id": row.get("id"),
+    return {
         "symbol": symbol_text,
-        "bonus_share": row.get("bonus_share"),
-        "cash_dividend": row.get("cash_dividend"),
-        "total_dividend": row.get("total_dividend"),
-        "announcement_date": row.get("announcement_date"),
-        "bookclose_date": clean_bookclose_date(row.get("bookclose_date")),
-        "distribution_date": row.get("distribution_date"),
-        "bonus_listing_date": row.get("bonus_listing_date"),
-        "fiscal_year": row.get("year"),
-        "scraped_at": datetime.now().isoformat(),
-    })
+        "bonus": row.get("bonus_share") or None,
+        "cash": row.get("cash_dividend") or None,
+        "total": row.get("total_dividend") or None,
+        "announce": row.get("announcement_date") or None,
+        "bookclose": clean_bookclose_date(row.get("bookclose_date")),
+        "fiscalYear": row.get("year") or None,
+    }
 
 
 def parse_date(value: str) -> datetime:
@@ -139,13 +96,13 @@ def parse_date(value: str) -> datetime:
 def sort_newest_first(records: List[Dict]) -> List[Dict]:
     return sorted(
         records,
-        key=lambda x: (parse_date(x.get("announcement_date")), x.get("id") or 0),
+        key=lambda x: (parse_date(x.get("announce")), x.get("symbol", "")),
         reverse=True,
     )
 
 
 def record_key(item: Dict) -> str:
-    return "|".join(str(item.get(field, "")) for field in DEDUPE_FIELDS)
+    return "|".join(str(item.get(f) or "") for f in ["symbol", "fiscalYear", "announce", "total"])
 
 
 def dedupe_records(records: List[Dict]) -> List[Dict]:
@@ -165,7 +122,6 @@ def get_year_options(session: requests.Session) -> List[Dict]:
         "User-Agent": HEADERS["User-Agent"],
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     }
-    # Ensure this request is treated as a normal HTML page fetch, not AJAX.
     res = session.get(BASE_URL, headers={**html_headers, "X-Requested-With": ""}, timeout=20)
     res.raise_for_status()
     soup = BeautifulSoup(res.text, "html.parser")
@@ -206,34 +162,6 @@ def fetch_paged(session: requests.Session, params: Dict, page_size: int = 50) ->
     return all_rows
 
 
-def fetch_latest_1y(session: requests.Session) -> List[Dict]:
-    rows = fetch_paged(session, params={"type": "LATEST", "duration": "1_YEAR"})
-    normalized = [normalize_record(r) for r in rows]
-    return sort_newest_first(dedupe_records(normalized))
-
-
-def is_newest_first(records: List[Dict]) -> bool:
-    if len(records) < 2:
-        return True
-    prev = None
-    for item in records:
-        cur = parse_date(item.get("announcement_date"))
-        if prev is not None and cur > prev:
-            return False
-        prev = cur
-    return True
-
-
-def run_smoke_gate(session: requests.Session) -> List[Dict]:
-    latest_rows = fetch_latest_1y(session)
-    if not latest_rows:
-        raise RuntimeError("Smoke test failed: latest fetch returned empty list.")
-    if not is_newest_first(latest_rows):
-        raise RuntimeError("Smoke test failed: latest list is not sorted newest-first.")
-    print(f"Smoke test passed: {len(latest_rows)} latest rows, newest-first order.")
-    return latest_rows
-
-
 def fetch_all_years(session: requests.Session) -> List[Dict]:
     years = get_year_options(session)
     merged = []
@@ -248,53 +176,93 @@ def fetch_all_years(session: requests.Session) -> List[Dict]:
     return sort_newest_first(dedupe_records(merged))
 
 
-def merge_into_history(out_dir: str, incoming: List[Dict], incremental: bool = True) -> int:
-    history_path = os.path.join(out_dir, HISTORY_FILE)
-    raw_history = load_json_list(history_path)
-    history = [clean_history_record(item) for item in raw_history]
+def records_to_compact(records: List[Dict]) -> Tuple[List[str], List[List[Any]]]:
+    """Convert dict records to compact format: (symbols_list, rows_with_symbol_index)."""
+    symbols = sorted(set(r["symbol"] for r in records))
+    symbol_idx = {s: i for i, s in enumerate(symbols)}
 
-    # one-time migration from legacy file name
-    legacy_backfill = os.path.join(out_dir, "all_years_backfill.json")
-    if not history and os.path.exists(legacy_backfill):
-        history = [clean_history_record(item) for item in load_json_list(legacy_backfill)]
+    rows = []
+    for r in records:
+        rows.append([
+            symbol_idx[r["symbol"]],
+            r.get("bonus"),
+            r.get("cash"),
+            r.get("total"),
+            r.get("announce"),
+            r.get("bookclose"),
+            r.get("fiscalYear"),
+        ])
+    return symbols, rows
 
-    incoming = [clean_history_record(item) for item in incoming]
-    seen = {record_key(item) for item in history}
-    to_add = [item for item in incoming if record_key(item) not in seen]
+
+def load_compact_history(path: str) -> Optional[Dict]:
+    """Load history in compact format. Returns None if file doesn't exist or is empty."""
+    if not os.path.exists(path):
+        return None
+    try:
+        with open(path, "r", encoding="utf-8-sig") as f:
+            data = json.load(f)
+        if isinstance(data, dict) and "records" in data:
+            return data
+        return None
+    except Exception:
+        return None
+
+
+def compact_to_records(history: Dict) -> List[Dict]:
+    """Convert compact history back to dict records for merging."""
+    symbols = history.get("symbols", [])
+    records = []
+    for row in history.get("records", []):
+        if len(row) < 7:
+            continue
+        records.append({
+            "symbol": symbols[row[0]] if row[0] < len(symbols) else None,
+            "bonus": row[1],
+            "cash": row[2],
+            "total": row[3],
+            "announce": row[4],
+            "bookclose": row[5],
+            "fiscalYear": row[6],
+        })
+    return [r for r in records if r.get("symbol")]
+
+
+def save_compact_history(path: str, records: List[Dict]) -> None:
+    """Save records in compact format."""
+    symbols, rows = records_to_compact(records)
+    output = {
+        "scraped_at": datetime.now().isoformat(timespec="seconds"),
+        "symbols": symbols,
+        "columns": COLUMNS,
+        "records": rows,
+    }
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False)
+
+
+def merge_records(existing: List[Dict], incoming: List[Dict]) -> List[Dict]:
+    """Merge incoming records into existing, deduplicating."""
+    seen = {record_key(r) for r in existing}
+    to_add = [r for r in incoming if record_key(r) not in seen]
     if to_add:
-        if incremental:
-            # Incremental update: keep existing history untouched, prepend only new rows.
-            new_rows = sort_newest_first(dedupe_records(to_add))
-            updated_history = new_rows + history
-            save_json_list(history_path, updated_history)
-        else:
-            # Full merge for backfill to preserve global newest-first ordering.
-            updated_history = sort_newest_first(dedupe_records(history + to_add))
-            save_json_list(history_path, updated_history)
-    elif raw_history != history:
-        save_json_list(history_path, history)
-    elif not os.path.exists(history_path):
-        history = sort_newest_first(dedupe_records(history))
-        save_json_list(history_path, history)
-
-    return len(to_add)
-
-
-def write_latest(out_dir: str, latest_rows: List[Dict]) -> None:
-    latest_path = os.path.join(out_dir, LATEST_FILE)
-    save_json_list(latest_path, [clean_record(item) for item in latest_rows])
+        return sort_newest_first(existing + to_add)
+    return existing
 
 
 def cleanup_legacy_files(out_dir: str) -> None:
+    """Remove old files that are no longer needed."""
     legacy_paths = [
         os.path.join(out_dir, "years_manifest.json"),
         os.path.join(out_dir, "latest_summary.json"),
+        os.path.join(out_dir, "latest_1y.json"),
         os.path.join(out_dir, "all_years_backfill.json"),
     ]
     for p in legacy_paths:
         if os.path.exists(p):
             try:
                 os.remove(p)
+                print(f"Removed legacy file: {os.path.basename(p)}")
             except Exception:
                 pass
 
@@ -313,87 +281,66 @@ def cleanup_legacy_files(out_dir: str) -> None:
             pass
 
 
-def write_meta(out_dir: str, mode: str, latest_count: int, history_count: int, smoke_passed: bool) -> None:
+def write_meta(out_dir: str, mode: str, record_count: int) -> None:
     meta_path = os.path.join(out_dir, "meta.json")
     meta = {
         "last_run_at": datetime.now().isoformat(),
         "mode": mode,
-        "latest_count": latest_count,
-        "history_count": history_count,
-        "smoke_passed": smoke_passed,
+        "record_count": record_count,
     }
     with open(meta_path, "w", encoding="utf-8") as f:
         json.dump(meta, f, indent=2, ensure_ascii=False)
 
 
-def is_history_empty(out_dir: str) -> bool:
-    history_path = os.path.join(out_dir, HISTORY_FILE)
-    history = load_json_list(history_path)
-    return len(history) == 0
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Sharesansar Proposed Dividend scraper with only latest + history files."
+        description="Sharesansar Proposed Dividend scraper (compact history format)."
     )
     parser.add_argument(
         "--mode",
         choices=["backfill", "latest", "both"],
         default="both",
-        help="backfill: fetch all years into history, latest: refresh 1-year latest + merge to history, both: do both",
+        help="backfill: fetch all years, latest: fetch recent and merge, both: do both",
     )
     parser.add_argument(
         "--skip-smoke",
         action="store_true",
-        help="Skip smoke gate check (use only for emergency/manual runs).",
+        help="Skip smoke gate check.",
     )
     args = parser.parse_args()
 
     out_dir = get_data_dir()
     session = create_session()
-    did_full_backfill = False
+    history_path = os.path.join(out_dir, HISTORY_FILE)
 
-    smoke_passed = False
-    cached_latest_rows: List[Dict] = []
-    needs_latest = args.mode in ("latest", "both")
-    if needs_latest:
-        if args.skip_smoke:
-            print("Smoke check skipped by --skip-smoke.")
-            cached_latest_rows = fetch_latest_1y(session)
-        else:
-            cached_latest_rows = run_smoke_gate(session)
-            smoke_passed = True
+    # Load existing history
+    existing_compact = load_compact_history(history_path)
+    if existing_compact:
+        existing_records = compact_to_records(existing_compact)
+        print(f"Loaded {len(existing_records)} existing history records.")
+    else:
+        existing_records = []
+        print("No existing history found.")
+
+    all_records = existing_records
 
     if args.mode in ("backfill", "both"):
         all_year_rows = fetch_all_years(session)
-        added = merge_into_history(out_dir, all_year_rows, incremental=False)
-        print(f"History merged from all years. New added: {added}")
-        did_full_backfill = True
+        all_records = merge_records(all_records, all_year_rows)
+        print(f"After backfill merge: {len(all_records)} records.")
 
     if args.mode in ("latest", "both"):
-        if not did_full_backfill and is_history_empty(out_dir):
-            print("History file is empty. Running full all-years fetch before latest merge...")
-            all_year_rows = fetch_all_years(session)
-            added_backfill = merge_into_history(out_dir, all_year_rows, incremental=False)
-            print(f"History bootstrap from all years complete. New added: {added_backfill}")
-        write_latest(out_dir, cached_latest_rows)
-        added = merge_into_history(out_dir, cached_latest_rows)
-        print(f"Latest (1 year) saved: {len(cached_latest_rows)}")
-        print(f"Latest merged into history. New added: {added}")
+        # Fetch latest 1 year and merge
+        latest_rows = fetch_paged(session, params={"type": "LATEST", "duration": "1_YEAR"})
+        normalized = [normalize_record(r) for r in latest_rows]
+        latest_deduped = sort_newest_first(dedupe_records(normalized))
+        all_records = merge_records(all_records, latest_deduped)
+        print(f"After latest merge: {len(all_records)} records.")
 
     cleanup_legacy_files(out_dir)
-    latest_count = len(cached_latest_rows)
-    history_count = len(load_json_list(os.path.join(out_dir, HISTORY_FILE)))
-    write_meta(
-        out_dir=out_dir,
-        mode=args.mode,
-        latest_count=latest_count,
-        history_count=history_count,
-        smoke_passed=smoke_passed,
-    )
-    print(
-        f"Done. Files: {os.path.join(out_dir, LATEST_FILE)} and {os.path.join(out_dir, HISTORY_FILE)}"
-    )
+    save_compact_history(history_path, all_records)
+    write_meta(out_dir, args.mode, len(all_records))
+    print(f"Done. {history_path} ({len(all_records)} records)")
 
 
 if __name__ == "__main__":

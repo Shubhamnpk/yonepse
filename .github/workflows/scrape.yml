@@ -7,7 +7,7 @@ on:
     paths-ignore:
       - 'data/company/**'
       - 'data/ipo/**'
-      - 'data/proposed_dividend/**'
+      - 'data/dividend/**'
       - 'data/floor_sheet/**'
   workflow_dispatch: # Triggered by cron-job.org via GitHub API
 

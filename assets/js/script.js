@@ -226,8 +226,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function getDividendHistoryData() {
         if (Array.isArray(dividendHistoryCache)) return dividendHistoryCache;
-        const raw = await fetchJson('proposed_dividend/history_all_years.json');
-        dividendHistoryCache = Array.isArray(raw) ? raw : [];
+        const raw = await fetchJson('dividend/history.json');
+        if (raw && raw.records && raw.symbols) {
+            dividendHistoryCache = raw.records.map(r => ({
+                symbol: raw.symbols[r[0]],
+                bonus: r[1],
+                cash: r[2],
+                total: r[3],
+                announce: r[4],
+                bookclose: r[5],
+                fiscalYear: r[6],
+            }));
+        } else {
+            dividendHistoryCache = [];
+        }
         return dividendHistoryCache;
     }
 

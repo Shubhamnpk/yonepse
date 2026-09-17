@@ -13,7 +13,7 @@ info:
     2. Fetch `/data/nepse_data.json` for the main ticker feed.
     3. Optionally fetch `/data/OMF.json` for full open-ended mutual fund NAV detail.
     4. Fetch `/data/ltp/manifest.json` and monthly shards for daily LTP history.
-    5. Use `/data/proposed_dividend/latest_1y.json` and `/data/ipo/upcoming.json`
+    5. Use `/data/dividend/history.json` and `/data/ipo/upcoming.json`
        for corporate action style datasets.
 
     Notes:
@@ -240,37 +240,20 @@ paths:
                 items:
                   $ref: '#/components/schemas/UpcomingIpoRow'
 
-  /data/proposed_dividend/latest_1y.json:
+  /data/dividend/history.json:
     get:
       tags: [Dividends]
-      summary: Latest 1-year proposed dividends
-      operationId: getProposedDividendLatest1y
+      summary: All-years proposed dividend history (compact format)
+      operationId: getDividendHistory
       responses:
         '200':
-          description: Latest proposed dividend rows
+          description: Historical proposed dividend rows in compact format
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ProposedDividendRow'
+                $ref: '#/components/schemas/DividendHistory'
 
-  /data/proposed_dividend/history_all_years.json:
-    get:
-      tags: [Dividends]
-      summary: All-years proposed dividend history
-      operationId: getProposedDividendHistoryAllYears
-      responses:
-        '200':
-          description: Historical proposed dividend rows
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ProposedDividendRow'
-
-  /data/proposed_dividend/meta.json:
+  /data/dividend/meta.json:
     get:
       tags: [Dividends]
       summary: Proposed dividend scraper metadata
@@ -641,34 +624,23 @@ components:
         scraped_at:
           type: string
 
-    ProposedDividendRow:
+    DividendHistory:
       type: object
       properties:
-        id:
-          type: integer
-        symbol:
+        scraped_at:
           type: string
-        company_name:
-          type: string
-        bonus_share:
-          type: string
-        cash_dividend:
-          type: string
-        total_dividend:
-          type: string
-        announcement_date:
-          type: string
-        bookclose_date:
-          type: string
-        distribution_date:
-          type: string
-        bonus_listing_date:
-          type: string
-        fiscal_year:
-          type: string
-        ltp:
-          type: string
-        price_as_of:
+        symbols:
+          type: array
+          items:
+            type: string
+        columns:
+          type: array
+          items:
+            type: string
+        records:
+          type: array
+          items:
+            type: array
           type: string
         scraped_at:
           type: string

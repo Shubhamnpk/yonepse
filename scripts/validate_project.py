@@ -245,19 +245,13 @@ def assert_data_invariants():
     else:
         fail("data/ltp/manifest.json must be an object")
 
-    latest_dividends = load_json(ROOT / "data/proposed_dividend/latest_1y.json")
-    history_dividends = load_json(ROOT / "data/proposed_dividend/history_all_years.json")
-    forbidden_latest = {"company_name", "ltp", "price_as_of"}
-    forbidden_history = forbidden_latest | {"scraped_at"}
-    latest_keys = set(walk_keys(latest_dividends)) & forbidden_latest
+    history_dividends = load_json(ROOT / "data/dividend/history.json")
+    forbidden_history = {"company_name", "ltp", "price_as_of", "scraped_at"}
     history_keys = set(walk_keys(history_dividends)) & forbidden_history
-    if latest_keys:
-        fail(f"latest proposed dividend contains removed fields: {sorted(latest_keys)}")
     if history_keys:
         fail(f"history proposed dividend contains removed fields: {sorted(history_keys)}")
     for rel_path, rows in (
-        ("data/proposed_dividend/latest_1y.json", latest_dividends),
-        ("data/proposed_dividend/history_all_years.json", history_dividends),
+        ("data/dividend/history.json", history_dividends.get("records") if isinstance(history_dividends, dict) else history_dividends),
     ):
         if isinstance(rows, list):
             for index, row in enumerate(rows):

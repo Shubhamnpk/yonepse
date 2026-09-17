@@ -149,7 +149,6 @@ def fetch_open_ended_navs(session: requests.Session) -> List[Dict[str, Any]]:
 
 
 def normalize_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    scraped_at = datetime.now().isoformat()
     normalized: List[Dict[str, Any]] = []
 
     # Sharesansar truncates some AMC official codes (NMBSBFE -> NMBSBF)
@@ -175,7 +174,6 @@ def normalize_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             "price_as_of": clean_date(row.get("published_date")),
             "premium_discount_percent": to_float(row.get("prem_dis")),
             "refund_nav": to_float(row.get("refund_nav")),
-            "scraped_at": scraped_at,
         }
         normalized.append({key: value for key, value in item.items() if value is not None})
 
@@ -184,8 +182,12 @@ def normalize_rows(rows: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 
 
 def save_json(path: str, data: List[Dict[str, Any]]) -> None:
+    output = {
+        "scraped_at": datetime.now().isoformat(),
+        "records": data,
+    }
     with open(path, "w", encoding="utf-8") as file:
-        json.dump(data, file, indent=2, ensure_ascii=False)
+        json.dump(output, file, indent=2, ensure_ascii=False)
 
 
 def scrape_and_save_open_ended_navs(output_path: Optional[str] = None) -> List[Dict[str, Any]]:
