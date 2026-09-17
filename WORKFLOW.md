@@ -35,7 +35,7 @@ flowchart TD
 
     CompanyRun --> DailyGuard["Daily guard<br/>data/company/run_metadata.json<br/>skip if already checked today"]
     DailyGuard --> Financials["Financial reports<br/>data/company/financials.json<br/>append-only"]
-    DailyGuard --> Profiles["Company profiles<br/>data/company/profiles.json<br/>replace-on-change"]
+    DailyGuard --> Profiles["Compact company profiles<br/>data/company/profiles.json<br/>replace-on-change"]
     Financials --> CompanyMeta["Financial metadata<br/>data/company/metadata.json"]
 
     CompanyMeta --> IpoRun
@@ -80,7 +80,7 @@ flowchart TD
 | Dataset | Update style | Why |
 | --- | --- | --- |
 | `data/company/financials.json` | Append-only | Historical financial reports should not be rewritten once captured |
-| `data/company/profiles.json` | Replace-on-change | Company descriptions/contact details can be edited by NEPSE |
+| `data/company/profiles.json` | Replace-on-change | Compact columns/rows profile data; company details can be edited by NEPSE |
 | `data/company/run_metadata.json` | Daily guard | Prevents financial/profile fetches from running more than once per Nepal day |
 | Market files under `data/market`, `data/notify`, `data/ltp` | Frequent refresh/merge | These change during market activity |
 

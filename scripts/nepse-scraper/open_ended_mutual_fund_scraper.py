@@ -10,7 +10,7 @@ from urllib3.util import Retry
 
 
 BASE_URL = "https://www.sharesansar.com/mutual-fund-navs"
-OUTPUT_FILE = "OMF.json"
+OUTPUT_FILE = os.path.join("market", "omf.json")
 HEADERS = {
     "User-Agent": "Mozilla/5.0",
 }
@@ -19,8 +19,9 @@ HEADERS = {
 def get_output_path() -> str:
     repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     data_dir = os.path.join(repo_root, "data")
-    os.makedirs(data_dir, exist_ok=True)
-    return os.path.join(data_dir, OUTPUT_FILE)
+    output_path = os.path.join(data_dir, OUTPUT_FILE)
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    return output_path
 
 
 def create_session() -> requests.Session:

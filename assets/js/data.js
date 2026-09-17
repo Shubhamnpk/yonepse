@@ -122,6 +122,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
+    function expandMarketHistory(data) {
+        if (Array.isArray(data)) return data;
+        if (!data || !Array.isArray(data.columns) || !Array.isArray(data.rows)) return [];
+        return data.rows.map((values) => Object.fromEntries(
+            data.columns.map((column, index) => [column, values[index]])
+        ));
+    }
+    marketSummaryHistory = expandMarketHistory(historyData);
+
     function safeText(value) {
         return String(value ?? '').replace(/[&<>"']/g, (char) => {
             const map = {

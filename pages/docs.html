@@ -778,9 +778,9 @@ if __name__ == "__main__":
                             <tr>
                                 <td><code>/data/company/profiles.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
-                                <td>Brief company profiles and contact facts from NEPSE</td>
+                                <td>Compact company profiles with shared columns and row arrays</td>
                                 <td>Manual / optional scraper run</td>
-                                <td>~477KB</td>
+                                <td>~492KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/company/financials.json</code></td>
@@ -1032,18 +1032,15 @@ if __name__ == "__main__":
                         <div class="endpoint-head">
                             <span class="badge ok">GET</span>
                             <code class="endpoint-path">/data/market/history.json</code>
-                            <span class="badge">array&lt;dailySummary&gt;</span>
+                            <span class="badge">object&lt;columns, rows&gt;</span>
                         </div>
                         <p class="endpoint-desc">Historical daily summary for trend tables/charts.</p>
                         <div class="code-wrap">
                             <div class="code-head"><span>sample item</span><button class="copy-btn"
                                     onclick="copyCode(this)">Copy</button></div>
-                            <pre><code>{
-  "businessDate": "2026-02-26",
-  "totalTurnover": 4174630515.28,
-  "totalTradedShares": 10053145,
-  "totalTransactions": 44204,
-  "tradedScrips": 335
+                                                        <pre><code>{
+    "columns": ["businessDate", "totalTurnover", "totalTradedShares", "totalTransactions", "tradedScrips"],
+    "rows": [["2026-02-26", 4174630515.28, 10053145, 80422, 326]]
 }</code></pre>
                         </div>
                     </article>
@@ -2414,7 +2411,7 @@ if __name__ == "__main__":
                 { path: '/data/market/sector_indices.json', method: 'GET', shape: 'array', purpose: 'Sector-level index values.' },
                 { path: '/data/market/top_stocks.json', method: 'GET', shape: 'object', purpose: 'Top gainers, losers, turnover, trades, transactions.' },
                 { path: '/data/market/summary.json', method: 'GET', shape: 'array', purpose: 'Current market summary key/value metrics.' },
-                { path: '/data/market/history.json', method: 'GET', shape: 'array', purpose: 'Historical market summary rows by business date.' },
+                { path: '/data/market/history.json', method: 'GET', shape: 'object', purpose: 'Compact historical market summary with shared columns and rows.' },
                 { path: '/data/market/live.json', method: 'GET', shape: 'array', purpose: 'Same current market rows as nepse_data.json.' },
                 { path: '/data/ltp/manifest.json', method: 'GET', shape: 'object', purpose: 'Manifest for available monthly daily LTP history shards.' },
                 { path: '/data/ltp/monthly/YYYY-MM.json', method: 'GET', shape: 'object', purpose: 'Monthly sparse per-symbol daily LTP, volume, turnover, and trades history.' },

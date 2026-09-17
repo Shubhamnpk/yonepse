@@ -166,13 +166,13 @@ def save_data(data):
     if not data:
         print("No data to save.")
         return
-        
+
     os.makedirs('data', exist_ok=True)
-    
+
     file_path = 'data/sharehub_brokers.json'
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
-        
+
     print(f"Successfully saved enrichment data to {file_path}")
     print(f"Enriched brokers: {len(data['enrichment'])}")
 

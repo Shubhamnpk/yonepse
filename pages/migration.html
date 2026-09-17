@@ -164,7 +164,7 @@
             <div class="market-status">
                 <div class="status-item">
                     <i class="fa-solid fa-calendar-check"></i>
-                    <span>Legacy support ends November 18, 2026</span>
+                    <span>Folder-based endpoints are now canonical</span>
                 </div>
                 <div class="status-item">
                     <i class="fa-solid fa-code-branch"></i>
@@ -183,8 +183,8 @@
                     <span class="inline-code">/data/ltp/</span>.
                 </p>
                 <p>
-                    Old endpoint paths remain available for six months, until <strong>November 18, 2026</strong>. After
-                    that date, old paths will stop being updated and may be removed.
+                    Legacy root-level aliases have been retired. Integrations should use the folder-based paths listed
+                    below.
                 </p>
                 <a class="link-button" href="#endpoint-mapping"><i class="fa-solid fa-right-left"></i> View endpoint mapping</a>
             </section>
@@ -334,7 +334,8 @@ rows = requests.get(f"{base}/data/ltp/manifest.json", timeout=20).json()</code><
                         <pre><code>import requests
 
 base = "https://shubhamnpk.github.io/yonepse"
-rows = requests.get(f"{base}/data/market/history.json", timeout=20).json()</code></pre>
+payload = requests.get(f"{base}/data/market/history.json", timeout=20).json()
+rows = [dict(zip(payload["columns"], values)) for values in payload["rows"]]</code></pre>
                     </div>
                 </article>
             </section>
@@ -374,7 +375,7 @@ Endpoint replacements:
 
 Canonical endpoints that should remain unchanged:
 /data/nepse_data.json
-/data/OMF.json
+/data/market/omf.json
 /data/ltp/manifest.json
 /data/ltp/monthly/YYYY-MM.json
 /data/dividend/history.json
@@ -397,7 +398,7 @@ Canonical endpoints that should remain unchanged:
                 <div class="pill-row">
                     <span class="migration-pill"><i class="fa-solid fa-lock-open"></i> No auth changes</span>
                     <span class="migration-pill"><i class="fa-solid fa-file-code"></i> Same JSON format</span>
-                    <span class="migration-pill"><i class="fa-solid fa-clock"></i> Six-month legacy support</span>
+                    <span class="migration-pill"><i class="fa-solid fa-folder-tree"></i> Folder-based paths required</span>
                 </div>
             </section>
         </main>

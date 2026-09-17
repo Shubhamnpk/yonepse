@@ -176,6 +176,15 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
+    function expandMarketHistory(data) {
+        if (Array.isArray(data)) return data;
+        if (!data || !Array.isArray(data.columns) || !Array.isArray(data.rows)) return [];
+        return data.rows.map((values) => Object.fromEntries(
+            data.columns.map((column, index) => [column, values[index]])
+        ));
+    }
+            renderMarketSnapshot(summary || [], marketStatus, expandMarketHistory(marketSummaryHistory), supplyDemand);
+
     function formatNumber(value, digits = 2) {
         if (typeof value !== 'number' || Number.isNaN(value)) return '-';
         return value.toLocaleString(undefined, {
@@ -260,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getCompanyProfilesData() {
         if (Array.isArray(companyProfilesCache)) return companyProfilesCache;
         const raw = await fetchJson('company/profiles.json');
-        companyProfilesCache = Array.isArray(raw) ? raw : [];
+        companyProfilesCache = expandMarketHistory(raw);
         return companyProfilesCache;
     }
 
