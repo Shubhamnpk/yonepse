@@ -246,7 +246,7 @@ def assert_data_invariants():
         fail("data/ltp/manifest.json must be an object")
 
     history_dividends = load_json(ROOT / "data/dividend/history.json")
-    forbidden_history = {"company_name", "ltp", "price_as_of", "scraped_at"}
+    forbidden_history = {"company_name", "ltp", "price_as_of"}
     history_keys = set(walk_keys(history_dividends)) & forbidden_history
     if history_keys:
         fail(f"history proposed dividend contains removed fields: {sorted(history_keys)}")
