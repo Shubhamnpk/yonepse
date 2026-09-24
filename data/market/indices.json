@@ -1,37 +1,5 @@
 [
     {
-        "id": 58,
-        "auditId": null,
-        "exchangeIndexId": null,
-        "generatedTime": "2026-09-24T15:00:00.003",
-        "index": "NEPSE Index",
-        "close": 2618.04,
-        "high": 2629.9409,
-        "low": 2605.3286,
-        "previousClose": 2618.0383,
-        "change": 11.77,
-        "perChange": 0.44,
-        "fiftyTwoWeekHigh": 2960.4,
-        "fiftyTwoWeekLow": 2487.18,
-        "currentValue": 2629.81
-    },
-    {
-        "id": 62,
-        "auditId": null,
-        "exchangeIndexId": null,
-        "generatedTime": "2026-09-24T15:00:00.003",
-        "index": "Float Index",
-        "close": 180.4,
-        "high": 181.1939,
-        "low": 179.4695,
-        "previousClose": 180.3965,
-        "change": 0.79,
-        "perChange": 0.43,
-        "fiftyTwoWeekHigh": 204.21,
-        "fiftyTwoWeekLow": 170.58,
-        "currentValue": 181.18
-    },
-    {
         "id": 57,
         "auditId": null,
         "exchangeIndexId": null,
@@ -62,5 +30,37 @@
         "fiftyTwoWeekHigh": 173.41,
         "fiftyTwoWeekLow": 147.61,
         "currentValue": 158.36
+    },
+    {
+        "id": 58,
+        "auditId": null,
+        "exchangeIndexId": null,
+        "generatedTime": "2026-09-24T15:00:00.003",
+        "index": "NEPSE Index",
+        "close": 2618.04,
+        "high": 2629.9409,
+        "low": 2605.3286,
+        "previousClose": 2618.0383,
+        "change": 11.77,
+        "perChange": 0.44,
+        "fiftyTwoWeekHigh": 2960.4,
+        "fiftyTwoWeekLow": 2487.18,
+        "currentValue": 2629.81
+    },
+    {
+        "id": 62,
+        "auditId": null,
+        "exchangeIndexId": null,
+        "generatedTime": "2026-09-24T15:00:00.003",
+        "index": "Float Index",
+        "close": 180.4,
+        "high": 181.1939,
+        "low": 179.4695,
+        "previousClose": 180.3965,
+        "change": 0.79,
+        "perChange": 0.43,
+        "fiftyTwoWeekHigh": 204.21,
+        "fiftyTwoWeekLow": 170.58,
+        "currentValue": 181.18
     }
 ]

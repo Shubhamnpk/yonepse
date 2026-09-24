@@ -1232,7 +1232,7 @@ def scrape_all_official_data(
             # (nepse_data.json, LTP history) uses the correct price.
             try:
                 _override_gsya_in_data(data_dir)
-                omf_snapshot = load_omf_data(os.path.join(data_dir, 'OMF.json'))
+                omf_snapshot = load_omf_data(os.path.join(data_dir, 'market', 'omf.json'))
             except Exception as exc:
                 print(f"GSYA Garima override during data build failed: {exc}")
 
