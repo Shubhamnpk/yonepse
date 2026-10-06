@@ -244,14 +244,14 @@
                         <span class="lane-icon"><i class="fa-solid fa-chart-line"></i></span>
                         <div>
                             <h2>Market Cron</h2>
-                            <p>Every 30 minutes, Monday-Friday market window</p>
+                            <p>Every hour, Monday-Friday market window</p>
                         </div>
                     </div>
 
                     <div class="flow-step">
                         <strong><i class="fa-brands fa-github"></i> Trigger</strong>
                         <p><code>.github/workflows/scrape.yml</code></p>
-                        <p>Runs from about 09:45 to 16:15 NPT.</p>
+                        <p>Runs hourly from about 11:00 to 16:00 NPT.</p>
                     </div>
                     <div class="flow-step">
                         <strong><i class="fa-solid fa-box-open"></i> Setup</strong>
@@ -368,7 +368,7 @@
             <section class="workflow-summary" aria-label="Workflow summary">
                 <article class="summary-card">
                     <span>Fast Loop</span>
-                    <strong>Market data refreshes every 30 minutes during market hours.</strong>
+                    <strong>Market data refreshes every hour during market hours.</strong>
                 </article>
                 <article class="summary-card">
                     <span>Heavy Loop</span>

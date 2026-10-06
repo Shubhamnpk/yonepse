@@ -8,7 +8,7 @@ flowchart TD
     Repo --> DailyCron
     Repo --> Guardrails
 
-    MarketCron["Market Cron<br/>.github/workflows/scrape.yml<br/>Every 30 min, Mon-Fri<br/>~09:45-16:15 NPT"]
+    MarketCron["Market Cron<br/>.github/workflows/scrape.yml<br/>Every hour, Mon-Fri<br/>11:00-16:00 NPT"]
     DailyCron["Daily IPO + Company Cron<br/>.github/workflows/scrape_ipo.yml<br/>Once daily<br/>09:45 NPT"]
     Guardrails["Guardrails<br/>.github/workflows/guardrails.yml<br/>Pull request or manual only"]
 
@@ -71,7 +71,7 @@ flowchart TD
 
 | Workflow | Schedule | Estimated time | Purpose |
 | --- | --- | ---: | --- |
-| Market cron | Every 30 min, Mon-Fri market window | Usually a few minutes | Live market, notices, indices, LTP history |
+| Market cron | Every hour, Mon-Fri (11:00-16:00 NPT) | Usually a few minutes | Live market, notices, indices, LTP history |
 | Daily IPO + company cron | Once daily at 09:45 NPT | About 2-4 minutes | Company financials/profiles, IPOs, dividends, sectors |
 | Guardrails | Pull request/manual | Under 1 minute | Validation only |
 

@@ -84,7 +84,7 @@ See `CONTRIBUTING.md` for full setup and data-change rules.
 
 Workflows are `workflow_dispatch` only (triggered by cron-job.org). No GitHub `schedule` cron.
 
-- **Market** (`scrape.yml`, ~25 min timeout): Intraday, every ~30 min during trading hours Mon–Fri (11 AM–3 PM NPT). Runs `official_scraper.py --ltp-history live-close`, updates `data/nepse_data.json`, `data/market/*`, `data/ltp/*`, `data/notify/*`, validates (`node --check`, `compileall`, `validate_project.py`), commits as `YONEPSE Data Bot`.
+- **Market** (`scrape.yml`, ~25 min timeout): Hourly Mon–Fri (11 AM–4 PM NPT). Runs `official_scraper.py --ltp-history live-close`, updates `data/nepse_data.json`, `data/market/*`, `data/ltp/*`, `data/notify/*`, validates (`node --check`, `compileall`, `validate_project.py`), commits as `YONEPSE Data Bot`.
 - **Company/IPO/Dividend** (`scrape_ipo.yml`, ~60 min timeout): Daily Mon–Fri ~5 PM NPT. Runs `--financials --profiles`, `upcoming_ipo_scraper.py`, `proposed_dividend_scraper.py --mode latest`, sectors/brokers. Daily guard via `data/company/run_metadata.json`. Commits as `YONEPSE Ipo Bot`.
 - **Floor Sheet** (`scrape_floor_sheet.yml`): Weekdays ~3:15 PM NPT after close, writes `data/floor_sheet/daily/YYYY-MM-DD.json`.
 

@@ -417,7 +417,7 @@
         </section>
 
         <nav class="top-nav" aria-label="Primary">
-            <a class="nav-link" href="../index.html">Market Dashboard</a>
+            <a class="nav-link" href="../index.html">Dashboard</a>
             <a class="nav-link" href="broker-leaderboard.html">Broker Leaderboard</a>
             <a class="nav-link active" href="docs.html">JSON Docs</a>
             <a class="nav-link" href="about.html">About</a>
@@ -463,7 +463,7 @@
                 </div>
                 <div class="status-item">
                     <i class="fa-solid fa-rotate"></i>
-                    <span>Updates: every 30 minutes (Mon-Fri, 11 AM - 3 PM NPT)</span>
+                    <span>Updates: every hour (Mon-Fri, 11 AM - 4 PM NPT)</span>
                 </div>
                 <div class="status-item">
                     <i class="fa-solid fa-table-list"></i>
@@ -674,91 +674,91 @@ if __name__ == "__main__":
                                 <td><code>/data/nepse_data.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Live stock prices with OHLCV data (updated during market hours)</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~140KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/status.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Market open/closed status with last check timestamp</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>&lt;1KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/indices.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Major NEPSE indices (NEPSE, Sensitive, Float)</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~2KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/sector_indices.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Sector-wise index performance and metadata</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~5KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/top_stocks.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Top gainers, losers, turnover, and volume leaders</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~3KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/summary.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Key market metrics (turnover, trades, scrips)</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~1KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/history.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Historical daily market summary data</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~100KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/market/live.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Current market rows mirrored from nepse_data.json</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~140KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/ltp/manifest.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>LTP history manifest with available months</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>&lt;1KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/ltp/monthly/YYYY-MM.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Monthly per-symbol LTP, volume, turnover, and trades history</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>Varies by month</td>
                             </tr>
                             <tr>
                                 <td><code>/data/notify/notices.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>General, company, and exchange notices</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~20KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/notify/disclosures.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Company disclosures and announcements</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~15KB</td>
                             </tr>
                             <tr>
                                 <td><code>/data/notify/exchange_messages.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Exchange announcements and circulars</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~8KB</td>
                             </tr>
                             <tr>
@@ -807,7 +807,7 @@ if __name__ == "__main__":
                                 <td><code>/data/market/supply_demand.json</code></td>
                                 <td><span class="badge ok">GET</span></td>
                                 <td>Supply and demand book for all securities</td>
-                                <td>Every 30 min (Mon-Fri, market hours)</td>
+                                <td>Every hour (Mon-Fri, 11 AM-4 PM NPT)</td>
                                 <td>~10KB</td>
                             </tr>
                             <tr>
@@ -872,12 +872,12 @@ if __name__ == "__main__":
                             <span class="badge">array&lt;stock&gt;</span>
                         </div>
                         <p class="endpoint-desc">Live market data with OHLCV, turnover, and real-time pricing. Updated
-                            every 30 minutes during market hours (11 AM-3 PM NPT, Mon-Fri). Contains all active securities
+                            every hour during market hours (11 AM-4 PM NPT, Mon-Fri). Contains all active securities
                             with current trading information.</p>
                         <div class="endpoint-meta">
                             <div class="endpoint-meta-item">
                                 <i class="fa-solid fa-clock"></i>
-                                <span>Updated: Every 30 min (market hours)</span>
+                                <span>Updated: Every hour (market hours)</span>
                             </div>
                             <div class="endpoint-meta-item">
                                 <i class="fa-solid fa-database"></i>
@@ -2374,7 +2374,7 @@ if __name__ == "__main__":
                 base_url: 'https://shubhamnpk.github.io/yonepse',
                 data_base_url: 'https://shubhamnpk.github.io/yonepse/data',
                 timezone: 'Asia/Kathmandu',
-                update_schedule: 'Every 30 minutes during market hours (Mon-Fri, 11:00-15:00 NPT); workflow also runs until 16:15 NPT for post-close finalization',
+                update_schedule: 'Every hour during market hours (Mon-Fri, 11:00-16:00 NPT); last run finalizes post-close data',
                 auth: 'none'
             },
             usage_instructions: {

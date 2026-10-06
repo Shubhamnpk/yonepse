@@ -183,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
             data.columns.map((column, index) => [column, values[index]])
         ));
     }
-            renderMarketSnapshot(summary || [], marketStatus, expandMarketHistory(marketSummaryHistory), supplyDemand);
 
     function formatNumber(value, digits = 2) {
         if (typeof value !== 'number' || Number.isNaN(value)) return '-';
