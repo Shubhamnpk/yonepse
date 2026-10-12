@@ -209,27 +209,8 @@ def load_compact_history(path: str) -> Optional[Dict]:
         return None
 
 
-def compact_to_records(history: Dict) -> List[Dict]:
-    """Convert compact history back to dict records for merging."""
-    symbols = history.get("symbols", [])
-    records = []
-    for row in history.get("records", []):
-        if len(row) < 7:
-            continue
-        records.append({
-            "symbol": symbols[row[0]] if row[0] < len(symbols) else None,
-            "bonus": row[1],
-            "cash": row[2],
-            "total": row[3],
-            "announce": row[4],
-            "bookclose": row[5],
-            "fiscalYear": row[6],
-        })
-    return [r for r in records if r.get("symbol")]
-
-
 def save_compact_history(path: str, records: List[Dict]) -> None:
-    """Save records in compact format."""
+    """Save records in compact format (indented so diffs stay per-line)."""
     symbols, rows = records_to_compact(records)
     output = {
         "scraped_at": datetime.now().isoformat(timespec="seconds"),
@@ -238,16 +219,66 @@ def save_compact_history(path: str, records: List[Dict]) -> None:
         "records": rows,
     }
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(output, f, ensure_ascii=False)
+        json.dump(output, f, ensure_ascii=False, indent=2)
 
 
-def merge_records(existing: List[Dict], incoming: List[Dict]) -> List[Dict]:
-    """Merge incoming records into existing, deduplicating."""
-    seen = {record_key(r) for r in existing}
-    to_add = [r for r in incoming if record_key(r) not in seen]
-    if to_add:
-        return sort_newest_first(existing + to_add)
-    return existing
+def append_compact_history(path: str, incoming: List[Dict]) -> tuple:
+    """Append only new records to the compact history file.
+
+    Existing symbol indices and row order are preserved (never renumbered
+    or resorted), so the file diff is just the added rows. The file is not
+    touched at all when there is nothing new. Returns (added, total).
+    """
+    existing = load_compact_history(path)
+    if existing is None:
+        records = sort_newest_first(dedupe_records(incoming))
+        save_compact_history(path, records)
+        return len(records), len(records)
+
+    symbols = list(existing.get("symbols", []))
+    rows = [list(r) for r in existing.get("records", [])]
+    symbol_idx = {s: i for i, s in enumerate(symbols)}
+
+    seen = set()
+    for r in rows:
+        if len(r) < 7:
+            continue
+        sym = symbols[r[0]] if r[0] < len(symbols) else None
+        seen.add("|".join([str(sym or ""), str(r[6] or ""), str(r[4] or ""), str(r[3] or "")]))
+
+    added = 0
+    for item in incoming:
+        key = record_key(item)
+        if key in seen:
+            continue
+        seen.add(key)
+        sym = item.get("symbol")
+        if sym not in symbol_idx:
+            symbol_idx[sym] = len(symbols)
+            symbols.append(sym)
+        rows.append([
+            symbol_idx[sym],
+            item.get("bonus"),
+            item.get("cash"),
+            item.get("total"),
+            item.get("announce"),
+            item.get("bookclose"),
+            item.get("fiscalYear"),
+        ])
+        added += 1
+
+    if not added:
+        return 0, len(rows)
+
+    output = {
+        "scraped_at": datetime.now().isoformat(timespec="seconds"),
+        "symbols": symbols,
+        "columns": COLUMNS,
+        "records": rows,
+    }
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(output, f, ensure_ascii=False, indent=2)
+    return added, len(rows)
 
 
 def cleanup_legacy_files(out_dir: str) -> None:
@@ -313,34 +344,28 @@ def main() -> None:
     session = create_session()
     history_path = os.path.join(out_dir, HISTORY_FILE)
 
-    # Load existing history
-    existing_compact = load_compact_history(history_path)
-    if existing_compact:
-        existing_records = compact_to_records(existing_compact)
-        print(f"Loaded {len(existing_records)} existing history records.")
-    else:
-        existing_records = []
-        print("No existing history found.")
-
-    all_records = existing_records
+    incoming: List[Dict] = []
 
     if args.mode in ("backfill", "both"):
         all_year_rows = fetch_all_years(session)
-        all_records = merge_records(all_records, all_year_rows)
-        print(f"After backfill merge: {len(all_records)} records.")
+        incoming.extend(all_year_rows)
+        print(f"Fetched {len(all_year_rows)} backfill rows.")
 
     if args.mode in ("latest", "both"):
         # Fetch latest 1 year and merge
         latest_rows = fetch_paged(session, params={"type": "LATEST", "duration": "1_YEAR"})
         normalized = [normalize_record(r) for r in latest_rows]
         latest_deduped = sort_newest_first(dedupe_records(normalized))
-        all_records = merge_records(all_records, latest_deduped)
-        print(f"After latest merge: {len(all_records)} records.")
+        incoming.extend(latest_deduped)
+        print(f"Fetched {len(latest_deduped)} latest rows.")
 
     cleanup_legacy_files(out_dir)
-    save_compact_history(history_path, all_records)
-    write_meta(out_dir, args.mode, len(all_records))
-    print(f"Done. {history_path} ({len(all_records)} records)")
+    added, total = append_compact_history(history_path, incoming)
+    write_meta(out_dir, args.mode, total)
+    if added:
+        print(f"Appended {added} new records. Done. {history_path} ({total} records)")
+    else:
+        print(f"No new records. {history_path} unchanged ({total} records)")
 
 
 if __name__ == "__main__":
