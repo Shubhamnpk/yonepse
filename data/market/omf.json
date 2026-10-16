@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "scraped_at": "2026-10-16T10:20:10.220912",
+=======
+  "scraped_at": "2026-10-16T07:17:05.793905",
+>>>>>>> f8941a3021daeeac43772902f5ef7002731ca145
   "records": [
     {
       "symbol": "CSBY",
@@ -25,11 +29,20 @@
       "symbol": "GSYM",
       "fund_name": "Garima Subarna Yojana",
       "fund_size": 715566460,
+<<<<<<< HEAD
       "daily_nav": 9.8,
       "daily_nav_date": "2026-10-13",
       "weekly_nav": 9.79,
       "weekly_nav_date": "2026-10-09",
       "monthly_nav": 9.82
+=======
+      "daily_nav": 9.91,
+      "daily_nav_date": "2026-10-15",
+      "weekly_nav": 9.79,
+      "weekly_nav_date": "2026-10-09",
+      "monthly_nav": 9.82,
+      "ltp": 9.91
+>>>>>>> f8941a3021daeeac43772902f5ef7002731ca145
     },
     {
       "symbol": "KSLY",

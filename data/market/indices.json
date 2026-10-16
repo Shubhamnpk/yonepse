@@ -1,8 +1,9 @@
 [
     {
-        "id": 57,
+        "id": 63,
         "auditId": null,
         "exchangeIndexId": null,
+<<<<<<< HEAD
         "generatedTime": null,
         "index": "Sensitive Index",
         "close": 474.97,
@@ -30,11 +31,25 @@
         "fiftyTwoWeekHigh": 2960.4,
         "fiftyTwoWeekLow": 2487.18,
         "currentValue": 2625.93
+=======
+        "generatedTime": "2026-10-16T13:00:58.873",
+        "index": "Sensitive Float Index",
+        "close": 161.03,
+        "high": 161.2157,
+        "low": 160.7696,
+        "previousClose": 161.0321,
+        "change": 0.0,
+        "perChange": 0.0,
+        "fiftyTwoWeekHigh": 173.41,
+        "fiftyTwoWeekLow": 147.61,
+        "currentValue": 161.02
+>>>>>>> f8941a3021daeeac43772902f5ef7002731ca145
     },
     {
         "id": 62,
         "auditId": null,
         "exchangeIndexId": null,
+<<<<<<< HEAD
         "generatedTime": null,
         "index": "Float Index",
         "close": 181.64,
@@ -46,11 +61,25 @@
         "fiftyTwoWeekHigh": 204.21,
         "fiftyTwoWeekLow": 170.58,
         "currentValue": 182.05
+=======
+        "generatedTime": "2026-10-16T13:01:00.443",
+        "index": "Float Index",
+        "close": 182.06,
+        "high": 182.2745,
+        "low": 181.7404,
+        "previousClose": 182.0552,
+        "change": 0.15,
+        "perChange": 0.08,
+        "fiftyTwoWeekHigh": 204.21,
+        "fiftyTwoWeekLow": 170.58,
+        "currentValue": 182.21
+>>>>>>> f8941a3021daeeac43772902f5ef7002731ca145
     },
     {
-        "id": 63,
+        "id": 57,
         "auditId": null,
         "exchangeIndexId": null,
+<<<<<<< HEAD
         "generatedTime": null,
         "index": "Sensitive Float Index",
         "close": 160.69,
@@ -62,5 +91,34 @@
         "fiftyTwoWeekHigh": 173.41,
         "fiftyTwoWeekLow": 147.61,
         "currentValue": 161.03
+=======
+        "generatedTime": "2026-10-16T13:00:58.87",
+        "index": "Sensitive Index",
+        "close": 475.99,
+        "high": 476.8125,
+        "low": 475.4719,
+        "previousClose": 475.9873,
+        "change": 0.29,
+        "perChange": 0.06,
+        "fiftyTwoWeekHigh": 507.0,
+        "fiftyTwoWeekLow": 435.29,
+        "currentValue": 476.27
+    },
+    {
+        "id": 58,
+        "auditId": null,
+        "exchangeIndexId": null,
+        "generatedTime": "2026-10-16T13:01:00.44",
+        "index": "NEPSE Index",
+        "close": 2625.93,
+        "high": 2630.1817,
+        "low": 2622.7842,
+        "previousClose": 2625.9304,
+        "change": 3.19,
+        "perChange": 0.12,
+        "fiftyTwoWeekHigh": 2960.4,
+        "fiftyTwoWeekLow": 2487.18,
+        "currentValue": 2629.12
+>>>>>>> f8941a3021daeeac43772902f5ef7002731ca145
     }
 ]

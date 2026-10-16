@@ -1,6 +1,10 @@
 {
   "version": 1,
+<<<<<<< HEAD
   "latestDate": "2026-10-15",
+=======
+  "latestDate": "2026-10-16",
+>>>>>>> f8941a3021daeeac43772902f5ef7002731ca145
   "availableMonths": [
     "2007-01",
     "2007-02",
@@ -241,5 +245,9 @@
   ],
   "retention": "no-limit",
   "latestStatus": "provisional",
+<<<<<<< HEAD
   "finalizedThrough": "2026-10-14"
+=======
+  "finalizedThrough": "2026-10-15"
+>>>>>>> f8941a3021daeeac43772902f5ef7002731ca145
 }
