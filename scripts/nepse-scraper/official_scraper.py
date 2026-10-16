@@ -212,9 +212,30 @@ def load_omf_data(filepath):
     return []
 
 
+def _official_nav_map(symbol):
+    """Official AMC NAV history {date: nav} for worker-covered funds.
+
+    Returns {} when the fund has no AMC worker or the source is
+    unreachable, letting callers fall back to snapshot values.
+    """
+    try:
+        from omf_nav_history import SYMBOL_SOURCE, points_for
+        if symbol not in SYMBOL_SOURCE:
+            return {}
+        return dict(points_for(symbol))
+    except Exception:
+        return {}
+
+
 def build_omf_rows_for_nepse_data(data_dir, omf_items=None):
     """
     Load open-ended mutual funds from OMF.json and map them into nepse_data schema.
+
+    For worker-covered funds the LTP is the freshest official AMC NAV (even
+    when the snapshot is stale-dated), and previous_close prefers the
+    official NAV of the day before it — so change/percent_change are computed
+    from authentic numbers on both sides. Falls back to snapshot/history
+    values when unavailable.
     """
     if omf_items is None:
         omf_path = os.path.join(data_dir, 'market', 'omf.json')
@@ -234,9 +255,22 @@ def build_omf_rows_for_nepse_data(data_dir, omf_items=None):
 
         ltp = item.get('daily_nav')
         daily_nav_date = item.get('daily_nav_date')
-        previous_close = _prev_day_ltp_from_history(data_dir, symbol, daily_nav_date)
-        if previous_close is None:
-            previous_close = item.get('weekly_nav')
+        official = _official_nav_map(symbol)
+        if official:
+            # Freshest authentic value wins, even if the snapshot is stale-dated
+            # (this generalizes the old GSYM-only latest bump to all funds).
+            latest_date = max(official)
+            if ltp != official[latest_date] or daily_nav_date != latest_date:
+                print(f"  OMF amend {symbol} {daily_nav_date}: {ltp} -> "
+                      f"{latest_date}: {official[latest_date]} (AMC)")
+            ltp, daily_nav_date = official[latest_date], latest_date
+        prior_dates = sorted(d for d in official if daily_nav_date and d < daily_nav_date)
+        if prior_dates:
+            previous_close = official[prior_dates[-1]]
+        else:
+            previous_close = _prev_day_ltp_from_history(data_dir, symbol, daily_nav_date)
+            if previous_close is None:
+                previous_close = item.get('weekly_nav')
         change = (
             round(ltp - previous_close, 2)
             if isinstance(ltp, (int, float)) and isinstance(previous_close, (int, float))
@@ -260,7 +294,7 @@ def build_omf_rows_for_nepse_data(data_dir, omf_items=None):
             "volume": None,
             "turnover": None,
             "trades": None,
-            "last_updated": item.get('daily_nav_date') or item.get('scraped_at'),
+            "last_updated": daily_nav_date or item.get('scraped_at'),
             "market_cap": item.get('fund_size'),
             "asset_type": "open_ended_mutual_fund"
         })
@@ -279,75 +313,6 @@ def refresh_omf_data(data_dir):
     except Exception as exc:
         print(f"OMF refresh failed, falling back to existing OMF.json: {exc}")
         return load_omf_data(omf_path)
-
-
-def _fetch_garima_gsya_latest():
-    """Fetch latest daily NAV for GSYA from Garima Capital."""
-    import requests
-    url = "https://www.garimacapital.com/nav/category-data/10?daily_page=1&weekly_page=1&monthly_page=1"
-    resp = requests.get(url, timeout=20, headers={"User-Agent": "nepse-scraper/1.0"})
-    resp.raise_for_status()
-    data = resp.json()
-    items = data.get("tables", {}).get("daily", {}).get("data", [])
-    if not items:
-        return None, None
-    return items[0].get("publish_at"), items[0].get("value")
-
-
-def _override_gsya_in_data(data_dir):
-    """Override GSYA entry in OMF.json, nepse_data.json and market/live.json with fresh Garima Capital NAV."""
-    date_str, value = _fetch_garima_gsya_latest()
-    if not date_str or value is None:
-        print("  Garima GSYA fetch returned no data, skipping override.")
-        return
-
-    val = float(value)
-    now_iso = datetime.now().isoformat()
-
-    # 1. Update OMF.json
-    omf_path = os.path.join(data_dir, 'market', 'omf.json')
-    if os.path.exists(omf_path):
-        omf = load_json_object(omf_path)
-        if isinstance(omf, dict):
-            records = omf.get('records', [])
-        else:
-            records = omf if isinstance(omf, list) else []
-        for row in records:
-            if isinstance(row, dict) and row.get("symbol") == "GSYM":
-                row["daily_nav"] = val
-                row["daily_nav_date"] = date_str
-                row["ltp"] = val
-                break
-        output = {
-            "scraped_at": datetime.now().isoformat(),
-            "records": records,
-        }
-        with open(omf_path, 'w', encoding='utf-8') as f:
-            json.dump(output, f, indent=2, ensure_ascii=False)
-
-    # 2. Update nepse_data.json and market/live.json
-    for fname in ('nepse_data.json', 'live.json'):
-        fpath = os.path.join(data_dir, 'market' if fname == 'live.json' else '', fname)
-        if os.path.exists(fpath):
-            data = load_json_list(fpath)
-            for row in data:
-                if isinstance(row, dict) and row.get("symbol") == "GSYM":
-                    daily_nav_date = date_str
-                    pc = _prev_day_ltp_from_history(data_dir, "GSYM", daily_nav_date)
-                    if pc is None:
-                        pc = row.get("weekly_nav")
-                    row["ltp"] = val
-                    row["previous_close"] = pc
-                    change = round(val - pc, 2) if isinstance(pc, (int, float)) else 0
-                    p_change = round((change / pc) * 100, 2) if isinstance(pc, (int, float)) and pc != 0 else 0
-                    row["change"] = change
-                    row["percent_change"] = p_change
-                    row["last_updated"] = daily_nav_date
-                    break
-            with open(fpath, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=4)
-
-    print(f"  GSYA overridden from Garima Capital: nav={val}, date={date_str}")
 
 
 def unique_text_values(values):
@@ -1228,13 +1193,9 @@ def scrape_all_official_data(
             print("Refreshing open-ended mutual fund data...")
             omf_snapshot = refresh_omf_data(data_dir)
 
-            # Override GSYA with fresh Garima Capital NAV so downstream data
-            # (nepse_data.json, LTP history) uses the correct price.
-            try:
-                _override_gsya_in_data(data_dir)
-                omf_snapshot = load_omf_data(os.path.join(data_dir, 'market', 'omf.json'))
-            except Exception as exc:
-                print(f"GSYA Garima override during data build failed: {exc}")
+            # Row-level verification against official AMC NAVs happens inside
+            # build_omf_rows_for_nepse_data (freshest official value wins);
+            # omf.json on disk stays the raw Sharesansar snapshot.
 
             # 4. Today's Prices
             print("Fetching today's prices...")
@@ -1286,20 +1247,45 @@ def scrape_all_official_data(
             write_json(os.path.join(data_dir, 'nepse_data.json'), mapped_prices)
             write_json(os.path.join(market_dir, 'live.json'), mapped_prices)
 
+            ltp_new_date = False
             if should_update_ltp_history(ltp_history_mode, market_is_open=is_open):
                 latest_status = ltp_history_latest_status()
                 print(f"Updating monthly LTP history shards ({ltp_history_mode}, {latest_status}).")
+                manifest_path = os.path.join(data_dir, 'ltp', 'manifest.json')
+                before = (load_json_object(manifest_path) or {}).get('latestDate')
                 build_shards(
                     source_path=os.path.join(data_dir, 'nepse_data.json'),
                     output_dir=os.path.join(data_dir, 'ltp'),
                     latest_status=latest_status
                 )
+                after = (load_json_object(manifest_path) or {}).get('latestDate')
+                ltp_new_date = after is not None and after != before
             else:
                 now_npt = datetime.now(NPT).isoformat(timespec='minutes')
                 print(
                     "Skipping monthly LTP history shards "
                     f"({ltp_history_mode}, current NPT time {now_npt})."
                 )
+
+            # 3b. Refresh OMF NAV history from AMC sources (append-only).
+            # Runs only when LTP gained a new trading date this run — the hourly
+            # runs in between would only refetch identical NAVs. Never breaks
+            # the market run: per-fund failures are isolated.
+            if ltp_new_date:
+                try:
+                    from omf_nav_history import run as run_omf_nav_workers
+                    print("Refreshing OMF NAV history from AMCs...")
+                    for nav_result in run_omf_nav_workers(
+                        output_dir=os.path.join(data_dir, 'ltp')
+                    ):
+                        if nav_result.get("error"):
+                            print(f"  {nav_result['symbol']}: skipped ({nav_result['error']})")
+                        elif nav_result.get("inserted"):
+                            print(f"  {nav_result['symbol']}: +{nav_result['inserted']} NAV points")
+                except Exception as exc:
+                    print(f"OMF NAV refresh failed (market data unaffected): {exc}")
+            else:
+                print("Skipping OMF NAV refresh (no new LTP date this run).")
 
             # 4. Indices (Live & All Sectoral)
             print("Fetching indices...")

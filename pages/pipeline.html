@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Scraper Pipeline | YONEPSE</title>
+    <meta name="description"
+        content="What happens on every market scraper run: sources, cross-checks, fallbacks and outputs.">
+    <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050505;
+            --panel: #0d1117;
+            --border: rgba(255, 255, 255, .1);
+            --text: #e6edf3;
+            --muted: #8b949e;
+            --accent: #58a6ff;
+            --success: #3fb950;
+            --warn: #d29922;
+            --danger: #f85149;
+            --omf: #a371f7;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+
+        .wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+        nav.top { display: flex; gap: 1.25rem; padding: 1rem 0; font-size: .9rem; }
+        nav.top a { color: var(--muted); text-decoration: none; }
+        nav.top a:hover, nav.top a.active { color: var(--text); }
+
+        h1 { font-size: 1.8rem; margin: .5rem 0; }
+        .sub { color: var(--muted); margin-bottom: 1.5rem; }
+        .sub code {
+            background: rgba(88, 166, 255, .12); color: var(--accent);
+            padding: .1rem .4rem; border-radius: 6px; font-size: .85em;
+        }
+
+        .legend { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+        .legend span {
+            font-size: .78rem; padding: .25rem .7rem; border-radius: 999px;
+            border: 1px solid var(--border); color: var(--muted);
+        }
+        .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+
+        .flow { position: relative; padding-left: 34px; }
+        .flow::before {
+            content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px;
+            width: 2px; background: linear-gradient(var(--accent), var(--omf), var(--success));
+            opacity: .4;
+        }
+
+        .step { position: relative; margin-bottom: 1rem; }
+        .step::before {
+            content: attr(data-n);
+            position: absolute; left: -34px; top: 14px;
+            width: 24px; height: 24px; border-radius: 50%;
+            background: var(--panel); border: 2px solid var(--accent);
+            font-size: .72rem; font-weight: 700; color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .step.omf::before { border-color: var(--omf); color: var(--omf); }
+        .step.out::before { border-color: var(--success); color: var(--success); }
+
+        details {
+            background: var(--panel); border: 1px solid var(--border);
+            border-radius: 12px; overflow: hidden;
+        }
+        details.omf { border-left: 3px solid var(--omf); }
+        details.fix { border-left: 3px solid var(--warn); }
+        summary {
+            cursor: pointer; padding: .85rem 1rem; font-weight: 600;
+            display: flex; align-items: center; gap: .6rem; list-style: none;
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary .tag {
+            margin-left: auto; font-size: .68rem; font-weight: 500;
+            padding: .15rem .55rem; border-radius: 999px;
+            border: 1px solid var(--border); color: var(--muted);
+            white-space: nowrap;
+        }
+        .body { padding: 0 1rem 1rem; color: var(--muted); font-size: .9rem; }
+        .body code {
+            background: rgba(255, 255, 255, .07); padding: .1rem .35rem;
+            border-radius: 5px; font-size: .82em; color: var(--text);
+        }
+        .body ul { margin: .4rem 0; padding-left: 1.2rem; }
+        .fail { color: var(--warn); }
+
+        .branch {
+            display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin-top: .6rem;
+        }
+        .branch div {
+            border: 1px dashed var(--border); border-radius: 8px;
+            padding: .5rem .7rem; font-size: .82rem;
+        }
+        @media (max-width: 600px) { .branch { grid-template-columns: 1fr; } }
+
+        footer { margin-top: 3rem; color: var(--muted); font-size: .82rem; }
+        footer code { background: rgba(255,255,255,.07); padding: .1rem .35rem; border-radius: 5px; }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <nav class="top" aria-label="Primary">
+            <a href="../index.html">Dashboard</a>
+            <a href="broker-leaderboard.html">Broker Leaderboard</a>
+            <a href="terminal.html">Terminal</a>
+            <a href="about.html">About</a>
+            <a href="pipeline.html" class="active">Pipeline</a>
+        </nav>
+
+        <h1><i class="fa-solid fa-diagram-project"></i> Market Scraper Run</h1>
+        <p class="sub">
+            One run = <code>python scripts/nepse-scraper/official_scraper.py --ltp-history live-close</code>
+            (hourly, Mon–Fri). Click any step for sources, fallbacks and outputs.
+        </p>
+
+        <div class="legend">
+            <span><span class="dot" style="background:var(--accent)"></span>NEPSE / market data</span>
+            <span><span class="dot" style="background:var(--omf)"></span>Open-end mutual funds</span>
+            <span><span class="dot" style="background:var(--success)"></span>Output file</span>
+            <span><span class="dot" style="background:var(--warn)"></span>Guard / fallback</span>
+        </div>
+
+        <div class="flow">
+            <div class="step" data-n="1">
+                <details open>
+                    <summary><i class="fa-solid fa-heart-pulse"></i> Market status <span class="tag">nepalstock.com.np</span></summary>
+                    <div class="body">
+                        Asks NEPSE if the market is open. Decides LTP-history mode later.
+                        <ul><li>Writes <code>data/market/status.json</code></li></ul>
+                    </div>
+                </details>
+            </div>
+
+            <div class="step omf" data-n="2">
+                <details open>
+                    <summary><i class="fa-solid fa-piggy-bank"></i> OMF snapshot refresh <span class="tag">sharesansar.com</span></summary>
+                    <div class="body">
+                        Scrapes <code>mutual-fund-navs</code> (14 funds: daily / weekly / monthly NAV).
+                        <ul>
+                            <li>Success → fresh rows, writes <code>data/market/omf.json</code></li>
+                            <li class="fail">Fail → keeps existing <code>omf.json</code>, continues with it</li>
+                        </ul>
+                        Note: this file stays the <b>raw aggregator snapshot</b> — never amended.
+                    </div>
+                </details>
+            </div>
+
+            <div class="step omf" data-n="3">
+                <details>
+                    <summary><i class="fa-solid fa-scale-balanced"></i> Authentic row build <span class="tag">AMC wins</span></summary>
+                    <div class="body">
+                        Each covered fund takes its <code>ltp</code> from the <b>freshest</b>
+                        official AMC NAV — even when the snapshot is stale-dated — and
+                        <code>previous_close</code> from the official day before it, so
+                        <code>change</code> / <code>percent_change</code> are authentic on
+                        both sides. Unreachable source or uncovered fund → snapshot fallback.
+                    </div>
+                </details>
+            </div>
+
+            <div class="step omf" data-n="4">
+                <details>
+                    <summary><i class="fa-solid fa-money-bill-trend-up"></i> Today's prices + merge <span class="tag">NEPSE today-price</span></summary>
+                    <div class="body">
+                        Official per-stock LTP / OHLCV from NEPSE, then the 14 OMF rows are
+                        appended (<code>asset_type: open_ended_mutual_fund</code>, no high/low/volume).
+                        OMF rows arrive already source-verified (step 3) — only verified
+                        numbers flow into the live files and LTP history.
+                        <div class="branch">
+                            <div>📄 <code>data/nepse_data.json</code><br>legacy public feed</div>
+                            <div>📄 <code>data/market/live.json</code><br>identical alias copy</div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div class="step" data-n="5">
+                <details>
+                    <summary><i class="fa-solid fa-database"></i> LTP history shards <span class="tag">live-close rule</span></summary>
+                    <div class="body">
+                        Snapshot appended into <code>data/ltp/monthly/*.json</code> —
+                        but only after 16:00 NPT or while the market is open. Otherwise skipped
+                        (pre-open runs must not freeze a provisional noon price as the day's close).
+                    </div>
+                </details>
+            </div>
+
+            <div class="step omf" data-n="6">
+                <details>
+                    <summary><i class="fa-solid fa-arrows-rotate"></i> OMF NAV history workers <span class="tag">append-only</span></summary>
+                    <div class="body">
+                        Same 6 AMC workers fill OMF points onto existing shard dates.
+                        Default = <b>append new points only</b>, never rewrites history.
+                        Runs only when LTP gained a new trading date this run —
+                        the hourly runs in between would only refetch identical NAVs.
+                        Shares one fetch cache with step 3, so AMCs are hit once per run.
+                        <ul><li class="fail">Any fund failing (e.g. Nabil WAF) is skipped solo — market data unaffected</li></ul>
+                    </div>
+                </details>
+            </div>
+
+            <div class="step" data-n="7">
+                <details>
+                    <summary><i class="fa-solid fa-chart-line"></i> Indices, sectors, movers <span class="tag">NEPSE + MeroLagani</span></summary>
+                    <div class="body">
+                        <ul>
+                            <li>Live + sector indices → <code>indices.json</code>, <code>sector_indices.json</code></li>
+                            <li>Sector map → <code>other/sector_codes.json</code> (only if changed)</li>
+                            <li>Top gainers / losers / turnover / trades → <code>top_stocks.json</code></li>
+                            <li>Summary + history → <code>summary.json</code>, <code>history.json</code></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <div class="step" data-n="8">
+                <details>
+                    <summary><i class="fa-solid fa-bell"></i> Notices &amp; supply/demand <span class="tag">NEPSE</span></summary>
+                    <div class="body">
+                        Company disclosures + exchange messages (merged by id, no drops),
+                        general notices, supply/demand. Floor sheet only with
+                        <code>--floor-sheet</code> after 15:00 NPT.
+                    </div>
+                </details>
+            </div>
+
+            <div class="step out" data-n="9">
+                <details>
+                    <summary><i class="fa-solid fa-shield-halved"></i> Guardrails + commit <span class="tag">CI only</span></summary>
+                    <div class="body">
+                        <code>node --check</code> × JS files, <code>compileall</code>,
+                        <code>validate_project.py</code> — then the Data Bot commits
+                        <code>data/nepse_data.json data/market data/ltp data/indices data/notify</code>.
+                        Locally: run the scripts, validate, commit yourself.
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <footer>
+            Truth order for OMF prices: <b>AMC official &gt; Sharesansar snapshot &gt; nothing</b>.
+            See <code>scripts/nepse-scraper/omf_nav_history.py</code> and
+            <code>scripts/nepse-scraper/official_scraper.py</code>.
+        </footer>
+    </div>
+</body>
+
+</html>
