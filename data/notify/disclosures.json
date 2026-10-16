@@ -1,5 +1,20 @@
 [
     {
+        "id": 47822,
+        "symbol": "NABBC",
+        "title": "Information Regarding Ammendment in MOA",
+        "body": "Information Regarding Ammendment in MOA",
+        "source": "Internal",
+        "publishedAt": "2026-10-16T12:45:16.517",
+        "documents": [
+            {
+                "id": 33146,
+                "submittedDate": "2026-10-16",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Narayani_Development_Bank_Limited/Company%20News/2026-10-16/NEPSE%20Letter%20regarding%20MOA%20Ammendment_1792133901509.PDF"
+            }
+        ]
+    },
+    {
         "id": 47816,
         "symbol": "MFIL",
         "title": "Book Closure date information for 19th AGM",
@@ -202,16 +217,6 @@
         "publishedAt": "2026-10-15T10:31:56.643",
         "documents": [
             {
-<<<<<<< HEAD
-                "id": 33120,
-                "submittedDate": "2026-10-15",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Upakar_Laghubitta_Bittiya__Sanstha__Limited/Company%20News/2026-10-15/Book%20closed%20%282%29_1792039580478.pdf"
-            },
-            {
-                "id": 33121,
-                "submittedDate": "2026-10-15",
-                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Upakar_Laghubitta_Bittiya__Sanstha__Limited/Company%20News/2026-10-15/NOTICE%20%282%29_1792039608586.pdf"
-=======
                 "id": 33121,
                 "submittedDate": "2026-10-15",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Upakar_Laghubitta_Bittiya__Sanstha__Limited/Company%20News/2026-10-15/NOTICE%20%282%29_1792039608586.pdf"
@@ -220,7 +225,6 @@
                 "id": 33120,
                 "submittedDate": "2026-10-15",
                 "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=Upakar_Laghubitta_Bittiya__Sanstha__Limited/Company%20News/2026-10-15/Book%20closed%20%282%29_1792039580478.pdf"
->>>>>>> f8941a3021daeeac43772902f5ef7002731ca145
             }
         ]
     },
@@ -303,8 +307,6 @@
         ]
     },
     {
-<<<<<<< HEAD
-=======
         "id": 47783,
         "symbol": "RSML",
         "title": "32 Annual General Meeting Minutes",
@@ -778,7 +780,6 @@
         ]
     },
     {
->>>>>>> f8941a3021daeeac43772902f5ef7002731ca145
         "id": 47733,
         "symbol": "NIL",
         "title": "promoter share transaction information letter",
