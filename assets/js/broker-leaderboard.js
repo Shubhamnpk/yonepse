@@ -14,7 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
         modalBackdrop: document.getElementById('modal-backdrop'),
     };
 
-    const DATA_ROOT = window.location.pathname.includes('/pages/') ? '../data/' : 'data/';
+    // Live from the repo (raw.githubusercontent, ~5 min edge cache) so hourly
+    // data-bot commits appear without a Pages redeploy; local dev reads ./data.
+    const DATA_REMOTE = 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/';
+    const IS_LOCAL_DEV = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+    const DATA_ROOT = IS_LOCAL_DEV
+        ? (window.location.pathname.includes('/pages/') ? '../data/' : 'data/')
+        : DATA_REMOTE;
     let allBrokers = [];
     let securitiesMap = {};
     let currentSort = 'todayTurnover';

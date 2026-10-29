@@ -161,8 +161,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Data is read straight from the repo (raw.githubusercontent, ~5 min edge
+    // cache) so hourly data-bot commits go live without a Pages redeploy.
+    // Local dev keeps reading ./data for speed and offline work.
+    const DATA_REMOTE = 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/';
+    const IS_LOCAL_DEV = ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+    const DATA_ROOT = IS_LOCAL_DEV ? 'data/' : DATA_REMOTE;
+
     async function fetchJson(fileName) {
-        const candidates = [`data/${fileName}`, fileName];
+        const candidates = [`${DATA_ROOT}${fileName}`, `data/${fileName}`, fileName];
         for (const url of candidates) {
             try {
                 const res = await fetch(url);

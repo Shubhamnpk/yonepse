@@ -2289,7 +2289,10 @@ if __name__ == "__main__":
             if (!track) return;
 
             try {
-                const res = await fetch('../data/market/indices.json', { cache: 'no-store' });
+                const base = ['localhost', '127.0.0.1', '::1'].includes(location.hostname)
+                    ? '../data/'
+                    : 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/';
+                const res = await fetch(base + 'market/indices.json', { cache: 'no-store' });
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const indices = await res.json();
 
@@ -2603,9 +2606,12 @@ if __name__ == "__main__":
         // Auto-update market status indicator
         async function updateMarketStatus() {
             try {
-                let response = await fetch('../data/market/status.json', { cache: 'no-store' });
+                const isLocal = ['localhost', '127.0.0.1', '::1'].includes(location.hostname);
+                let response = await fetch(
+                    (isLocal ? '../data/' : 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/')
+                    + 'market/status.json', { cache: 'no-store' });
                 if (!response.ok) {
-                    response = await fetch('https://shubhamnpk.github.io/yonepse/data/market/status.json');
+                    response = await fetch('../data/market/status.json');
                 }
                 const data = await response.json();
 
