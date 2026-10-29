@@ -1,5 +1,54 @@
 [
     {
+        "id": 47866,
+        "symbol": "NADEP",
+        "title": "Appointment of Chief Executive Officer (CEO)",
+        "source": "NADEP",
+        "publishedAt": "2026-10-29T10:02:07.043",
+        "documents": [
+            {
+                "id": 33190,
+                "submittedDate": "2026-10-29",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=nadep_user/2026-10-29/Appointment%20of%20Chief%20Executive%20Officer%20%28CEO%29_1793247404676.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47865,
+        "symbol": "LSL",
+        "title": "Dividend declaration of Laxmi Sunrise Bank Limited (LSL)",
+        "body": "Dividend Declaration of LSL\nFiscal Year: 2082-2083\nCash Dividend: 0.26%\nBonus Shares: 5%",
+        "source": "Internal",
+        "publishedAt": "2026-10-29T09:39:07.637",
+        "documents": [
+            {
+                "id": 33189,
+                "submittedDate": "2026-10-29",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=lbl_user/2026-10-29/Divided%20FY%202082-83_1793246019825.pdf"
+            }
+        ]
+    },
+    {
+        "id": 47863,
+        "symbol": "GBIME",
+        "title": "Minutes of 20th Annual General Meeting of GBIME.",
+        "body": "Minutes of 20 th Annual General Meeting of GBIME.",
+        "source": "NEPSE",
+        "publishedAt": "2026-10-28T16:33:35.587",
+        "documents": [
+            {
+                "id": 33187,
+                "submittedDate": "2026-10-28",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbime_user/2026-10-28/letter_1793184472029.pdf"
+            },
+            {
+                "id": 33186,
+                "submittedDate": "2026-10-28",
+                "fileUrl": "https://www.nepalstock.com.np/api/nots/security/fetchFiles?fileLocation=gbime_user/2026-10-28/20th%20AGM%20Minute_1793184430939.pdf"
+            }
+        ]
+    },
+    {
         "id": 47854,
         "symbol": "KDL",
         "title": "12th AGM Minute",
