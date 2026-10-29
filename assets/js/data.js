@@ -135,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
             data.columns.map((column, index) => [column, values[index]])
         ));
     }
-    marketSummaryHistory = expandMarketHistory(historyData);
 
     function safeText(value) {
         return String(value ?? '').replace(/[&<>"']/g, (char) => {
