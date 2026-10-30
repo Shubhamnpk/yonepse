@@ -5,8 +5,9 @@ info:
   description: |
     Developer-facing OpenAPI spec for the published YONEPSE JSON datasets.
 
-    This API is static-file based and served from GitHub Pages. Data is refreshed
-    by GitHub Actions schedules.
+    This API is static-file based and served straight from the GitHub repository
+    (raw.githubusercontent.com, ~5 minute CDN cache), so new data is live without
+    a site deploy. Data is refreshed by GitHub Actions schedules.
 
     Quick start:
     1. Fetch `/data/market/status.json` to understand market state.
@@ -22,8 +23,8 @@ info:
     - `nepse_data.json` may contain mapped OMF entries marked with
       `asset_type: open_ended_mutual_fund`.
 servers:
-  - url: https://shubhamnpk.github.io/yonepse
-    description: GitHub Pages (recommended)
+  - url: https://raw.githubusercontent.com/Shubhamnpk/yonepse/main
+    description: Live data from the GitHub repo (5-minute CDN cache)
 tags:
   - name: Market
   - name: Mutual Funds

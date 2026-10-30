@@ -459,11 +459,11 @@
             <div class="market-status">
                 <div class="status-item">
                     <span class="status-dot"></span>
-                    <span>Base URL: <code>https://shubhamnpk.github.io/yonepse</code></span>
+                    <span>Data base URL: <code>https://raw.githubusercontent.com/Shubhamnpk/yonepse/main</code></span>
                 </div>
                 <div class="status-item">
                     <i class="fa-solid fa-rotate"></i>
-                    <span>Updates: every hour (Mon-Fri, 11 AM - 4 PM NPT)</span>
+                    <span>Updates: every hour (Mon-Fri, 11 AM - 4 PM NPT), served live (~5 min cache)</span>
                 </div>
                 <div class="status-item">
                     <i class="fa-solid fa-table-list"></i>
@@ -501,7 +501,7 @@
                                 <span class="text-white/80 text-sm font-medium">Base URL</span>
                             </div>
                             <code
-                                class="text-green-300 text-xs font-mono block">https://shubhamnpk.github.io/yonepse</code>
+                                class="text-green-300 text-xs font-mono block">https://raw.githubusercontent.com/Shubhamnpk/yonepse/main</code>
                         </div>
                         <div class="bg-white/5 border border-white/10 rounded-lg p-4">
                             <div class="flex items-center gap-2 mb-2">
@@ -576,7 +576,7 @@
                                     <span>curl request</span>
                                     <button class="copy-btn" onclick="copyCode(this)">Copy</button>
                                 </div>
-                                <pre><code>curl -s "https://shubhamnpk.github.io/yonepse/data/nepse_data.json" | jq '.[0]'</code></pre>
+                                <pre><code>curl -s "https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/nepse_data.json" | jq '.[0]'</code></pre>
                             </div>
                         </div>
 
@@ -588,7 +588,7 @@
                                 </div>
                                 <pre><code>async function getStockData() {
   try {
-    const response = await fetch('https://shubhamnpk.github.io/yonepse/data/nepse_data.json');
+    const response = await fetch('https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/nepse_data.json');
     const data = await response.json();
     console.log('Stock data:', data.slice(0, 5));
     return data;
@@ -609,7 +609,7 @@
 import json
 
 def get_stock_data():
-    url = "https://shubhamnpk.github.io/yonepse/data/nepse_data.json"
+    url = "https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/nepse_data.json"
     try:
         response = requests.get(url)
         response.raise_for_status()
@@ -1465,8 +1465,8 @@ if __name__ == "__main__":
                 <div class="status-indicators" style="margin-top: 1.5rem;">
                     <div class="status-indicator">
                         <i class="fa-solid fa-info-circle"></i>
-                        <span><strong>Note:</strong> These tests make live API calls to your GitHub Pages
-                            deployment</span>
+                        <span><strong>Note:</strong> These tests make live calls to the YONEPSE data host
+                            (raw.githubusercontent.com)</span>
                     </div>
                     <div class="status-indicator">
                         <i class="fa-solid fa-shield-halved"></i>
@@ -1637,7 +1637,7 @@ if __name__ == "__main__":
 // Example error handling in JavaScript
 async function fetchMarketData() {
   try {
-    const response = await fetch('https://shubhamnpk.github.io/yonepse/data/nepse_data.json');
+    const response = await fetch('https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/nepse_data.json');
     
     if (!response.ok) {
       if (response.status === 404) {
@@ -1768,7 +1768,7 @@ class MarketDataCache {
     
     // Fetch fresh data
     try {
-      const response = await fetch(`https://shubhamnpk.github.io/yonepse/data/${endpoint}`);
+      const response = await fetch(`https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/${endpoint}`);
       const data = await response.json();
       
       // Update cache
@@ -1882,7 +1882,7 @@ class NEPSEQueue {
       
       try {
         await this.rateLimiter.waitForSlot();
-        const response = await fetch(`https://shubhamnpk.github.io/yonepse/data/${item.endpoint}`);
+        const response = await fetch(`https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/${item.endpoint}`);
         const data = await response.json();
         item.resolve(data);
       } catch (error) {
@@ -1936,7 +1936,7 @@ class NEPSEQueue {
                             </div>
                             <pre><code>import { useState, useEffect } from 'react';
 
-const BASE_URL = 'https://shubhamnpk.github.io/yonepse/data';
+const BASE_URL = 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data';
 
 export function useMarketData() {
   const [stocks, setStocks] = useState([]);
@@ -2004,7 +2004,7 @@ function MarketDashboard() {
                             </div>
                             <pre><code>import { ref, onMounted, onUnmounted } from 'vue';
 
-const BASE_URL = 'https://shubhamnpk.github.io/yonepse/data';
+const BASE_URL = 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data';
 
 export function useMarketData() {
   const stocks = ref([]);
@@ -2058,7 +2058,7 @@ const NodeCache = require('node-cache');
 
 const app = express();
 const cache = new NodeCache({ stdTTL: 300 }); // 5 minutes cache
-const BASE_URL = 'https://shubhamnpk.github.io/yonepse/data';
+const BASE_URL = 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data';
 
 app.get('/api/stocks', async (req, res) => {
   try {
@@ -2146,7 +2146,7 @@ logger = logging.getLogger(__name__)
 
 class NEPSEDataPipeline:
     def __init__(self, db_path='nepse_data.db'):
-        self.base_url = 'https://shubhamnpk.github.io/yonepse/data'
+        self.base_url = 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data'
         self.db_path = db_path
         self.session = requests.Session()
         self.init_database()
@@ -2374,8 +2374,8 @@ if __name__ == "__main__":
                 type: 'public-market-data-api-docs',
                 version: '1.0',
                 generated_from: 'docs.html',
-                base_url: 'https://shubhamnpk.github.io/yonepse',
-                data_base_url: 'https://shubhamnpk.github.io/yonepse/data',
+                base_url: 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main',
+                data_base_url: 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data',
                 timezone: 'Asia/Kathmandu',
                 update_schedule: 'Every hour during market hours (Mon-Fri, 11:00-16:00 NPT); last run finalizes post-close data',
                 auth: 'none'
@@ -2431,9 +2431,9 @@ if __name__ == "__main__":
                 company_financials: ['id', 'symbol', 'reports[]', 'type', 'quarter', 'fy', 'fy_nepali', 'pe', 'eps', 'paid_up_capital', 'profit', 'net_worth_per_share', 'documents[]']
             },
             examples: {
-                fetch_js: "const data = await fetch('https://shubhamnpk.github.io/yonepse/data/nepse_data.json').then(r => r.json());",
-                fetch_python: "import requests; data = requests.get('https://shubhamnpk.github.io/yonepse/data/nepse_data.json', timeout=20).json()",
-                notice_filter_js: "const messages = await fetch('/data/notify/exchange_messages.json').then(r => r.json()); const active = messages.filter(x => (x.expiresAt || '') >= new Date().toISOString().slice(0,10));"
+                fetch_js: "const data = await fetch('https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/nepse_data.json').then(r => r.json());",
+                fetch_python: "import requests; data = requests.get('https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/nepse_data.json', timeout=20).json()",
+                notice_filter_js: "const messages = await fetch('https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/notify/exchange_messages.json').then(r => r.json()); const active = messages.filter(x => (x.expiresAt || '') >= new Date().toISOString().slice(0,10));"
             }
         };
 
@@ -2516,7 +2516,7 @@ if __name__ == "__main__":
 
         // API Testing functionality
         async function testEndpoint(event, endpoint) {
-            const baseUrl = 'https://shubhamnpk.github.io/yonepse/data';
+            const baseUrl = 'https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data';
             const resultKey = endpoint.split('/').pop().replace('.json', '');
             const resultDiv = document.getElementById(`test-result-${resultKey}`);
             const responsePre = document.getElementById(`response-${resultKey}`);

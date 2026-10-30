@@ -109,13 +109,13 @@ Full reference: `pages/docs.html` and `api/openapi.yaml`.
 ## Quickstart
 
 ```bash
-curl -s https://shubhamnpk.github.io/yonepse/data/market/status.json
-curl -s https://shubhamnpk.github.io/yonepse/data/nepse_data.json | head -c 500
-curl -s https://shubhamnpk.github.io/yonepse/data/ltp/manifest.json
-curl -s https://shubhamnpk.github.io/yonepse/data/ltp/monthly/2026-09.json | head -c 500
+curl -s https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/market/status.json
+curl -s https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/nepse_data.json | head -c 500
+curl -s https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/ltp/manifest.json
+curl -s https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/ltp/monthly/2026-09.json | head -c 500
 ```
 
-Base URL: `https://shubhamnpk.github.io/yonepse`
+Base URL: `https://raw.githubusercontent.com/Shubhamnpk/yonepse/main`
 
 ## Data Sources
 
