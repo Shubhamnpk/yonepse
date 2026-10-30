@@ -31,10 +31,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Stage site (skip heavy archives)
+        # data/floor_sheet is ~2.5 GB of daily trade archives: Pages caps sites
+        # at 1 GB and uploading it added ~10 min to every deploy. It stays in
+        # git and is served live from raw.githubusercontent.com instead.
+        run: |
+          mkdir -p _site
+          rsync -a --exclude='.git' --exclude='data/floor_sheet' ./ _site/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment

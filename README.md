@@ -50,7 +50,7 @@ data/
   company/      # profiles, financials, metadata
   ipo/          # upcoming, old
   dividend/     # history, meta
-  floor_sheet/daily/ + archive/
+  floor_sheet/daily/ + archive/   # heavy (~2.5 GB); served from raw, not Pages
   indices/
 scripts/nepse-scraper/
   official_scraper.py
@@ -105,6 +105,9 @@ LTP shards: `live-close` updates intraday and finalizes after close; manifests t
 | `/data/dividend/{history,meta}.json` | Proposed dividends |
 
 Full reference: `pages/docs.html` and `api/openapi.yaml`.
+
+Floor sheets are excluded from the Pages artifact (~2.5 GB): read them from
+`https://raw.githubusercontent.com/Shubhamnpk/yonepse/main/data/floor_sheet/daily/YYYY-MM-DD.json`.
 
 ## Quickstart
 
