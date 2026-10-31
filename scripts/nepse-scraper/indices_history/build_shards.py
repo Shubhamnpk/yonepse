@@ -414,6 +414,10 @@ def backfill(output_dir, start, end, index_ids=None, data_dir=None,
             date = str(row.get("businessDate") or "").strip()
             if not date:
                 continue
+            # The history API ignores startDate/endDate and always returns the
+            # last ~1 year, so filter client-side to keep writes in range.
+            if date < start or date > end:
+                continue
             values = history_row_values(row)
             if values is None:
                 continue
