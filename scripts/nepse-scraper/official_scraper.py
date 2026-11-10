@@ -521,6 +521,32 @@ def build_company_financials_snapshot(scraper, securities):
 
     return sorted(snapshot, key=lambda item: str(item.get('symbol') or item.get('id') or ''))
 
+def normalize_index_rows(indices):
+    """Fix NEPSE's inverted index fields.
+
+    The /api/nots/index API returns `close` holding the PREVIOUS close and
+    `previousClose` holding the CURRENT close. The arithmetic proves it:
+    previousClose + change == close is false, but close + change == previousClose
+    is true. Swap them back so `close` always means today's close.
+    """
+    if not isinstance(indices, list):
+        return indices
+    for item in indices:
+        if not isinstance(item, dict):
+            continue
+        try:
+            close = float(item.get('close'))
+            prev = float(item.get('previousClose'))
+            change = float(item.get('change'))
+        except (TypeError, ValueError):
+            continue
+        already_consistent = abs(prev + change - close) <= 0.05
+        if already_consistent:
+            continue
+        if abs(close + change - prev) <= 0.05:
+            item['close'], item['previousClose'] = prev, close
+    return indices
+
 def should_update_ltp_history(mode, market_is_open=False):
     """Decide when LTP history should be updated."""
     if mode == 'always':
@@ -1289,10 +1315,36 @@ def scrape_all_official_data(
 
             # 4. Indices (Live & All Sectoral)
             print("Fetching indices...")
-            indices = scraper.get_nepse_index()
+            indices = normalize_index_rows(scraper.get_nepse_index())
             sector_indices = scraper.get_sector_indices()
             write_json(os.path.join(market_dir, 'indices.json'), indices)
             write_json(os.path.join(market_dir, 'sector_indices.json'), sector_indices)
+
+            # 4a. Monthly index history shards.
+            # Only worth doing when a new trading date appeared: the history API
+            # ignores start/end and returns ~1 year, so this is an upsert over a
+            # rolling window. Isolated so a failure never breaks the market run.
+            if ltp_new_date:
+                try:
+                    from indices_history.build_shards import backfill as build_index_shards
+                    print("Updating monthly index history shards...")
+                    now_npt_date = datetime.now(NPT).date()
+                    index_result = build_index_shards(
+                        output_dir=os.path.join(data_dir, 'indices'),
+                        start=(now_npt_date - timedelta(days=45)).isoformat(),
+                        end=now_npt_date.isoformat(),
+                        data_dir=data_dir,
+                        latest_status=ltp_history_latest_status(),
+                    )
+                    print(
+                        "Index shards updated:"
+                        f" {index_result['date_count']} dates,"
+                        f" {index_result['index_count']} indices."
+                    )
+                except Exception as exc:
+                    print(f"Index history refresh failed (market data unaffected): {exc}")
+            else:
+                print("Skipping index history refresh (no new LTP date this run).")
 
             # 4b. Sector-wise Company Codes
             print("Fetching sector-wise company codes...")
